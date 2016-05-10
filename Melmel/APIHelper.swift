@@ -11,6 +11,7 @@ import Foundation
 class APIHelper {
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"
     let mediaUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/media/"
+    let session = NSURLSession.sharedSession()
     
     
     
@@ -42,7 +43,6 @@ class APIHelper {
     /* Get All Media */
     func getAllMediaFromAPI(mediaAcquired:(mediaArray:NSArray?,success:Bool) -> Void){
         let url = NSURL(string: mediaUrlPathString)
-        let session = NSURLSession.sharedSession()
         session.dataTaskWithURL(url!) { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
             if let responseData = data {
                 do {
@@ -57,14 +57,13 @@ class APIHelper {
                     mediaAcquired(mediaArray: nil, success: false)
                 }
             }
-        }
+        }.resume()
     }
     
     /* GetMediaById */
     func getMediaById(mediaId:Int, mediaAcquired:(mediaDictionary:Dictionary<String,AnyObject>?,success:Bool) -> Void){
         // Request featured media
         let mediaUrl = NSURL(string:mediaUrlPathString + "\(mediaId)/")!
-        let session = NSURLSession.sharedSession()
         session.dataTaskWithURL(mediaUrl, completionHandler: { (responseData:NSData?, mediaResponse:NSURLResponse?, mediaError:NSError?) in
             do{
                 let featuredMediaData = try NSJSONSerialization.JSONObjectWithData(responseData!, options: NSJSONReadingOptions.AllowFragments)

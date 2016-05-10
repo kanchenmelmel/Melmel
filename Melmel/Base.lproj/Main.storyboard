@@ -22,13 +22,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
-                                            <rect key="frame" x="0.0" y="-8" width="600" height="337"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="337"/>
                                         </imageView>
                                         <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjP-J1-mBH">
                                             <rect key="frame" x="0.0" y="252" width="600" height="77"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
-                                                    <rect key="frame" x="48" y="28" width="500" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
+                                                    <rect key="frame" x="8" y="8" width="584" height="61"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -36,16 +36,20 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="R8o-bS-raW" secondAttribute="bottom" constant="8" id="8As-lX-GTm"/>
                                                 <constraint firstAttribute="height" constant="77" id="F8j-eG-O55"/>
+                                                <constraint firstItem="R8o-bS-raW" firstAttribute="leading" secondItem="RjP-J1-mBH" secondAttribute="leading" constant="8" id="UeE-du-s4L"/>
+                                                <constraint firstItem="R8o-bS-raW" firstAttribute="top" secondItem="RjP-J1-mBH" secondAttribute="top" constant="8" id="mpd-vn-e0C"/>
+                                                <constraint firstAttribute="trailing" secondItem="R8o-bS-raW" secondAttribute="trailing" constant="8" id="ysh-Sx-P93"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="AWf-g5-1J8" secondAttribute="bottom" id="IJf-e8-ceF"/>
                                         <constraint firstAttribute="bottom" secondItem="AWf-g5-1J8" secondAttribute="bottom" id="JaH-Xd-NAk"/>
                                         <constraint firstItem="RjP-J1-mBH" firstAttribute="leading" secondItem="sFU-gX-LbZ" secondAttribute="leading" id="THg-kW-x2E"/>
+                                        <constraint firstAttribute="trailing" secondItem="AWf-g5-1J8" secondAttribute="trailing" id="WBl-Bi-Dmp"/>
                                         <constraint firstAttribute="trailing" secondItem="AWf-g5-1J8" secondAttribute="trailing" id="drb-c9-t2X"/>
-                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="top" constant="8" id="jTd-lM-KPO"/>
-                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="leading" secondItem="sFU-gX-LbZ" secondAttribute="leading" id="jYT-P0-GbN"/>
                                         <constraint firstAttribute="bottom" secondItem="RjP-J1-mBH" secondAttribute="bottom" id="n7U-8c-Mby"/>
                                         <constraint firstAttribute="trailing" secondItem="RjP-J1-mBH" secondAttribute="trailing" id="tBP-Jx-4nN"/>
                                     </constraints>

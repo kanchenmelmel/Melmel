@@ -12,7 +12,7 @@ import CoreData
 class MelGuideTableViewController: UITableViewController {
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var posts:[Post] = []
+    var posts:[Post]=[]
     var mediaArray:[Media] = []
     
     
@@ -30,53 +30,17 @@ class MelGuideTableViewController: UITableViewController {
         //Request Posts from Melmel Website
         
         
-        let apiHelper = APIHelper()
+        let postsUpdateUtility = PostsUpdateUtility()
         
-        apiHelper.getPostsFromAPI { (postsArray, success) in
-            if success {
-                
-                print("postsArray\(postsArray!.count)")
-                for postEntry in postsArray! {
-                    let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
-                    //id
-                    post.id = postEntry["id"] as! Int
-                    
-                    //Date
-                    post.date=NSDate()
-                    //Title
-                    let titleObject = postEntry["title"] as! Dictionary<String,String>
-                    
-                    post.title = titleObject["rendered"]!
-                    //Link
-                    post.link = postEntry["link"] as! String
-                    //Media
-                    apiHelper.getMediaById(postEntry["featured_media"] as! Int, mediaAcquired: { (mediaDictionary, mediaSuccess) in
-                        if mediaSuccess {
-                            let media = NSEntityDescription.insertNewObjectForEntityForName("Media", inManagedObjectContext: self.managedObjectContext) as! Media
-                            let guidObject = mediaDictionary!["guid"] as! Dictionary<String,String>
-                            
-                            media.link = guidObject["rendered"]
-                            print(media.link)
-                            post.featured_media=media
-                            self.mediaArray.append(media)
-                            
-                        }
-                        else {
-                            print("There is problem while getting featured image!")
-                        }
-                        self.posts.append(post)
-                        print(self.posts.count)
-                        
-                    })
-                 self.tableView.reloadData()
-                    
-                }
-               
-              self.tableView.reloadData()
-            }
-            else {}
-            
-        }
+        posts = postsUpdateUtility.fetchPosts()
+        
+        postsUpdateUtility.updateAllPosts({() -> Void in
+            self.posts = postsUpdateUtility.fetchPosts()
+            self.tableView.reloadData()
+        })
+        
+        
+
         
         
         // Initialize Posts
