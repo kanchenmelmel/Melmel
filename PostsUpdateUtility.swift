@@ -20,28 +20,26 @@ class PostsUpdateUtility {
         apiHelper.getPostsFromAPI { (postsArray, success) in
             if success {
                 
-                
-                for postEntry in postsArray! {
-                    let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
-                    //id
-                    post.id = postEntry["id"] as! Int
-                
-                    //Date
-                    post.date=NSDate()
-                    //Title
-                    let titleObject = postEntry["title"] as! Dictionary<String,String>
-                    
-                    post.title = titleObject["rendered"]!
-                    //Link
-                    post.link = postEntry["link"] as! String
-                    
-                    self.posts.append(post)
-                }
-                print(self.posts.count)
                 //Media
                 apiHelper.getAllMediaFromAPI({ (mediaList, success) in
                     if success {
-                        for post in self.posts {
+                        
+                        for postEntry in postsArray! {
+                            let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
+                            //id
+                            post.id = postEntry["id"] as! Int
+                            
+                            //Date
+                            let dateString = postEntry["date"] as! String
+                            let dateFormatter = DateFormatter()
+                            post.date = dateFormatter.formatDateStringToMelTime(dateString)
+                            //Title
+                            let titleObject = postEntry["title"] as! Dictionary<String,String>
+                            
+                            post.title = titleObject["rendered"]!
+                            //Link
+                            post.link = postEntry["link"] as! String
+                            
                             
                             var mediaIndex = 0
                             while mediaIndex < mediaList!.count && post.id != mediaList![mediaIndex]["post"] as! Int {
@@ -59,7 +57,11 @@ class PostsUpdateUtility {
                                 
                                 post.featured_media = media
                             }
+                            
+                            self.posts.append(post)
                         }
+                        
+                        
                         do{
                             try self.managedObjectContext.save()
                         } catch {
@@ -73,6 +75,10 @@ class PostsUpdateUtility {
                     }
                     
                 }) // End getAllMediaFromAPI
+                
+                
+                print(self.posts.count)
+               
 
                 
             }
@@ -97,6 +103,13 @@ class PostsUpdateUtility {
             return results
         }catch {}
      return [Post]()
+    }
+    
+    
+    func getLastUpdateTime() -> NSDate {
+        let request = NSFetchRequest()
+        request.entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext)
+        request.
     }
     
 }
