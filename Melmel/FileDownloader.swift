@@ -9,5 +9,5 @@
 import Foundation
 
 class FileDownloader {
-    
+    func downloadImageFromUrlAndSave(completionHandler:(imageUrlString:String,imageStorageLocationString:String) -> Void){}
 }
