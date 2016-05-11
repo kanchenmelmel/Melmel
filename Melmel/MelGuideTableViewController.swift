@@ -61,7 +61,6 @@ class MelGuideTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("rows\(posts.count)")
         return posts.count
     }
 
@@ -122,6 +121,7 @@ class MelGuideTableViewController: UITableViewController {
             let postWebVeiwController = segue.destinationViewController as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = posts[path.row].link
+            print(posts[path.row].featured_media!.link!)
         }
     }
     

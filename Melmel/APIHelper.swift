@@ -20,10 +20,26 @@ class APIHelper {
     func getPostsFromAPI (postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
         
         let session = NSURLSession.sharedSession()
-        let postUrl = NSURL(string: postUrlPathString)!
+        let postUrl:NSURL
+        
+        if let lastUpdateTimeObject = NSUserDefaults.standardUserDefaults().objectForKey("lastUpdateTime") {
+            let lastUpdateTime = lastUpdateTimeObject as! NSDate
+            let dateFormatter = DateFormatter()
+            postUrl = NSURL(string: postUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
+            print(dateFormatter.formatDateToDateString(lastUpdateTime))
+            
+        } else {
+            postUrl = NSURL(string: postUrlPathString)!
+        }
+        
+        
+        
         session.dataTaskWithURL(postUrl){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
             
             if let responseData = data {
+                let date = NSDate()
+                NSUserDefaults.standardUserDefaults().setObject(date, forKey: "lastUpdateTime")
+                
                 do{
                     let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
                     if let postsArray = json as? NSArray{
@@ -38,6 +54,8 @@ class APIHelper {
                 }
             }
         }.resume()
+        
+        
     }
     
     /* Get All Media */

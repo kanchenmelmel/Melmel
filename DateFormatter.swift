@@ -18,4 +18,13 @@ class DateFormatter {
         let date = RFC3339DateFormatter.dateFromString(dateString+"+10:00")
         return date!
     }
+    
+    func formatDateToDateString(date:NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.timeZone=NSTimeZone(name: "UTC")
+        dateFormatter.dateFormat="yyyy-MM-dd'T'HH:mm:ss"
+        let dateString = dateFormatter.stringFromDate(date)
+        return dateString
+    }
 }
