@@ -36,6 +36,7 @@ class MelGuideTableViewController: UITableViewController {
         
         postsUpdateUtility.updateAllPosts({() -> Void in
             self.posts = postsUpdateUtility.fetchPosts()
+            
             self.tableView.reloadData()
         })
         
@@ -69,7 +70,32 @@ class MelGuideTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("melGuideTableViewCell", forIndexPath: indexPath) as! MelGuideTableViewCell
 
         // Configure the cell...
-        cell.titleLabel.text = posts[indexPath.row].title!
+        let post = posts[indexPath.row]
+        cell.titleLabel.text = post.title!
+        
+        if post.featured_media!.file_path == nil {
+            let imageDownloader = FileDownloader()
+            imageDownloader.downloadImageFromUrlAndSave(post.featured_media!.link!, imageStorageLocationString: "") { (image) in
+                cell.featuredImage.image = image
+                
+                let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+                post.featured_media!.file_path = documentDirectory+"/post/\(post.id!)/featured_image.png"
+                let postId = post.id! as Int
+                imageDownloader.saveImageFile(image, postId: postId, fileName: "featured_image.png")
+                do {
+                    try self.managedObjectContext.save()
+                    print("save featured successfully")
+                }catch {
+                }
+                
+            }
+        } else {
+            let image = UIImage(contentsOfFile: post.featured_media!.file_path!)
+            print()
+            cell.featuredImage.image = image
+        }
+        
+        
         
 
         return cell

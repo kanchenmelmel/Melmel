@@ -18,7 +18,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="330"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="329.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="329"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
