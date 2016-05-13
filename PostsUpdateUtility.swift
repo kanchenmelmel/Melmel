@@ -17,8 +17,17 @@ class PostsUpdateUtility {
     func updateAllPosts(completeHandler:() -> Void){
         let apiHelper = APIHelper()
         
+        
+
+        
         apiHelper.getPostsFromAPI { (postsArray, success) in
             if success {
+                
+                
+                // create dispatch group
+                let downloadGroup = dispatch_group_create()
+                
+
                 
                 for postEntry in postsArray! {
                     let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
@@ -37,7 +46,7 @@ class PostsUpdateUtility {
                     post.link = postEntry["link"] as! String
                     
                     
-                    
+                    dispatch_group_enter(downloadGroup) // enter dispatch group
                     //Media
                     let mediaId = postEntry["featured_media"] as! Int
                     apiHelper.getMediaById(mediaId, mediaAcquired: { (mediaDictionary, success) in
@@ -50,16 +59,24 @@ class PostsUpdateUtility {
                             
                             featuredMedia.link = mediaDictionary!["source_url"] as! String
                             post.featured_media = featuredMedia
-                            self.posts.append(post)
-                            do {
-                                try self.managedObjectContext.save()
-                            } catch {
-                            }
+                            
+                            
                             
                         } else {}
                     })// End getMediaById
+                    // leave dispatch group
+                    dispatch_group_leave(downloadGroup)
+                    self.posts.append(post)
                 
                 }//End postsArray Loop
+
+                
+                
+                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                }
                
             
                 print(self.posts.count)

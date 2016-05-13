@@ -4,7 +4,7 @@
         <attribute name="author" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="date_gmt" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="file_path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="downloaded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>

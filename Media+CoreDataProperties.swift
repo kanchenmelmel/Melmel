@@ -2,7 +2,7 @@
 //  Media+CoreDataProperties.swift
 //  Melmel
 //
-//  Created by Work on 10/05/2016.
+//  Created by Work on 12/05/2016.
 //  Copyright © 2016 Melmel. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,7 +17,7 @@ extension Media {
     @NSManaged var author: NSNumber?
     @NSManaged var date: NSDate?
     @NSManaged var date_gmt: NSDate?
-    @NSManaged var file_path: String?
+    @NSManaged var downloaded: NSNumber?
     @NSManaged var id: NSNumber?
     @NSManaged var link: String?
     @NSManaged var modified: NSDate?
