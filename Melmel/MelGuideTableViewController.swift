@@ -198,7 +198,7 @@ class MelGuideTableViewController: UITableViewController {
             //            if posts[path.row].featured_media!.link != nil {
             //                print("There is featuredMedia")
             //            }
-            postWebVeiwController.webRequestURLString = posts[path.row].link
+            postWebVeiwController.webRequestURLString = postList[path.row].0.link
         }
     }
     
