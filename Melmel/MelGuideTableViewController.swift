@@ -12,9 +12,6 @@ import CoreData
 class MelGuideTableViewController: UITableViewController {
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var posts:[Post]=[]
-    var mediaArray:[Media] = []
-    var featuredImages:[UIImage] = []
     
     var postList = [(Post,UIImage)]()
     
@@ -44,50 +41,16 @@ class MelGuideTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        
-        
-        
-        //        postsUpdateUtility.updateAllPosts({() -> Void in
-        //            self.posts = postsUpdateUtility.fetchPosts()
-        //
-        //            for post in self.posts {
-        //                if post.featured_media != nil {
-        //                    if post.featured_media!.downloaded == nil {
-        //                        let imageDownloader = FileDownloader()
-        //                        imageDownloader.downloadFeaturedImageForPostFromUrlAndSave(post.featured_media!.link!, postId: post.id! as Int) { (image) in
-        //                            post.featured_media!.downloaded = true
-        //                            do {
-        //                                try self.managedObjectContext.save()
-        //                                print("save featured successfully")
-        //                            }catch {
-        //                            }
-        //                            self.featuredImages.append(image)
-        //
-        //
-        //                        }
-        //                    } else {
-        //                        let documentDirectory = try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-        //
-        //                        let imagePath = documentDirectory.URLByAppendingPathComponent("posts/\(post.id!)/featrued_image.jpg")
-        //
-        //                        let image = UIImage(contentsOfFile: imagePath.path!)
-        //                        self.featuredImages.append(image!)
-        //                        print("append image successfully")
-        //                    }
-        //                }
-        //            }
-        //
-        //            self.tableView.reloadData()
-        //        })
+
         
         
         let postUpdateUtility = PostsUpdateUtility()
-        posts = postUpdateUtility.fetchPosts()
+        let posts = postUpdateUtility.fetchPosts()
         
         postUpdateUtility.updateAllPosts {
             
         }
-        for post in self.posts {
+        for post in posts {
             if post.featured_media != nil {
                 if post.featured_media!.downloaded == nil {
                     print(post.featured_media!.link)
@@ -137,9 +100,7 @@ class MelGuideTableViewController: UITableViewController {
         let postTuple = postList[indexPath.row]
         cell.titleLabel.text = postTuple.0.title!
         cell.featuredImage.image = postTuple.1
-//        if indexPath.row < featuredImages.count{
-//            cell.featuredImage.image = featuredImages[indexPath.row]
-//        }
+
         
         
         
