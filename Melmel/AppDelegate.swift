@@ -8,20 +8,26 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var locationManager:CLLocationManager?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //Set up managed object context
         let tabNavCntr = window?.rootViewController as? UITabBarController
         let melGuideNavCntr = tabNavCntr!.viewControllers![0] as? UINavigationController
         let melGuideTableViewCntr = melGuideNavCntr!.viewControllers[0] as? MelGuideTableViewController
         melGuideTableViewCntr!.managedObjectContext = self.managedObjectContext
         
+        // Set up location manager
+        locationManager = CLLocationManager()
+        locationManager?.requestWhenInUseAuthorization()
         return true
     }
 

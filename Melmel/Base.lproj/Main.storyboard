@@ -18,7 +18,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="330"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="329.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
@@ -159,16 +159,17 @@
                     <connections>
                         <segue destination="jiC-Bn-jdU" kind="relationship" relationship="viewControllers" id="ThA-8J-tCh"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="D8R-4A-XmT" kind="relationship" relationship="viewControllers" id="iqt-gh-zKa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="Rt2-Mq-X1X">
             <objects>
-                <viewController id="D8R-4A-XmT" sceneMemberID="viewController">
+                <viewController id="D8R-4A-XmT" customClass="MapViewCtrl" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kD8-hY-aeP"/>
                         <viewControllerLayoutGuide type="bottom" id="PIS-Ho-BX3"/>
@@ -183,6 +184,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="im8-vR-0MH"/>
+                    <connections>
+                        <outlet property="mapView" destination="64w-fc-QMg" id="Hiv-AC-XlC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccg-YN-4tw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
