@@ -10,6 +10,7 @@ import Foundation
 
 class APIHelper {
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"
+    let discountUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/discounts/"
     let mediaUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/media/"
     let session = NSURLSession.sharedSession()
     

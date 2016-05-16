@@ -94,6 +94,9 @@ class PostsUpdateUtility {
     }
     
     
+    
+    
+    
     func fetchPosts() -> [Post] {
         let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext)

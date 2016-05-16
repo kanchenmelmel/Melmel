@@ -19,6 +19,7 @@
 		965AEF7A1CE9529700D2BB0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965AEF791CE9529700D2BB0A /* MapKit.framework */; };
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
 		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
+		965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF811CE986EC00D2BB0A /* LOGO-retina.png */; };
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
@@ -68,6 +69,7 @@
 		965AEF791CE9529700D2BB0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
 		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
+		965AEF811CE986EC00D2BB0A /* LOGO-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-retina.png"; sourceTree = "<group>"; };
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		96BF580D1CAA4589006D6CB6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				965AEF811CE986EC00D2BB0A /* LOGO-retina.png */,
 				96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */,
 			);
 			name = Assets;
@@ -328,6 +331,7 @@
 				965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */,
 				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
 				964F4C881CA4CF7B00C69B71 /* Main.storyboard in Resources */,
+				965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

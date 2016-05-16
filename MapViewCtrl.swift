@@ -27,6 +27,11 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     
     override func viewDidAppear(animated: Bool) {
         locationAuthStatus()
+        
+        // Add Annotations
+        let location = CLLocation(latitude: -37.846905, longitude: 144.978653)
+        let annotation = createAnnotationObject(location, title: "Melmel Consulting", subtitle: "We are Melmel")
+        mapView.addAnnotation(annotation)
     }
     
     
@@ -49,5 +54,15 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         }
 
     }
+    
+    func createAnnotationObject(location:CLLocation,title:String,subtitle:String) -> MKAnnotation{
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location.coordinate
+        annotation.title=title
+        annotation.subtitle = subtitle
+        return annotation
+        
+    }
+    
 
 }
