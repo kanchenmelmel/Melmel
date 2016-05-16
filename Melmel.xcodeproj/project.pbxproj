@@ -20,6 +20,8 @@
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
 		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
 		965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF811CE986EC00D2BB0A /* LOGO-retina.png */; };
+		965AEF891CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF871CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift */; };
+		965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF881CE9ACA800D2BB0A /* Discount.swift */; };
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
@@ -70,6 +72,8 @@
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
 		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
 		965AEF811CE986EC00D2BB0A /* LOGO-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-retina.png"; sourceTree = "<group>"; };
+		965AEF871CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		965AEF881CE9ACA800D2BB0A /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		96FC17501CAE387B002F8817 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				965AEF871CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift */,
+				965AEF881CE9ACA800D2BB0A /* Discount.swift */,
 				96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */,
 				96CB14ED1CE46047006B5DD1 /* Media.swift */,
 				96BAECF51CE21410008B3B70 /* Post+CoreDataProperties.swift */,
@@ -356,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
+				965AEF891CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,

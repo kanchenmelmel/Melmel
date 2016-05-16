@@ -12,6 +12,10 @@ class APIHelper {
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"
     let discountUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/discounts/"
     let mediaUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/media/"
+    
+    let postLastUpdateTimeKey = "postLastUpdateTime"
+    let discountLastUpdateTimeKey = "discountLastUpdateTime"
+    
     let session = NSURLSession.sharedSession()
     
     
@@ -23,7 +27,7 @@ class APIHelper {
         let session = NSURLSession.sharedSession()
         let postUrl:NSURL
         
-        if let lastUpdateTimeObject = NSUserDefaults.standardUserDefaults().objectForKey("lastUpdateTime") {
+        if let lastUpdateTimeObject = NSUserDefaults.standardUserDefaults().objectForKey(postLastUpdateTimeKey) {
             let lastUpdateTime = lastUpdateTimeObject as! NSDate
             let dateFormatter = DateFormatter()
             postUrl = NSURL(string: postUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
@@ -39,7 +43,7 @@ class APIHelper {
             
             if let responseData = data {
                 let date = NSDate()
-                NSUserDefaults.standardUserDefaults().setObject(date, forKey: "lastUpdateTime")
+                NSUserDefaults.standardUserDefaults().setObject(date, forKey: postLastUpdateTimeKey)
                 
                 do{
                     let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
@@ -58,6 +62,50 @@ class APIHelper {
         
         
     }
+    
+    // Get discounts from API
+    func getDiscountsFromAPI (postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
+        
+        let session = NSURLSession.sharedSession()
+        let postUrl:NSURL
+        
+        if let lastUpdateTimeObject = NSUserDefaults.standardUserDefaults().objectForKey(discountLastUpdateTimeKey) {
+            let lastUpdateTime = lastUpdateTimeObject as! NSDate
+            let dateFormatter = DateFormatter()
+            postUrl = NSURL(string: postUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
+            print(dateFormatter.formatDateToDateString(lastUpdateTime))
+            
+        } else {
+            postUrl = NSURL(string: postUrlPathString)!
+        }
+        
+        
+        
+        session.dataTaskWithURL(postUrl){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+            
+            if let responseData = data {
+                let date = NSDate()
+                NSUserDefaults.standardUserDefaults().setObject(date, forKey: discountLastUpdateTimeKey)
+                
+                do{
+                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+                    if let postsArray = json as? NSArray{
+                        postsAcquired(postsArray:postsArray,success:true)
+                    }
+                    else {
+                        postsAcquired(postsArray:nil,success:false)
+                    }
+                } catch {
+                    postsAcquired(postsArray:nil,success:false)
+                    print("could not serialize!")
+                }
+            }
+            }.resume()
+        
+        
+    }
+    
+    
     
     /* Get All Media */
     func getAllMediaFromAPI(mediaAcquired:(mediaArray:NSArray?,success:Bool) -> Void){

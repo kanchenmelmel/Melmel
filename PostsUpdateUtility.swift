@@ -11,14 +11,14 @@ import CoreData
 
 class PostsUpdateUtility {
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var posts:[Post] = []
     
-    
+    // UpdatePosts
     func updateAllPosts(completeHandler:() -> Void){
+        var posts:[Post] = []
         let apiHelper = APIHelper()
         
         
-
+        
         
         apiHelper.getPostsFromAPI { (postsArray, success) in
             if success {
@@ -27,7 +27,7 @@ class PostsUpdateUtility {
                 // create dispatch group
                 let downloadGroup = dispatch_group_create()
                 
-
+                
                 
                 for postEntry in postsArray! {
                     let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
@@ -67,9 +67,9 @@ class PostsUpdateUtility {
                     // leave dispatch group
                     dispatch_group_leave(downloadGroup)
                     self.posts.append(post)
-                
+                    
                 }//End postsArray Loop
-
+                
                 
                 
                 dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
@@ -77,20 +77,58 @@ class PostsUpdateUtility {
                     try self.managedObjectContext.save()
                 } catch {
                 }
-               
-            
+                
+                
                 print(self.posts.count)
-   
+                
             }
             else {}
         } // end getPostsFromAPI
         
+        
+    }
+    
+    
+    /* Update discounts */
+    func updateDiscounts(completionHandler:() -> Void){
+        let apiHelper = APIHelper()
+        
+        apiHelper.getDiscountsFromAPI { (discountArray, success) in
+            if success {
+   
+                for discountEntry in discountArray! {
+                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Post
+                    //id
+                    discount.id = discountEntry["id"] as! Int
+                    
+                    //Date
+                    let dateString = discountEntry["date"] as! String
+                    let dateFormatter = DateFormatter()
+                    discount.date = dateFormatter.formatDateStringToMelTime(dateString)
+                    //Title
+                    let titleObject = discountEntry["title"] as! Dictionary<String,String>
+                    
+                    discount.title = titleObject["rendered"]!
+                    //Link
+                    discount.link = discountEntry["link"] as! String
+                    //Coordinate and address
+                    let locationObject = discountEntry["location"] as! Dictionary<String,String>
+                    let latitudeString = locationObject["latitude"]!
+                    
+                    //Featured image Link
+                    
 
+    
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                }
+                
+            }
+            else {}
+        } // end getPostsFromAPI
         
         
-        
-        
-
     }
     
     
@@ -105,7 +143,7 @@ class PostsUpdateUtility {
             
             return results
         }catch {}
-     return [Post]()
+        return [Post]()
     }
     
     
