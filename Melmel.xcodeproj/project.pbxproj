@@ -16,6 +16,7 @@
 		964F4C8D1CA4CF7B00C69B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C8B1CA4CF7B00C69B71 /* LaunchScreen.storyboard */; };
 		964F4C981CA4CF7B00C69B71 /* MelmelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */; };
 		964F4CA31CA4CF7B00C69B71 /* MelmelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */; };
+		965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */; };
 		965AEF7A1CE9529700D2BB0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965AEF791CE9529700D2BB0A /* MapKit.framework */; };
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
 		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
@@ -68,6 +69,7 @@
 		964F4C9E1CA4CF7B00C69B71 /* MelmelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelmelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelmelUITests.swift; sourceTree = "<group>"; };
 		964F4CA41CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotation.swift; sourceTree = "<group>"; };
 		965AEF791CE9529700D2BB0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
 		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		96FC17501CAE387B002F8817 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */,
 				965AEF871CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift */,
 				965AEF881CE9ACA800D2BB0A /* Discount.swift */,
 				96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */,
@@ -365,6 +368,7 @@
 				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				965AEF891CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
+				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
 				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,

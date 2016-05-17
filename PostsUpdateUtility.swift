@@ -66,7 +66,7 @@ class PostsUpdateUtility {
                     })// End getMediaById
                     // leave dispatch group
                     dispatch_group_leave(downloadGroup)
-                    self.posts.append(post)
+                    posts.append(post)
                     
                 }//End postsArray Loop
                 
@@ -79,7 +79,7 @@ class PostsUpdateUtility {
                 }
                 
                 
-                print(self.posts.count)
+                print(posts.count)
                 
             }
             else {}
@@ -97,7 +97,7 @@ class PostsUpdateUtility {
             if success {
    
                 for discountEntry in discountArray! {
-                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Post
+                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
                     //id
                     discount.id = discountEntry["id"] as! Int
                     
@@ -114,21 +114,21 @@ class PostsUpdateUtility {
                     //Coordinate and address
                     let locationObject = discountEntry["location"] as! Dictionary<String,String>
                     let latitudeString = locationObject["latitude"]!
-                    
+                    discount.latitude = Double(latitudeString)
+                    let longtitudeString = locationObject["longtitude"]!
+                    discount.longtitude = Double(longtitudeString)
+                    discount.address = locationObject["address"]!
                     //Featured image Link
-                    
-
-    
+                    discount.featured_image_url = discountEntry["featured_image_url"] as! String
                 do {
                     try self.managedObjectContext.save()
                 } catch {
                 }
-                
-            }
-            else {}
+            }//End of for-in loop
         } // end getPostsFromAPI
         
         
+        }
     }
     
     
@@ -136,6 +136,7 @@ class PostsUpdateUtility {
     
     
     func fetchPosts() -> [Post] {
+
         let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext)
         do{
@@ -144,6 +145,18 @@ class PostsUpdateUtility {
             return results
         }catch {}
         return [Post]()
+    }
+    
+    func fetchDiscounts() -> [Discount] {
+        
+        let request = NSFetchRequest()
+        request.entity = NSEntityDescription.entityForName("Discount", inManagedObjectContext: managedObjectContext)
+        do{
+            let results = try managedObjectContext.executeFetchRequest(request) as! [Discount]
+            
+            return results
+        }catch {}
+        return [Discount]()
     }
     
     

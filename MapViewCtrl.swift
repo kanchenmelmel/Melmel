@@ -16,22 +16,29 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     
     let regionRadius: CLLocationDistance = 1000
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
-    
+    var discounts:[Discount] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate=self
+        updateDiscounts()
         
     }
     
     override func viewDidAppear(animated: Bool) {
         locationAuthStatus()
+        // load discounts from core data
+        loadDiscountFromCoreData()
+        print("Discounts:\(discounts.count)")
+        for discount in discounts {
+            // Add Annotations
+            let location = CLLocation(latitude: discount.latitude as! Double, longitude: discount.longtitude as! Double)
+            let annotation = createAnnotationObject(location, title: discount.title!, subtitle: discount.address!, discountForAnnotation: discount)
+            mapView.addAnnotation(annotation)
+        }
         
-        // Add Annotations
-        let location = CLLocation(latitude: -37.846905, longitude: 144.978653)
-        let annotation = createAnnotationObject(location, title: "Melmel Consulting", subtitle: "We are Melmel")
-        mapView.addAnnotation(annotation)
+        
     }
     
     
@@ -54,14 +61,53 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         }
 
     }
+
     
-    func createAnnotationObject(location:CLLocation,title:String,subtitle:String) -> MKAnnotation{
-        let annotation = MKPointAnnotation()
+    
+    /*  Configure annotation view */
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
+        }
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annotationView.canShowCallout = true
+        annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+        return annotationView
+    }
+    
+    /*  Configure tapped behavior */
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.performSegueWithIdentifier("discountWebViewSegue", sender: view)
+    }
+    
+    func createAnnotationObject(location:CLLocation,title:String,subtitle:String, discountForAnnotation:Discount) -> MKAnnotation{
+        let annotation = DiscountAnnotation(discount:discountForAnnotation)
         annotation.coordinate = location.coordinate
         annotation.title=title
         annotation.subtitle = subtitle
         return annotation
         
+    }
+    
+    func loadDiscountFromCoreData(){
+        let postUpdateUtility = PostsUpdateUtility()
+        discounts = postUpdateUtility.fetchDiscounts()
+    }
+    
+    func updateDiscounts() {
+        let postUpdateUtility = PostsUpdateUtility()
+        postUpdateUtility.updateDiscounts { 
+            
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "discountWebViewSegue" {
+            let annotationview = sender as! MKAnnotationView
+            let destinationCtrl = segue.destinationViewController as! PostWebViewController
+            let annotation = annotationview.annotation as! DiscountAnnotation
+            destinationCtrl.webRequestURLString = annotation.discount!.link!
+        }
     }
     
 
