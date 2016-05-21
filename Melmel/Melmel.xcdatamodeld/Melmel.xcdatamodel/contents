@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
     <entity name="Discount" representedClassName=".Discount" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -29,6 +29,8 @@
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="date_gmt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="featured_image_downloaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="featured_image_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
@@ -39,8 +41,8 @@
         <relationship name="featured_media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Media" positionX="-54" positionY="72" width="128" height="225"/>
-        <element name="Post" positionX="297" positionY="-63" width="128" height="225"/>
         <element name="Discount" positionX="126" positionY="90" width="128" height="165"/>
+        <element name="Media" positionX="-54" positionY="72" width="128" height="225"/>
+        <element name="Post" positionX="297" positionY="-63" width="128" height="255"/>
     </elements>
 </model>

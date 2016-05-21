@@ -13,7 +13,7 @@ class PostsUpdateUtility {
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     // UpdatePosts
-    func updateAllPosts(completeHandler:() -> Void){
+    func updateAllPosts(completionHandler:() -> Void){
         var posts:[Post] = []
         let apiHelper = APIHelper()
         
@@ -25,9 +25,6 @@ class PostsUpdateUtility {
                 
                 
                 // create dispatch group
-                let downloadGroup = dispatch_group_create()
-                
-                
                 
                 for postEntry in postsArray! {
                     let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
@@ -45,34 +42,30 @@ class PostsUpdateUtility {
                     //Link
                     post.link = postEntry["link"] as! String
                     
-                    
-                    dispatch_group_enter(downloadGroup) // enter dispatch group
                     //Media
-                    let mediaId = postEntry["featured_media"] as! Int
-                    apiHelper.getMediaById(mediaId, mediaAcquired: { (mediaDictionary, success) in
-                        if success {
-                            let featuredMedia = NSEntityDescription.insertNewObjectForEntityForName("Media", inManagedObjectContext: self.managedObjectContext) as! Media
-                            
-                            // Media Id
-                            featuredMedia.id = mediaId
-                            // Media Link
-                            
-                            featuredMedia.link = mediaDictionary!["source_url"] as! String
-                            post.featured_media = featuredMedia
-                            
-                            
-                            
-                        } else {}
-                    })// End getMediaById
-                    // leave dispatch group
-                    dispatch_group_leave(downloadGroup)
+                    post.featured_image_url = postEntry["featured_image_url"] as! String
+//                    apiHelper.getMediaById(mediaId, mediaAcquired: { (mediaDictionary, success) in
+//                        if success {
+//                            let featuredMedia = NSEntityDescription.insertNewObjectForEntityForName("Media", inManagedObjectContext: self.managedObjectContext) as! Media
+//                            
+//                            // Media Id
+//                            featuredMedia.id = mediaId
+//                            // Media Link
+//                            
+//                            featuredMedia.link = mediaDictionary!["source_url"] as! String
+//                            post.featured_media = featuredMedia
+//                            
+//                            
+//                            
+//                        } else {}
+//                    })// End getMediaById
+//                    // leave dispatch group
+
                     posts.append(post)
                     
                 }//End postsArray Loop
                 
-                
-                
-                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
+    
                 do {
                     try self.managedObjectContext.save()
                 } catch {
@@ -80,7 +73,7 @@ class PostsUpdateUtility {
                 
                 
                 print(posts.count)
-                
+                completionHandler()
             }
             else {}
         } // end getPostsFromAPI
@@ -95,7 +88,7 @@ class PostsUpdateUtility {
         
         apiHelper.getDiscountsFromAPI { (discountArray, success) in
             if success {
-   
+                
                 for discountEntry in discountArray! {
                     let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
                     //id
@@ -120,15 +113,15 @@ class PostsUpdateUtility {
                     discount.address = locationObject["address"]!
                     //Featured image Link
                     discount.featured_image_url = discountEntry["featured_image_url"] as! String
-                do {
-                    try self.managedObjectContext.save()
-                } catch {
-                }
-            }//End of for-in loop
-        } // end getPostsFromAPI
-        
-        
-        }
+                    do {
+                        try self.managedObjectContext.save()
+                    } catch {
+                    }
+                }//End of for-in loop
+            }
+            completionHandler()
+            
+        }// end getPostsFromAPI
     }
     
     
@@ -136,7 +129,7 @@ class PostsUpdateUtility {
     
     
     func fetchPosts() -> [Post] {
-
+        
         let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext)
         do{

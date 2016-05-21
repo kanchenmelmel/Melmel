@@ -2,7 +2,7 @@
 //  Post+CoreDataProperties.swift
 //  Melmel
 //
-//  Created by Work on 10/05/2016.
+//  Created by Work on 21/05/2016.
 //  Copyright © 2016 Melmel. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -25,6 +25,8 @@ extension Post {
     @NSManaged var password: String?
     @NSManaged var title: String?
     @NSManaged var type: String?
+    @NSManaged var featured_image_url: String?
+    @NSManaged var featured_image_downloaded: NSNumber?
     @NSManaged var featured_media: Media?
 
 }
