@@ -96,7 +96,20 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     
     func updateDiscounts() {
         let postUpdateUtility = PostsUpdateUtility()
-        postUpdateUtility.updateDiscounts { 
+        postUpdateUtility.updateDiscounts {
+            
+            dispatch_async(dispatch_get_main_queue(), { 
+                self.locationAuthStatus()
+                // load discounts from core data
+                self.loadDiscountFromCoreData()
+                print("Discounts:\(self.discounts.count)")
+                for discount in self.discounts {
+                    // Add Annotations
+                    let location = CLLocation(latitude: discount.latitude as! Double, longitude: discount.longtitude as! Double)
+                    let annotation = self.createAnnotationObject(location, title: discount.title!, subtitle: discount.address!, discountForAnnotation: discount)
+                    self.mapView.addAnnotation(annotation)
+                }
+            })
             
         }
     }

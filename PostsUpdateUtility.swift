@@ -95,7 +95,7 @@ class PostsUpdateUtility {
         
         apiHelper.getDiscountsFromAPI { (discountArray, success) in
             if success {
-   
+                
                 for discountEntry in discountArray! {
                     let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
                     //id
@@ -120,15 +120,15 @@ class PostsUpdateUtility {
                     discount.address = locationObject["address"]!
                     //Featured image Link
                     discount.featured_image_url = discountEntry["featured_image_url"] as! String
-                do {
-                    try self.managedObjectContext.save()
-                } catch {
-                }
-            }//End of for-in loop
-        } // end getPostsFromAPI
-        
-        
-        }
+                    do {
+                        try self.managedObjectContext.save()
+                    } catch {
+                    }
+                }//End of for-in loop
+            }
+            completionHandler()
+            
+        }// end getPostsFromAPI
     }
     
     
@@ -136,7 +136,7 @@ class PostsUpdateUtility {
     
     
     func fetchPosts() -> [Post] {
-
+        
         let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext)
         do{
