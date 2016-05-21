@@ -49,6 +49,11 @@ class MelGuideTableViewController: UITableViewController {
         
         postUpdateUtility.updateAllPosts {
             
+            dispatch_async(dispatch_get_main_queue(), {
+                print("Update table view")
+                self.posts = postUpdateUtility.fetchPosts()
+                self.tableView.reloadData()
+            })
         }
 //        for post in posts {
 //            if post.featured_media != nil {

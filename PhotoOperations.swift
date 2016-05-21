@@ -29,7 +29,7 @@ class ImageDownloader:NSOperation {
             return
         }
         
-        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_media!.link!)!)
+        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
         
         if self.cancelled {
             return

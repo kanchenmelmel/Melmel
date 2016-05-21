@@ -131,20 +131,29 @@ class APIHelper {
     func getMediaById(mediaId:Int, mediaAcquired:(mediaDictionary:Dictionary<String,AnyObject>?,success:Bool) -> Void){
         // Request featured media
         let mediaUrl = NSURL(string:mediaUrlPathString + "\(mediaId)/")!
-        session.dataTaskWithURL(mediaUrl, completionHandler: { (responseData:NSData?, mediaResponse:NSURLResponse?, mediaError:NSError?) in
-            do{
-                let featuredMediaData = try NSJSONSerialization.JSONObjectWithData(responseData!, options: NSJSONReadingOptions.AllowFragments)
-                
-                if let json = featuredMediaData as? Dictionary<String,AnyObject>{
-                    mediaAcquired(mediaDictionary:json,success:true)
-                }
-                else {
-                    mediaAcquired(mediaDictionary:nil,success:false)
-                }
-            }catch {
+        
+        let request = NSURLRequest(URL: mediaUrl)
+        
+        
+        
+        do{
+            let responseData = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            
+            let featuredMediaData = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+            
+            if let json = featuredMediaData as? Dictionary<String,AnyObject>{
+                mediaAcquired(mediaDictionary:json,success:true)
+            }
+            else {
                 mediaAcquired(mediaDictionary:nil,success:false)
             }
-        }).resume()
+        }catch {
+            mediaAcquired(mediaDictionary:nil,success:false)
+        }
+        
+//        session.dataTaskWithURL(mediaUrl, completionHandler: { (responseData:NSData?, mediaResponse:NSURLResponse?, mediaError:NSError?) in
+//            
+//        }).resume()
         
     }
 }
