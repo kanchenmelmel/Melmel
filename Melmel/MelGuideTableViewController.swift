@@ -13,8 +13,8 @@ class MelGuideTableViewController: UITableViewController {
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    var postList = [(Post,UIImage)]()
-    
+    var posts:[Post] = []
+    let pendingOperations = PendingOperations()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,38 +45,38 @@ class MelGuideTableViewController: UITableViewController {
         
         
         let postUpdateUtility = PostsUpdateUtility()
-        let posts = postUpdateUtility.fetchPosts()
+        posts = postUpdateUtility.fetchPosts()
         
         postUpdateUtility.updateAllPosts {
             
         }
-        for post in posts {
-            if post.featured_media != nil {
-                if post.featured_media!.downloaded == nil {
-                    print(post.featured_media!.link)
-                    let imageDownloader = FileDownloader()
-                    imageDownloader.downloadFeaturedImageForPostFromUrlAndSave(post.featured_media!.link!, postId: post.id! as Int) { (image) in
-                        post.featured_media!.downloaded = true
-                        do {
-                            try self.managedObjectContext.save()
-                            print("save featured successfully")
-                        }catch {
-                        }
-                        
-                        self.postList.append((post,image))
-                        
-                    }
-                } else {
-                    let documentDirectory = try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-                    
-                    let imagePath = documentDirectory.URLByAppendingPathComponent("posts/\(post.id!)/featrued_image.jpg")
-                    
-                    let image = UIImage(contentsOfFile: imagePath.path!)
-                    self.postList.append((post,image!))
-                    print("append image successfully")
-                }
-            }
-        }
+//        for post in posts {
+//            if post.featured_media != nil {
+//                if post.featured_media!.downloaded == nil {
+//                    print(post.featured_media!.link)
+//                    let imageDownloader = FileDownloader()
+//                    imageDownloader.downloadFeaturedImageForPostFromUrlAndSave(post.featured_media!.link!, postId: post.id! as Int) { (image) in
+//                        post.featured_media!.downloaded = true
+//                        do {
+//                            try self.managedObjectContext.save()
+//                            print("save featured successfully")
+//                        }catch {
+//                        }
+//                        
+//                        self.postList.append((post,image))
+//                        
+//                    }
+//                } else {
+//                    let documentDirectory = try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
+//                    
+//                    let imagePath = documentDirectory.URLByAppendingPathComponent("posts/\(post.id!)/featrued_image.jpg")
+//                    
+//                    let image = UIImage(contentsOfFile: imagePath.path!)
+//                    self.postList.append((post,image!))
+//                    print("append image successfully")
+//                }
+//            }
+//        }
         
         self.tableView.reloadData()
     }
@@ -89,7 +89,7 @@ class MelGuideTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return postList.count
+        return posts.count
     }
     
     
@@ -97,9 +97,15 @@ class MelGuideTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("melGuideTableViewCell", forIndexPath: indexPath) as! MelGuideTableViewCell
         
         // Configure the cell...
-        let postTuple = postList[indexPath.row]
-        cell.titleLabel.text = postTuple.0.title!
-        cell.featuredImage.image = postTuple.1
+        let post = posts[indexPath.row]
+        cell.titleLabel.text = post.title!
+        
+        if post.featuredImageState == .Downloaded {
+            cell.featuredImage.image = post.featuredImage
+        }
+        if post.featuredImageState == .New {
+            startOperationsForPhoto(post, indexPath: indexPath)
+        }
 
         
         
@@ -159,8 +165,39 @@ class MelGuideTableViewController: UITableViewController {
             //            if posts[path.row].featured_media!.link != nil {
             //                print("There is featuredMedia")
             //            }
-            postWebVeiwController.webRequestURLString = postList[path.row].0.link
+            postWebVeiwController.webRequestURLString = posts[path.row].link
         }
+    }
+    
+    
+    func startOperationsForPhoto(post:Post,indexPath:NSIndexPath) {
+        switch (post.featuredImageState) {
+        case .New:
+            startDownloadFeaturedImageForPost (post:post,indexPath:indexPath)
+        default:
+            NSLog("Do nothing")
+        }
+    }
+    
+    func startDownloadFeaturedImageForPost(post post:Post,indexPath:NSIndexPath) {
+        if pendingOperations.downloadsInProgress[indexPath] != nil {
+            return
+        }
+        
+        let downloader = ImageDownloader(post: post)
+        
+        downloader.completionBlock = {
+            if downloader.cancelled {
+                return
+            }
+            dispatch_async(dispatch_get_main_queue(), { 
+                self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            })
+        }
+        
+        pendingOperations.downloadsInProgress[indexPath] = downloader
+        pendingOperations.downloadQueue.addOperation(downloader)
     }
     
     

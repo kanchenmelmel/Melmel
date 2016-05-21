@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoOperations {
+class PendingOperations {
     lazy var downloadsInProgress = [NSIndexPath:NSOperation]()
     lazy var downloadQueue:NSOperationQueue = {
         var queue = NSOperationQueue()
@@ -19,9 +19,9 @@ class PhotoOperations {
 }
 
 class ImageDownloader:NSOperation {
-    let image:Image
-    init(image: Image) {
-        self.image = image
+    let post:Post
+    init(post: Post) {
+        self.post = post
     }
     
     override func main() {
@@ -29,21 +29,21 @@ class ImageDownloader:NSOperation {
             return
         }
         
-        let imageData = NSData(contentsOfURL:image.url)
+        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_media!.link!)!)
         
         if self.cancelled {
             return
         }
         
         if imageData?.length != 0 {
-            self.image.image = UIImage(data: imageData!)
-            self.image.state = .Downloaded
+            self.post.featuredImage = UIImage(data: imageData!)
+            self.post.featuredImageState = .Downloaded
             
         }
         
         else {
-            self.image.state = .Failed
-            self.image.image = UIImage(named: "failed")
+            self.post.featuredImageState = .Failed
+            self.post.featuredImage = UIImage(named: "failed")
             
         }
     }
