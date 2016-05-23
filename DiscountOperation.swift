@@ -19,41 +19,6 @@ class PendingOperations {
 }
 
 class ImageDownloader:NSOperation {
-    let post:Post
-    init(post: Post) {
-        self.post = post
-    }
-    
-    override func main() {
-        if self.cancelled {
-            return
-        }
-        
-        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
-        
-        if self.cancelled {
-            return
-        }
-        
-        if imageData?.length != 0 {
-            self.post.featuredImage = UIImage(data: imageData!)
-            self.post.featuredImageState = .Downloaded
-            
-        }
-        
-        else {
-            self.post.featuredImageState = .Failed
-            self.post.featuredImage = UIImage(named: "failed")
-            
-        }
-    }
-    
-    
-    
-}
-
-
-class DiscountImageDownloader:NSOperation {
     let discount:Discount
     init(discount: Discount) {
         self.discount = discount
@@ -63,8 +28,8 @@ class DiscountImageDownloader:NSOperation {
         if self.cancelled {
             return
         }
-        let imgUrl = NSURL(string:discount.featured_image_url!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
-        let imageData = NSData(contentsOfURL:imgUrl!)
+        
+        let imageData = NSData(contentsOfURL:NSURL(string:discount.featured_image_url!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
         
         if self.cancelled {
             return
@@ -82,7 +47,6 @@ class DiscountImageDownloader:NSOperation {
             
         }
     }
-    
     
     
 }

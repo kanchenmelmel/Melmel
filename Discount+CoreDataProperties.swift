@@ -2,7 +2,7 @@
 //  Discount+CoreDataProperties.swift
 //  Melmel
 //
-//  Created by Work on 16/05/2016.
+//  Created by WuKaipeng on 20/05/2016.
 //  Copyright © 2016 Melmel. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,13 +14,14 @@ import CoreData
 
 extension Discount {
 
-    @NSManaged var id: NSNumber?
-    @NSManaged var title: String?
-    @NSManaged var link: String?
+    @NSManaged var address: String?
     @NSManaged var date: NSDate?
     @NSManaged var featured_image_url: String?
+    @NSManaged var id: NSNumber?
     @NSManaged var latitude: NSNumber?
+    @NSManaged var link: String?
     @NSManaged var longtitude: NSNumber?
-    @NSManaged var address: String?
+    @NSManaged var title: String?
+    @NSManaged var downloaded: NSNumber?
 
 }
