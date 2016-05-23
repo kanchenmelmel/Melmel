@@ -98,14 +98,14 @@ class DiscountTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("discountTableViewCell", forIndexPath: indexPath) as! DiscountTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("discountCell", forIndexPath: indexPath)
         
         // Configure the cell...
         let discount  = discounts[indexPath.row]
-        cell.titleLabel.text = discount.title!
+        cell.textLabel!.text = discount.title!
         
         if discount.featuredImageState == .Downloaded {
-            cell.featuredImage.image = discount.featuredImage
+            cell.imageView!.image = discount.featuredImage
         }
         if discount.featuredImageState == .New {
             startOperationsForPhoto(discount, indexPath: indexPath)
@@ -128,7 +128,7 @@ class DiscountTableViewController: UITableViewController {
             return
         }
         
-        let downloader = ImageDownloader(discount: discount)
+        let downloader = DiscountImageDownloader(discount: discount)
         
         downloader.completionBlock = {
             if downloader.cancelled {
@@ -189,14 +189,16 @@ class DiscountTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "discountSegue" {
+            let postWebVeiwController = segue.destinationViewController as! PostWebViewController
+            let path = tableView.indexPathForSelectedRow!
+            postWebVeiwController.webRequestURLString = discounts[path.row].link
+        }
     }
-    */
+ 
 
 }
