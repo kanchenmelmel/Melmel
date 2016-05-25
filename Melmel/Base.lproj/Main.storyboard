@@ -56,7 +56,7 @@
                             <outlet property="delegate" destination="iu6-FI-tw7" id="2aD-Bk-nbJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="喵喵" id="kaE-by-Pwc"/>
+                    <navigationItem key="navigationItem" title="喵喵" id="kaE-by-Pwc" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BL-Af-QxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,8 +88,12 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="en5-hl-TBG">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="KYt-lj-EK4"/>
+                    <navigationItem key="navigationItem" title="Title" id="en5-hl-TBG" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="KYt-lj-EK4">
+                            <connections>
+                                <action selector="backToPreviousView:" destination="g1v-G4-zYn" id="tvR-m0-RXa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="a65-3e-XZh"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -254,7 +258,7 @@
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3DQ-Y3-eDl"/>
+        <segue reference="vYJ-nB-JmP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

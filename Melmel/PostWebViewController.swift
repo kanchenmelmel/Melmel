@@ -22,4 +22,7 @@ class PostWebViewController: UIViewController {
         postWebView.loadRequest(request)
     }
     
+    @IBAction func backToPreviousView(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }

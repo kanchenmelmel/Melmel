@@ -112,7 +112,7 @@ class PostsUpdateUtility {
                     discount.longtitude = Double(longtitudeString)
                     discount.address = locationObject["address"]!
                     //Featured image Link
-                    discount.featured_image_url = discountEntry["featured_image_url"] as! String
+                    discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     do {
                         try self.managedObjectContext.save()
                     } catch {
