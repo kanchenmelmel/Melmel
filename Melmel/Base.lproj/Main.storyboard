@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Mel Guide Table View Controller-->
+        <!--喵喵-->
         <scene sceneID="HjM-Qg-jpC">
             <objects>
                 <tableViewController id="iu6-FI-tw7" customClass="MelGuideTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="168"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="168"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="167.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
@@ -56,13 +56,13 @@
                             <outlet property="delegate" destination="iu6-FI-tw7" id="2aD-Bk-nbJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="XWk-Wh-4cf"/>
+                    <navigationItem key="navigationItem" title="喵喵" id="kaE-by-Pwc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BL-Af-QxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492" y="-312"/>
         </scene>
-        <!--Post Web View Controller-->
+        <!--Title-->
         <scene sceneID="dX1-zb-PcS">
             <objects>
                 <viewController id="g1v-G4-zYn" customClass="PostWebViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yKC-7k-izk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cxA-kh-hxb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-uA-MBK">
@@ -87,6 +87,12 @@
                             <constraint firstItem="AkB-uA-MBK" firstAttribute="leading" secondItem="cxA-kh-hxb" secondAttribute="leading" id="zdQ-w1-aCo"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="en5-hl-TBG">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="KYt-lj-EK4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="a65-3e-XZh"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="postWebView" destination="AkB-uA-MBK" id="VJf-Ma-i3X"/>
                     </connections>
@@ -102,7 +108,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="jiC-Bn-jdU" kind="relationship" relationship="viewControllers" id="ThA-8J-tCh"/>
@@ -157,6 +164,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="88C-XJ-9jr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -180,7 +190,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QZW-fa-vVs" id="6pL-3L-qW7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -203,7 +213,7 @@
         <scene sceneID="TvS-lI-EcR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XJy-MZ-01Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="地图" id="NNJ-yy-571" userLabel="喵喵地图"/>
+                    <tabBarItem key="tabBarItem" title="地图" image="map" id="NNJ-yy-571" userLabel="喵喵地图"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FWp-hR-aXh">
@@ -240,9 +250,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="map" width="18" height="19"/>
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3DQ-Y3-eDl"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>
