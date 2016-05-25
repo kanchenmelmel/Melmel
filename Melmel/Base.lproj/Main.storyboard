@@ -78,12 +78,21 @@
                                 <rect key="frame" x="-2" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ir8-Kw-JHQ">
+                                <rect key="frame" x="0.0" y="64" width="598" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="ZQd-xV-WE7"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ir8-Kw-JHQ" firstAttribute="top" secondItem="HdK-im-ae3" secondAttribute="bottom" id="3SA-tR-v6e"/>
                             <constraint firstAttribute="trailing" secondItem="AkB-uA-MBK" secondAttribute="trailing" id="5Oh-Os-4mY"/>
+                            <constraint firstItem="Ir8-Kw-JHQ" firstAttribute="leading" secondItem="cxA-kh-hxb" secondAttribute="leading" id="Fc3-Yt-FjF"/>
                             <constraint firstItem="AkB-uA-MBK" firstAttribute="top" secondItem="cxA-kh-hxb" secondAttribute="top" id="TT3-30-0oj"/>
                             <constraint firstItem="yKC-7k-izk" firstAttribute="top" secondItem="AkB-uA-MBK" secondAttribute="bottom" id="ebv-je-s22"/>
+                            <constraint firstAttribute="trailing" secondItem="Ir8-Kw-JHQ" secondAttribute="trailing" id="yxQ-rO-g0U"/>
                             <constraint firstItem="AkB-uA-MBK" firstAttribute="leading" secondItem="cxA-kh-hxb" secondAttribute="leading" id="zdQ-w1-aCo"/>
                         </constraints>
                     </view>
@@ -99,6 +108,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="postWebView" destination="AkB-uA-MBK" id="VJf-Ma-i3X"/>
+                        <outlet property="progressView" destination="Ir8-Kw-JHQ" id="aXx-RV-5fM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2A-Gg-EXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
