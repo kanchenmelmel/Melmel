@@ -38,13 +38,23 @@ class MelGuideTableViewController: UITableViewController {
         print("Earliest Date: \(coreDataUtility.getEarliestDate(EntityType.Post))")
         
         
+        
+        // Initialize the refresh control
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.backgroundColor = UIColor(red: 236.0/255.0, green: 28.0/255.0, blue: 41.0/255.0, alpha: 1.0)
+        self.refreshControl?.tintColor = UIColor.whiteColor()
+        self.refreshControl?.addTarget(self, action: #selector(self.updatePosts), forControlEvents: .ValueChanged)
+        self.refreshControl?.beginRefreshing()
+        
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         
         let postUpdateUtility = PostsUpdateUtility()
         posts = postUpdateUtility.fetchPosts()
-        updatePosts()
+        updatePosts(){}
         
         
         self.tableView.reloadData()
@@ -175,7 +185,7 @@ class MelGuideTableViewController: UITableViewController {
     
     
     
-    func updatePosts(){
+    func updatePosts(completionHandler:()->Void){
         
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.updateAllPosts {
@@ -184,6 +194,7 @@ class MelGuideTableViewController: UITableViewController {
                 print("Update table view")
                 self.posts = postUpdateUtility.fetchPosts()
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             })
         }
     }

@@ -50,6 +50,40 @@
                                     <segue destination="g1v-G4-zYn" kind="show" identifier="postSegue" id="vYJ-nB-JmP"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="wfG-yC-WNC">
+                                <rect key="frame" x="0.0" y="260" width="600" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wfG-yC-WNC" id="Apl-l1-O66">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="909-FA-hvr" customClass="placeholderCell">
+                                            <rect key="frame" x="66" y="24" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ylp-dT-e2q">
+                                            <rect key="frame" x="279" y="24" width="89" height="21"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading......" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfl-hw-fO5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="89" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vfl-hw-fO5" firstAttribute="centerY" secondItem="Ylp-dT-e2q" secondAttribute="centerY" id="Joz-bi-Ryq"/>
+                                                <constraint firstItem="Vfl-hw-fO5" firstAttribute="centerX" secondItem="Ylp-dT-e2q" secondAttribute="centerX" id="eK2-4W-D0i"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="909-FA-hvr" firstAttribute="centerY" secondItem="Apl-l1-O66" secondAttribute="centerY" id="7jE-db-RWi"/>
+                                        <constraint firstItem="Ylp-dT-e2q" firstAttribute="centerY" secondItem="Apl-l1-O66" secondAttribute="centerY" id="AyE-r0-EgN"/>
+                                        <constraint firstItem="Ylp-dT-e2q" firstAttribute="centerX" secondItem="Apl-l1-O66" secondAttribute="centerX" id="OH5-VE-bDi"/>
+                                        <constraint firstItem="909-FA-hvr" firstAttribute="leading" secondItem="Apl-l1-O66" secondAttribute="leadingMargin" constant="58" id="Wrj-Fr-afA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="iu6-FI-tw7" id="f51-dn-cL3"/>
