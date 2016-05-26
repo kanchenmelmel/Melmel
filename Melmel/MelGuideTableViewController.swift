@@ -34,54 +34,18 @@ class MelGuideTableViewController: UITableViewController {
         
         
         // Initialize Posts
-        
+        let coreDataUtility = CoreDataUtility()
+        print("Earliest Date: \(coreDataUtility.getEarliestDate(EntityType.Post))")
         
         
     }
     
     override func viewDidAppear(animated: Bool) {
         
-
-        
-        
         let postUpdateUtility = PostsUpdateUtility()
         posts = postUpdateUtility.fetchPosts()
+        updatePosts()
         
-        postUpdateUtility.updateAllPosts {
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                print("Update table view")
-                self.posts = postUpdateUtility.fetchPosts()
-                self.tableView.reloadData()
-            })
-        }
-//        for post in posts {
-//            if post.featured_media != nil {
-//                if post.featured_media!.downloaded == nil {
-//                    print(post.featured_media!.link)
-//                    let imageDownloader = FileDownloader()
-//                    imageDownloader.downloadFeaturedImageForPostFromUrlAndSave(post.featured_media!.link!, postId: post.id! as Int) { (image) in
-//                        post.featured_media!.downloaded = true
-//                        do {
-//                            try self.managedObjectContext.save()
-//                            print("save featured successfully")
-//                        }catch {
-//                        }
-//                        
-//                        self.postList.append((post,image))
-//                        
-//                    }
-//                } else {
-//                    let documentDirectory = try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-//                    
-//                    let imagePath = documentDirectory.URLByAppendingPathComponent("posts/\(post.id!)/featrued_image.jpg")
-//                    
-//                    let image = UIImage(contentsOfFile: imagePath.path!)
-//                    self.postList.append((post,image!))
-//                    print("append image successfully")
-//                }
-//            }
-//        }
         
         self.tableView.reloadData()
     }
@@ -105,13 +69,17 @@ class MelGuideTableViewController: UITableViewController {
         let post = posts[indexPath.row]
         cell.titleLabel.text = post.title!
         
-        if post.featuredImageState == .Downloaded {
-            cell.featuredImage.image = post.featuredImage
-        }
-        if post.featuredImageState == .New {
-            startOperationsForPhoto(post, indexPath: indexPath)
-        }
+        
+        if post.featured_image_url != nil {
+            if post.featuredImageState == .Downloaded {
+                cell.featuredImage.image = post.featuredImage
+            }
+            if post.featuredImageState == .New {
+                startOperationsForPhoto(post, indexPath: indexPath)
+            }
 
+        }
+        
         
         
         
@@ -205,6 +173,20 @@ class MelGuideTableViewController: UITableViewController {
         pendingOperations.downloadQueue.addOperation(downloader)
     }
     
+    
+    
+    func updatePosts(){
+        
+        let postUpdateUtility = PostsUpdateUtility()
+        postUpdateUtility.updateAllPosts {
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                print("Update table view")
+                self.posts = postUpdateUtility.fetchPosts()
+                self.tableView.reloadData()
+            })
+        }
+    }
     
     
 }
