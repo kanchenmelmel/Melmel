@@ -79,6 +79,11 @@ class MelGuideTableViewController: UITableViewController {
         let post = posts[indexPath.row]
         cell.titleLabel.text = post.title!
         
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .LongStyle
+        cell.dateLabel.text = dateFormatter.stringFromDate(post.date!)
+        print(post.date!)
+        
         
         if post.featured_image_url != nil {
             if post.featuredImageState == .Downloaded {

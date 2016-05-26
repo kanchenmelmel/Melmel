@@ -42,8 +42,12 @@ class CoreDataUtility {
         do {
             let fetchResults = try managedObjectContext.executeFetchRequest(request)
             
-            let earliestDate = fetchResults[0].valueForKey("earliestDate") as! NSDate
-            return earliestDate
+            
+            if fetchResults[0].valueForKey("earliestDate") != nil {
+                var earliestDate = fetchResults[0].valueForKey("earliestDate") as! NSDate
+                return earliestDate
+            }
+            
         } catch {
         }
         

@@ -28,9 +28,6 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         postWebView.delegate = self
     }
     
-    @IBAction func backToPreviousView(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
     
     // Web View Start Load page
     func webViewDidStartLoad(webView: UIWebView) {
