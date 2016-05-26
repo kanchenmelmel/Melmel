@@ -1,8 +1,18 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
+      "idiom" : "iphone"
+    },
+    {
+      "idiom" : "ipad"
+    },
+    {
       "idiom" : "universal",
-      "filename" : "first.pdf"
+      "filename" : "first.pdf",
+      "unassigned" : true
     }
   ],
   "info" : {

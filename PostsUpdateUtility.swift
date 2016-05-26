@@ -43,7 +43,10 @@ class PostsUpdateUtility {
                     post.link = postEntry["link"] as! String
                     
                     //Media
-                    post.featured_image_url = postEntry["featured_image_url"] as! String
+                    
+                    if postEntry["featured_image_url"] != nil {
+                        post.featured_image_url = postEntry["featured_image_url"] as? String
+                    }
 //                    apiHelper.getMediaById(mediaId, mediaAcquired: { (mediaDictionary, success) in
 //                        if success {
 //                            let featuredMedia = NSEntityDescription.insertNewObjectForEntityForName("Media", inManagedObjectContext: self.managedObjectContext) as! Media
@@ -112,7 +115,7 @@ class PostsUpdateUtility {
                     discount.longtitude = Double(longtitudeString)
                     discount.address = locationObject["address"]!
                     //Featured image Link
-                    discount.featured_image_url = discountEntry["featured_image_url"] as! String
+                    discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     do {
                         try self.managedObjectContext.save()
                     } catch {
@@ -132,6 +135,8 @@ class PostsUpdateUtility {
         
         let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext)
+        let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors=[dateSort]
         do{
             let results = try managedObjectContext.executeFetchRequest(request) as! [Post]
             
