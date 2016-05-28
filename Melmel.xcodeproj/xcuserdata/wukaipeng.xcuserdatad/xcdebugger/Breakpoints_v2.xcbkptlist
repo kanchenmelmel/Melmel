@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Melmel/ShowCommentTableViewController.swift"
+            timestampString = "486118656.196952"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getComments()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Melmel.ShowCommentTableViewController.getComments (Melmel.ShowCommentTableViewController)() -&gt; ()"
+                  moduleName = "Melmel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wukaipeng/GitHub/MelmelGit/Melmel/ShowCommentTableViewController.swift"
+                  timestampString = "486118798.032495"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "812">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Melmel.ShowCommentTableViewController.(getComments (Melmel.ShowCommentTableViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "Melmel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wukaipeng/GitHub/MelmelGit/Melmel/ShowCommentTableViewController.swift"
+                  timestampString = "486118798.032791"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

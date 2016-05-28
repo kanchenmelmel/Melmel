@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644EF1CF96B0500E84028 /* CommentViewController.swift */; };
+		4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */; };
+		4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */; };
 		961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961633C91CE2B93400628B74 /* DateFormatter.swift */; };
 		961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */; };
 		961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */; };
@@ -61,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D8644EF1CF96B0500E84028 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowCommentTableViewController.swift; path = Melmel/ShowCommentTableViewController.swift; sourceTree = "<group>"; };
+		4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = Melmel/CommentTableViewCell.swift; sourceTree = "<group>"; };
 		961633C91CE2B93400628B74 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewController.swift; sourceTree = "<group>"; };
 		961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewCell.swift; sourceTree = "<group>"; };
@@ -227,6 +233,8 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */,
+				4D8644EF1CF96B0500E84028 /* CommentViewController.swift */,
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
 				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
@@ -238,7 +246,9 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */,
+				4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */,
 				967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */,
 			);
 			name = View;
@@ -251,7 +261,6 @@
 				965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */,
 				965AEF871CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift */,
 				965AEF881CE9ACA800D2BB0A /* Discount.swift */,
-				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */,
 				96CB14ED1CE46047006B5DD1 /* Media.swift */,
 				96BAECF61CE21410008B3B70 /* Post.swift */,
@@ -399,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */,
 				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				965AEF891CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
@@ -407,7 +417,9 @@
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
 				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,
 				964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */,
+				4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
+				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				963C1E0C1CF68DF800089E39 /* Reachability.m in Sources */,
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
