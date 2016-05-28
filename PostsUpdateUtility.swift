@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+
+
+
 class PostsUpdateUtility {
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -47,22 +50,7 @@ class PostsUpdateUtility {
                     if postEntry["featured_image_url"] != nil {
                         post.featured_image_url = postEntry["featured_image_url"] as? String
                     }
-//                    apiHelper.getMediaById(mediaId, mediaAcquired: { (mediaDictionary, success) in
-//                        if success {
-//                            let featuredMedia = NSEntityDescription.insertNewObjectForEntityForName("Media", inManagedObjectContext: self.managedObjectContext) as! Media
-//                            
-//                            // Media Id
-//                            featuredMedia.id = mediaId
-//                            // Media Link
-//                            
-//                            featuredMedia.link = mediaDictionary!["source_url"] as! String
-//                            post.featured_media = featuredMedia
-//                            
-//                            
-//                            
-//                        } else {}
-//                    })// End getMediaById
-//                    // leave dispatch group
+
 
                     posts.append(post)
                     
@@ -127,7 +115,57 @@ class PostsUpdateUtility {
         }// end getPostsFromAPI
     }
     
-    
+    func getPreviousPosts(beforeDate:NSDate,excludeId:Int,completionHandler:() -> Void){
+        var posts:[Post] = []
+        let apiHelper = APIHelper()
+        
+
+        apiHelper.getPreviousPosts(.Post, beforeDate: beforeDate, excludeId: excludeId)
+        { (postsArray, success) in
+            if success {
+                
+                // create dispatch group
+                
+                for postEntry in postsArray! {
+                    let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
+                    //id
+                    post.id = postEntry["id"] as! Int
+                    
+                    //Date
+                    let dateString = postEntry["date"] as! String
+                    let dateFormatter = DateFormatter()
+                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
+                    //Title
+                    let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    
+                    post.title = titleObject["rendered"]!
+                    //Link
+                    post.link = postEntry["link"] as! String
+                    
+                    //Media
+                    
+                    if postEntry["featured_image_url"] != nil {
+                        post.featured_image_url = postEntry["featured_image_url"] as? String
+                    }
+                    
+                    
+                    posts.append(post)
+                    
+                }//End postsArray Loop
+                
+                
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                }
+                
+                
+                completionHandler()
+            }
+            else {}
+        } // end getPostsFromAPI
+        
+}
     
     
     

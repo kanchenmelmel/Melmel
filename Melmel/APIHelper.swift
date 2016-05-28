@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum PostType {
+    case Post,Discount
+}
+
 class APIHelper {
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"
     let discountUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/discounts/"
@@ -154,6 +158,41 @@ class APIHelper {
 //        session.dataTaskWithURL(mediaUrl, completionHandler: { (responseData:NSData?, mediaResponse:NSURLResponse?, mediaError:NSError?) in
 //            
 //        }).resume()
+        
+    }
+    
+    
+    func getPreviousPosts(postType:PostType, beforeDate:NSDate,excludeId:Int,completionHandler:(resultsArray:NSArray?, success:Bool) -> Void ){
+        var baseURIString:String!
+        switch postType {
+        case .Post:baseURIString = postUrlPathString
+        case .Discount:baseURIString = discountUrlPathString
+        }
+        
+        
+        let session = NSURLSession.sharedSession()
+        
+        let dateFormatter = DateFormatter()
+        let beforeDateString = dateFormatter.formatDateToDateString(beforeDate)
+        let url = NSURL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        
+        
+        session.dataTaskWithURL(url!) { (data:NSData?, response:NSURLResponse?, error:NSError?) in
+            if let responseData = data {
+                do {
+                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: .AllowFragments)
+                    if let resultsArray = json as? NSArray{
+                        completionHandler(resultsArray:resultsArray,success:true)
+                    }
+                    else {
+                        completionHandler(resultsArray: nil, success: false)
+                    }
+                }catch{
+                    completionHandler(resultsArray: nil, success: false)
+                }
+            }
+        }.resume()
         
     }
 }
