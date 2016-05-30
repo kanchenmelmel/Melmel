@@ -33,6 +33,7 @@
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
 		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
+		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
 		96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */; };
 		96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */; };
@@ -94,6 +95,7 @@
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
 		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
+		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
 		96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "woolworths-fresh-produce-section-instore.jpg"; path = "Melmel/woolworths-fresh-produce-section-instore.jpg"; sourceTree = "<group>"; };
@@ -131,17 +133,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		963C1E031CF6857000089E39 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
 		964F4C741CA4CF7B00C69B71 = {
 			isa = PBXGroup;
 			children = (
-				963C1E031CF6857000089E39 /* Reachability */,
 				965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */,
 				965AEF791CE9529700D2BB0A /* MapKit.framework */,
 				967E73C11CD72D0100A63BFB /* Uitilities */,
@@ -207,6 +201,7 @@
 				961633C91CE2B93400628B74 /* DateFormatter.swift */,
 				96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */,
 				963C1E301CF6A46000089E39 /* CoreDataUtility.swift */,
+				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
 			);
 			name = Uitilities;
 			sourceTree = "<group>";
@@ -402,6 +397,7 @@
 				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				965AEF891CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
+				96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */,
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
