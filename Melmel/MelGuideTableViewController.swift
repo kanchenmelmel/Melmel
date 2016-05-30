@@ -1,4 +1,7 @@
-//
+
+
+
+
 //  MelGuideTableViewController.swift
 //  Melmel
 //
@@ -102,7 +105,7 @@ class MelGuideTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row == posts.count-1) && !isLoading{
             isLoading = true
-            let oldestPost = posts[indexPath.row-1]
+            let oldestPost = posts[indexPath.row]
             loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
         }
     }
