@@ -1,4 +1,7 @@
-//
+
+
+
+
 //  MelGuideTableViewController.swift
 //  Melmel
 //
@@ -15,6 +18,7 @@ class MelGuideTableViewController: UITableViewController {
     
     var posts:[Post] = []
     let pendingOperations = PendingOperations()
+    var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +86,6 @@ class MelGuideTableViewController: UITableViewController {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .LongStyle
         cell.dateLabel.text = dateFormatter.stringFromDate(post.date!)
-        print(post.date!)
         
         
         if post.featured_image_url != nil {
@@ -94,18 +97,18 @@ class MelGuideTableViewController: UITableViewController {
             }
 
         }
-        
-        
-        
-        
-        
-        
-        
+
         
         return cell
     }
     
-    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == posts.count-1) && !isLoading{
+            isLoading = true
+            let oldestPost = posts[indexPath.row]
+            loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+        }
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -200,6 +203,19 @@ class MelGuideTableViewController: UITableViewController {
                 self.refreshControl?.endRefreshing()
             })
         }
+    }
+    
+    func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
+        let postsUpdateUtility = PostsUpdateUtility()
+        postsUpdateUtility.getPreviousPosts(oldestPostDate,excludeId: excludeId) {
+            dispatch_async(dispatch_get_main_queue(), {
+                print("Load Previous Data")
+                self.posts = postsUpdateUtility.fetchPosts()
+                self.tableView.reloadData()
+                self.isLoading = false
+            })
+        }
+        
     }
     
     

@@ -18,6 +18,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
     
+    var userLocation:CLLocation?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +58,9 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if let location = userLocation.location {
-            centerMapOnLocation(location)
+        if userLocation.location != nil{
+            self.userLocation = userLocation.location
         }
-
     }
 
     
@@ -111,6 +112,12 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
                 }
             })
             
+        }
+    }
+    
+    @IBAction func currentLocation(sender: AnyObject) {
+        if userLocation != nil {
+            centerMapOnLocation(userLocation!)
         }
     }
     
