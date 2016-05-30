@@ -47,7 +47,7 @@ class MelGuideTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = UIColor(red: 236.0/255.0, green: 28.0/255.0, blue: 41.0/255.0, alpha: 1.0)
         self.refreshControl?.tintColor = UIColor.whiteColor()
-        self.refreshControl?.addTarget(self, action: #selector(self.updatePosts), forControlEvents: .ValueChanged)
+        self.refreshControl?.addTarget(self, action: Selector("updatePosts"), forControlEvents: .ValueChanged)
         self.refreshControl?.beginRefreshing()
         
         
@@ -153,10 +153,8 @@ class MelGuideTableViewController: UITableViewController {
         if segue.identifier == "postSegue" {
             let postWebVeiwController = segue.destinationViewController as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
-            //            if posts[path.row].featured_media!.link != nil {
-            //                print("There is featuredMedia")
-            //            }
             postWebVeiwController.webRequestURLString = posts[path.row].link
+            postWebVeiwController.postid = String(posts[path.row].id!)
         }
     }
     
