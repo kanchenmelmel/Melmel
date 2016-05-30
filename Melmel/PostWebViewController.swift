@@ -16,6 +16,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     @IBOutlet weak var progressView: UIProgressView!
     
     var webRequestURLString:String?
+    var postid:String?
 
     @IBOutlet weak var postWebView: UIWebView!
     override func viewDidLoad() {
@@ -28,12 +29,21 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         postWebView.delegate = self
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showcommentSegue" {
+            let DC = segue.destinationViewController as! ShowCommentTableViewController
+            
+            DC.postid = self.postid!
+            
+            
+        }
+    }
     
     // Web View Start Load page
     func webViewDidStartLoad(webView: UIWebView) {
         progressView.progress = 0
         loading = true
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01667, target: self, selector: #selector(PostWebViewController.updateProgressView), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01667, target: self, selector: Selector("updateProgressView"), userInfo: nil, repeats: true)
     }
     
     // Web View Finish Loading Page
