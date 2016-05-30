@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="142"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="141.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="142"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
@@ -65,13 +66,10 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="wfG-yC-WNC">
                                 <rect key="frame" x="0.0" y="234" width="600" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wfG-yC-WNC" id="Apl-l1-O66">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="67.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="loadingCell" tableViewCell="wfG-yC-WNC" id="Apl-l1-O66">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="909-FA-hvr" customClass="placeholderCell">
-                                            <rect key="frame" x="66" y="24" width="20" height="20"/>
-                                        </activityIndicatorView>
                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ylp-dT-e2q">
                                             <rect key="frame" x="279" y="24" width="89" height="21"/>
                                             <subviews>
@@ -87,12 +85,15 @@
                                                 <constraint firstItem="Vfl-hw-fO5" firstAttribute="centerX" secondItem="Ylp-dT-e2q" secondAttribute="centerX" id="eK2-4W-D0i"/>
                                             </constraints>
                                         </stackView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="909-FA-hvr" customClass="placeholderCell">
+                                            <rect key="frame" x="251" y="25" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="909-FA-hvr" firstAttribute="centerY" secondItem="Apl-l1-O66" secondAttribute="centerY" id="7jE-db-RWi"/>
                                         <constraint firstItem="Ylp-dT-e2q" firstAttribute="centerY" secondItem="Apl-l1-O66" secondAttribute="centerY" id="AyE-r0-EgN"/>
                                         <constraint firstItem="Ylp-dT-e2q" firstAttribute="centerX" secondItem="Apl-l1-O66" secondAttribute="centerX" id="OH5-VE-bDi"/>
-                                        <constraint firstItem="909-FA-hvr" firstAttribute="leading" secondItem="Apl-l1-O66" secondAttribute="leadingMargin" constant="58" id="Wrj-Fr-afA"/>
+                                        <constraint firstItem="Ylp-dT-e2q" firstAttribute="leading" secondItem="909-FA-hvr" secondAttribute="trailing" constant="8" id="ShR-Uo-ujW"/>
+                                        <constraint firstItem="909-FA-hvr" firstAttribute="centerY" secondItem="Apl-l1-O66" secondAttribute="centerY" id="cGO-Wi-xep"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -191,12 +192,21 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="64w-fc-QMg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHM-jR-fXh">
+                                <rect key="frame" x="457" y="501" width="123" height="30"/>
+                                <state key="normal" title="Current Location"/>
+                                <connections>
+                                    <action selector="currentLocation:" destination="D8R-4A-XmT" eventType="touchUpInside" id="dLU-fN-R5k"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="64w-fc-QMg" firstAttribute="top" secondItem="eb0-fM-yr4" secondAttribute="top" id="8vN-72-yQo"/>
                             <constraint firstAttribute="trailing" secondItem="64w-fc-QMg" secondAttribute="trailing" id="Hgg-uD-gC8"/>
                             <constraint firstAttribute="bottom" secondItem="64w-fc-QMg" secondAttribute="bottom" id="JEq-e8-N0y"/>
+                            <constraint firstItem="PIS-Ho-BX3" firstAttribute="top" secondItem="ZHM-jR-fXh" secondAttribute="bottom" constant="20" id="JtO-HX-n5V"/>
+                            <constraint firstItem="ZHM-jR-fXh" firstAttribute="trailing" secondItem="eb0-fM-yr4" secondAttribute="trailingMargin" id="PWC-3u-Z4S"/>
                             <constraint firstItem="64w-fc-QMg" firstAttribute="leading" secondItem="eb0-fM-yr4" secondAttribute="leading" id="lJT-Wr-HUR"/>
                         </constraints>
                     </view>
@@ -245,7 +255,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QZW-fa-vVs" id="6pL-3L-qW7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>

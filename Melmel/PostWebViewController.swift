@@ -23,7 +23,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         // Do view setup here.
         progressView.progress  = 0
         let url = NSURL(string:webRequestURLString!)
-        let request = NSURLRequest(URL: url!)
+        let request = NSMutableURLRequest(URL: url!, cachePolicy: .ReturnCacheDataElseLoad, timeoutInterval: 10.0)
         postWebView.loadRequest(request)
         postWebView.delegate = self
     }
