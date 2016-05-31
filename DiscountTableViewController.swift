@@ -36,16 +36,12 @@ class DiscountTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         let discountUpdateUtility = PostsUpdateUtility()
-       // let discounts = discountUpdateUtility.fetchDiscounts()
         discounts = discountUpdateUtility.fetchDiscounts()
         
         discountUpdateUtility.updateDiscounts() {
             dispatch_async(dispatch_get_main_queue()){
-                print ("main queue")
                 self.discounts = discountUpdateUtility.fetchDiscounts()
-                print ("main queue2")
                 self.tableView.reloadData()
-                print ("main queue3")
             }
             
         }

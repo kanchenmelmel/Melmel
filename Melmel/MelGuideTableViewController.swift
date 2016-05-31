@@ -20,6 +20,8 @@ class MelGuideTableViewController: UITableViewController {
     let pendingOperations = PendingOperations()
     var isLoading = false
     
+    var reachabilityManager = ReachabilityManager.sharedReachabilityManager
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +49,7 @@ class MelGuideTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = UIColor(red: 236.0/255.0, green: 28.0/255.0, blue: 41.0/255.0, alpha: 1.0)
         self.refreshControl?.tintColor = UIColor.whiteColor()
-        self.refreshControl?.addTarget(self, action: Selector("updatePosts"), forControlEvents: .ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(self.updatePosts), forControlEvents: .ValueChanged)
         self.refreshControl?.beginRefreshing()
         
         
@@ -58,7 +60,7 @@ class MelGuideTableViewController: UITableViewController {
         
         let postUpdateUtility = PostsUpdateUtility()
         posts = postUpdateUtility.fetchPosts()
-        updatePosts(){}
+        updatePosts()
         
         
         self.tableView.reloadData()
@@ -173,48 +175,67 @@ class MelGuideTableViewController: UITableViewController {
             return
         }
         
-        let downloader = ImageDownloader(post: post)
-        
-        downloader.completionBlock = {
-            if downloader.cancelled {
-                return
+        if reachabilityManager.isReachable(){
+            let downloader = ImageDownloader(post: post)
+            
+            downloader.completionBlock = {
+                if downloader.cancelled {
+                    return
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                })
             }
-            dispatch_async(dispatch_get_main_queue(), { 
-                self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            })
+            
+            pendingOperations.downloadsInProgress[indexPath] = downloader
+            pendingOperations.downloadQueue.addOperation(downloader)
         }
         
-        pendingOperations.downloadsInProgress[indexPath] = downloader
-        pendingOperations.downloadQueue.addOperation(downloader)
+        
     }
     
     
     
-    func updatePosts(completionHandler:()->Void){
+    func updatePosts(){
         
-        let postUpdateUtility = PostsUpdateUtility()
-        postUpdateUtility.updateAllPosts {
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                print("Update table view")
-                self.posts = postUpdateUtility.fetchPosts()
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-            })
+        if reachabilityManager.isReachable(){
+            print("is Reachable")
+            let postUpdateUtility = PostsUpdateUtility()
+            postUpdateUtility.updateAllPosts {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Update table view")
+                    self.posts = postUpdateUtility.fetchPosts()
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                })
+            }
+        } else {
+            print("No Internet Connection")
+            self.refreshControl?.endRefreshing()
         }
+        
+        
     }
     
     func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
-        let postsUpdateUtility = PostsUpdateUtility()
-        postsUpdateUtility.getPreviousPosts(oldestPostDate,excludeId: excludeId) {
-            dispatch_async(dispatch_get_main_queue(), {
-                print("Load Previous Data")
-                self.posts = postsUpdateUtility.fetchPosts()
-                self.tableView.reloadData()
-                self.isLoading = false
-            })
+        
+        if reachabilityManager.isReachable(){
+            let postsUpdateUtility = PostsUpdateUtility()
+            postsUpdateUtility.getPreviousPosts(oldestPostDate,excludeId: excludeId) {
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Load Previous Data")
+                    self.posts = postsUpdateUtility.fetchPosts()
+                    self.tableView.reloadData()
+                    self.isLoading = false
+                })
+            }
+        } else {
+            print("No Internet Connection")
+            self.isLoading = false
         }
+        
         
     }
     
