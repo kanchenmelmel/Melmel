@@ -14,6 +14,7 @@
 		961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */; };
 		961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */; };
 		962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962124971CE03E8000DB4A37 /* FileDownloader.swift */; };
+		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
@@ -70,6 +71,7 @@
 		961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewController.swift; sourceTree = "<group>"; };
 		961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewCell.swift; sourceTree = "<group>"; };
 		962124971CE03E8000DB4A37 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = Melmel/FileDownloader.swift; sourceTree = "<group>"; };
+		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 			children = (
 				965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */,
 				965AEF791CE9529700D2BB0A /* MapKit.framework */,
-				967E73C11CD72D0100A63BFB /* Uitilities */,
+				967E73C11CD72D0100A63BFB /* Utilities */,
 				96FC17501CAE387B002F8817 /* Model */,
 				96BF58131CAA4B77006D6CB6 /* View */,
 				96BF58101CAA4A02006D6CB6 /* Controller */,
@@ -192,7 +194,7 @@
 			path = MelmelUITests;
 			sourceTree = "<group>";
 		};
-		967E73C11CD72D0100A63BFB /* Uitilities */ = {
+		967E73C11CD72D0100A63BFB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				967E73C21CD72D1800A63BFB /* APIHelper.swift */,
@@ -202,8 +204,9 @@
 				96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */,
 				963C1E301CF6A46000089E39 /* CoreDataUtility.swift */,
 				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
+				9628C36F1CFD4A5A00666F69 /* Reachability.swift */,
 			);
-			name = Uitilities;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		96BF580D1CAA4589006D6CB6 /* Assets */ = {
@@ -407,6 +410,7 @@
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
+				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
