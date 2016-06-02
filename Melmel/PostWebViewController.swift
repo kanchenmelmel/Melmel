@@ -43,7 +43,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     func webViewDidStartLoad(webView: UIWebView) {
         progressView.progress = 0
         loading = true
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01667, target: self, selector: Selector("updateProgressView"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01667, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
     }
     
     // Web View Finish Loading Page

@@ -19,6 +19,9 @@ class ReachabilityManager {
     var reachability:Reachability?
     let reachabilityChangedNotification = "ReachabilityChangedNotification"
     
+//    var reachableCallback:{() -> Void}
+//    var unreachableCallback:() -> Void
+    
     init(){
         do {
             reachability = try Reachability.reachabilityForInternetConnection()
@@ -27,7 +30,6 @@ class ReachabilityManager {
         }
         
        // NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: reachabilityChangedNotification, object: reachability)
-        
     }
     
     func isReachable() -> Bool {
@@ -40,6 +42,36 @@ class ReachabilityManager {
     
     func isReachableViaWWAN() -> Bool {
         return (reachability?.isReachableViaWWAN())!
+    }
+    
+    func setupReachability(hostname hostname:String?, useClosure:Bool) {
+        do {
+            let reachability = try hostname == nil ? Reachability.reachabilityForInternetConnection() : Reachability(hostname: hostname!)
+            self.reachability = reachability
+        } catch ReachabilityError.FailedToCreateWithAddress(let address) {
+            print("Unable to create\nReachability with address:\n\(address)")
+            return
+        } catch {}
+        
+        if useClosure {
+            reachability?.whenReachable = {(reachability) in
+                // Do something when reachable
+            }
+            reachability?.whenUnreachable = {(reachability) in
+                // Do something when unReachable
+            }
+        } else {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: reachabilityChangedNotification, object: reachability)
+        }
+    }
+    
+    @objc func reachabilityChanged(note:NSNotification) {
+        let reachability = note.object as! Reachability
+        if reachability.isReachable(){
+//            reachableCallback()
+        } else {
+//            unreachableCallback()
+        }
     }
     
     

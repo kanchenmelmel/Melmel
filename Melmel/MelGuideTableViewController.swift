@@ -21,7 +21,9 @@ class MelGuideTableViewController: UITableViewController {
     var isLoading = false
     
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
-    
+
+    @IBOutlet weak var loadMorePostsLabel: UILabel!
+    @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +38,9 @@ class MelGuideTableViewController: UITableViewController {
         //Request Posts from Melmel Website
         
         
+        // Configure Conponents
+        
+        LoadMoreActivityIndicator.hidden = true
         
         
         
@@ -107,6 +112,9 @@ class MelGuideTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row == posts.count-1) && !isLoading{
             isLoading = true
+            self.LoadMoreActivityIndicator.hidden = false
+            self.LoadMoreActivityIndicator.startAnimating()
+            self.loadMorePostsLabel.text = "加载中……"
             let oldestPost = posts[indexPath.row]
             loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
         }
@@ -214,6 +222,8 @@ class MelGuideTableViewController: UITableViewController {
         } else {
             print("No Internet Connection")
             self.refreshControl?.endRefreshing()
+            popUpWarningMessage("No Internet Connection")
+            
         }
         
         
@@ -222,22 +232,39 @@ class MelGuideTableViewController: UITableViewController {
     func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
         
         if reachabilityManager.isReachable(){
+            
             let postsUpdateUtility = PostsUpdateUtility()
             postsUpdateUtility.getPreviousPosts(oldestPostDate,excludeId: excludeId) {
                 dispatch_async(dispatch_get_main_queue(), {
-                    print("Load Previous Data")
                     self.posts = postsUpdateUtility.fetchPosts()
                     self.tableView.reloadData()
                     self.isLoading = false
+                    self.LoadMoreActivityIndicator.stopAnimating()
+                    self.LoadMoreActivityIndicator.hidden = true
                 })
             }
         } else {
-            print("No Internet Connection")
+            popUpWarningMessage("No Internet Connection")
             self.isLoading = false
         }
         
         
     }
     
+    func displayNavBarPrompt(message:String){
+        self.navigationItem.prompt = message
+    }
+    
+    func hidenNavBarPrompt(){
+        self.navigationItem.prompt = nil
+    }
+    
+    func popUpWarningMessage(message:String){
+        displayNavBarPrompt(message)
+        let dispatchAfterTime = dispatch_time(DISPATCH_TIME_NOW, 5 * Int64(NSEC_PER_SEC))
+        dispatch_after(dispatchAfterTime, dispatch_get_main_queue(), {
+            self.hidenNavBarPrompt()
+        })
+    }
     
 }
