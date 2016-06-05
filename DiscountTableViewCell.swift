@@ -10,7 +10,8 @@ import UIKit
 
 class DiscountTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var featuredImage: UIImageView!
+    @IBOutlet weak var featureImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

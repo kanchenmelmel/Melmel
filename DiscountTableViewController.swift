@@ -15,18 +15,26 @@ class DiscountTableViewController: UITableViewController {
     
    // var discountList=[(Discount,UIImage)]()
     var discounts:[Discount] = []
-
     
+    var reachabilityManager = ReachabilityManager.sharedReachabilityManager
+    var isLoading = false
     let pendingOperations = PendingOperations()
+    var alert = Alert()
 
+    @IBOutlet weak var loadMorePostsLabel: UILabel!
+    @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.backgroundColor = UIColor(red: 236.0/255.0, green: 28.0/255.0, blue: 41.0/255.0, alpha: 1.0)
+        self.refreshControl?.tintColor = UIColor.whiteColor()
+        self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), forControlEvents: .ValueChanged)
+        self.refreshControl?.beginRefreshing()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,13 +46,10 @@ class DiscountTableViewController: UITableViewController {
         let discountUpdateUtility = PostsUpdateUtility()
         discounts = discountUpdateUtility.fetchDiscounts()
         
-        discountUpdateUtility.updateDiscounts() {
-            dispatch_async(dispatch_get_main_queue()){
-                self.discounts = discountUpdateUtility.fetchDiscounts()
-                self.tableView.reloadData()
-            }
-            
-        }
+        self.updateDiscounts()
+        
+        
+        self.tableView.reloadData()
      /*
             for discount in discounts {
                 
@@ -75,7 +80,7 @@ class DiscountTableViewController: UITableViewController {
                 
         */
         
-        self.tableView.reloadData()
+      
     
         
     }
@@ -93,19 +98,60 @@ class DiscountTableViewController: UITableViewController {
     }
     
     
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == discounts.count-1) && !isLoading{
+            isLoading = true
+            self.LoadMoreActivityIndicator.hidden = false
+            self.LoadMoreActivityIndicator.startAnimating()
+            self.loadMorePostsLabel.text = "加载中……"
+            let oldestPost = discounts[indexPath.row]
+            loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+        }
+    }
+    
+    func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
+        
+        if reachabilityManager.isReachable(){
+            
+            let postsUpdateUtility = PostsUpdateUtility()
+            postsUpdateUtility.getPreviousDiscounts(oldestPostDate,excludeId: excludeId) {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.discounts = postsUpdateUtility.fetchDiscounts()
+                    self.tableView.reloadData()
+                    self.isLoading = false
+                    self.LoadMoreActivityIndicator.stopAnimating()
+                    self.LoadMoreActivityIndicator.hidden = true
+                })
+            }
+        } else {
+            alert.showAlert(self)
+            self.isLoading = false
+        }
+        
+        
+    }
+    
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("discountCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("discountCell", forIndexPath: indexPath) as! DiscountTableViewCell
         
         // Configure the cell...
         let discount  = discounts[indexPath.row]
-        cell.textLabel!.text = discount.title!
+        cell.titleLabel.text = discount.title!
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .LongStyle
+        cell.dateLabel.text = dateFormatter.stringFromDate(discount.date!)
         
         if discount.featuredImageState == .Downloaded {
-            cell.imageView!.image = discount.featuredImage
+            cell.featureImage.image = discount.featuredImage
         }
         if discount.featuredImageState == .New {
             startOperationsForPhoto(discount, indexPath: indexPath)
         }
+        
+        
+        
         
         return cell;
     }
@@ -124,6 +170,7 @@ class DiscountTableViewController: UITableViewController {
             return
         }
         
+        if reachabilityManager.isReachable(){
         let downloader = DiscountImageDownloader(discount: discount)
         
         downloader.completionBlock = {
@@ -138,6 +185,37 @@ class DiscountTableViewController: UITableViewController {
         
         pendingOperations.downloadsInProgress[indexPath] = downloader
         pendingOperations.downloadQueue.addOperation(downloader)
+            
+        }
+    }
+    
+    
+    
+    func updateDiscounts(){
+        
+        if reachabilityManager.isReachable(){
+            print("is Reachable")
+            let postUpdateUtility = PostsUpdateUtility()
+            postUpdateUtility.updateDiscounts {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Update table view")
+                    self.discounts = postUpdateUtility.fetchDiscounts()
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                })
+            }
+        } else {
+            print("No Internet Connection")
+            self.refreshControl?.endRefreshing()
+          //  popUpWarningMessage("No Internet Connection")
+          //  self.showAlert()
+            alert.showAlert(self)
+            
+            
+        }
+        
+        
     }
 
     /*
@@ -187,6 +265,32 @@ class DiscountTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
+    
+//    func showAlert(){
+//        
+//                let attributedString = NSAttributedString(string: "请检查你的网络", attributes: [
+//            NSFontAttributeName : UIFont.systemFontOfSize(20),
+//            NSForegroundColorAttributeName : UIColor.whiteColor()
+//            ])
+//        
+//        
+//        let alertController = UIAlertController(title: nil, message: "", preferredStyle: .Alert)
+//        self.presentViewController(alertController, animated: true, completion: nil)
+//        alertController.setValue(attributedString, forKey: "attributedMessage")
+//        
+//        
+//        let subview :UIView = alertController.view.subviews.last! as UIView
+//        let alertContentView = subview.subviews.last! as UIView
+//        alertContentView.backgroundColor = UIColor(red: 252/255, green: 50/255, blue: 0/255, alpha: 1.0)
+//        alertContentView.layer.cornerRadius = 10
+//     
+//        
+//        let delay = 2.0 * Double(NSEC_PER_SEC)
+//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+//        dispatch_after(time, dispatch_get_main_queue(), {
+//            alertController.dismissViewControllerAnimated(true, completion: nil)
+//        })
+//    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "discountSegue" {
