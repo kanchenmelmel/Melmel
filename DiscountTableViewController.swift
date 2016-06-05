@@ -297,6 +297,7 @@ class DiscountTableViewController: UITableViewController {
             let postWebVeiwController = segue.destinationViewController as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = discounts[path.row].link
+            postWebVeiwController.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
     }
  

@@ -14,6 +14,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     var timer:NSTimer? = nil
     
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var commentButton: UIBarButtonItem!
     
     var webRequestURLString:String?
     var postid:String?

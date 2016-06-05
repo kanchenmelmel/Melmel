@@ -127,6 +127,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
             let destinationCtrl = segue.destinationViewController as! PostWebViewController
             let annotation = annotationview.annotation as! DiscountAnnotation
             destinationCtrl.webRequestURLString = annotation.discount!.link!
+            destinationCtrl.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
     }
     
