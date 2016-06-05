@@ -104,11 +104,13 @@ class PostsUpdateUtility {
                     discount.address = locationObject["address"]!
                     //Featured image Link
                     discount.featured_image_url = discountEntry["featured_image_url"] as? String
-                    do {
-                        try self.managedObjectContext.save()
-                    } catch {
-                    }
+                    
                 }//End of for-in loop
+                
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                }
             }
             completionHandler()
             
@@ -119,6 +121,8 @@ class PostsUpdateUtility {
         var posts:[Post] = []
         let apiHelper = APIHelper()
         
+        
+        
 
         apiHelper.getPreviousPosts(.Post, beforeDate: beforeDate, excludeId: excludeId)
         { (postsArray, success) in
@@ -126,8 +130,12 @@ class PostsUpdateUtility {
                 
                 // create dispatch group
                 
+                
                 for postEntry in postsArray! {
+                   
                     let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
+                    
+                    
                     //id
                     post.id = postEntry["id"] as! Int
                     
@@ -166,6 +174,64 @@ class PostsUpdateUtility {
         } // end getPostsFromAPI
         
 }
+    
+    func getPreviousDiscounts(beforeDate:NSDate,excludeId:Int,completionHandler:() -> Void){
+       
+        let apiHelper = APIHelper()
+        
+        
+        
+        
+        apiHelper.getPreviousPosts(.Discount, beforeDate: beforeDate, excludeId: excludeId)
+        { (postsArray, success) in
+            if success {
+                
+                // create dispatch group
+                
+                
+                for postEntry in postsArray! {
+                    
+                    let post = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    
+                    
+                    //id
+                    post.id = postEntry["id"] as! Int
+                    
+                    //Date
+                    let dateString = postEntry["date"] as! String
+                    let dateFormatter = DateFormatter()
+                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
+                    //Title
+                    let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    
+                    post.title = titleObject["rendered"]!
+                    //Link
+                    post.link = postEntry["link"] as! String
+                    
+                    //Media
+                    
+                    if postEntry["featured_image_url"] != nil {
+                        post.featured_image_url = postEntry["featured_image_url"] as? String
+                    }
+                    
+                    
+                    
+                }//End postsArray Loop
+                
+                
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                }
+                
+                
+                completionHandler()
+            }
+            else {}
+        } // end getPostsFromAPI
+        
+    }
+
     
     
     

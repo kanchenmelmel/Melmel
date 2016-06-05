@@ -21,6 +21,7 @@ class MelGuideTableViewController: UITableViewController {
     var isLoading = false
     
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
+    var alert = Alert()
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
@@ -222,7 +223,8 @@ class MelGuideTableViewController: UITableViewController {
         } else {
             print("No Internet Connection")
             self.refreshControl?.endRefreshing()
-            popUpWarningMessage("No Internet Connection")
+          //  popUpWarningMessage("No Internet Connection")
+            alert.showAlert(self)
             
         }
         
@@ -244,7 +246,8 @@ class MelGuideTableViewController: UITableViewController {
                 })
             }
         } else {
-            popUpWarningMessage("No Internet Connection")
+            //popUpWarningMessage("No Internet Connection")
+            alert.showAlert(self)
             self.isLoading = false
         }
         

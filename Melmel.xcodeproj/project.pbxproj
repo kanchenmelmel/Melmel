@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DA5BB1D0304120045B73C /* Alert.swift */; };
 		4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644EF1CF96B0500E84028 /* CommentViewController.swift */; };
 		4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */; };
 		4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D4DA5BB1D0304120045B73C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4D8644EF1CF96B0500E84028 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowCommentTableViewController.swift; path = Melmel/ShowCommentTableViewController.swift; sourceTree = "<group>"; };
 		4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = Melmel/CommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				963C1E301CF6A46000089E39 /* CoreDataUtility.swift */,
 				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
 				9628C36F1CFD4A5A00666F69 /* Reachability.swift */,
+				4D4DA5BB1D0304120045B73C /* Alert.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
 				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
+				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,
 				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
