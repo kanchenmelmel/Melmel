@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoOperations.swift"
-            timestampString = "485501048.566453"
+            timestampString = "486913459.15297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "main()"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,13 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoOperations.swift"
-            timestampString = "485666209.511125"
+            timestampString = "486913459.15297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "main()"
-            landmarkType = "5">
+            startingLineNumber = "72"
+            endingLineNumber = "72">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -303,7 +301,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "getPreviousPosts(_:excludeId:completionHandler:)"
+            landmarkName = "updateDiscounts(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

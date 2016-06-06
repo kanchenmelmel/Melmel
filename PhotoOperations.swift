@@ -10,6 +10,8 @@ import UIKit
 
 class PendingOperations {
     lazy var downloadsInProgress = [NSIndexPath:NSOperation]()
+    
+    
     lazy var downloadQueue:NSOperationQueue = {
         var queue = NSOperationQueue()
         queue.name = "Download queue"
@@ -20,6 +22,8 @@ class PendingOperations {
 
 class ImageDownloader:NSOperation {
     let post:Post
+    
+    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     init(post: Post) {
         self.post = post
     }
@@ -29,23 +33,37 @@ class ImageDownloader:NSOperation {
             return
         }
         
-        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
+        
         
         if self.cancelled {
             return
         }
         
-        if imageData?.length != 0 {
-            self.post.featuredImage = UIImage(data: imageData!)
-            self.post.featuredImageState = .Downloaded
+        
+        if post.featuredImageState == .Downloaded{
+            let fileDownloader = FileDownloader()
+            post.featuredImage = fileDownloader.imageFromFile(post.id! as Int, fileName: "featured_image.jpg")
+        } else{
+            let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
             
+            if imageData?.length != 0 {
+                let image = UIImage(data: imageData!)
+                self.post.featuredImage = image
+                
+                let saver = FileDownloader()
+                saver.saveImageFile(image!, postId: post.id! as Int, fileName: "featured_image.jpg")
+                self.post.featuredImageState = .Downloaded
+                try! self.managedObjectContext.save()
+            }
+                
+            else {
+                self.post.featuredImageState = .Failed
+                self.post.featuredImage = UIImage(named: "failed")
+                
+            }
         }
         
-        else {
-            self.post.featuredImageState = .Failed
-            self.post.featuredImage = UIImage(named: "failed")
-            
-        }
+        
     }
     
     

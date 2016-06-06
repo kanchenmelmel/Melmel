@@ -51,7 +51,7 @@ class PostsUpdateUtility {
                     //Media
                     
                     if postEntry["featured_image_url"] != nil {
-                        post.featured_image_url = postEntry["featured_image_url"] as? String
+                        post.featured_image_url = postEntry["thumbnail_url"] as? String
                     }
 
 
@@ -102,18 +102,21 @@ class PostsUpdateUtility {
                     discount.link = discountEntry["link"] as! String
                     //Coordinate and address
                     
+                    discount.address = discountEntry["address"] as! String
+                    
                     
                     let latitudeString = discountEntry["latitude"] as! String
-                    let longtitudeString = discountEntry["longtitude"] as! String
-                    discount.address = discountEntry["address"] as! String
+                    let longitudeString = discountEntry["longitude"] as! String
+
 //                    let locationObject = discountEntry["location"] as! Dictionary<String,String>
 //                    let latitudeString = locationObject["latitude"]!
                     discount.latitude = Double(latitudeString)
-//                    let longtitudeString = locationObject["longtitude"]!
-                    discount.longtitude = Double(longtitudeString)
+
+
+                    discount.longtitude = Double(longitudeString)
 //                    discount.address = locationObject["address"]!
                     //Featured image Link
-                    discount.featured_image_url = discountEntry["featured_image_url"] as? String
+                    discount.featured_image_url = discountEntry["thumbnail_url"] as? String
                     
                 }//End of for-in loop
                 
