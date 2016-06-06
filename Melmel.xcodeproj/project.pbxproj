@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DA5BB1D0304120045B73C /* Alert.swift */; };
+		4D5F68561D05776200CC641F /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5F68551D05776200CC641F /* FileDownloader.swift */; };
 		4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644EF1CF96B0500E84028 /* CommentViewController.swift */; };
 		4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */; };
 		4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */; };
 		961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961633C91CE2B93400628B74 /* DateFormatter.swift */; };
 		961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */; };
 		961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */; };
-		962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962124971CE03E8000DB4A37 /* FileDownloader.swift */; };
 		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
@@ -66,13 +66,13 @@
 
 /* Begin PBXFileReference section */
 		4D4DA5BB1D0304120045B73C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		4D5F68551D05776200CC641F /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = ../Melmel0506/Melmel/FileDownloader.swift; sourceTree = "<group>"; };
 		4D8644EF1CF96B0500E84028 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowCommentTableViewController.swift; path = Melmel/ShowCommentTableViewController.swift; sourceTree = "<group>"; };
 		4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = Melmel/CommentTableViewCell.swift; sourceTree = "<group>"; };
 		961633C91CE2B93400628B74 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewController.swift; sourceTree = "<group>"; };
 		961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewCell.swift; sourceTree = "<group>"; };
-		962124971CE03E8000DB4A37 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = Melmel/FileDownloader.swift; sourceTree = "<group>"; };
 		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,8 +201,8 @@
 			children = (
 				967E73C21CD72D1800A63BFB /* APIHelper.swift */,
 				966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */,
-				962124971CE03E8000DB4A37 /* FileDownloader.swift */,
 				961633C91CE2B93400628B74 /* DateFormatter.swift */,
+				4D5F68551D05776200CC641F /* FileDownloader.swift */,
 				96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */,
 				963C1E301CF6A46000089E39 /* CoreDataUtility.swift */,
 				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
@@ -399,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D5F68561D05776200CC641F /* FileDownloader.swift in Sources */,
 				4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */,
 				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				965AEF891CE9ACA800D2BB0A /* Discount+CoreDataProperties.swift in Sources */,
@@ -414,7 +415,6 @@
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
-				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
 				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
