@@ -39,13 +39,10 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     post.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                   // let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    let titleObject = postEntry["title"] as! Dictionary<String,String>
                     
-                  //  post.title = titleObject["rendered"]!
+                    post.title = titleObject["rendered"]!
                     //Link
-
-              
-                    post.title = postEntry["title"] as! String
                     post.link = postEntry["link"] as! String
                     
                     //Media
@@ -93,14 +90,13 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     discount.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                 //   let titleObject = discountEntry["title"] as! Dictionary<String,String>
+                    let titleObject = discountEntry["title"] as! Dictionary<String,String>
                     
-                 //   discount.title = titleObject["rendered"]!
-                    
-                    discount.title = discountEntry["title"] as! String
+                    discount.title = titleObject["rendered"]!
                     //Link
                     discount.link = discountEntry["link"] as! String
                     //Coordinate and address
+
                     
                     discount.address = discountEntry["address"] as! String
                     
@@ -115,6 +111,7 @@ class PostsUpdateUtility {
 
                     discount.longtitude = Double(longitudeString)
 //                    discount.address = locationObject["address"]!
+
                     //Featured image Link
                     discount.featured_image_url = discountEntry["thumbnail_url"] as? String
                     
@@ -157,10 +154,9 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     post.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-              //      let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    let titleObject = postEntry["title"] as! Dictionary<String,String>
                     
-                //    post.title = titleObject["rendered"]!
-                    post.title = postEntry["title"] as! String
+                    post.title = titleObject["rendered"]!
                     //Link
                     post.link = postEntry["link"] as! String
                     
@@ -216,19 +212,13 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     post.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                  //  let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    let titleObject = postEntry["title"] as! Dictionary<String,String>
                     
-                 //   post.title = titleObject["rendered"]!
+                    post.title = titleObject["rendered"]!
                     //Link
-                    post.title = postEntry["title"] as! String
                     post.link = postEntry["link"] as! String
                     
                     //Media
-                    let latitudeString = postEntry["latitude"] as! String
-                    let longtitudeString = postEntry["longtitude"] as! String
-                    post.latitude = Double(latitudeString)
-                    post.longtitude = Double(longtitudeString)
-                    post.address = postEntry["address"] as! String
                     
                     if postEntry["featured_image_url"] != nil {
                         post.featured_image_url = postEntry["featured_image_url"] as? String
