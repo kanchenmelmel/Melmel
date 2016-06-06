@@ -10,6 +10,8 @@ import UIKit
 
 class PendingOperations {
     lazy var downloadsInProgress = [NSIndexPath:NSOperation]()
+    
+    
     lazy var downloadQueue:NSOperationQueue = {
         var queue = NSOperationQueue()
         queue.name = "Download queue"
@@ -20,6 +22,8 @@ class PendingOperations {
 
 class ImageDownloader:NSOperation {
     let post:Post
+    
+    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     init(post: Post) {
         self.post = post
     }
@@ -35,29 +39,31 @@ class ImageDownloader:NSOperation {
             return
         }
         
-        var image:UIImage?
         
         if post.featuredImageState == .Downloaded{
-            image = UIImage(contentsOfFile: post.featured_image_url)
+            let fileDownloader = FileDownloader()
+            post.featuredImage = fileDownloader.imageFromFile(post.id! as Int, fileName: "featured_image.jpg")
+        } else{
+            let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
+            
+            if imageData?.length != 0 {
+                let image = UIImage(data: imageData!)
+                self.post.featuredImage = image
+                
+                let saver = FileDownloader()
+                saver.saveImageFile(image!, postId: post.id! as Int, fileName: "featured_image.jpg")
+                self.post.featuredImageState = .Downloaded
+                try! self.managedObjectContext.save()
+            }
+                
+            else {
+                self.post.featuredImageState = .Failed
+                self.post.featuredImage = UIImage(named: "failed")
+                
+            }
         }
         
-        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
         
-        if imageData?.length != 0 {
-            let image = UIImage(data: imageData!)
-            self.post.featuredImage = image
-            
-            let saver = FileDownloader()
-            saver.saveImageFile(image, postId: post.id!, fileName: "featured_image.jpg")
-            self.post.featuredImageState = .Downloaded
-            
-        }
-        
-        else {
-            self.post.featuredImageState = .Failed
-            self.post.featuredImage = UIImage(named: "failed")
-            
-        }
     }
     
     
