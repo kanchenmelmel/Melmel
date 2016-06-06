@@ -29,14 +29,26 @@ class ImageDownloader:NSOperation {
             return
         }
         
-        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
+        
         
         if self.cancelled {
             return
         }
         
+        var image:UIImage?
+        
+        if post.featuredImageState == .Downloaded{
+            image = UIImage(contentsOfFile: post.featured_image_url)
+        }
+        
+        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
+        
         if imageData?.length != 0 {
-            self.post.featuredImage = UIImage(data: imageData!)
+            let image = UIImage(data: imageData!)
+            self.post.featuredImage = image
+            
+            let saver = FileDownloader()
+            saver.saveImageFile(image, postId: post.id!, fileName: "featured_image.jpg")
             self.post.featuredImageState = .Downloaded
             
         }
