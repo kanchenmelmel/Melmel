@@ -27,7 +27,7 @@ class Alert {
         
         let subview :UIView = alertController.view.subviews.last! as UIView
         let alertContentView = subview.subviews.last! as UIView
-        alertContentView.backgroundColor = UIColor(red: 252/255, green: 50/255, blue: 0/255, alpha: 1.0)
+        alertContentView.backgroundColor = GLOBAL_TINT_COLOR
         alertContentView.layer.cornerRadius = 10
         
         

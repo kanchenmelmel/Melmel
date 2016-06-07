@@ -77,7 +77,7 @@ class APIHelper {
             let lastUpdateTime = lastUpdateTimeObject as! NSDate
             let dateFormatter = DateFormatter()
             postUrl = NSURL(string: discountUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
-            print(dateFormatter.formatDateToDateString(lastUpdateTime))
+            print(postUrl.absoluteString)
             
         } else {
             postUrl = NSURL(string: discountUrlPathString)!

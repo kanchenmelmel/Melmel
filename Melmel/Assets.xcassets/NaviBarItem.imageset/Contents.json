@@ -2,17 +2,16 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "navibartitlelogo@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "navibartitlelogo@2x.png",
+      "filename" : "LOGO@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "navibartitlelogo@3x.png",
+      "filename" : "LOGO@3x.png",
       "scale" : "3x"
     }
   ],

@@ -29,7 +29,7 @@ class DiscountTableViewController: UITableViewController {
         
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.backgroundColor = UIColor(red: 236.0/255.0, green: 28.0/255.0, blue: 41.0/255.0, alpha: 1.0)
+        self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
         self.refreshControl?.tintColor = UIColor.whiteColor()
         self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), forControlEvents: .ValueChanged)
         self.refreshControl?.beginRefreshing()

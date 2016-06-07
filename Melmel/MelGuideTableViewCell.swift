@@ -22,11 +22,7 @@ class MelGuideTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        titleBackground.clipsToBounds = false
-//        titleBackground.layer.shadowOpacity = 0.6
-//        titleBackground.layer.shadowColor =  titleBackground.backgroundColor?.CGColor
-//        titleBackground.layer.shadowOffset = CGSizeMake(0, 0)
-//        titleBackground.layer.shadowRadius = 10
+
         
     }
 

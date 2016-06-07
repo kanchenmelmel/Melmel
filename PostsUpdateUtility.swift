@@ -39,9 +39,8 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     post.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    post.title = postEntry["title"] as! String
                     
-                    post.title = titleObject["rendered"]!
                     //Link
                     post.link = postEntry["link"] as! String
                     
@@ -90,9 +89,8 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     discount.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    let titleObject = discountEntry["title"] as! Dictionary<String,String>
+                    discount.title = discountEntry["title"] as! String
                     
-                    discount.title = titleObject["rendered"]!
                     //Link
                     discount.link = discountEntry["link"] as! String
                     //Coordinate and address
@@ -102,7 +100,7 @@ class PostsUpdateUtility {
                     
                     
                     let latitudeString = discountEntry["latitude"] as! String
-                    let longitudeString = discountEntry["longitude"] as! String
+                    let longitudeString = discountEntry["longtitude"] as! String
 
 //                    let locationObject = discountEntry["location"] as! Dictionary<String,String>
 //                    let latitudeString = locationObject["latitude"]!
@@ -154,9 +152,8 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     post.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    post.title = postEntry["title"] as! String
                     
-                    post.title = titleObject["rendered"]!
                     //Link
                     post.link = postEntry["link"] as! String
                     
@@ -212,9 +209,8 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     post.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    let titleObject = postEntry["title"] as! Dictionary<String,String>
+                    post.title = postEntry["title"] as! String
                     
-                    post.title = titleObject["rendered"]!
                     //Link
                     post.link = postEntry["link"] as! String
                     

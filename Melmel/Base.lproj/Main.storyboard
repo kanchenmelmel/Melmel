@@ -10,11 +10,11 @@
             <objects>
                 <tableViewController id="iu6-FI-tw7" customClass="MelGuideTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="168" sectionHeaderHeight="28" sectionFooterHeight="28" id="OBs-Po-RvP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="IRr-tl-60M">
-                            <rect key="frame" x="0.0" y="234" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="170" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YWp-QC-OZV">
@@ -43,26 +43,26 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="melGuideTableViewCell" rowHeight="142" id="2ns-V4-LNU" customClass="MelGuideTableViewCell" customModule="Melmel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="142"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="142"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="141"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="142"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
                                             <rect key="frame" x="8" y="8" width="182" height="126"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="126" id="gM9-0e-qNr"/>
                                                 <constraint firstAttribute="width" constant="182" id="jod-1U-Mta"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-7f-KVl">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-7f-KVl">
                                             <rect key="frame" x="440" y="113" width="152" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
                                             <rect key="frame" x="198" y="8" width="394" height="86"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="86" id="xRv-VY-y0N"/>
@@ -120,7 +120,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yKC-7k-izk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cxA-kh-hxb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-uA-MBK">
@@ -128,7 +128,7 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ir8-Kw-JHQ">
-                                <rect key="frame" x="0.0" y="64" width="598" height="2"/>
+                                <rect key="frame" x="0.0" y="64" width="598" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="ZQd-xV-WE7"/>
                                 </constraints>
@@ -169,15 +169,15 @@
             <objects>
                 <tableViewController title="Comments" id="LiW-bF-1D1" customClass="ShowCommentTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="187" sectionHeaderHeight="28" sectionFooterHeight="28" id="eps-Bu-Jzd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="showcommentIdentifier" rowHeight="187" id="gOY-AP-Djc" customClass="CommentTableViewCell" customModule="Melmel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="187"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="187"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gOY-AP-Djc" id="pvY-Dw-7L8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="186"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVn-s4-e06">
@@ -234,7 +234,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bpT-aa-iJj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uGT-dX-EZH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs8-Bp-Su8">
@@ -304,18 +304,48 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.10980392156862745" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="jiC-Bn-jdU" kind="relationship" relationship="viewControllers" id="ThA-8J-tCh"/>
                         <segue destination="p7g-8r-WGk" kind="relationship" relationship="viewControllers" id="Ykb-XS-siL"/>
+                        <segue destination="4vG-rC-Eb1" kind="relationship" relationship="viewControllers" id="jZX-IT-X9p"/>
                         <segue destination="XJy-MZ-01Z" kind="relationship" relationship="viewControllers" id="iqt-gh-zKa"/>
+                        <segue destination="NMr-fm-S0r" kind="relationship" relationship="viewControllers" id="fx8-tA-fFG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9Ob-jE-S6h">
+            <objects>
+                <viewController id="NMr-fm-S0r" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k6o-hg-ed9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ifa-D8-yKl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="haF-bd-Atm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="searchTabBarItem" id="QUF-kY-0Hf">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0gR-dh-CWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-749" y="-34"/>
         </scene>
         <!--Map View Ctrl-->
         <scene sceneID="Rt2-Mq-X1X">
@@ -358,19 +388,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccg-YN-4tw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="1105"/>
+            <point key="canvasLocation" x="1060" y="1397"/>
         </scene>
-        <!--攻略-->
+        <!--Navigation Controller-->
         <scene sceneID="buC-V0-Txl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jiC-Bn-jdU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="攻略" id="GKB-3p-Raa" userLabel="喵喵攻略"/>
+                    <tabBarItem key="tabBarItem" title="" image="postTabBarItem" id="GKB-3p-Raa" userLabel="喵喵攻略">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="88C-XJ-9jr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="88C-XJ-9jr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -387,11 +421,11 @@
             <objects>
                 <tableViewController id="uHM-4Q-TYE" customClass="DiscountTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="OgJ-Ao-3dp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="rzZ-yl-IOC">
-                            <rect key="frame" x="0.0" y="232" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="168" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WWf-eF-CAG">
@@ -420,10 +454,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="discountCell" rowHeight="140" id="UsA-Gl-vOL" customClass="DiscountTableViewCell" customModule="Melmel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="140"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="UsA-Gl-vOL" id="x1d-rp-UQP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="139"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
@@ -483,16 +517,40 @@
             </objects>
             <point key="canvasLocation" x="1759" y="431"/>
         </scene>
-        <!--地图-->
+        <!--View Controller-->
+        <scene sceneID="3Ss-Pz-ucr">
+            <objects>
+                <viewController id="4vG-rC-Eb1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YPK-8Y-dAj"/>
+                        <viewControllerLayoutGuide type="bottom" id="get-pd-LVY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ckm-9R-SA4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="middleTabBarItem" id="tto-dq-Th6">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAF-qc-aOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-890" y="914"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="TvS-lI-EcR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XJy-MZ-01Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="地图" image="map" id="NNJ-yy-571" userLabel="喵喵地图"/>
+                    <tabBarItem key="tabBarItem" title="" image="map" id="NNJ-yy-571" userLabel="喵喵地图">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FWp-hR-aXh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -501,17 +559,20 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZC3-bV-NAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="474" y="1289"/>
+            <point key="canvasLocation" x="59" y="1337"/>
         </scene>
-        <!--优惠-->
+        <!--Navigation Controller-->
         <scene sceneID="Jpa-Bj-BM6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p7g-8r-WGk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="优惠" id="jMX-vE-RYy"/>
+                    <tabBarItem key="tabBarItem" title="" image="discountTabBarItem" id="jMX-vE-RYy">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UZ3-kq-rKE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="UZ3-kq-rKE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -524,11 +585,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="map" width="18" height="19"/>
+        <image name="discountTabBarItem" width="24" height="24"/>
+        <image name="map" width="24" height="26"/>
+        <image name="middleTabBarItem" width="24" height="24"/>
+        <image name="postTabBarItem" width="24" height="24"/>
+        <image name="searchTabBarItem" width="20" height="20"/>
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ch7-PM-8P7"/>
+        <segue reference="vYJ-nB-JmP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>
