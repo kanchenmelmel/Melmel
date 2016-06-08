@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         //Set up managed object context
         let tabNavCntr = window?.rootViewController as? UITabBarController
+        tabNavCntr?.selectedIndex = 2
         let melGuideNavCntr = tabNavCntr!.viewControllers![0] as? UINavigationController
         let melGuideTableViewCntr = melGuideNavCntr!.viewControllers[0] as? MelGuideTableViewController
         melGuideTableViewCntr!.managedObjectContext = self.managedObjectContext

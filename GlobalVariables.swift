@@ -10,3 +10,5 @@ import Foundation
 import UIKit
 
 let GLOBAL_TINT_COLOR = UIColor(red: 236.0/255.0, green: 28.0/255.0, blue: 41.0/255.0, alpha: 1)
+
+let FEATURED_IMAGE_NAME = "featured_image.jpg"

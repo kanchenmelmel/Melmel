@@ -40,33 +40,25 @@ class ImageDownloader:NSOperation {
         }
         
         
-        if post.featuredImageState == .Downloaded{
-            let fileDownloader = FileDownloader()
-            post.featuredImage = fileDownloader.imageFromFile(post.id! as Int, fileName: "featured_image.jpg")
-        } else{
-            let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!)!)
+        print(post.featured_image_url!)
+        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        
+        if imageData?.length != 0 {
+            let image = UIImage(data: imageData!)
+            self.post.featuredImage = image
             
-            if imageData?.length != 0 {
-                let image = UIImage(data: imageData!)
-                self.post.featuredImage = image
-                
-                let saver = FileDownloader()
-                saver.saveImageFile(image!, postId: post.id! as Int, fileName: "featured_image.jpg")
-                self.post.featuredImageState = .Downloaded
-                try! self.managedObjectContext.save()
-            }
-                
-            else {
-                self.post.featuredImageState = .Failed
-                self.post.featuredImage = UIImage(named: "failed")
-                
-            }
+            let saver = FileDownloader()
+            saver.saveImageFile(image!, postId: post.id! as Int, fileName: FEATURED_IMAGE_NAME)
+            post.featured_image_downloaded = true
+            try! post.managedObjectContext?.save()
         }
-        
-        
+            
+        else {
+            self.post.featuredImageState = .Failed
+            self.post.featuredImage = UIImage(named: "failed")
+            
+        }
     }
-    
-    
     
 }
 

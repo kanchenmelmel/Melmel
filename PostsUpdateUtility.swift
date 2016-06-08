@@ -46,6 +46,8 @@ class PostsUpdateUtility {
                     
                     //Media
                     
+                    post.featured_image_downloaded = false
+                    
                     if postEntry["featured_image_url"] != nil {
                         post.featured_image_url = postEntry["thumbnail_url"] as? String
                     }
@@ -95,7 +97,7 @@ class PostsUpdateUtility {
                     discount.link = discountEntry["link"] as! String
                     //Coordinate and address
 
-                    
+                    discount.featured_image_downloaded = false
                     discount.address = discountEntry["address"] as! String
                     
                     

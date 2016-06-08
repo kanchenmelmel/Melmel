@@ -50,36 +50,6 @@ class DiscountTableViewController: UITableViewController {
         
         
         self.tableView.reloadData()
-     /*
-            for discount in discounts {
-                
-                    if discount.downloaded == nil {
-                        print (discount.featured_image_url!)
-                      
-                        let imageDownloader = FileDownloader()
-                        imageDownloader.downloadFeaturedImageForPostFromUrlAndSave(discount.featured_image_url! as String, postId: discount.id! as Int) { (image) in
-                            discount.downloaded = true
-                            do {
-                                try self.managedObjectContext.save()
-                                print("save featured successfully")
-                            }catch {
-                            }
-                            
-                            self.discountList.append((discount,image))
-                            
-                        }
-                    } else {
-                        let documentDirectory = try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-                        
-                        let imagePath = documentDirectory.URLByAppendingPathComponent("posts/\(discount.id!)/featrued_image.jpg")
-                        
-                        let image = UIImage(contentsOfFile: imagePath.path!)
-                        self.discountList.append((discount,image!))
-                        print("append image successfully")
-                    }
-                
-        */
-        
       
     
         
@@ -143,12 +113,27 @@ class DiscountTableViewController: UITableViewController {
         dateFormatter.dateStyle = .LongStyle
         cell.dateLabel.text = dateFormatter.stringFromDate(discount.date!)
         
-        if discount.featuredImageState == .Downloaded {
-            cell.featureImage.image = discount.featuredImage
+        
+        
+        // Configure featured image
+        
+        if discount.featured_image_downloaded == true {
+            let fileDownloader = FileDownloader()
+            discount.featuredImage = fileDownloader.imageFromFile(discount.id! as Int, fileName: FEATURED_IMAGE_NAME)
+            
+        } else {
+            if discount.featured_image_url != nil {
+                if discount.featuredImageState == .Downloaded {
+                    
+                }
+                if discount.featuredImageState == .New {
+                    startOperationsForPhoto(discount, indexPath: indexPath)
+                }
+                
+            }
+            
         }
-        if discount.featuredImageState == .New {
-            startOperationsForPhoto(discount, indexPath: indexPath)
-        }
+        cell.featureImage.image = discount.featuredImage
         
         
         

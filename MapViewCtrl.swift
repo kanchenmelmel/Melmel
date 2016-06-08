@@ -35,8 +35,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         print("Discounts:\(discounts.count)")
         for discount in discounts {
             // Add Annotations
-            let location = CLLocation(latitude: discount.latitude as! Double, longitude: discount.longtitude as! Double)
-            let annotation = createAnnotationObject(location, title: discount.title!, subtitle: discount.address!, discountForAnnotation: discount)
+            let annotation = createAnnotationObject(discount)
             mapView.addAnnotation(annotation)
         }
         
@@ -81,11 +80,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         self.performSegueWithIdentifier("discountWebViewSegue", sender: view)
     }
     
-    func createAnnotationObject(location:CLLocation,title:String,subtitle:String, discountForAnnotation:Discount) -> MKAnnotation{
+    func createAnnotationObject(discountForAnnotation:Discount) -> MKAnnotation{
         let annotation = DiscountAnnotation(discount:discountForAnnotation)
-        annotation.coordinate = location.coordinate
-        annotation.title=title
-        annotation.subtitle = subtitle
         return annotation
         
     }
@@ -106,8 +102,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
                 print("Discounts:\(self.discounts.count)")
                 for discount in self.discounts {
                     // Add Annotations
-                    let location = CLLocation(latitude: discount.latitude as! Double, longitude: discount.longtitude as! Double)
-                    let annotation = self.createAnnotationObject(location, title: discount.title!, subtitle: discount.address!, discountForAnnotation: discount)
+                    let annotation = self.createAnnotationObject(discount)
                     self.mapView.addAnnotation(annotation)
                 }
             })

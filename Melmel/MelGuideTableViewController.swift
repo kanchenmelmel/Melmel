@@ -88,25 +88,37 @@ class MelGuideTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("melGuideTableViewCell", forIndexPath: indexPath) as! MelGuideTableViewCell
         
         // Configure the cell...
+        
         let post = posts[indexPath.row]
+        
+        print(post.featured_image_downloaded)
         cell.titleLabel.text = post.title!
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .LongStyle
         cell.dateLabel.text = dateFormatter.stringFromDate(post.date!)
+        print(post.featured_image_downloaded)
         
         
-        if post.featured_image_url != nil {
-            if post.featuredImageState == .Downloaded {
-                cell.featuredImage.image = post.featuredImage
-            }
-            if post.featuredImageState == .New {
-                startOperationsForPhoto(post, indexPath: indexPath)
+        // Configure featured image
+        
+        if post.featured_image_downloaded == true {
+            let fileDownloader = FileDownloader()
+            post.featuredImage = fileDownloader.imageFromFile(post.id! as Int, fileName: FEATURED_IMAGE_NAME)
+            
+        } else {
+            if post.featured_image_url != nil {
+                if post.featuredImageState == .Downloaded {
+                    
+                }
+                if post.featuredImageState == .New {
+                    startOperationsForPhoto(post, indexPath: indexPath)
+                }
+                
             }
 
         }
-
-        
+        cell.featuredImage.image = post.featuredImage
         return cell
     }
     
