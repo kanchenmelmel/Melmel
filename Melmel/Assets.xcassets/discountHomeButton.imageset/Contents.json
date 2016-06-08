@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "iphone",
+      "filename" : "youhui before@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "go back icon copy 2@2x.png",
+      "filename" : "youhui before@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "go back icon copy 2@3x.png",
+      "filename" : "youhui before@3x.png",
       "scale" : "3x"
     }
   ],

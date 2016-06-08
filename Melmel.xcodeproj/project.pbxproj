@@ -35,6 +35,7 @@
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
 		967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */; };
 		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
+		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
 		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
 		96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */; };
@@ -100,6 +101,7 @@
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
 		967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
 		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
 				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
 				965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */,
+				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
+				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
 				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
 				967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */,
 				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,

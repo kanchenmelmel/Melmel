@@ -5,16 +5,16 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--喵喵-->
+        <!--Mel Guide Table View Controller-->
         <scene sceneID="HjM-Qg-jpC">
             <objects>
                 <tableViewController id="iu6-FI-tw7" customClass="MelGuideTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="168" sectionHeaderHeight="28" sectionFooterHeight="28" id="OBs-Po-RvP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" id="OBs-Po-RvP">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="IRr-tl-60M">
-                            <rect key="frame" x="0.0" y="170" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="144" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YWp-QC-OZV">
@@ -42,32 +42,29 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="melGuideTableViewCell" rowHeight="142" id="2ns-V4-LNU" customClass="MelGuideTableViewCell" customModule="Melmel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="142"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="melGuideTableViewCell" rowHeight="116" id="2ns-V4-LNU" customClass="MelGuideTableViewCell" customModule="Melmel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="141.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="115.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
-                                            <rect key="frame" x="8" y="8" width="182" height="126"/>
+                                            <rect key="frame" x="8" y="8" width="120" height="100"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="126" id="gM9-0e-qNr"/>
-                                                <constraint firstAttribute="width" constant="182" id="jod-1U-Mta"/>
+                                                <constraint firstAttribute="height" constant="100" id="9fT-6C-MwD"/>
+                                                <constraint firstAttribute="width" constant="120" id="rrV-Ux-djB"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-7f-KVl">
-                                            <rect key="frame" x="440" y="113" width="152" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <rect key="frame" x="440" y="94" width="152" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
-                                            <rect key="frame" x="198" y="8" width="394" height="86"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="86" id="xRv-VY-y0N"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
+                                            <rect key="frame" x="136" y="8" width="456" height="43"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -75,11 +72,13 @@
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="AWf-g5-1J8" secondAttribute="bottom" id="8AS-aD-LxX"/>
                                         <constraint firstAttribute="trailing" secondItem="xdw-7f-KVl" secondAttribute="trailing" constant="8" id="92X-L3-05o"/>
+                                        <constraint firstItem="R8o-bS-raW" firstAttribute="leading" secondItem="AWf-g5-1J8" secondAttribute="trailing" constant="8" id="BRr-F3-L5e"/>
+                                        <constraint firstItem="R8o-bS-raW" firstAttribute="trailing" secondItem="sFU-gX-LbZ" secondAttribute="trailingMargin" id="D5G-n9-mPr"/>
+                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="leading" secondItem="sFU-gX-LbZ" secondAttribute="leadingMargin" id="ELr-3x-nuh"/>
                                         <constraint firstItem="AWf-g5-1J8" firstAttribute="leading" secondItem="sFU-gX-LbZ" secondAttribute="leadingMargin" id="EsL-un-8Gv"/>
-                                        <constraint firstItem="R8o-bS-raW" firstAttribute="trailing" secondItem="sFU-gX-LbZ" secondAttribute="trailingMargin" id="P27-7A-7Oe"/>
-                                        <constraint firstItem="R8o-bS-raW" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="topMargin" id="bnE-bF-0zj"/>
+                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="topMargin" id="biN-S9-7IL"/>
                                         <constraint firstItem="AWf-g5-1J8" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="topMargin" id="cpn-sU-dxW"/>
-                                        <constraint firstItem="R8o-bS-raW" firstAttribute="leading" secondItem="AWf-g5-1J8" secondAttribute="trailing" constant="8" id="rot-iF-0zm"/>
+                                        <constraint firstItem="R8o-bS-raW" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="topMargin" id="uXE-OK-2e8"/>
                                         <constraint firstAttribute="bottom" secondItem="xdw-7f-KVl" secondAttribute="bottom" constant="8" id="ulY-Kn-hPg"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -96,7 +95,7 @@
                             <outlet property="delegate" destination="iu6-FI-tw7" id="2aD-Bk-nbJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="喵喵" id="kaE-by-Pwc" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" id="kaE-by-Pwc" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target"/>
                     <connections>
                         <outlet property="LoadMoreActivityIndicator" destination="wjm-N8-WhF" id="5Fa-Me-mzH"/>
                         <outlet property="loadMorePostsLabel" destination="Kqe-jv-U7d" id="gzY-2I-swo"/>
@@ -339,7 +338,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="searchTabBarItem" id="QUF-kY-0Hf">
+                    <tabBarItem key="tabBarItem" title="" image="searchTabBarItem" selectedImage="searchTabBarItemHighlighted" id="QUF-kY-0Hf">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                 </viewController>
@@ -394,15 +393,15 @@
         <scene sceneID="buC-V0-Txl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jiC-Bn-jdU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="postTabBarItem" id="GKB-3p-Raa" userLabel="喵喵攻略">
+                    <tabBarItem key="tabBarItem" title="" image="postTabBarItem" selectedImage="postTabBarItemHighlighted" id="GKB-3p-Raa" userLabel="喵喵攻略">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="88C-XJ-9jr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="NavBarBackButton" id="88C-XJ-9jr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -518,10 +517,10 @@
             </objects>
             <point key="canvasLocation" x="1759" y="431"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Ctrl-->
         <scene sceneID="3Ss-Pz-ucr">
             <objects>
-                <viewController id="4vG-rC-Eb1" sceneMemberID="viewController">
+                <viewController id="4vG-rC-Eb1" customClass="HomeViewCtrl" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YPK-8Y-dAj"/>
                         <viewControllerLayoutGuide type="bottom" id="get-pd-LVY"/>
@@ -530,23 +529,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg4-E3-riy">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="y9e-63-v8b"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Title" id="AJ3-Sy-Vb6" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PF1-b6-25b">
+                                <rect key="frame" x="186" y="99" width="229" height="155"/>
+                                <state key="normal" image="discountHomeButton"/>
+                                <state key="highlighted" image="discountHomeButtonHighlighted"/>
+                                <connections>
+                                    <action selector="discountButton:" destination="4vG-rC-Eb1" eventType="touchUpInside" id="pbB-XW-kEY"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NR4-Q3-jJs">
-                                <rect key="frame" x="186" y="280" width="229" height="155"/>
+                                <rect key="frame" x="186" y="330" width="229" height="155"/>
                                 <state key="normal" image="postHomeButton"/>
                                 <state key="highlighted" image="postHomeButtonHighlighted"/>
                                 <connections>
-                                    <segue destination="jiC-Bn-jdU" kind="show" id="rcw-hq-bLl"/>
+                                    <action selector="postButton:" destination="4vG-rC-Eb1" eventType="touchUpInside" id="3kL-g3-cNd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="NR4-Q3-jJs" firstAttribute="centerX" secondItem="ckm-9R-SA4" secondAttribute="centerX" id="7KY-wh-Yr4"/>
+                            <constraint firstItem="PF1-b6-25b" firstAttribute="centerX" secondItem="ckm-9R-SA4" secondAttribute="centerX" id="7lb-9D-DK6"/>
+                            <constraint firstItem="Eg4-E3-riy" firstAttribute="leading" secondItem="ckm-9R-SA4" secondAttribute="leading" id="9Hg-q9-bbG"/>
+                            <constraint firstAttribute="trailing" secondItem="Eg4-E3-riy" secondAttribute="trailing" id="dYh-MW-Gmd"/>
+                            <constraint firstItem="Eg4-E3-riy" firstAttribute="top" secondItem="YPK-8Y-dAj" secondAttribute="bottom" id="nPr-k3-IVp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="middleTabBarItem" id="tto-dq-Th6">
+                    <tabBarItem key="tabBarItem" title="" image="middleTabBarItem" selectedImage="middleTabBarItemHighlighted" id="tto-dq-Th6">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="navBar" destination="Eg4-E3-riy" id="quz-KS-kW6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAF-qc-aOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -556,7 +583,7 @@
         <scene sceneID="TvS-lI-EcR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XJy-MZ-01Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="map" id="NNJ-yy-571" userLabel="喵喵地图">
+                    <tabBarItem key="tabBarItem" title="" image="map" selectedImage="mapHighlighted" id="NNJ-yy-571" userLabel="喵喵地图">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -579,7 +606,7 @@
         <scene sceneID="Jpa-Bj-BM6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p7g-8r-WGk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="discountTabBarItem" id="jMX-vE-RYy">
+                    <tabBarItem key="tabBarItem" title="" image="discountTabBarItem" selectedImage="discountTabBarItemHighlighted" id="jMX-vE-RYy">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -599,17 +626,24 @@
         </scene>
     </scenes>
     <resources>
-        <image name="discountTabBarItem" width="24" height="24"/>
-        <image name="map" width="24" height="26"/>
-        <image name="middleTabBarItem" width="24" height="24"/>
+        <image name="NavBarBackButton" width="10" height="19"/>
+        <image name="discountHomeButton" width="181" height="176"/>
+        <image name="discountHomeButtonHighlighted" width="181" height="176"/>
+        <image name="discountTabBarItem" width="20" height="20"/>
+        <image name="discountTabBarItemHighlighted" width="20" height="20"/>
+        <image name="map" width="19" height="20"/>
+        <image name="mapHighlighted" width="20" height="21"/>
+        <image name="middleTabBarItem" width="20" height="20"/>
+        <image name="middleTabBarItemHighlighted" width="20" height="20"/>
         <image name="postHomeButton" width="175" height="155"/>
         <image name="postHomeButtonHighlighted" width="175" height="155"/>
-        <image name="postTabBarItem" width="24" height="24"/>
+        <image name="postTabBarItem" width="20" height="20"/>
+        <image name="postTabBarItemHighlighted" width="20" height="19"/>
         <image name="searchTabBarItem" width="20" height="20"/>
+        <image name="searchTabBarItemHighlighted" width="20" height="20"/>
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rcw-hq-bLl"/>
         <segue reference="vYJ-nB-JmP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
