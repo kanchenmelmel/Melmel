@@ -9,15 +9,21 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FBAnnotationClusteringSwift
 
 class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var currentLocationButton: UIButton!
+    
     let regionRadius: CLLocationDistance = 1000
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
+    
+    var annotations = [DiscountAnnotation]()
+    
+    let clusteringManager = FBClusteringManager()
     
     var userLocation:CLLocation?
     
@@ -25,11 +31,6 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate=self
-        updateDiscounts()
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         
         let melmelAnnotation = MKPointAnnotation()
         melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
@@ -43,8 +44,16 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         for discount in discounts {
             // Add Annotations
             let annotation = createAnnotationObject(discount)
-            mapView.addAnnotation(annotation)
+            //mapView.addAnnotation(annotation)
+            annotations.append(annotation)
         }
+        clusteringManager.addAnnotations(annotations)
+        self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+
         
         
     }
@@ -68,12 +77,28 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
             self.userLocation = userLocation.location
         }
     }
+    
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        NSOperationQueue().addOperationWithBlock { 
+            let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+            let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
+            let scale:Double = mapBoundsWidth / mapRectWidth
+            let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+            self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
+        }
+    }
 
     
     
     /*  Configure annotation view */
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.isKindOfClass(MKUserLocation) {
+        var reuseId = ""
+        if annotation.isKindOfClass(FBAnnotationCluster){
+            reuseId = "Cluster"
+            var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+            clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
+            return clusterView
+        }else if annotation.isKindOfClass(MKUserLocation) {
             return nil
         } else if annotation.isKindOfClass(DiscountAnnotation){
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
@@ -87,10 +112,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
             annotationView.canShowCallout = true
             return annotationView
         }
-//        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-//        annotationView.canShowCallout = true
-//        annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
-//        return annotationView
+
     }
     
     /*  Configure tapped behavior */
@@ -98,7 +120,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         self.performSegueWithIdentifier("discountWebViewSegue", sender: view)
     }
     
-    func createAnnotationObject(discountForAnnotation:Discount) -> MKAnnotation{
+    func createAnnotationObject(discountForAnnotation:Discount) -> DiscountAnnotation{
         let annotation = DiscountAnnotation(discount:discountForAnnotation)
         return annotation
         
