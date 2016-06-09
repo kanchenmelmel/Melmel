@@ -64,6 +64,4 @@ class FileDownloader {
         let image = UIImage(contentsOfFile: imageLocation.path!)
         return image!
     }
-    // Comments 
-    //comments
 }
