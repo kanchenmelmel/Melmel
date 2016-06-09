@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>FBAnnotationClusteringSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Melmel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MelmelTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MelmelUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>423C10F04A172BB11C7A3702F8F09B90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>525AF55D84927D710E909ACD099ECFD1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>569CBB765856E9B33DFF09B12184C8F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9EC71AB2B9E1C9AF6E4DF3471465100</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
