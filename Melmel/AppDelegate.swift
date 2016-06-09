@@ -19,9 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        //Set up managed object context
+        // Set up managed object context
+        
+        
+        // Configure Tab bar
         let tabNavCntr = window?.rootViewController as? UITabBarController
         tabNavCntr?.selectedIndex = 2
+        
+        for tabBarItem in (tabNavCntr?.tabBar.items)!{
+            tabBarItem.image = tabBarItem.image?.imageWithRenderingMode(.AlwaysOriginal)
+        }
+        
         let melGuideNavCntr = tabNavCntr!.viewControllers![0] as? UINavigationController
         let melGuideTableViewCntr = melGuideNavCntr!.viewControllers[0] as? MelGuideTableViewController
         melGuideTableViewCntr!.managedObjectContext = self.managedObjectContext

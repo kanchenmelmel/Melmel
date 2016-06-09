@@ -33,6 +33,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         
         let melmelAnnotation = MKPointAnnotation()
         melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
+        melmelAnnotation.title = "Melmel"
+        melmelAnnotation.subtitle = "416/566 St. Kilda Road, St. Kilda, VIC, 3004"
         mapView.addAnnotation(melmelAnnotation)
         locationAuthStatus()
         // load discounts from core data
@@ -76,10 +78,13 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         } else if annotation.isKindOfClass(DiscountAnnotation){
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             annotationView.image = UIImage(named: "normalPin")
+            annotationView.canShowCallout = true
+            annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             return annotationView
         }else {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             annotationView.image = UIImage(named: "melmelPin")
+            annotationView.canShowCallout = true
             return annotationView
         }
 //        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
