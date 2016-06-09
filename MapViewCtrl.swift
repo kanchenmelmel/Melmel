@@ -14,6 +14,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var currentLocationButton: UIButton!
     let regionRadius: CLLocationDistance = 1000
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
@@ -29,6 +30,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        let melmelAnnotation = MKPointAnnotation()
+        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
+        mapView.addAnnotation(melmelAnnotation)
         locationAuthStatus()
         // load discounts from core data
         loadDiscountFromCoreData()
@@ -68,11 +73,19 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation.isKindOfClass(MKUserLocation) {
             return nil
+        } else if annotation.isKindOfClass(DiscountAnnotation){
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            annotationView.image = UIImage(named: "normalPin")
+            return annotationView
+        }else {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            annotationView.image = UIImage(named: "melmelPin")
+            return annotationView
         }
-        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-        annotationView.canShowCallout = true
-        annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
-        return annotationView
+//        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+//        annotationView.canShowCallout = true
+//        annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+//        return annotationView
     }
     
     /*  Configure tapped behavior */
