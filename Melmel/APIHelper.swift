@@ -17,6 +17,8 @@ class APIHelper {
     let discountUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/discounts/"
     let mediaUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/media/"
     
+    let searchPostURL = "http://melmel.com.au/wp-json/wp/v2/posts?per_page=5&filter[s]="
+    
     let postLastUpdateTimeKey = "postLastUpdateTime"
     let discountLastUpdateTimeKey = "discountLastUpdateTime"
     
@@ -196,3 +198,36 @@ class APIHelper {
         
     }
 }
+    
+    
+//    func searchPosts(searchText:String,completionHandler:(resultsArray:NSArray?, success:Bool) -> Void ){
+//        
+//        let session = NSURLSession.sharedSession()
+//        let postURL = searchPostURL + searchText
+//        let postFinalURL = NSURL(string: postURL)!
+//       // let postUrl = self.endpointURL + self.searchText!
+//      //  let postFinalURL = NSURL(string: postUrl)!
+//        
+//        
+//        
+//        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+//            
+//            if let responseData = data {
+//                
+//                do{
+//                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+//                    if let postsArray = json as? NSArray{
+//                        postsAcquired(postsArray:postsArray,success:true)
+//                    }
+//                    else {
+//                        postsAcquired(postsArray:nil,success:false)
+//                    }
+//                } catch {
+//                    postsAcquired(postsArray:nil,success:false)
+//                    print("could not serialize!")
+//                }
+//            }
+//            }.resume()
+//        
+//        
+

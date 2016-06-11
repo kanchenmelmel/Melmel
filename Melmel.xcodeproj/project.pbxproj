@@ -10,6 +10,9 @@
 		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
 		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
 		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
+		4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */; };
+		4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */; };
+		4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */; };
 		4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DA5BB1D0304120045B73C /* Alert.swift */; };
 		4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644EF1CF96B0500E84028 /* CommentViewController.swift */; };
 		4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */; };
@@ -72,6 +75,9 @@
 /* Begin PBXFileReference section */
 		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputSearchViewController.swift; path = Melmel/InputSearchViewController.swift; sourceTree = "<group>"; };
 		4D4DA5BB1D0304120045B73C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4D8644EF1CF96B0500E84028 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowCommentTableViewController.swift; path = Melmel/ShowCommentTableViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +262,8 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */,
+				4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */,
 				4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */,
 				4D8644EF1CF96B0500E84028 /* CommentViewController.swift */,
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
@@ -274,6 +282,7 @@
 				96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */,
 				4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */,
 				967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */,
+				4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -589,8 +598,10 @@
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
+				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
+				4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */,
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
 				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
@@ -599,6 +610,7 @@
 				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
 				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
+				4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */,
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
 				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,
 				96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */,
