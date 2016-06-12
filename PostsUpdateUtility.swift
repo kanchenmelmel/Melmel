@@ -83,7 +83,7 @@ class PostsUpdateUtility {
                 
                 for discountEntry in discountArray! {
                     let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
-                    //id
+                        //id
                     discount.id = discountEntry["id"] as! Int
                     
                     //Date
@@ -104,13 +104,11 @@ class PostsUpdateUtility {
                     let latitudeString = discountEntry["latitude"] as! String
                     let longitudeString = discountEntry["longtitude"] as! String
 
-//                    let locationObject = discountEntry["location"] as! Dictionary<String,String>
-//                    let latitudeString = locationObject["latitude"]!
                     discount.latitude = Double(latitudeString)
 
 
                     discount.longtitude = Double(longitudeString)
-//                    discount.address = locationObject["address"]!
+
 
                     //Featured image Link
                     discount.featured_image_url = discountEntry["thumbnail_url"] as? String
@@ -198,28 +196,42 @@ class PostsUpdateUtility {
                 // create dispatch group
                 
                 
-                for postEntry in postsArray! {
+                for discountEntry in postsArray! {
                     
-                    let post = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
                     
                     
                     //id
-                    post.id = postEntry["id"] as! Int
+                    discount.id = discountEntry["id"] as! Int
                     
                     //Date
-                    let dateString = postEntry["date"] as! String
+                    let dateString = discountEntry["date"] as! String
                     let dateFormatter = DateFormatter()
-                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
+                    discount.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    post.title = postEntry["title"] as! String
+                    discount.title = discountEntry["title"] as! String
                     
                     //Link
-                    post.link = postEntry["link"] as! String
+                    discount.link = discountEntry["link"] as! String
+                    
+                    //Coordinate and address
+                    
+                    discount.featured_image_downloaded = false
+                    discount.address = discountEntry["address"] as! String
+                    
+                    
+                    let latitudeString = discountEntry["latitude"] as! String
+                    let longitudeString = discountEntry["longtitude"] as! String
+                    
+                    discount.latitude = Double(latitudeString)
+                    
+                    
+                    discount.longtitude = Double(longitudeString)
                     
                     //Media
                     
-                    if postEntry["featured_image_url"] != nil {
-                        post.featured_image_url = postEntry["featured_image_url"] as? String
+                    if discountEntry["featured_image_url"] != nil {
+                        discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     }
                     
                     

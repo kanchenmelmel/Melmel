@@ -47,6 +47,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
             //mapView.addAnnotation(annotation)
             annotations.append(annotation)
         }
+        print("annotations:\(annotations.count)")
         clusteringManager.addAnnotations(annotations)
         self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
         
