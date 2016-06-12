@@ -8,10 +8,12 @@
 
 import UIKit
 import MapKit
+import FBAnnotationClusteringSwift
 
 
-class DiscountAnnotation: MKPointAnnotation {
+class DiscountAnnotation: FBAnnotation {
     var discount:Discount?
+    var subtitle: String?
     
     init(discount:Discount){
         super.init()

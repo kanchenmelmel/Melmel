@@ -83,7 +83,7 @@ class PostsUpdateUtility {
                 
                 for discountEntry in discountArray! {
                     let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
-                    //id
+                        //id
                     discount.id = discountEntry["id"] as! Int
                     
                     //Date
@@ -104,13 +104,11 @@ class PostsUpdateUtility {
                     let latitudeString = discountEntry["latitude"] as! String
                     let longitudeString = discountEntry["longtitude"] as! String
 
-//                    let locationObject = discountEntry["location"] as! Dictionary<String,String>
-//                    let latitudeString = locationObject["latitude"]!
                     discount.latitude = Double(latitudeString)
 
 
                     discount.longtitude = Double(longitudeString)
-//                    discount.address = locationObject["address"]!
+
 
                     //Featured image Link
                     discount.featured_image_url = discountEntry["thumbnail_url"] as? String
@@ -203,6 +201,10 @@ class PostsUpdateUtility {
                     let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
                     
                     
+//<<<<<<< HEAD
+                    //id
+//=======
+//>>>>>>> master
                     discount.id = discountEntry["id"] as! Int
                     
                     //Date
@@ -214,6 +216,8 @@ class PostsUpdateUtility {
                     
                     //Link
                     discount.link = discountEntry["link"] as! String
+//<<<<<<< HEAD
+                    
                     //Coordinate and address
                     
                     discount.featured_image_downloaded = false
@@ -223,12 +227,30 @@ class PostsUpdateUtility {
                     let latitudeString = discountEntry["latitude"] as! String
                     let longitudeString = discountEntry["longtitude"] as! String
                     
-                    //                    let locationObject = discountEntry["location"] as! Dictionary<String,String>
-                    //                    let latitudeString = locationObject["latitude"]!
                     discount.latitude = Double(latitudeString)
                     
                     
                     discount.longtitude = Double(longitudeString)
+//=======
+//                    //Coordinate and address
+//>>>>>>> master
+//                    
+//                    discount.featured_image_downloaded = false
+//                    discount.address = discountEntry["address"] as! String
+//                    
+//<<<<<<< HEAD
+//=======
+//                    
+//                    let latitudeString = discountEntry["latitude"] as! String
+//                    let longitudeString = discountEntry["longtitude"] as! String
+                    
+                    //                    let locationObject = discountEntry["location"] as! Dictionary<String,String>
+                    //                    let latitudeString = locationObject["latitude"]!
+//                    discount.latitude = Double(latitudeString)
+//                    
+//                    
+//                    discount.longtitude = Double(longitudeString)
+//>>>>>>> master
                     if discountEntry["featured_image_url"] != nil {
                         discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     }
