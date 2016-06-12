@@ -96,3 +96,38 @@ class DiscountImageDownloader:NSOperation {
     
     
 }
+
+
+class SearchImageDownloader:NSOperation {
+    let post:Post
+    init(post: Post) {
+        self.post = post
+    }
+    
+    override func main() {
+        if self.cancelled {
+            return
+        }
+        
+        let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        
+        if self.cancelled {
+            return
+        }
+        
+        if imageData?.length != 0 {
+            self.post.featuredImage = UIImage(data: imageData!)
+            self.post.featuredImageState = .Downloaded
+            
+        }
+            
+        else {
+            self.post.featuredImageState = .Failed
+            self.post.featuredImage = UIImage(named: "failed")
+            
+        }
+    }
+    
+    
+    
+}
