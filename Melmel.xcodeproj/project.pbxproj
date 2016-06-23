@@ -17,6 +17,12 @@
 		4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644EF1CF96B0500E84028 /* CommentViewController.swift */; };
 		4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */; };
 		4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */; };
+		4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */; };
+		4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */; };
+		4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */; };
+		4DE3F3C01D16E81900D9D5A2 /* DiscountFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */; };
+		4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */; };
+		4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */; };
 		961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961633C91CE2B93400628B74 /* DateFormatter.swift */; };
 		961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */; };
 		961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */; };
@@ -82,6 +88,12 @@
 		4D8644EF1CF96B0500E84028 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowCommentTableViewController.swift; path = Melmel/ShowCommentTableViewController.swift; sourceTree = "<group>"; };
 		4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = Melmel/CommentTableViewCell.swift; sourceTree = "<group>"; };
+		4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterTableViewController.swift; path = Melmel/FilterTableViewController.swift; sourceTree = "<group>"; };
+		4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCategory.swift; sourceTree = "<group>"; };
+		4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountFilter.swift; sourceTree = "<group>"; };
+		4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryTableViewCell.swift; path = Melmel/CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Melmel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6683078205A966F683CB90C0 /* Pods-MelmelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests.release.xcconfig"; sourceTree = "<group>"; };
 		68468148F44BB3530428F816 /* Pods-Melmel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Melmel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Melmel/Pods-Melmel.release.xcconfig"; sourceTree = "<group>"; };
@@ -271,6 +283,8 @@
 				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
 				965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */,
 				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
+				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
+				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,10 +293,12 @@
 			isa = PBXGroup;
 			children = (
 				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
+				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
 				96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */,
 				4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */,
 				967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */,
 				4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */,
+				4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -297,6 +313,8 @@
 				96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */,
 				96CB14ED1CE46047006B5DD1 /* Media.swift */,
 				96BAECF61CE21410008B3B70 /* Post.swift */,
+				4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */,
+				4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -585,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE3F3C01D16E81900D9D5A2 /* DiscountFilter.swift in Sources */,
 				4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */,
 				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
@@ -595,6 +614,7 @@
 				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,
 				964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */,
 				4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */,
+				4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
@@ -603,10 +623,14 @@
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
 				4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */,
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
+				4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */,
+				4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
 				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
 				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
 				967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */,
+				4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */,
+				4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */,
 				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
 				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
