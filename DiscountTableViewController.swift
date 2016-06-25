@@ -9,17 +9,21 @@
 import UIKit
 import CoreData
 
-class DiscountTableViewController: UITableViewController {
+class DiscountTableViewController: UITableViewController{
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
    // var discountList=[(Discount,UIImage)]()
     var discounts:[Discount] = []
+    var filteredDiscounts:[Discount] = []
     
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
     var isLoading = false
     let pendingOperations = PendingOperations()
     var alert = Alert()
+    
+    var categoryInt:String?
+    var filtered = false
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
@@ -27,6 +31,7 @@ class DiscountTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print ("jason is a d")
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
@@ -43,15 +48,25 @@ class DiscountTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        if self.filtered == false{
         let discountUpdateUtility = PostsUpdateUtility()
         discounts = discountUpdateUtility.fetchDiscounts()
         
         self.updateDiscounts()
         
-        
+        print ("jason wu-----------------------------------")
         self.tableView.reloadData()
+        }
+        else{
+            self.filtered = false
+            self.filterCategory()
+        }
       
-    
+//        if (self.categoryInt != nil){
+//            self.filterCategory()
+//            
+//        }
         
     }
 
@@ -69,6 +84,7 @@ class DiscountTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (self.categoryInt == "unlockFilter"){
         if (indexPath.row == discounts.count-1) && !isLoading{
             isLoading = true
             self.LoadMoreActivityIndicator.hidden = false
@@ -76,6 +92,10 @@ class DiscountTableViewController: UITableViewController {
             self.loadMorePostsLabel.text = "加载中……"
             let oldestPost = discounts[indexPath.row]
             loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+        }
+        }
+        else{
+         //   self.categoryInt = "unlockFilter"
         }
     }
     
@@ -179,6 +199,7 @@ class DiscountTableViewController: UITableViewController {
     func updateDiscounts(){
         
         if reachabilityManager.isReachable(){
+            print ("hello Please ")
             print("is Reachable")
             let postUpdateUtility = PostsUpdateUtility()
             postUpdateUtility.updateDiscounts {
@@ -284,6 +305,95 @@ class DiscountTableViewController: UITableViewController {
             postWebVeiwController.webRequestURLString = discounts[path.row].link
             postWebVeiwController.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
+    }
+    
+    func filterCategory() {
+        self.discounts.removeAll()
+        let endpointURL = "http://melmel.com.au/wp-json/wp/v2/discounts?filter[posts_per_page]=-1&item_category="
+        
+        self.updateFilterDiscounts(endpointURL){
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+                print ("KAIP \(self.discounts.count)")
+            })
+        }
+    }
+    
+    func getPostsFromAPI (endURL:String,postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
+        
+        let session = NSURLSession.sharedSession()
+        let postUrl = endURL + self.categoryInt!
+        print (postUrl)
+        let postFinalURL = NSURL(string: postUrl)!
+        
+        
+        
+        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+            
+            if let responseData = data {
+                
+                do{
+                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+                    if let postsArray = json as? NSArray{
+                        postsAcquired(postsArray:postsArray,success:true)
+                    }
+                    else {
+                        postsAcquired(postsArray:nil,success:false)
+                    }
+                } catch {
+                    postsAcquired(postsArray:nil,success:false)
+                    print("could not serialize!")
+                }
+            }
+            }.resume()
+        
+        
+    }
+    
+    func updateFilterDiscounts(endURL:String, completionHandler:() -> Void){
+        
+        
+        self.getPostsFromAPI(endURL) { (postsArray, success) in
+            if success {
+                
+                
+                // create dispatch group
+                
+                for postEntry in postsArray! {
+                    let post = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    //id
+                    post.id = postEntry["id"] as! Int
+                    
+                    //Date
+                    let dateString = postEntry["date"] as! String
+                    let dateFormatter = DateFormatter()
+                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
+                    //Title
+                    post.title = postEntry["title"] as! String
+                    
+                    //Link
+                    post.link = postEntry["link"] as! String
+                    
+                    //Media
+                    
+                    post.featured_image_downloaded = false
+                    
+                    if postEntry["featured_image_url"] != nil {
+                        post.featured_image_url = postEntry["thumbnail_url"] as? String
+                    }
+                    
+                    
+                    self.discounts.append(post)
+                    
+                }//End postsArray Loop
+                completionHandler()
+                
+            }
+            else {}
+        } // end getPostsFromAPI
+        
+        
     }
  
 

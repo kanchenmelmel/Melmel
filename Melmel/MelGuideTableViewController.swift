@@ -22,11 +22,14 @@ class MelGuideTableViewController: UITableViewController {
     
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
     var alert = Alert()
+    
+    
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,7 +51,6 @@ class MelGuideTableViewController: UITableViewController {
         // Initialize Posts
         let coreDataUtility = CoreDataUtility()
         print("Earliest Date: \(coreDataUtility.getEarliestDate(EntityType.Post))")
-        
         
         
         // Initialize the refresh control
@@ -219,7 +221,6 @@ class MelGuideTableViewController: UITableViewController {
     
     
     func updatePosts(){
-        
         if reachabilityManager.isReachable(){
             print("is Reachable")
             let postUpdateUtility = PostsUpdateUtility()

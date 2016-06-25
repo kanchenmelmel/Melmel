@@ -91,7 +91,7 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     discount.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    discount.title = discountEntry["title"] as! String
+                    discount.title = discountEntry["title"] as? String
                     
                     //Link
                     discount.link = discountEntry["link"] as! String

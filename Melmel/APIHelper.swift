@@ -23,7 +23,7 @@ class APIHelper {
     let discountLastUpdateTimeKey = "discountLastUpdateTime"
     
     let session = NSURLSession.sharedSession()
-    
+  
     
     
     
