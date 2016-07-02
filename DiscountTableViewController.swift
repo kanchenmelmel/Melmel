@@ -55,7 +55,7 @@ class DiscountTableViewController: UITableViewController{
         
         self.updateDiscounts()
         
-        print ("jason wu-----------------------------------")
+        self.categoryInt = "canLoadMore"
         self.tableView.reloadData()
         }
         else{
@@ -84,7 +84,7 @@ class DiscountTableViewController: UITableViewController{
     
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (self.categoryInt == "unlockFilter"){
+        if (self.categoryInt == "canLoadMore"){
         if (indexPath.row == discounts.count-1) && !isLoading{
             isLoading = true
             self.LoadMoreActivityIndicator.hidden = false
@@ -94,9 +94,9 @@ class DiscountTableViewController: UITableViewController{
             loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
         }
         }
-        else{
-         //   self.categoryInt = "unlockFilter"
-        }
+//        else{
+//         //   self.categoryInt = "unlockFilter"
+//        }
     }
     
     func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
