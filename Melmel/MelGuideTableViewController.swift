@@ -23,7 +23,8 @@ class MelGuideTableViewController: UITableViewController {
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
     var alert = Alert()
     
-    
+    var numOfPosts:Int?
+    var reachToTheEnd = false
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
@@ -127,11 +128,15 @@ class MelGuideTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row == posts.count-1) && !isLoading{
             isLoading = true
-            self.LoadMoreActivityIndicator.hidden = false
-            self.LoadMoreActivityIndicator.startAnimating()
-            self.loadMorePostsLabel.text = "加载中……"
-            let oldestPost = posts[indexPath.row]
+            if reachToTheEnd == false{
+                self.LoadMoreActivityIndicator.hidden = false
+                self.LoadMoreActivityIndicator.startAnimating()
+            
+                self.loadMorePostsLabel.text = "加载中……"
+                let oldestPost = posts[indexPath.row]
+                self.numOfPosts = self.posts.count
             loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+            }
         }
     }
     /*
@@ -256,6 +261,11 @@ class MelGuideTableViewController: UITableViewController {
                     self.isLoading = false
                     self.LoadMoreActivityIndicator.stopAnimating()
                     self.LoadMoreActivityIndicator.hidden = true
+                    if self.numOfPosts == self.posts.count{
+                        self.reachToTheEnd = true
+                        self.loadMorePostsLabel.hidden = true
+                        self.LoadMoreActivityIndicator.hidden = true
+                    }
                 })
             }
         } else {

@@ -24,14 +24,15 @@ class DiscountTableViewController: UITableViewController{
     
     var categoryInt:String?
     var filtered = false
+    
+    var numOfDiscounts:Int?
+    var reachToTheEnd = false
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print ("jason is a d")
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
@@ -56,6 +57,10 @@ class DiscountTableViewController: UITableViewController{
         self.updateDiscounts()
         
         self.categoryInt = "canLoadMore"
+        if self.reachToTheEnd == false{
+            self.loadMorePostsLabel.hidden = false
+            self.LoadMoreActivityIndicator.hidden = false
+        }
         self.tableView.reloadData()
         }
         else{
@@ -63,10 +68,6 @@ class DiscountTableViewController: UITableViewController{
             self.filterCategory()
         }
       
-//        if (self.categoryInt != nil){
-//            self.filterCategory()
-//            
-//        }
         
     }
 
@@ -87,15 +88,19 @@ class DiscountTableViewController: UITableViewController{
         if (self.categoryInt == "canLoadMore"){
         if (indexPath.row == discounts.count-1) && !isLoading{
             isLoading = true
-            self.LoadMoreActivityIndicator.hidden = false
-            self.LoadMoreActivityIndicator.startAnimating()
-            self.loadMorePostsLabel.text = "加载中……"
-            let oldestPost = discounts[indexPath.row]
-            loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+            if reachToTheEnd == false{
+                self.LoadMoreActivityIndicator.hidden = false
+                self.LoadMoreActivityIndicator.startAnimating()
+            
+                self.loadMorePostsLabel.text = "加载中……"
+                let oldestPost = discounts[indexPath.row]
+                self.numOfDiscounts = self.discounts.count
+                loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+            }
         }
         }
 //        else{
-//         //   self.categoryInt = "unlockFilter"
+//         //   self.categoryInt = "unlockFilter" 1
 //        }
     }
     
@@ -111,6 +116,12 @@ class DiscountTableViewController: UITableViewController{
                     self.isLoading = false
                     self.LoadMoreActivityIndicator.stopAnimating()
                     self.LoadMoreActivityIndicator.hidden = true
+                    
+                    if self.numOfDiscounts == self.discounts.count{
+                        self.reachToTheEnd = true
+                        self.loadMorePostsLabel.hidden = true
+                        self.LoadMoreActivityIndicator.hidden = true
+                    }
                 })
             }
         } else {
@@ -315,7 +326,8 @@ class DiscountTableViewController: UITableViewController{
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
-                print ("KAIP \(self.discounts.count)")
+                self.loadMorePostsLabel.hidden = true
+                self.LoadMoreActivityIndicator.hidden = true
             })
         }
     }
