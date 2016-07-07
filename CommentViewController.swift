@@ -14,6 +14,8 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var mobileInput: UITextField!
     @IBOutlet weak var contentInput: UITextView!
     
+    
+   
     var postid:String?
     
     override func viewDidLoad() {
@@ -24,7 +26,7 @@ class CommentViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func submitComment(sender: AnyObject) {
+    @IBAction func submitCom(sender: AnyObject) {
         
         let endpointURL = "http://melmel.com.au/wp-json/wp/v2/comments?"
         let post = "post=\(self.postid!)&"
