@@ -17,7 +17,7 @@ class ShowCommentTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.automaticallyAdjustsScrollViewInsets = false
+        
         
         
         self.getComments()
@@ -116,6 +116,11 @@ class ShowCommentTableViewController: UITableViewController {
         
       //  cell.avatarImage.layer.cornerRadius = cell.avatarImage.frame.size.width / 2
         
+        
+        
+        
+        
+        
         cell.avatarImage.layer.cornerRadius = 25
         cell.avatarImage.clipsToBounds = true
         
@@ -123,6 +128,7 @@ class ShowCommentTableViewController: UITableViewController {
         cell.nameLabel.text = comment[0]
         cell.dateLabel.text = comment[1]
         cell.contentLabel.text = comment[2]
+       
         
         let gravatarURL = comment[3]
         let imageData = NSData(contentsOfURL:NSURL(string:gravatarURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
