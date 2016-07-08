@@ -18,6 +18,15 @@ class DiscountAnnotation: FBAnnotation {
     init(discount:Discount){
         super.init()
         self.discount = discount
+        
+        guard let _ = discount.latitude as? Double
+            else {
+                return
+        }
+        guard let _ = discount.longtitude as? Double
+            else{
+                return
+        }
         self.coordinate = CLLocation(latitude: discount.latitude as! Double, longitude: discount.longtitude as! Double).coordinate
         if discount.title != nil {
             self.title = discount.title!

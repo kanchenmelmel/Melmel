@@ -39,17 +39,22 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         mapView.addAnnotation(melmelAnnotation)
         locationAuthStatus()
         // load discounts from core data
-        loadDiscountFromCoreData()
-        print("Discounts:\(discounts.count)")
-        for discount in discounts {
-            // Add Annotations
-            let annotation = createAnnotationObject(discount)
-            //mapView.addAnnotation(annotation)
-            annotations.append(annotation)
-        }
-        print("annotations:\(annotations.count)")
-        clusteringManager.addAnnotations(annotations)
-        self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
+        //loadDiscountFromCoreData()
+        let postUpdateUtility = PostsUpdateUtility()
+        postUpdateUtility.getAllDiscounts({ (discounts) in
+            print("Discounts:\(discounts.count)")
+            for discount in discounts {
+                // Add Annotations
+                let annotation = self.createAnnotationObject(discount)
+                //mapView.addAnnotation(annotation)
+                self.annotations.append(annotation)
+            }
+            print("annotations:\(self.annotations.count)")
+            self.clusteringManager.addAnnotations(self.annotations)
+            self.clusteringManager.displayAnnotations(self.annotations, onMapView: self.mapView)
+        })
+        
+        
         
     }
     

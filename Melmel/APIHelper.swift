@@ -8,11 +8,13 @@
 
 import Foundation
 
-enum PostType {
-    case Post,Discount
+enum PostType:String {
+    case Post="posts"
+    case Discount="discounts"
 }
 
 class APIHelper {
+    let melmelRESTURL = "http://www.melmel.com.au/wp-json/wp/v2/"
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"
     let discountUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/discounts/"
     let mediaUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/media/"
@@ -196,6 +198,59 @@ class APIHelper {
             }
         }.resume()
         
+    }
+    
+    
+    
+    
+    // General Purpose get Posts
+    func getPostsFromAPI(postType:PostType,params:[(String,String)],completionHandler:(postsArray: NSArray?, success: Bool) -> Void ) {
+        
+        let session = NSURLSession.sharedSession()
+        let url = buildURLComponent(postType, params: params)
+        
+        
+        session.dataTaskWithURL(url.URL!){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+            
+            if let responseData = data {
+                //let date = NSDate()
+                //NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
+                
+                do{
+                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+                    if let postsArray = json as? NSArray{
+                        completionHandler(postsArray:postsArray,success:true)
+                    }
+                    else {
+                        completionHandler(postsArray:nil,success:false)
+                    }
+                } catch {
+                    completionHandler(postsArray:nil,success:false)
+                    print("could not serialize!")
+                }
+            }
+            }.resume()
+    }
+    
+    
+    /*
+     Build URL using NSURLComponents
+     */
+    func buildURLComponent(postType:PostType,params:[(String,String)]) -> NSURLComponents{
+        let url = NSURLComponents()
+        url.scheme = "http"
+        url.host = "www.melmel.com.au"
+        
+        url.path = "/wp-json/wp/v2/\(postType.rawValue)"
+        var queryItems = [NSURLQueryItem]()
+        
+        for param in params {
+            queryItems.append(NSURLQueryItem(name: param.0, value: param.1))
+        }
+        
+        url.queryItems = queryItems
+        print(url.string!)
+        return url
     }
 }
     

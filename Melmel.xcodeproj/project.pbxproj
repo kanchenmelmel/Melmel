@@ -29,6 +29,7 @@
 		962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962124971CE03E8000DB4A37 /* FileDownloader.swift */; };
 		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
+		9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
 		964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C891CA4CF7B00C69B71 /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		962124971CE03E8000DB4A37 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = Melmel/FileDownloader.swift; sourceTree = "<group>"; };
 		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
+		9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				9628C36F1CFD4A5A00666F69 /* Reachability.swift */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
 				96CF58191D06A42400DD4D53 /* GlobalVariables.swift */,
+				9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
+				9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */,
 				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
 				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
 			);
