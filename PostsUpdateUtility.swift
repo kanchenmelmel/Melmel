@@ -344,6 +344,72 @@ class PostsUpdateUtility {
         }
     }
     
-    
+    func searchDiscountByKeyWords (keyWords:String, completionHandler:(discounts:[Discount]) -> Void) {
+        var discounts = [Discount]()
+        let apiHelper = APIHelper()
+        
+        var params = [(String,String)]()
+        params.append(("search",keyWords))
+        params.append(("filter[posts_per_page]","-1"))
+        apiHelper.getPostsFromAPI(.Discount, params: params) { (postsArray, success) in
+            if success {
+                
+                
+                // create dispatch group
+                
+                for postEntry in postsArray! {
+                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    //id
+                    discount.id = postEntry["id"] as! Int
+                    
+                    //Date
+                    let dateString = postEntry["date"] as! String
+                    let dateFormatter = DateFormatter()
+                    discount.date = dateFormatter.formatDateStringToMelTime(dateString)
+                    //Title
+                    discount.title = postEntry["title"] as! String
+                    
+                    //Link
+                    discount.link = postEntry["link"] as! String
+                    
+                    //Media
+                    
+                    discount.featured_image_downloaded = false
+                    
+                    //Address and coordinates
+                    discount.address = postEntry["address"] as! String
+                    
+                    
+                    let latitudeString = postEntry["latitude"] as! String
+                    let longitudeString = postEntry["longtitude"] as! String
+                    
+                    discount.latitude = Double(latitudeString)
+                    //print(discount.latitude)
+                    
+                    discount.longtitude = Double(longitudeString)
+                    
+                    if postEntry["featured_image_url"] != nil {
+                        discount.featured_image_url = postEntry["thumbnail_url"] as? String
+                    }
+                    
+                    
+                    discounts.append(discount)
+                    
+                }//End postsArray Loop
+                
+                
+                
+                
+                
+                print(discounts.count)
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(discounts: discounts)
+                })
+                
+            }
+            else {}
+            
+        }
+    }
     
 }

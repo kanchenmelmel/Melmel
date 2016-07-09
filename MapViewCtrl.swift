@@ -11,19 +11,20 @@ import MapKit
 import CoreLocation
 import FBAnnotationClusteringSwift
 
-class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
+class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let regionRadius: CLLocationDistance = 1000
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
     
-    var annotations = [DiscountAnnotation]()
     
-    let clusteringManager = FBClusteringManager()
+    
+    var clusteringManager = FBClusteringManager()
     
     var userLocation:CLLocation?
     
@@ -31,6 +32,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate=self
+        searchBar.delegate = self
+        
         
         let melmelAnnotation = MKPointAnnotation()
         melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
@@ -42,16 +45,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
         //loadDiscountFromCoreData()
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.getAllDiscounts({ (discounts) in
-            print("Discounts:\(discounts.count)")
-            for discount in discounts {
-                // Add Annotations
-                let annotation = self.createAnnotationObject(discount)
-                //mapView.addAnnotation(annotation)
-                self.annotations.append(annotation)
-            }
-            print("annotations:\(self.annotations.count)")
-            self.clusteringManager.addAnnotations(self.annotations)
-            self.clusteringManager.displayAnnotations(self.annotations, onMapView: self.mapView)
+            self.addAnnotationViewsForDiscounts(discounts)
         })
         
         
@@ -170,6 +164,34 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate 
             destinationCtrl.webRequestURLString = annotation.discount!.link!
             destinationCtrl.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        let postsUpdateUtility = PostsUpdateUtility()
+        let keyWords = searchBar.text
+        postsUpdateUtility.searchDiscountByKeyWords(keyWords!) { (discounts) in
+            self.addAnnotationViewsForDiscounts(discounts)
+        }
+        searchBar.resignFirstResponder()
+    }
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func addAnnotationViewsForDiscounts(discounts:[Discount]){
+        print("Discounts:\(discounts.count)")
+        var annotations = [DiscountAnnotation]()
+        clusteringManager = FBClusteringManager()
+        
+        for discount in discounts {
+            // Add Annotations
+            let annotation = self.createAnnotationObject(discount)
+            //mapView.addAnnotation(annotation)
+            annotations.append(annotation)
+        }
+        print("annotations:\(annotations.count)")
+        self.clusteringManager.addAnnotations(annotations)
+        self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
     }
     
 
