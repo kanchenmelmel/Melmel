@@ -12,7 +12,7 @@
 import UIKit
 import CoreData
 
-class MelGuideTableViewController: UITableViewController {
+class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
