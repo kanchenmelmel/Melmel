@@ -194,17 +194,18 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2m8-hL-eTO">
                                             <rect key="frame" x="24" y="6" width="50" height="50"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="332" translatesAutoresizingMaskIntoConstraints="NO" id="4YA-3C-JmX">
-                                            <rect key="frame" x="98" y="0.0" width="494" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YA-3C-JmX">
+                                            <rect key="frame" x="98" y="59" width="332" height="92"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="4YA-3C-JmX" firstAttribute="top" secondItem="kiG-dQ-3hD" secondAttribute="bottom" constant="8" id="0Dh-cz-Ezo"/>
-                                        <constraint firstItem="4YA-3C-JmX" firstAttribute="leading" secondItem="pvY-Dw-7L8" secondAttribute="leadingMargin" constant="90" id="0WW-R5-bJ1"/>
-                                        <constraint firstItem="4YA-3C-JmX" firstAttribute="trailing" secondItem="pvY-Dw-7L8" secondAttribute="trailingMargin" id="wvf-Vt-uMe"/>
+                                        <constraint firstItem="4YA-3C-JmX" firstAttribute="top" secondItem="kiG-dQ-3hD" secondAttribute="bottom" constant="8" id="DaO-VX-Ton"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4YA-3C-JmX" secondAttribute="bottom" id="f8r-9S-b2a"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="4YA-3C-JmX" secondAttribute="trailing" constant="162" id="ld1-S2-Bdp"/>
+                                        <constraint firstItem="4YA-3C-JmX" firstAttribute="leading" secondItem="pvY-Dw-7L8" secondAttribute="leadingMargin" constant="90" id="nrA-e9-zF3"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
