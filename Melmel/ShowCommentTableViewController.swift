@@ -12,9 +12,17 @@ class ShowCommentTableViewController: UITableViewController {
     
     var postid:String?
     var showcommentArray = Array<Array<String>>()
+    var featuredImage : UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        
         self.getComments()
+        
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -49,9 +57,13 @@ class ShowCommentTableViewController: UITableViewController {
                             
                             let content = comment["content_raw"] as! String
                             
+                            let avatarArray = comment["author_avatar_urls"] as! Dictionary<String,String>
+                            let avatar = avatarArray["96"]!
+                            
                             tmp.append(name)
                             tmp.append(date)
                             tmp.append(content)
+                            tmp.append(avatar)
                             
                             self.showcommentArray.append(tmp)
 
@@ -98,10 +110,19 @@ class ShowCommentTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("showcommentIdentifier", forIndexPath: indexPath) as! CommentTableViewCell
         
+        
+        cell.avatarImage.layer.cornerRadius = 25
+        cell.avatarImage.clipsToBounds = true
+        
         let comment = self.showcommentArray[indexPath.row]
         cell.nameLabel.text = comment[0]
         cell.dateLabel.text = comment[1]
         cell.contentLabel.text = comment[2]
+        
+        let gravatarURL = comment[3]
+        let imageData = NSData(contentsOfURL:NSURL(string:gravatarURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        self.featuredImage = UIImage(data: imageData!)
+        cell.avatarImage.image = self.featuredImage
 
         return cell
     }
