@@ -9,12 +9,12 @@
         <scene sceneID="HjM-Qg-jpC">
             <objects>
                 <tableViewController id="iu6-FI-tw7" customClass="MelGuideTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" id="OBs-Po-RvP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="263" sectionHeaderHeight="28" sectionFooterHeight="28" id="OBs-Po-RvP">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="IRr-tl-60M">
-                            <rect key="frame" x="0.0" y="144" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="291" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YWp-QC-OZV">
@@ -42,45 +42,29 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="melGuideTableViewCell" rowHeight="116" id="2ns-V4-LNU" customClass="MelGuideTableViewCell" customModule="Melmel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="116"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="melGuideTableViewCell" rowHeight="263" id="2ns-V4-LNU" customClass="MelGuideTableViewCell" customModule="Melmel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="263"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="115.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="262.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
-                                            <rect key="frame" x="8" y="8" width="120" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="9fT-6C-MwD"/>
-                                                <constraint firstAttribute="width" constant="120" id="rrV-Ux-djB"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
+                                            <rect key="frame" x="8" y="8" width="584" height="246.5"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-7f-KVl">
-                                            <rect key="frame" x="440" y="94" width="152" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
+                                            <rect key="frame" x="8" y="143" width="584" height="43"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-7f-KVl">
+                                            <rect key="frame" x="422" y="219" width="152" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8o-bS-raW">
-                                            <rect key="frame" x="136" y="8" width="456" height="43"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="AWf-g5-1J8" secondAttribute="bottom" id="8AS-aD-LxX"/>
-                                        <constraint firstAttribute="trailing" secondItem="xdw-7f-KVl" secondAttribute="trailing" constant="8" id="92X-L3-05o"/>
-                                        <constraint firstItem="R8o-bS-raW" firstAttribute="leading" secondItem="AWf-g5-1J8" secondAttribute="trailing" constant="8" id="BRr-F3-L5e"/>
-                                        <constraint firstItem="R8o-bS-raW" firstAttribute="trailing" secondItem="sFU-gX-LbZ" secondAttribute="trailingMargin" id="D5G-n9-mPr"/>
-                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="leading" secondItem="sFU-gX-LbZ" secondAttribute="leadingMargin" id="ELr-3x-nuh"/>
-                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="leading" secondItem="sFU-gX-LbZ" secondAttribute="leadingMargin" id="EsL-un-8Gv"/>
-                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="topMargin" id="biN-S9-7IL"/>
-                                        <constraint firstItem="AWf-g5-1J8" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="topMargin" id="cpn-sU-dxW"/>
-                                        <constraint firstItem="R8o-bS-raW" firstAttribute="top" secondItem="sFU-gX-LbZ" secondAttribute="topMargin" id="uXE-OK-2e8"/>
-                                        <constraint firstAttribute="bottom" secondItem="xdw-7f-KVl" secondAttribute="bottom" constant="8" id="ulY-Kn-hPg"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="xdw-7f-KVl" id="oox-vu-1qg"/>
@@ -876,7 +860,7 @@
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5ST-g5-zK5"/>
+        <segue reference="vYJ-nB-JmP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>
