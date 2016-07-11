@@ -81,8 +81,16 @@ class DiscountImageDownloader:NSOperation {
         }
         
         if imageData?.length != 0 {
-            self.discount.featuredImage = UIImage(data: imageData!)
-            self.discount.featuredImageState = .Downloaded
+            let image = UIImage(data: imageData!)
+            self.discount.featuredImage = image
+            
+            let saver = FileDownloader()
+            saver.saveImageFile(image!, postId: discount.id! as Int, fileName: FEATURED_IMAGE_NAME)
+            discount.featured_image_downloaded = true
+            try! discount.managedObjectContext?.save()
+            
+        //    self.discount.featuredImage = UIImage(data: imageData!)
+        //    self.discount.featuredImageState = .Downloaded
             
         }
             
