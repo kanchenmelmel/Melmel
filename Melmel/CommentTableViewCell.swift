@@ -13,6 +13,7 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var avatarImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
