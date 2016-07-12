@@ -28,6 +28,8 @@
 		961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */; };
 		962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962124971CE03E8000DB4A37 /* FileDownloader.swift */; };
 		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
+		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
+		9628EA3F1D34C260009D2335 /* CellTopMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3E1D34C260009D2335 /* CellTopMaskView.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
 		9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
@@ -105,6 +107,8 @@
 		961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewCell.swift; sourceTree = "<group>"; };
 		962124971CE03E8000DB4A37 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = Melmel/FileDownloader.swift; sourceTree = "<group>"; };
 		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
+		9628EA3E1D34C260009D2335 /* CellTopMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTopMaskView.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
 		9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +306,8 @@
 				967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */,
 				4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */,
 				4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */,
+				9628EA3C1D348B74009D2335 /* CellMaskView.swift */,
+				9628EA3E1D34C260009D2335 /* CellTopMaskView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 			files = (
 				4DE3F3C01D16E81900D9D5A2 /* DiscountFilter.swift in Sources */,
 				4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */,
+				9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */,
 				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
 				96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */,
@@ -620,6 +627,7 @@
 				4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
+				9628EA3F1D34C260009D2335 /* CellTopMaskView.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
@@ -787,7 +795,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -805,7 +813,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
 				PRODUCT_NAME = "$(TARGET_NAME)";

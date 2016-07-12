@@ -8,17 +8,20 @@
 
 import UIKit
 
-class InputSearchViewController: UIViewController {
-
-    @IBOutlet weak var inputText: UITextField!
+class InputSearchViewController: UIViewController,UISearchBarDelegate {
     
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        searchBar.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside))
+        self.view.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,17 +29,27 @@ class InputSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.performSegueWithIdentifier("searchSegue", sender: self)
+    }
+    
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "searchSegue" {
             let DC = segue.destinationViewController as! SearchTableViewController
             
-            DC.searchText = self.inputText.text!
+            DC.searchText = self.searchBar.text!
             
             
         }
     }
     
-
+    func tapOutside(){
+        searchBar.resignFirstResponder()
+    }
+    
+    
     /*
     // MARK: - Navigation
 
