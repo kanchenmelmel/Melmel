@@ -20,6 +20,12 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     let pendingOperations = PendingOperations()
     var isLoading = false
     
+    // Indicator views and flags
+    var refreshLoadingView:UIView?
+    var spinner:UIImageView?
+    var isRefreshIconsOverlap = false
+    var isRefreshAnimating = false
+    
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
     var alert = Alert()
     
@@ -60,6 +66,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         self.refreshControl?.tintColor = UIColor.whiteColor()
         self.refreshControl?.addTarget(self, action: #selector(self.updatePosts), forControlEvents: .ValueChanged)
         self.refreshControl?.beginRefreshing()
+
         
         
         
@@ -293,4 +300,30 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         })
     }
     
+    func setupRefreshControl(){
+        self.refreshControl = UIRefreshControl()
+        
+        //setup the loading view
+        self.refreshLoadingView = UIView(frame: self.refreshControl!.frame)
+        self.refreshLoadingView?.backgroundColor = UIColor.clearColor()
+        self.spinner = UIImageView(image: UIImage(named: "spinner1"))
+        
+        //add spinnder to refresh loading view
+        self.refreshLoadingView?.addSubview(self.spinner!)
+        
+        self.refreshLoadingView?.clipsToBounds = true
+        
+        //hide original spinner
+        self.refreshControl!.tintColor = UIColor.clearColor()
+        
+        //Init flags
+        self.isRefreshIconsOverlap = false
+        self.isRefreshAnimating = false
+        
+        // When activated, invoke our refresh function
+        self.refreshControl?.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+        
+    }
+    
+    func refresh(){}
 }
