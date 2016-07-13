@@ -113,6 +113,8 @@ class ShowCommentTableViewController: UITableViewController {
         
         cell.avatarImage.layer.cornerRadius = 25
         cell.avatarImage.clipsToBounds = true
+        cell.layer.borderWidth = 2.5
+        cell.layer.borderColor = UIColor.grayColor().CGColor
         
         let comment = self.showcommentArray[indexPath.row]
         cell.nameLabel.text = comment[0]
