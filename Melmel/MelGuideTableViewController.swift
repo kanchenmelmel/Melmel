@@ -98,8 +98,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         cell.titleLabel.text = post.title!
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .LongStyle
-        cell.dateLabel.text = dateFormatter.stringFromDate(post.date!)
+        dateFormatter.dateStyle = .MediumStyle
+        cell.dateLabel.text = "\(dateFormatter.stringFromDate(post.date!).uppercaseString)" + " "
         print(post.featured_image_downloaded)
         
         

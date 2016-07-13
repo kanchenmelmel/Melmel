@@ -29,7 +29,6 @@
 		962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962124971CE03E8000DB4A37 /* FileDownloader.swift */; };
 		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
 		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
-		9628EA3F1D34C260009D2335 /* CellTopMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3E1D34C260009D2335 /* CellTopMaskView.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
 		9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
@@ -56,6 +55,7 @@
 		96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */; };
 		96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */; };
 		96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */; };
+		96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8E9011D35DCEF0016E5AF /* DateLabel.swift */; };
 		96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */; };
 		96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB14ED1CE46047006B5DD1 /* Media.swift */; };
 		96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF58191D06A42400DD4D53 /* GlobalVariables.swift */; };
@@ -108,7 +108,6 @@
 		962124971CE03E8000DB4A37 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = Melmel/FileDownloader.swift; sourceTree = "<group>"; };
 		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
-		9628EA3E1D34C260009D2335 /* CellTopMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTopMaskView.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
 		9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +140,7 @@
 		96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
 		96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "woolworths-fresh-produce-section-instore.jpg"; path = "Melmel/woolworths-fresh-produce-section-instore.jpg"; sourceTree = "<group>"; };
 		96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewCell.swift; path = Melmel/MelGuideTableViewCell.swift; sourceTree = "<group>"; };
+		96C8E9011D35DCEF0016E5AF /* DateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
 		96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96CB14ED1CE46047006B5DD1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		96CF58191D06A42400DD4D53 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 				4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */,
 				4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */,
 				9628EA3C1D348B74009D2335 /* CellMaskView.swift */,
-				9628EA3E1D34C260009D2335 /* CellTopMaskView.swift */,
+				96C8E9011D35DCEF0016E5AF /* DateLabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -627,7 +627,6 @@
 				4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
-				9628EA3F1D34C260009D2335 /* CellTopMaskView.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
@@ -639,6 +638,7 @@
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
 				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
 				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
+				96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */,
 				967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */,
 				4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */,
 				4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */,
