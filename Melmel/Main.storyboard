@@ -269,50 +269,44 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGL-KI-eFh">
-                                <rect key="frame" x="20" y="28" width="177" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQq-qe-lhx">
-                                <rect key="frame" x="20" y="73" width="89" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61O-zH-zuT">
-                                <rect key="frame" x="20" y="126" width="177" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sNx-Hf-xPO">
-                                <rect key="frame" x="20" y="155" width="323" height="172"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NAME:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-zf-dNB">
+                                <rect key="frame" x="20" y="86" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia8-Fw-d5F">
+                                <rect key="frame" x="0.0" y="20" width="94" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Submit" backgroundImage="NavBarBackButton">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitComment:" destination="arV-f0-AC6" eventType="touchUpInside" id="9tj-MF-1fz"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="COMMENT:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sNx-Hf-xPO">
+                                <rect key="frame" x="20" y="170" width="560" height="172"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-Pj-e7f">
-                                <rect key="frame" x="148" y="69" width="195" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-zf-dNB">
-                                <rect key="frame" x="148" y="28" width="195" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PHONE:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-Pj-e7f">
+                                <rect key="frame" x="20" y="128" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oXF-zf-dNB" firstAttribute="trailing" secondItem="uGT-dX-EZH" secondAttribute="trailingMargin" id="BSw-vL-MTa"/>
+                            <constraint firstItem="sNx-Hf-xPO" firstAttribute="trailing" secondItem="uGT-dX-EZH" secondAttribute="trailingMargin" id="N5m-4I-qcQ"/>
+                            <constraint firstItem="sNx-Hf-xPO" firstAttribute="leading" secondItem="uGT-dX-EZH" secondAttribute="leadingMargin" id="d4I-hL-MCv"/>
+                            <constraint firstItem="hF0-Pj-e7f" firstAttribute="trailing" secondItem="uGT-dX-EZH" secondAttribute="trailingMargin" id="ghL-Vd-xBs"/>
+                            <constraint firstItem="oXF-zf-dNB" firstAttribute="leading" secondItem="uGT-dX-EZH" secondAttribute="leadingMargin" id="iyh-1T-kjL"/>
+                            <constraint firstItem="hF0-Pj-e7f" firstAttribute="leading" secondItem="uGT-dX-EZH" secondAttribute="leadingMargin" id="tyn-K9-7R1"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Comment" id="cpd-ad-JeD">
-                        <barButtonItem key="rightBarButtonItem" title="发布" id="xYc-Dm-F0r">
-                            <connections>
-                                <action selector="submitComment:" destination="arV-f0-AC6" id="9Qg-xq-Ezl"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Comment" id="cpd-ad-JeD"/>
                     <connections>
                         <outlet property="contentInput" destination="sNx-Hf-xPO" id="Q5Q-3Q-V1P"/>
                         <outlet property="mobileInput" destination="hF0-Pj-e7f" id="5Wv-IH-7aN"/>
