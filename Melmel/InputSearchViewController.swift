@@ -16,6 +16,10 @@ class InputSearchViewController: UIViewController,UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+//        
+//        self.navigationController?.navigationBar.barTintColor=UIColor.redColor();
 
         // Do any additional setup after loading the view.
         
