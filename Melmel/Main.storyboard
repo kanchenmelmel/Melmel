@@ -690,7 +690,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="L52-T3-T9u" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target">
                         <barButtonItem key="leftBarButtonItem" title="类别" id="nVY-zx-Mow">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="yqo-i4-g2l" kind="show" id="jKQ-kZ-6hV"/>
                             </connections>
