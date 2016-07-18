@@ -98,6 +98,7 @@ class SearchTableViewController: UITableViewController {
         if segue.identifier == "searchLinkSegue" {
             let postWebVeiwController = segue.destinationViewController as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
+            print (posts[path.row].link)
             postWebVeiwController.webRequestURLString = posts[path.row].link
             postWebVeiwController.postid = String(posts[path.row].id!)
         }
