@@ -31,6 +31,10 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
