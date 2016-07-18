@@ -115,7 +115,9 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                     
                 }
                 if post.featuredImageState == .New {
-                    startOperationsForPhoto(post, indexPath: indexPath)
+                    if (tableView.dragging && !tableView.decelerating){
+                        startOperationsForPhoto(post, indexPath: indexPath)
+                    }
                 }
                 
             }
@@ -139,6 +141,60 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             }
         }
     }
+    
+    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        suspendAllOperations()
+    }
+    
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate{
+            loadImageForOnScreenCells()
+            resumeAllOperations()
+        }
+    }
+    
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        loadImageForOnScreenCells()
+        resumeAllOperations()
+    }
+    
+    func suspendAllOperations(){
+        pendingOperations.downloadQueue.suspended = true
+    }
+    
+    func resumeAllOperations(){
+        pendingOperations.downloadQueue.suspended = false
+    }
+    
+    func loadImageForOnScreenCells(){
+        if let pathsArray = tableView.indexPathsForVisibleRows{
+            
+            var allPendingOperations = Set(pendingOperations.downloadsInProgress.keys)
+            
+            var toBeCancelled = allPendingOperations
+            let visiblePaths = Set(pathsArray as! [NSIndexPath])
+            toBeCancelled.subtractInPlace(visiblePaths)
+            
+            var toBeStarted = visiblePaths
+            toBeStarted.subtractInPlace(allPendingOperations)
+            
+            for indexPath in toBeCancelled{
+                if let pendingDownload = pendingOperations.downloadsInProgress[indexPath]{
+                    pendingDownload.cancel()
+                }
+                pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                
+            }
+            
+            for indexPath in toBeStarted{
+                let indexPath = indexPath as NSIndexPath
+                let recordToProcess = self.posts[indexPath.row]
+                startOperationsForPhoto(recordToProcess, indexPath: indexPath)
+            }
+            
+        }
+    }
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

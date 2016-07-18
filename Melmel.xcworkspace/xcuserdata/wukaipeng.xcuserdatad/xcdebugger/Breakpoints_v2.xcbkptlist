@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DiscountTableViewController.swift"
-            timestampString = "489243904.874286"
+            timestampString = "490527614.687601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "filterCategory()"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DiscountTableViewController.swift"
-            timestampString = "489243904.874286"
+            timestampString = "490527614.687601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
             landmarkName = "filterCategory()"
             landmarkType = "5">
          </BreakpointContent>
