@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum PostType:String {
     case Post="posts"
@@ -48,7 +49,6 @@ class APIHelper {
         
         
         session.dataTaskWithURL(postUrl){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
-            
             if let responseData = data {
                 let date = NSDate()
                 NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
@@ -65,6 +65,7 @@ class APIHelper {
                     postsAcquired(postsArray:nil,success:false)
                     print("could not serialize!")
                 }
+                
             }
         }.resume()
         

@@ -173,10 +173,10 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     func loadImageForOnScreenCells(){
         if let pathsArray = tableView.indexPathsForVisibleRows{
             
-            var allPendingOperations = Set(pendingOperations.downloadsInProgress.keys)
+            let allPendingOperations = Set(pendingOperations.downloadsInProgress.keys)
             
             var toBeCancelled = allPendingOperations
-            let visiblePaths = Set(pathsArray as! [NSIndexPath])
+            let visiblePaths = Set(pathsArray)
             toBeCancelled.subtractInPlace(visiblePaths)
             
             var toBeStarted = visiblePaths

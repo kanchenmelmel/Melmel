@@ -621,7 +621,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dateBackground" translatesAutoresizingMaskIntoConstraints="NO" id="jHl-J1-kMd">
                                             <rect key="frame" x="451" y="39" width="149" height="29"/>
@@ -944,7 +944,11 @@
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cgy-Hz-tIl"/>
+<!--<<<<<<< Updated upstream-->
+<!--        <segue reference="Cgy-Hz-tIl"/>-->
+<!--=======-->
+        <segue reference="ch7-PM-8P7"/>
+<!-->>>>>>> Stashed changes-->
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>
