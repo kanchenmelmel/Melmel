@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
-enum EntityType {
-    case Post,Discount
+enum EntityType:String {
+    case Post = "Post"
+    case Discount = "Discount"
 }
 
 class CoreDataUtility {
@@ -18,12 +19,12 @@ class CoreDataUtility {
     
     func getEarliestDate(entityType:EntityType) -> NSDate?{
         let request = NSFetchRequest()
-        var entityName = ""
-        switch entityType {
-        case .Post:entityName = "Post"
-        case .Discount:entityName = "Discount"
-        }
-        request.entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext: managedObjectContext)
+//        var entityName = ""
+//        switch entityType {
+//        case .Post:entityName = "Post"
+//        case .Discount:entityName = "Discount"
+//        }
+        request.entity = NSEntityDescription.entityForName(entityType.rawValue, inManagedObjectContext: managedObjectContext)
         request.resultType = .DictionaryResultType
         
         
@@ -44,7 +45,7 @@ class CoreDataUtility {
             
             
             if fetchResults[0].valueForKey("earliestDate") != nil {
-                var earliestDate = fetchResults[0].valueForKey("earliestDate") as! NSDate
+                let earliestDate = fetchResults[0].valueForKey("earliestDate") as! NSDate
                 return earliestDate
             }
             
@@ -52,6 +53,13 @@ class CoreDataUtility {
         }
         
         return nil
+        
+    }
+    
+    func checkIfIdExist(id:Int,entityType:EntityType) -> Bool {
+        let request = NSFetchRequest()
+        request.entity = NSEntityDescription.entityForName(entityType.rawValue, inManagedObjectContext: managedObjectContext)
+        return false
         
     }
 }

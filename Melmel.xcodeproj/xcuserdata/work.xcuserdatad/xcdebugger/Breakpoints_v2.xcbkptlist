@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Melmel/MelGuideTableViewController.swift"
-            timestampString = "487050122.672163"
+            timestampString = "490714231.351798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "MelGuideTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoOperations.swift"
-            timestampString = "487045765.745048"
+            timestampString = "490712298.990753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64">
+            startingLineNumber = "63"
+            endingLineNumber = "63">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -312,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Melmel/MelGuideTableViewController.swift"
-            timestampString = "487050122.672163"
+            timestampString = "490714231.351798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>

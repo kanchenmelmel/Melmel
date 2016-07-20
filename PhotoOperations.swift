@@ -40,7 +40,6 @@ class ImageDownloader:NSOperation {
         }
         
         
-        print(post.featured_image_url!)
         let imageData = NSData(contentsOfURL:NSURL(string:post.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
         
         if imageData?.length != 0 {

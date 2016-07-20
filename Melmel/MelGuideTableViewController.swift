@@ -119,7 +119,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                     
                 }
                 if post.featuredImageState == .New {
-                    if (tableView.dragging && !tableView.decelerating){
+                    if (!tableView.dragging && !tableView.decelerating){
                         startOperationsForPhoto(post, indexPath: indexPath)
                     }
                 }
@@ -128,6 +128,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
 
         }
         cell.featuredImage.image = post.featuredImage
+        post.featuredImageState = .Downloaded
         return cell
     }
     
@@ -191,9 +192,11 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             }
             
             for indexPath in toBeStarted{
-                let indexPath = indexPath as NSIndexPath
-                let recordToProcess = self.posts[indexPath.row]
-                startOperationsForPhoto(recordToProcess, indexPath: indexPath)
+                //if posts[indexPath.row].featuredImageState != .Downloaded {
+                    let indexPath = indexPath as NSIndexPath
+                    let recordToProcess = self.posts[indexPath.row]
+                    startOperationsForPhoto(recordToProcess, indexPath: indexPath)
+                //}
             }
             
         }

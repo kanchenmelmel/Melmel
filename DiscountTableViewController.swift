@@ -158,7 +158,7 @@ class DiscountTableViewController: UITableViewController{
                     
                 }
                 if discount.featuredImageState == .New {
-                    if (tableView.dragging && !tableView.decelerating){
+                    if (!tableView.dragging && !tableView.decelerating){
                         startOperationsForPhoto(discount, indexPath: indexPath)
                     }
                 }

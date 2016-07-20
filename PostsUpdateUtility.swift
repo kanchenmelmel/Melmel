@@ -111,7 +111,7 @@ class PostsUpdateUtility {
 
 
                     //Featured image Link
-                    discount.featured_image_url = discountEntry["thumbnail_url"] as? String
+                    discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     
                 }//End of for-in loop
                 

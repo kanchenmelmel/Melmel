@@ -51,7 +51,6 @@ class FileDownloader {
         
         let imageURL = imageLocation.URLByAppendingPathComponent(fileName)
         imgData!.writeToFile(imageURL.path!, atomically:true)//Write image to disk
-        print("saved url:\(imageURL.path!)")
     }
     
     
