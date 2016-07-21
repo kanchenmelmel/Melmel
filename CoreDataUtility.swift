@@ -56,9 +56,23 @@ class CoreDataUtility {
         
     }
     
-    func checkIfIdExist(id:Int,entityType:EntityType) -> Bool {
+    func checkIdExist(id:Int,entityType:EntityType) -> Bool {
         let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName(entityType.rawValue, inManagedObjectContext: managedObjectContext)
+        //request.resultType = .CountResultType
+        
+        // Set up predicate
+        let predicate = NSPredicate(format: "id = %@", "\(id)")
+        request.predicate = predicate
+
+        let count = managedObjectContext.countForFetchRequest(request, error: nil)
+
+        
+        if count != 0 {
+            print(true)
+            return true
+        }
+        print(false)
         return false
         
     }

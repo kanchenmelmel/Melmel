@@ -19,6 +19,7 @@ class PostsUpdateUtility {
     func updateAllPosts(completionHandler:() -> Void){
         var posts:[Post] = []
         let apiHelper = APIHelper()
+        let coreDataUtility = CoreDataUtility()
         
         
         
@@ -32,32 +33,35 @@ class PostsUpdateUtility {
                 for postEntry in postsArray! {
                     let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
                     //id
-                    post.id = postEntry["id"] as! Int
-                    
-                    //Date
-                    let dateString = postEntry["date"] as! String
-                    let dateFormatter = DateFormatter()
-                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
-                    //Title
-                    post.title = postEntry["title"] as! String
-                    
-                    //Link
-                    post.link = postEntry["link"] as! String
-                    
-                    //Media
-                    
-                    post.featured_image_downloaded = false
-                    
-                    if postEntry["featured_image_url"] != nil {
-                        post.featured_image_url = postEntry["thumbnail_url"] as? String
+                    let id = postEntry["id"] as! Int
+                    if !coreDataUtility.checkIdExist(id, entityType: .Post) {
+                        post.id = id
+                        
+                        //Date
+                        let dateString = postEntry["date"] as! String
+                        let dateFormatter = DateFormatter()
+                        post.date = dateFormatter.formatDateStringToMelTime(dateString)
+                        //Title
+                        post.title = postEntry["title"] as! String
+                        
+                        //Link
+                        post.link = postEntry["link"] as! String
+                        
+                        //Media
+                        
+                        post.featured_image_downloaded = false
+                        
+                        if postEntry["featured_image_url"] != nil {
+                            post.featured_image_url = postEntry["thumbnail_url"] as? String
+                        }
+                        
+                        
+                        posts.append(post)
                     }
-
-
-                    posts.append(post)
                     
                 }//End postsArray Loop
                 
-    
+                
                 do {
                     try self.managedObjectContext.save()
                 } catch {
@@ -83,7 +87,7 @@ class PostsUpdateUtility {
                 
                 for discountEntry in discountArray! {
                     let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
-                        //id
+                    //id
                     discount.id = discountEntry["id"] as! Int
                     
                     //Date
@@ -96,20 +100,20 @@ class PostsUpdateUtility {
                     //Link
                     discount.link = discountEntry["link"] as! String
                     //Coordinate and address
-
+                    
                     discount.featured_image_downloaded = false
                     discount.address = discountEntry["address"] as! String
                     
                     
                     let latitudeString = discountEntry["latitude"] as! String
                     let longitudeString = discountEntry["longtitude"] as! String
-
+                    
                     discount.latitude = Double(latitudeString)
-
-
+                    
+                    
                     discount.longtitude = Double(longitudeString)
-
-
+                    
+                    
                     //Featured image Link
                     discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     
@@ -128,10 +132,9 @@ class PostsUpdateUtility {
     func getPreviousPosts(beforeDate:NSDate,excludeId:Int,completionHandler:() -> Void){
         var posts:[Post] = []
         let apiHelper = APIHelper()
+        let coreDataUitility = CoreDataUtility()
         
         
-        
-
         apiHelper.getPreviousPosts(.Post, beforeDate: beforeDate, excludeId: excludeId)
         { (postsArray, success) in
             if success {
@@ -140,31 +143,35 @@ class PostsUpdateUtility {
                 
                 
                 for postEntry in postsArray! {
-                   
+                    
                     let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
                     
                     
                     //id
-                    post.id = postEntry["id"] as! Int
                     
-                    //Date
-                    let dateString = postEntry["date"] as! String
-                    let dateFormatter = DateFormatter()
-                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
-                    //Title
-                    post.title = postEntry["title"] as! String
-                    
-                    //Link
-                    post.link = postEntry["link"] as! String
-                    
-                    //Media
-                    
-                    if postEntry["featured_image_url"] != nil {
-                        post.featured_image_url = postEntry["featured_image_url"] as? String
+                    let id = postEntry["id"] as! Int
+                    if !coreDataUitility.checkIdExist(id, entityType: .Post){
+                        post.id = id
+                        
+                        //Date
+                        let dateString = postEntry["date"] as! String
+                        let dateFormatter = DateFormatter()
+                        post.date = dateFormatter.formatDateStringToMelTime(dateString)
+                        //Title
+                        post.title = postEntry["title"] as! String
+                        
+                        //Link
+                        post.link = postEntry["link"] as! String
+                        
+                        //Media
+                        
+                        if postEntry["featured_image_url"] != nil {
+                            post.featured_image_url = postEntry["featured_image_url"] as? String
+                        }
+                        
+                        
+                        posts.append(post)
                     }
-                    
-                    
-                    posts.append(post)
                     
                 }//End postsArray Loop
                 
@@ -180,12 +187,12 @@ class PostsUpdateUtility {
             else {}
         } // end getPostsFromAPI
         
-}
+    }
     
     func getPreviousDiscounts(beforeDate:NSDate,excludeId:Int,completionHandler:() -> Void){
-       
+        
         let apiHelper = APIHelper()
-
+        
         apiHelper.getPreviousPosts(.Discount, beforeDate: beforeDate, excludeId: excludeId)
         { (postsArray, success) in
             if success {
@@ -198,7 +205,7 @@ class PostsUpdateUtility {
                     let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
                     
                     
-
+                    
                     discount.id = discountEntry["id"] as! Int
                     
                     //Date
@@ -224,7 +231,7 @@ class PostsUpdateUtility {
                     
                     
                     discount.longtitude = Double(longitudeString)
-
+                    
                     if discountEntry["featured_image_url"] != nil {
                         discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     }
@@ -246,7 +253,7 @@ class PostsUpdateUtility {
         } // end getPostsFromAPI
         
     }
-
+    
     
     
     
@@ -334,13 +341,13 @@ class PostsUpdateUtility {
                 
                 
                 print(discounts.count)
-                dispatch_async(dispatch_get_main_queue(), { 
+                dispatch_async(dispatch_get_main_queue(), {
                     completionHandler(discounts: discounts)
                 })
                 
             }
             else {}
-
+            
         }
     }
     

@@ -25,7 +25,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
     var numOfPosts:Int?
     var reachToTheEnd = false
-
+    
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
@@ -98,13 +98,11 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         let post = posts[indexPath.row]
         
-        print(post.featured_image_downloaded)
         cell.titleLabel.text = post.title!
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
         cell.dateLabel.text = "\(dateFormatter.stringFromDate(post.date!).uppercaseString)" + " "
-        print(post.featured_image_downloaded)
         
         
         // Configure featured image
@@ -112,6 +110,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         if post.featured_image_downloaded == true {
             let fileDownloader = FileDownloader()
             post.featuredImage = fileDownloader.imageFromFile(post.id! as Int, fileName: FEATURED_IMAGE_NAME)
+            post.featuredImageState = .Downloaded
             
         } else {
             if post.featured_image_url != nil {
@@ -125,10 +124,9 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                 }
                 
             }
-
+            
         }
         cell.featuredImage.image = post.featuredImage
-        post.featuredImageState = .Downloaded
         return cell
     }
     
@@ -138,11 +136,11 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             if reachToTheEnd == false{
                 self.LoadMoreActivityIndicator.hidden = false
                 self.LoadMoreActivityIndicator.startAnimating()
-            
+                
                 self.loadMorePostsLabel.text = "加载中……"
                 let oldestPost = posts[indexPath.row]
                 self.numOfPosts = self.posts.count
-            loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+                loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
             }
         }
     }
@@ -192,11 +190,10 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             }
             
             for indexPath in toBeStarted{
-                //if posts[indexPath.row].featuredImageState != .Downloaded {
-                    let indexPath = indexPath as NSIndexPath
-                    let recordToProcess = self.posts[indexPath.row]
-                    startOperationsForPhoto(recordToProcess, indexPath: indexPath)
-                //}
+                let indexPath = indexPath as NSIndexPath
+                let recordToProcess = self.posts[indexPath.row]
+                print("test")
+                startOperationsForPhoto(recordToProcess, indexPath: indexPath)
             }
             
         }
@@ -256,8 +253,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         switch (post.featuredImageState) {
         case .New:
             startDownloadFeaturedImageForPost (post:post,indexPath:indexPath)
-        default:
-            NSLog("Do nothing")
+        default: break
+            //NSLog("Do nothing")
         }
     }
     
@@ -276,6 +273,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
                     self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    post.featuredImageState = .Downloaded
                 })
             }
             
@@ -304,7 +302,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         } else {
             print("No Internet Connection")
             self.refreshControl?.endRefreshing()
-          //  popUpWarningMessage("No Internet Connection")
+            //  popUpWarningMessage("No Internet Connection")
             alert.showAlert(self)
             
         }

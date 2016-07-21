@@ -151,7 +151,7 @@ class DiscountTableViewController: UITableViewController{
         if discount.featured_image_downloaded == true {
             let fileDownloader = FileDownloader()
             discount.featuredImage = fileDownloader.imageFromFile(discount.id! as Int, fileName: FEATURED_IMAGE_NAME)
-            
+            discount.featuredImageState = .Downloaded
         } else {
             if discount.featured_image_url != nil {
                 if discount.featuredImageState == .Downloaded {
@@ -198,6 +198,7 @@ class DiscountTableViewController: UITableViewController{
             dispatch_async(dispatch_get_main_queue(), {
                 self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
                 self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                discount.featuredImageState = .Downloaded
             })
         }
         
