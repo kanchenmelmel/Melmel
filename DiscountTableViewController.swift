@@ -142,8 +142,8 @@ class DiscountTableViewController: UITableViewController{
         cell.titleLabel.text = discount.title!
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .LongStyle
-        cell.dateLabel.text = dateFormatter.stringFromDate(discount.date!)
+        dateFormatter.dateStyle = .MediumStyle
+        cell.dateLabel.text = "\(dateFormatter.stringFromDate(discount.date!).uppercaseString)" + " "
         
         
         
