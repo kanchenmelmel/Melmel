@@ -19,6 +19,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     @IBOutlet weak var searchBar: UISearchBar!
     
     let regionRadius: CLLocationDistance = 1000
+    let melbourneLocation = CLLocation(latitude: -37.8136, longitude: 144.9631)
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
     
@@ -46,6 +47,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.getAllDiscounts({ (discounts) in
             self.addAnnotationViewsForDiscounts(discounts)
+            self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
         })
         
         
@@ -67,8 +69,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
-    func centerMapOnLocation(location:CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2, regionRadius * 2)
+    func centerMapOnLocation(location:CLLocation, zoomLevel:Double) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * zoomLevel, regionRadius * zoomLevel)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -152,7 +154,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     @IBAction func currentLocation(sender: AnyObject) {
         if userLocation != nil {
-            centerMapOnLocation(userLocation!)
+            centerMapOnLocation(userLocation!,zoomLevel: 2.0)
         }
     }
     
