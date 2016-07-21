@@ -49,7 +49,7 @@ class DiscountTableViewController: UITableViewController{
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+        self.discounts.removeAll()
         if self.filtered == false{
         let discountUpdateUtility = PostsUpdateUtility()
         discounts = discountUpdateUtility.fetchDiscounts()
@@ -65,6 +65,7 @@ class DiscountTableViewController: UITableViewController{
         }
         else{
             self.filtered = false
+            tableView.scrollEnabled = false
             self.filterCategory()
         }
       
@@ -166,6 +167,7 @@ class DiscountTableViewController: UITableViewController{
             }
             
         }
+       // cell.featureImage.contentMode = .ScaleAspectFit
         cell.featureImage.image = discount.featuredImage
         
         
@@ -383,6 +385,7 @@ class DiscountTableViewController: UITableViewController{
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
+                self.tableView.scrollEnabled = true
                 self.loadMorePostsLabel.hidden = true
                 self.LoadMoreActivityIndicator.hidden = true
             })
