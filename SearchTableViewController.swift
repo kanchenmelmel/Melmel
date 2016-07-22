@@ -78,9 +78,11 @@ class SearchTableViewController: UITableViewController {
      
         cell.titleLabel.text = post.title!
         
+    
+        
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .LongStyle
-        cell.dateLabel.text = dateFormatter.stringFromDate(post.date!)
+        dateFormatter.dateStyle = .MediumStyle
+        cell.dateLabel.text = "\(dateFormatter.stringFromDate(post.date!).uppercaseString)" + " "
         
         if post.featured_image_url != nil {
             if post.featuredImageState == .Downloaded {
