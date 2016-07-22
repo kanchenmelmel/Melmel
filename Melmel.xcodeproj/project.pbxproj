@@ -417,7 +417,7 @@
 				TargetAttributes = {
 					964F4C7C1CA4CF7B00C69B71 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 8387LU2S3Z;
+						DevelopmentTeam = D5XF8EMX6S;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -797,7 +797,7 @@
 				INFOPLIST_FILE = Melmel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melmel.jason;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -815,7 +815,7 @@
 				INFOPLIST_FILE = Melmel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melmel.jason;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -139,10 +139,12 @@ class SearchTableViewController: UITableViewController {
         
         let session = NSURLSession.sharedSession()
         let postUrl = endURL + self.searchText!
-        let postFinalURL = NSURL(string: postUrl)!
+        let postFinalURL = NSURL(string: postUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
+        
+     //   let postFinalURL = NSURL(string: postUrl.stringByAddingPercentEncodingWithAllowedCharacters(_:))!
         
         
-        
+      //  NSData(contentsOfURL:NSURL(string:post.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
         session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
             
             if let responseData = data {
