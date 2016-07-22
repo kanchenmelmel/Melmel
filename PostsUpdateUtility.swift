@@ -275,6 +275,8 @@ class PostsUpdateUtility {
         
         let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName("Discount", inManagedObjectContext: managedObjectContext)
+        let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors=[dateSort]
         do{
             let results = try managedObjectContext.executeFetchRequest(request) as! [Discount]
             
