@@ -31,10 +31,11 @@ class PostsUpdateUtility {
                 // create dispatch group
                 
                 for postEntry in postsArray! {
-                    let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
+                    
                     //id
                     let id = postEntry["id"] as! Int
                     if !coreDataUtility.checkIdExist(id, entityType: .Post) {
+                        let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
                         post.id = id
                         
                         //Date
@@ -81,41 +82,47 @@ class PostsUpdateUtility {
     /* Update discounts */
     func updateDiscounts(completionHandler:() -> Void){
         let apiHelper = APIHelper()
+        let coreDataUtility = CoreDataUtility()
         
         apiHelper.getDiscountsFromAPI { (discountArray, success) in
             if success {
                 
                 for discountEntry in discountArray! {
-                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    
                     //id
-                    discount.id = discountEntry["id"] as! Int
+                    let id = discountEntry["id"] as! Int
+                    if !coreDataUtility.checkIdExist(id, entityType: .Discount){
+                        let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                        discount.id = discountEntry["id"] as! Int
+                        
+                        //Date
+                        let dateString = discountEntry["date"] as! String
+                        let dateFormatter = DateFormatter()
+                        discount.date = dateFormatter.formatDateStringToMelTime(dateString)
+                        //Title
+                        discount.title = discountEntry["title"] as? String
+                        
+                        //Link
+                        discount.link = discountEntry["link"] as! String
+                        //Coordinate and address
+                        
+                        discount.featured_image_downloaded = false
+                        discount.address = discountEntry["address"] as! String
+                        
+                        
+                        let latitudeString = discountEntry["latitude"] as! String
+                        let longitudeString = discountEntry["longtitude"] as! String
+                        
+                        discount.latitude = Double(latitudeString)
+                        
+                        
+                        discount.longtitude = Double(longitudeString)
+                        
+                        
+                        //Featured image Link
+                        discount.featured_image_url = discountEntry["featured_image_url"] as? String
+                    }
                     
-                    //Date
-                    let dateString = discountEntry["date"] as! String
-                    let dateFormatter = DateFormatter()
-                    discount.date = dateFormatter.formatDateStringToMelTime(dateString)
-                    //Title
-                    discount.title = discountEntry["title"] as? String
-                    
-                    //Link
-                    discount.link = discountEntry["link"] as! String
-                    //Coordinate and address
-                    
-                    discount.featured_image_downloaded = false
-                    discount.address = discountEntry["address"] as! String
-                    
-                    
-                    let latitudeString = discountEntry["latitude"] as! String
-                    let longitudeString = discountEntry["longtitude"] as! String
-                    
-                    discount.latitude = Double(latitudeString)
-                    
-                    
-                    discount.longtitude = Double(longitudeString)
-                    
-                    
-                    //Featured image Link
-                    discount.featured_image_url = discountEntry["featured_image_url"] as? String
                     
                 }//End of for-in loop
                 
