@@ -12,6 +12,7 @@ import UIKit
 enum PostType:String {
     case Post="posts"
     case Discount="discounts"
+    case Comment = "comments"
 }
 
 class APIHelper {
@@ -19,11 +20,14 @@ class APIHelper {
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"
     let discountUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/discounts/"
     let mediaUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/media/"
+    let commentUrlPathString = "http://melmel.com.au/wp-json/wp/v2/comments/"
+    
     
     let searchPostURL = "http://melmel.com.au/wp-json/wp/v2/posts?per_page=5&filter[s]="
     
     let postLastUpdateTimeKey = "postLastUpdateTime"
     let discountLastUpdateTimeKey = "discountLastUpdateTime"
+    
     
     let session = NSURLSession.sharedSession()
   
@@ -172,6 +176,7 @@ class APIHelper {
         switch postType {
         case .Post:baseURIString = postUrlPathString
         case .Discount:baseURIString = discountUrlPathString
+        case .Comment:baseURIString = commentUrlPathString
         }
         
         

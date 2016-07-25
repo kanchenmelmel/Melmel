@@ -428,4 +428,49 @@ class PostsUpdateUtility {
         }
     }
     
+    func getPostComments(postID:String, completionHandler:(comments:Array<Array<String>>) -> Void) {
+        let apiHelper = APIHelper()
+        var commentsArray = Array<Array<String>>()
+        
+        var params = [(String,String)]()
+        params.append(("post",postID))
+        params.append(("filter[posts_per_page]","-1"))
+        
+        apiHelper.getPostsFromAPI(.Comment, params: params) { (commentArray, success) in
+            if success {
+                print (commentsArray.count)
+                print ("--------------------")
+                for comment in commentArray!{
+                    var tmp = [String]()
+                    
+                    let name = comment["author_name"] as! String
+                    
+                    let date = comment["comment_date"] as! String
+                    
+                    let content = comment["content_raw"] as! String
+                    
+                    let avatarArray = comment["author_avatar_urls"] as! Dictionary<String,String>
+                    let avatar = avatarArray["96"]!
+                    
+                    tmp.append(name)
+                    tmp.append(date)
+                    tmp.append(content)
+                    tmp.append(avatar)
+                    
+                    commentsArray.append(tmp)
+                    
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(comments: commentsArray)
+                })
+            }
+            else{}
+        }
+    }
+    
+    
+    
+    
+    
 }

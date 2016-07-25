@@ -21,7 +21,20 @@ class ShowCommentTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
-        self.getComments()
+        let postUpdateUtility = PostsUpdateUtility()
+        postUpdateUtility.getPostComments(self.postid!) {(comments) in
+            self.showcommentArray = comments
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        }
+        
+        
+//        postsUpdateUtility.searchDiscountByKeyWords(keyWords!) { (discounts) in
+//            self.addAnnotationViewsForDiscounts(discounts)
+//        }
+        
+      //  self.getComments()
         
         
 
@@ -31,63 +44,64 @@ class ShowCommentTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    func getComments(){
-        let endURL = "http://melmel.com.au/wp-json/wp/v2/comments?post=\(self.postid!)&per_page=100"
-        
-        let commentURL = NSURL(string: endURL)!
-        let session = NSURLSession.sharedSession()
-        var commentArray: NSArray?
     
-        session.dataTaskWithURL(commentURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
-            
-            if let responseData = data {
-                
-                
-                do{
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
-                    if let commentsArray = json as? NSArray{
-                       // print (commentsArray)
-                        commentArray = json as! NSArray
-                        for comment in commentArray!{
-                            var tmp = [String]()
-                            
-                            let name = comment["author_name"] as! String
-                            
-                            let date = comment["comment_date"] as! String
-                            
-                            let content = comment["content_raw"] as! String
-                            
-                            let avatarArray = comment["author_avatar_urls"] as! Dictionary<String,String>
-                            let avatar = avatarArray["96"]!
-                            
-                            tmp.append(name)
-                            tmp.append(date)
-                            tmp.append(content)
-                            tmp.append(avatar)
-                            
-                            self.showcommentArray.append(tmp)
-
-                        }
-                        
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.tableView.reloadData()
-                        })
-                        
-                        
-                    }
-                    else {
-                        print ("error")
-                    }
-                } catch {
-                    
-                    print("could not serialize!")
-                }
-            }
-            }.resume()
-        
-        
-
-    }
+//    func getComments(){
+//        let endURL = "http://melmel.com.au/wp-json/wp/v2/comments?post=\(self.postid!)&per_page=100"
+//        
+//        let commentURL = NSURL(string: endURL)!
+//        let session = NSURLSession.sharedSession()
+//        var commentArray: NSArray?
+//    
+//        session.dataTaskWithURL(commentURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+//            
+//            if let responseData = data {
+//                
+//                
+//                do{
+//                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+//                    if let commentsArray = json as? NSArray{
+//                       // print (commentsArray)
+//                        commentArray = json as! NSArray
+//                        for comment in commentArray!{
+//                            var tmp = [String]()
+//                            
+//                            let name = comment["author_name"] as! String
+//                            
+//                            let date = comment["comment_date"] as! String
+//                            
+//                            let content = comment["content_raw"] as! String
+//                            
+//                            let avatarArray = comment["author_avatar_urls"] as! Dictionary<String,String>
+//                            let avatar = avatarArray["96"]!
+//                            
+//                            tmp.append(name)
+//                            tmp.append(date)
+//                            tmp.append(content)
+//                            tmp.append(avatar)
+//                            
+//                            self.showcommentArray.append(tmp)
+//
+//                        }
+//                        
+//                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                            self.tableView.reloadData()
+//                        })
+//                        
+//                        
+//                    }
+//                    else {
+//                        print ("error")
+//                    }
+//                } catch {
+//                    
+//                    print("could not serialize!")
+//                }
+//            }
+//            }.resume()
+//        
+//        
+//
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

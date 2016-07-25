@@ -9,54 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Melmel/ShowCommentTableViewController.swift"
-            timestampString = "489935620.202718"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getComments()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Melmel.ShowCommentTableViewController.getComments (Melmel.ShowCommentTableViewController)() -&gt; ()"
-                  moduleName = "Melmel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wukaipeng/GitHub/MelmelGit/Melmel/ShowCommentTableViewController.swift"
-                  timestampString = "486118798.032495"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "812">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Melmel.ShowCommentTableViewController.(getComments (Melmel.ShowCommentTableViewController) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "Melmel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wukaipeng/GitHub/MelmelGit/Melmel/ShowCommentTableViewController.swift"
-                  timestampString = "486118798.032791"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "31">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DiscountTableViewController.swift"
             timestampString = "490811240.710143"
             startingColumnNumber = "9223372036854775807"
@@ -159,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
             endingLineNumber = "137"
-            landmarkName = "getPreviousPosts(_:excludeId:completionHandler:)"
+            landmarkName = "updateDiscounts(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
