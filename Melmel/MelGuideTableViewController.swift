@@ -338,20 +338,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
     }
     
-    func displayNavBarPrompt(message:String){
-        self.navigationItem.prompt = message
-    }
     
-    func hidenNavBarPrompt(){
-        self.navigationItem.prompt = nil
-    }
-    
-    func popUpWarningMessage(message:String){
-        displayNavBarPrompt(message)
-        let dispatchAfterTime = dispatch_time(DISPATCH_TIME_NOW, 5 * Int64(NSEC_PER_SEC))
-        dispatch_after(dispatchAfterTime, dispatch_get_main_queue(), {
-            self.hidenNavBarPrompt()
-        })
-    }
+
     
 }

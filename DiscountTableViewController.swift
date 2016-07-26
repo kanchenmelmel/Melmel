@@ -51,8 +51,8 @@ class DiscountTableViewController: UITableViewController{
     override func viewDidAppear(animated: Bool) {
         self.discounts.removeAll()
         if self.filtered == false{
-        let discountUpdateUtility = PostsUpdateUtility()
-        discounts = discountUpdateUtility.fetchDiscounts()
+//        let discountUpdateUtility = PostsUpdateUtility()
+//        discounts = discountUpdateUtility.fetchDiscounts()
         
         self.updateDiscounts()
         

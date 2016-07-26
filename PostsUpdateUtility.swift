@@ -103,11 +103,11 @@ class PostsUpdateUtility {
                         discount.title = discountEntry["title"] as? String
                         
                         //Link
-                        discount.link = discountEntry["link"] as! String
+                        discount.link = discountEntry["link"] as? String
                         //Coordinate and address
                         
                         discount.featured_image_downloaded = false
-                        discount.address = discountEntry["address"] as! String
+                        discount.address = discountEntry["address"] as? String
                         
                         
                         let latitudeString = discountEntry["latitude"] as! String
@@ -165,10 +165,10 @@ class PostsUpdateUtility {
                         let dateFormatter = DateFormatter()
                         post.date = dateFormatter.formatDateStringToMelTime(dateString)
                         //Title
-                        post.title = postEntry["title"] as! String
+                        post.title = postEntry["title"] as? String
                         
                         //Link
-                        post.link = postEntry["link"] as! String
+                        post.link = postEntry["link"] as? String
                         
                         //Media
                         
@@ -220,15 +220,15 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     discount.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    discount.title = discountEntry["title"] as! String
+                    discount.title = discountEntry["title"] as? String
                     
                     //Link
-                    discount.link = discountEntry["link"] as! String
+                    discount.link = discountEntry["link"] as? String
                     
                     //Coordinate and address
                     
                     discount.featured_image_downloaded = false
-                    discount.address = discountEntry["address"] as! String
+                    discount.address = discountEntry["address"] as? String
                     
                     
                     let latitudeString = discountEntry["latitude"] as! String
@@ -306,7 +306,9 @@ class PostsUpdateUtility {
                 // create dispatch group
                 
                 for postEntry in postsArray! {
-                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    //let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: self.managedObjectContext)
+                    let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: nil)
                     //id
                     discount.id = postEntry["id"] as! Int
                     
@@ -374,7 +376,9 @@ class PostsUpdateUtility {
                 // create dispatch group
                 
                 for postEntry in postsArray! {
-                    let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+                    let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: self.managedObjectContext)
+                    let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: nil)
+                    discount
                     //id
                     discount.id = postEntry["id"] as! Int
                     
@@ -383,10 +387,10 @@ class PostsUpdateUtility {
                     let dateFormatter = DateFormatter()
                     discount.date = dateFormatter.formatDateStringToMelTime(dateString)
                     //Title
-                    discount.title = postEntry["title"] as! String
+                    discount.title = postEntry["title"] as? String
                     
                     //Link
-                    discount.link = postEntry["link"] as! String
+                    discount.link = postEntry["link"] as? String
                     
                     //Media
                     
@@ -427,6 +431,8 @@ class PostsUpdateUtility {
             
         }
     }
+    
+    func getDiscountsForCatagory(){}
     
     func getPostComments(postID:String, completionHandler:(comments:Array<Array<String>>) -> Void) {
         let apiHelper = APIHelper()
