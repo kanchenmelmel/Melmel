@@ -21,6 +21,13 @@ class ShowCommentTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
+        
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.getPostComments(self.postid!) {(comments) in
             self.showcommentArray = comments
@@ -29,21 +36,8 @@ class ShowCommentTableViewController: UITableViewController {
             })
         }
         
-        
-//        postsUpdateUtility.searchDiscountByKeyWords(keyWords!) { (discounts) in
-//            self.addAnnotationViewsForDiscounts(discounts)
-//        }
-        
-      //  self.getComments()
-        
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
     
 //    func getComments(){
 //        let endURL = "http://melmel.com.au/wp-json/wp/v2/comments?post=\(self.postid!)&per_page=100"
