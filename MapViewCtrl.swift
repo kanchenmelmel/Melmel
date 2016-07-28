@@ -106,7 +106,21 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             annotationView.image = UIImage(named: "normalPin")
             annotationView.canShowCallout = true
+            //Right Callout Accessary View
             annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+            //Left Callout Accessary View
+            
+            let discountAnnotation = annotation as! DiscountAnnotation
+            if (discountAnnotation.discount?.discountTag != nil){
+                print(discountAnnotation.discount?.discountTag)
+                let discountLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                discountLabel.text = discountAnnotation.discount?.discountTag
+                discountLabel.textColor = UIColor.blackColor()
+                annotationView.leftCalloutAccessoryView = discountLabel
+            }
+            
+            
+            
             return annotationView
         }else {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)

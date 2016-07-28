@@ -31,8 +31,8 @@
 		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
 		962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1F7B1D487880006D2EA8 /* Comment.swift */; };
 		963289E31D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */; };
+		963289E71D4A11FF00B62040 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963289E61D4A11FF00B62040 /* Discount.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
-		9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
 		964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C891CA4CF7B00C69B71 /* Assets.xcassets */; };
@@ -44,7 +44,6 @@
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
 		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
 		965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF811CE986EC00D2BB0A /* LOGO-retina.png */; };
-		965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF881CE9ACA800D2BB0A /* Discount.swift */; };
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
 		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
@@ -112,8 +111,8 @@
 		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
 		962A1F7B1D487880006D2EA8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCatalogoryPopoverView.xib; sourceTree = "<group>"; };
+		963289E61D4A11FF00B62040 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
-		9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +130,6 @@
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
 		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
 		965AEF811CE986EC00D2BB0A /* LOGO-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-retina.png"; sourceTree = "<group>"; };
-		965AEF881CE9ACA800D2BB0A /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
 		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
 				9628C36F1CFD4A5A00666F69 /* Reachability.swift */,
 				96CF58191D06A42400DD4D53 /* GlobalVariables.swift */,
-				9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -319,10 +316,10 @@
 		96FC17501CAE387B002F8817 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				963289E61D4A11FF00B62040 /* Discount.swift */,
 				967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */,
 				96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */,
 				965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */,
-				965AEF881CE9ACA800D2BB0A /* Discount.swift */,
 				96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */,
 				96CB14ED1CE46047006B5DD1 /* Media.swift */,
 				96BAECF61CE21410008B3B70 /* Post.swift */,
@@ -622,7 +619,6 @@
 				4DE3F3C01D16E81900D9D5A2 /* DiscountFilter.swift in Sources */,
 				4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */,
 				9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */,
-				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
 				96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */,
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
@@ -654,13 +650,13 @@
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
 				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
 				4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */,
+				963289E71D4A11FF00B62040 /* Discount.swift in Sources */,
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
 				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,
 				96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */,
 				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
-				9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */,
 				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
 				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
 			);
