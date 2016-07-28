@@ -434,9 +434,9 @@ class PostsUpdateUtility {
     
     func getDiscountsForCatagory(){}
     
-    func getPostComments(postID:String, completionHandler:(comments:Array<Array<String>>) -> Void) {
+    func getPostComments(postID:String, completionHandler:(comments:[Comment]) -> Void) {
         let apiHelper = APIHelper()
-        var commentsArray = Array<Array<String>>()
+        var commentsArray = [Comment]()
         
         var params = [(String,String)]()
         params.append(("post",postID))
@@ -446,24 +446,29 @@ class PostsUpdateUtility {
             if success {
                 print (commentsArray.count)
                 print ("--------------------")
-                for comment in commentArray!{
-                    var tmp = [String]()
+                for commentEntry in commentArray!{
                     
-                    let name = comment["author_name"] as! String
+                    let comment = Comment()
                     
-                    let date = comment["comment_date"] as! String
+                    if let name = commentEntry["author_name"] as? String {
+                        comment.autherName = name
+                    }
                     
-                    let content = comment["content_raw"] as! String
+                    if let date = commentEntry["date"] as? String {
+                        let dateFormatter = DateFormatter()
+                        comment.date = dateFormatter.formatDateStringToMelTime(date)
+                    }
                     
-                    let avatarArray = comment["author_avatar_urls"] as! Dictionary<String,String>
-                    let avatar = avatarArray["96"]!
+                    if let content = commentEntry["content_raw"] as? String {
+                        comment.content = content
+                    }
                     
-                    tmp.append(name)
-                    tmp.append(date)
-                    tmp.append(content)
-                    tmp.append(avatar)
+                    if let avatarDic = commentEntry["author_avatar_urls"] as? Dictionary<String,String>{
+                        comment.avatar = avatarDic["96"]!
+                    }
                     
-                    commentsArray.append(tmp)
+                    
+                    commentsArray.append(comment)
                     
                 }
                 
