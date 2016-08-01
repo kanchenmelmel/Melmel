@@ -39,6 +39,7 @@
 		964F4C8D1CA4CF7B00C69B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C8B1CA4CF7B00C69B71 /* LaunchScreen.storyboard */; };
 		964F4C981CA4CF7B00C69B71 /* MelmelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */; };
 		964F4CA31CA4CF7B00C69B71 /* MelmelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */; };
+		965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */; };
 		965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */; };
 		965AEF7A1CE9529700D2BB0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965AEF791CE9529700D2BB0A /* MapKit.framework */; };
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
@@ -61,6 +62,7 @@
 		96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB14ED1CE46047006B5DD1 /* Media.swift */; };
 		96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF58191D06A42400DD4D53 /* GlobalVariables.swift */; };
 		96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */; };
+		96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */; };
 		96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */; };
 		96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96FC174D1CAE2CA5002F8817 /* Melmel.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -125,6 +127,7 @@
 		964F4C9E1CA4CF7B00C69B71 /* MelmelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelmelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelmelUITests.swift; sourceTree = "<group>"; };
 		964F4CA41CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapDiscountDetailView.xib; sourceTree = "<group>"; };
 		965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotation.swift; sourceTree = "<group>"; };
 		965AEF791CE9529700D2BB0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		96CB14ED1CE46047006B5DD1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		96CF58191D06A42400DD4D53 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewController.swift; path = Melmel/MelGuideTableViewController.swift; sourceTree = "<group>"; };
+		96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDiscountDetailViewController.swift; sourceTree = "<group>"; };
 		96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96FC174E1CAE2CA5002F8817 /* Melmel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Melmel.xcdatamodel; sourceTree = "<group>"; };
 		9B851BC0414D593B74824256 /* Pods-Melmel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Melmel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Melmel/Pods-Melmel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
 				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
+				96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
 				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
@@ -469,6 +475,7 @@
 				967FFEA81D07E16900599E30 /* Main.storyboard in Resources */,
 				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
 				965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */,
+				965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +629,7 @@
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
 				96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */,
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
+				96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
 				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,

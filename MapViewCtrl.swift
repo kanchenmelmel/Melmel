@@ -22,6 +22,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     let melbourneLocation = CLLocation(latitude: -37.8136, longitude: 144.9631)
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
+    var discountDetailViewController:MapDiscountDetailViewController = MapDiscountDetailViewController()
     
     
     
@@ -50,6 +51,11 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
         })
         
+//        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
+//        discountDetailView.center = CGPoint(x: 0.0, y: 0.0)
+//        self.mapView.addSubview(discountDetailView)
+        
+        addDiscountDetailViewController()
         
         
     }
@@ -112,7 +118,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             
             let discountAnnotation = annotation as! DiscountAnnotation
             if (discountAnnotation.discount?.discountTag != nil){
-                print(discountAnnotation.discount?.discountTag)
+                //print(discountAnnotation.discount?.discountTag)
                 let discountLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                 discountLabel.text = discountAnnotation.discount?.discountTag
                 discountLabel.textColor = UIColor.blackColor()
@@ -125,7 +131,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }else {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             annotationView.image = UIImage(named: "melmelPin")
-            annotationView.canShowCallout = true
+            annotationView.canShowCallout = false
             return annotationView
         }
 
@@ -209,6 +215,14 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         self.clusteringManager.addAnnotations(annotations)
         self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
     }
+    
+    func addDiscountDetailViewController(){
+        self.addChildViewController(discountDetailViewController)
+        discountDetailViewController.view.frame = CGRectMake(0.0, self.mapView.frame.height-100.0, self.mapView.frame.width, 100.0)
+        self.mapView.addSubview(discountDetailViewController.view)
+        //self.discountDetailViewController.view.hidden = true
+    }
+    
     
 
 }
