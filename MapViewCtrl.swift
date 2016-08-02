@@ -218,7 +218,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     func addDiscountDetailViewController(){
         self.addChildViewController(discountDetailViewController)
-        discountDetailViewController.view.frame = CGRectMake(0.0, self.mapView.frame.height-100.0, self.mapView.frame.width, 100.0)
+        discountDetailViewController.view.frame = CGRectMake(0.0, self.mapView.frame.height-74.0, self.mapView.frame.width, 74.0)
         self.mapView.addSubview(discountDetailViewController.view)
         //self.discountDetailViewController.view.hidden = true
     }

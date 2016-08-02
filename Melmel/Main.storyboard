@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
@@ -196,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="187"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gOY-AP-Djc" id="pvY-Dw-7L8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="186.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVn-s4-e06">
@@ -377,7 +377,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5kh-2o-JQw" id="M4H-Oc-OFy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iqS-dq-zvX">
@@ -468,10 +468,10 @@
                         <viewControllerLayoutGuide type="bottom" id="PIS-Ho-BX3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eb0-fM-yr4">
-                        <rect key="frame" x="0.0" y="94" width="600" height="506"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="64w-fc-QMg">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="64w-fc-QMg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                             </mapView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="04r-cO-viR">
@@ -517,7 +517,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Melbourne" prompt="YOUR LOCATION" id="tpY-hz-hpM"/>
+                    <navigationItem key="navigationItem" title="Melbourne" id="tpY-hz-hpM"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="currentLocationButton" destination="ZHM-jR-fXh" id="fpp-Ll-ezJ"/>
@@ -534,7 +534,7 @@
         <scene sceneID="buC-V0-Txl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jiC-Bn-jdU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="postTabBarItem" selectedImage="postTabBarItemHighlighted" id="GKB-3p-Raa" userLabel="喵喵攻略">
+                    <tabBarItem key="tabBarItem" title="" image="post" selectedImage="postHighlighted" id="GKB-3p-Raa" userLabel="喵喵攻略">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -590,7 +590,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UsA-Gl-vOL" id="x1d-rp-UQP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
@@ -710,7 +710,7 @@
         <scene sceneID="Jpa-Bj-BM6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p7g-8r-WGk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="discountTabBarItem" selectedImage="discountTabBarItemHighlighted" id="jMX-vE-RYy">
+                    <tabBarItem key="tabBarItem" title="" image="discount" selectedImage="discountHighlighted" id="jMX-vE-RYy">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -728,11 +728,13 @@
             </objects>
             <point key="canvasLocation" x="2571" y="431"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="iK4-L7-QWZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jJr-k1-8Qy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wxg-UB-g6w"/>
+                    <tabBarItem key="tabBarItem" title="" image="setting" selectedImage="settingHighlighted" id="wxg-UB-g6w">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6cq-uc-zYT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -751,14 +753,16 @@
     <resources>
         <image name="NavBarBackButton" width="10" height="19"/>
         <image name="dateBackground" width="49" height="9"/>
-        <image name="discountTabBarItem" width="20" height="20"/>
-        <image name="discountTabBarItemHighlighted" width="20" height="20"/>
+        <image name="discount" width="20" height="20"/>
+        <image name="discountHighlighted" width="20" height="20"/>
         <image name="map" width="19" height="20"/>
         <image name="mapCurrentLocationButton" width="20" height="20"/>
         <image name="mapCurrentLocationButtonHighlighted" width="25" height="23"/>
         <image name="mapHighlighted" width="20" height="21"/>
-        <image name="postTabBarItem" width="20" height="20"/>
-        <image name="postTabBarItemHighlighted" width="20" height="19"/>
+        <image name="post" width="20" height="19"/>
+        <image name="postHighlighted" width="20" height="19"/>
+        <image name="setting" width="20" height="20"/>
+        <image name="settingHighlighted" width="20" height="20"/>
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>

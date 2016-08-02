@@ -9,7 +9,10 @@
 import UIKit
 
 class MapDiscountDetailViewController: UIViewController {
+    
+    var viewTintColor:UIColor?
 
+    @IBOutlet weak var detailButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,10 +37,12 @@ class MapDiscountDetailViewController: UIViewController {
     */
     
     func setupView(){
-        self.view.layer.shadowOpacity = 0.8
-        self.view.layer.shadowRadius = 5.0
-        self.view.layer.shadowOffset = CGSizeMake(0.0, 2.0)
-        self.view.layer.shadowColor = UIColor(red: 157.0/255.0, green: 157.0/255.0, blue: 157.0/255.0, alpha: 1.0).CGColor
+        self.view.layer.shadowOpacity = 1.0
+        self.view.layer.shadowRadius = 13.0
+        self.view.layer.shadowOffset = CGSizeMake(0.0, -2.0)
+        self.view.layer.shadowColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0).CGColor
+        //self.view.backgroundColor = UIColor(colorLiteralRed: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+        self.detailButton.backgroundColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
     }
 
 }
