@@ -11,7 +11,18 @@ import MapKit
 import CoreLocation
 import FBAnnotationClusteringSwift
 
+enum AnnotationPinImg: String {
+    case Entertainment = "EntertainmentPin"
+    case Shopping = "ShoppingPin"
+    case Fashion = "FashionPin"
+    case Service = "ServicePin"
+    case Food = "FoodPin"
+}
+
+
 class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
+    
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -24,8 +35,6 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     var discounts:[Discount] = []
     var discountDetailViewController:MapDiscountDetailViewController = MapDiscountDetailViewController()
     
-    
-    
     var clusteringManager = FBClusteringManager()
     
     var userLocation:CLLocation?
@@ -36,12 +45,12 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         mapView.delegate=self
         searchBar.delegate = self
         
-        
-        let melmelAnnotation = MKPointAnnotation()
-        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
-        melmelAnnotation.title = "Melmel"
-        melmelAnnotation.subtitle = "416/566 St. Kilda Road, St. Kilda, VIC, 3004"
-        mapView.addAnnotation(melmelAnnotation)
+//        
+//        let melmelAnnotation = MKPointAnnotation()
+//        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
+//        melmelAnnotation.title = "Melmel"
+//        melmelAnnotation.subtitle = "416/566 St. Kilda Road, St. Kilda, VIC, 3004"
+//        mapView.addAnnotation(melmelAnnotation)
         locationAuthStatus()
         // load discounts from core data
         //loadDiscountFromCoreData()
@@ -101,6 +110,9 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     /*  Configure annotation view */
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         var reuseId = ""
+        
+        
+        
         if annotation.isKindOfClass(FBAnnotationCluster){
             reuseId = "Cluster"
             var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
@@ -109,14 +121,31 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }else if annotation.isKindOfClass(MKUserLocation) {
             return nil
         } else if annotation.isKindOfClass(DiscountAnnotation){
+            let discountAnnotation = annotation as! DiscountAnnotation
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-            annotationView.image = UIImage(named: "normalPin")
+            var annotationViewImgFilename = ""
+            if discountAnnotation.discount!.catagories[0] == .Shopping{
+                annotationViewImgFilename = AnnotationPinImg.Shopping.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Entertainment {
+                annotationViewImgFilename = AnnotationPinImg.Entertainment.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Food {
+                annotationViewImgFilename = AnnotationPinImg.Food.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Service {
+                annotationViewImgFilename = AnnotationPinImg.Service.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Fashion {
+                annotationViewImgFilename = AnnotationPinImg.Fashion.rawValue
+            }
+            annotationView.image = UIImage(named: annotationViewImgFilename)
             annotationView.canShowCallout = true
             //Right Callout Accessary View
             annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             //Left Callout Accessary View
             
-            let discountAnnotation = annotation as! DiscountAnnotation
+            
             if (discountAnnotation.discount?.discountTag != nil){
                 //print(discountAnnotation.discount?.discountTag)
                 let discountLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
@@ -161,7 +190,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
                 self.locationAuthStatus()
                 // load discounts from core data
                 self.loadDiscountFromCoreData()
-                print("Discounts:\(self.discounts.count)")
+                
                 for discount in self.discounts {
                     // Add Annotations
                     let annotation = self.createAnnotationObject(discount)
@@ -201,26 +230,37 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     func addAnnotationViewsForDiscounts(discounts:[Discount]){
-        print("Discounts:\(discounts.count)")
         var annotations = [DiscountAnnotation]()
         clusteringManager = FBClusteringManager()
         
         for discount in discounts {
             // Add Annotations
+            //print(discount.catagories.count)
             let annotation = self.createAnnotationObject(discount)
             //mapView.addAnnotation(annotation)
             annotations.append(annotation)
         }
-        print("annotations:\(annotations.count)")
+        
+        
         self.clusteringManager.addAnnotations(annotations)
         self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
     }
     
     func addDiscountDetailViewController(){
         self.addChildViewController(discountDetailViewController)
-        discountDetailViewController.view.frame = CGRectMake(0.0, self.mapView.frame.height-74.0, self.mapView.frame.width, 74.0)
+        var viewRect:CGRect!
+//        if ( self.view.traitCollection.horizontalSizeClass == .Regular){
+//            viewRect = CGRectMake(0.0, self.mapView.frame.height-75.0, self.mapView.frame.width, 75.0)
+//        }
+//        else {
+//            print("other")
+//            viewRect = CGRectMake(0.0, self.mapView.frame.height-50.0, self.mapView.frame.width, 50.0)
+//        }
+        viewRect = CGRectMake(0.0, self.mapView.frame.height-50.0, self.mapView.frame.width, 50.0)
+        discountDetailViewController.view.frame = viewRect
         self.mapView.addSubview(discountDetailViewController.view)
         //self.discountDetailViewController.view.hidden = true
+        print(discountDetailViewController.view.frame.height)
     }
     
     

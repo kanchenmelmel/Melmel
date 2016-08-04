@@ -45,6 +45,7 @@
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
 		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
 		965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF811CE986EC00D2BB0A /* LOGO-retina.png */; };
+		96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */; };
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
 		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
@@ -133,6 +134,7 @@
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
 		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
 		965AEF811CE986EC00D2BB0A /* LOGO-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-retina.png"; sourceTree = "<group>"; };
+		96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCatagoryRecognizer.swift; sourceTree = "<group>"; };
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
 		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
 				9628C36F1CFD4A5A00666F69 /* Reachability.swift */,
 				96CF58191D06A42400DD4D53 /* GlobalVariables.swift */,
+				96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
 				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
 				96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */,
+				96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */,
 				967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */,
 				4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */,
 				4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */,

@@ -511,6 +511,17 @@ class JSONParser {
                     discount.discountTag = discountTag
                 }
                 
+                if let discountCatagories = postEntry["category"] as? NSArray{
+                    for catagoryEntry in discountCatagories {
+                        if let catagoryId = catagoryEntry as? Int {
+                            
+                            let catagory = DiscountCatagoryRecognizer.recognizeCatagory(catagoryId, postType: .Discount)
+                            if !discount.catagories.contains(catagory) {
+                                discount.catagories.append(catagory)
+                            }
+                        }
+                    }
+                }
                 discounts.append(discount)
             }
             
