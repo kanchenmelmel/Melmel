@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="Melmel" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ij-GO-9zz">
+                    <rect key="frame" x="18" y="22" width="46" height="30"/>
+                    <state key="normal" title="娱乐类"/>
+                    <connections>
+                        <action selector="didYuleButtonPress:" destination="-1" eventType="touchUpInside" id="uFz-c2-FLa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDa-qp-azQ">
+                    <rect key="frame" x="86" y="22" width="46" height="30"/>
+                    <state key="normal" title="时尚类"/>
+                    <connections>
+                        <action selector="didShishangButtonPressed:" destination="-1" eventType="touchUpInside" id="aHq-Oo-osV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caL-0S-gej">
+                    <rect key="frame" x="159" y="22" width="46" height="30"/>
+                    <state key="normal" title="服务类"/>
+                    <connections>
+                        <action selector="didFuwuButtonPressed:" destination="-1" eventType="touchUpInside" id="OcH-hs-vGQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="242-Ej-pJA">
+                    <rect key="frame" x="236" y="22" width="46" height="30"/>
+                    <state key="normal" title="美食类"/>
+                    <connections>
+                        <action selector="didMeishiButtonPressed:" destination="-1" eventType="touchUpInside" id="C8K-d5-bsX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJp-N7-4Rc">
+                    <rect key="frame" x="317" y="22" width="46" height="30"/>
+                    <state key="normal" title="购物类"/>
+                    <connections>
+                        <action selector="didGouwuButtonPressed:" destination="-1" eventType="touchUpInside" id="eXN-vH-YEY"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="eJp-N7-4Rc" firstAttribute="leading" secondItem="242-Ej-pJA" secondAttribute="trailing" constant="15" id="gT5-yS-Hqc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="474" y="185"/>
+        </view>
+    </objects>
+</document>

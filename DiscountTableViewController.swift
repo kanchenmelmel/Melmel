@@ -3,19 +3,22 @@
 //  Melmel
 //
 //  Created by WuKaipeng on 19/05/2016.
-//  Copyright © 2016 Melmel. All rights reserved.
+//  Copyright © 2016 Melmel. All rights reserved..
 //
 
 import UIKit
 import CoreData
 
-class DiscountTableViewController: UITableViewController{
+class DiscountTableViewController: UITableViewController,FilterPassValueDelegate{
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
     
    // var discountList=[(Discount,UIImage)]()
     var discounts:[Discount] = []
     var filteredDiscounts:[Discount] = []
+    
+    var testing: Int?
     
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
     var isLoading = false
@@ -27,9 +30,41 @@ class DiscountTableViewController: UITableViewController{
     
     var numOfDiscounts:Int?
     var reachToTheEnd = false
+    
+    var FilteredViewController:FilterViewController = FilterViewController()
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
+    
+    
+    @IBAction func didFilterButtonPressed(sender: AnyObject) {
+        
+      //  FilteredViewController.view.viewWithTag(101)
+       
+        
+        if (FilteredViewController.view.tag == 100) {
+      //  if (FilteredViewController.view != nil){
+            FilteredViewController.view.tag = 101
+            FilteredViewController.view.removeFromSuperview()
+            print ("aprilllll")
+        }
+        else{
+            print ("aaaaaaaaaaaaaaa")
+            FilteredViewController.view.tag = 100
+            self.addChildViewController(FilteredViewController)
+        //  FilteredViewController.view.frame = CGRectMake(0.0, self.view.frame.height-74.0, self.view.frame.width, 74.0)
+        //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
+        
+            self.view.addSubview(FilteredViewController.view)
+        }
+        
+    }
+    
+    func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
+        print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print(catergoryInt)
+        print(FilteredBool)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +84,10 @@ class DiscountTableViewController: UITableViewController{
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        print (testing)
+        print ("kkkkkkkkkkkkk")
+        
         self.discounts.removeAll()
         if self.filtered == false{
 //        let discountUpdateUtility = PostsUpdateUtility()
