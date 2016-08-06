@@ -50,6 +50,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
         else{
             print ("aaaaaaaaaaaaaaa")
+            FilteredViewController.delegate = self
             FilteredViewController.view.tag = 100
             self.addChildViewController(FilteredViewController)
         //  FilteredViewController.view.frame = CGRectMake(0.0, self.view.frame.height-74.0, self.view.frame.width, 74.0)
