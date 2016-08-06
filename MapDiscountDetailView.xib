@@ -7,7 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapDiscountDetailViewController" customModule="Melmel" customModuleProvider="target">
             <connections>
+                <outlet property="TitleLabel" destination="WYs-Vy-g1R" id="2eE-aj-WoG"/>
                 <outlet property="detailButton" destination="Tzj-is-bp0" id="bOB-lu-jhZ"/>
+                <outlet property="discountTagLabel" destination="WmN-e6-7NQ" id="sgw-aR-x3P"/>
+                <outlet property="discountTypeImgView" destination="6Y3-80-Dys" id="dYe-3T-btT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="5dK-Ek-t6Y"/>
             </connections>
         </placeholder>
@@ -16,10 +19,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="6Y3-80-Dys">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="6Y3-80-Dys">
                     <rect key="frame" x="8" y="16" width="42" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="JRB-1l-9Le"/>
+                        <constraint firstAttribute="height" constant="42" id="Sc6-bb-zCI"/>
                         <constraint firstAttribute="width" constant="42" id="gDC-8i-MEU"/>
                     </constraints>
                     <variation key="default">
@@ -35,15 +39,16 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="周二到周四 20% OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-e6-7NQ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="周二到周四 20% OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-e6-7NQ">
                     <rect key="frame" x="58" y="8" width="230" height="26"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.94901960784313721" green="0.42745098039215684" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzj-is-bp0">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzj-is-bp0">
                     <rect key="frame" x="296" y="0.0" width="118" height="74"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="118" id="jMN-Tr-XhU"/>
                         <constraint firstAttribute="width" constant="118" id="rHX-dY-Ve8"/>
                     </constraints>
                     <state key="normal" title="阅读详情">
@@ -60,62 +65,29 @@
                         </mask>
                     </variation>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="RAINBOW酒水券，还有豪华" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-Vy-g1R">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RAINBOW酒水券，还有豪华" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-Vy-g1R">
                     <rect key="frame" x="58" y="42" width="230" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="WYs-Vy-g1R" firstAttribute="top" secondItem="WmN-e6-7NQ" secondAttribute="bottom" constant="8" id="Efw-Qt-Uuv"/>
-                <constraint firstItem="Tzj-is-bp0" firstAttribute="leading" secondItem="WmN-e6-7NQ" secondAttribute="trailing" constant="8" id="IDf-f6-NLR"/>
-                <constraint firstItem="WmN-e6-7NQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Nh4-eA-Ivv"/>
-                <constraint firstAttribute="bottom" secondItem="Tzj-is-bp0" secondAttribute="bottom" id="OoN-Yh-p3r"/>
-                <constraint firstItem="6Y3-80-Dys" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UQ3-XJ-bVz"/>
-                <constraint firstAttribute="trailing" secondItem="Tzj-is-bp0" secondAttribute="trailing" id="Zb3-B3-Z1d"/>
-                <constraint firstItem="Tzj-is-bp0" firstAttribute="leading" secondItem="WYs-Vy-g1R" secondAttribute="trailing" constant="8" id="bDZ-Fx-GEQ"/>
-                <constraint firstItem="WmN-e6-7NQ" firstAttribute="leading" secondItem="6Y3-80-Dys" secondAttribute="trailing" constant="8" id="cX4-a8-Gm9"/>
-                <constraint firstAttribute="bottom" secondItem="WYs-Vy-g1R" secondAttribute="bottom" constant="8" id="ccX-KM-cre"/>
-                <constraint firstItem="WYs-Vy-g1R" firstAttribute="leading" secondItem="6Y3-80-Dys" secondAttribute="trailing" constant="8" id="gCw-v6-EHl"/>
-                <constraint firstItem="6Y3-80-Dys" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hPd-zy-O7D"/>
-                <constraint firstItem="Tzj-is-bp0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x2r-BP-Nb8"/>
+                <constraint firstItem="Tzj-is-bp0" firstAttribute="leading" secondItem="WmN-e6-7NQ" secondAttribute="trailing" constant="8" id="4C5-Lm-QjT"/>
+                <constraint firstItem="WmN-e6-7NQ" firstAttribute="leading" secondItem="6Y3-80-Dys" secondAttribute="trailing" constant="8" id="DJQ-1B-F5x"/>
+                <constraint firstItem="WmN-e6-7NQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ENa-au-Q4w"/>
+                <constraint firstAttribute="bottom" secondItem="WYs-Vy-g1R" secondAttribute="bottom" constant="8" id="EfO-xY-hkd"/>
+                <constraint firstItem="Tzj-is-bp0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JsL-1U-nHY"/>
+                <constraint firstItem="WYs-Vy-g1R" firstAttribute="leading" secondItem="6Y3-80-Dys" secondAttribute="trailing" constant="8" id="P8w-ga-LTi"/>
+                <constraint firstItem="Tzj-is-bp0" firstAttribute="leading" secondItem="WYs-Vy-g1R" secondAttribute="trailing" constant="8" id="TnJ-3Q-5IG"/>
+                <constraint firstAttribute="bottom" secondItem="Tzj-is-bp0" secondAttribute="bottom" id="XW1-yT-OBG"/>
+                <constraint firstAttribute="trailing" secondItem="Tzj-is-bp0" secondAttribute="trailing" id="dng-ZP-ypT"/>
+                <constraint firstItem="6Y3-80-Dys" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="k3l-Pc-dRS"/>
+                <constraint firstItem="6Y3-80-Dys" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kuW-Vp-4rb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="UQ3-XJ-bVz"/>
-                    <exclude reference="hPd-zy-O7D"/>
-                    <exclude reference="Nh4-eA-Ivv"/>
-                    <exclude reference="cX4-a8-Gm9"/>
-                    <exclude reference="Efw-Qt-Uuv"/>
-                    <exclude reference="ccX-KM-cre"/>
-                    <exclude reference="gCw-v6-EHl"/>
-                    <exclude reference="IDf-f6-NLR"/>
-                    <exclude reference="OoN-Yh-p3r"/>
-                    <exclude reference="Zb3-B3-Z1d"/>
-                    <exclude reference="bDZ-Fx-GEQ"/>
-                    <exclude reference="x2r-BP-Nb8"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=compact">
-                <mask key="constraints">
-                    <include reference="UQ3-XJ-bVz"/>
-                    <include reference="hPd-zy-O7D"/>
-                    <include reference="Nh4-eA-Ivv"/>
-                    <include reference="cX4-a8-Gm9"/>
-                    <include reference="Efw-Qt-Uuv"/>
-                    <include reference="ccX-KM-cre"/>
-                    <include reference="gCw-v6-EHl"/>
-                    <include reference="IDf-f6-NLR"/>
-                    <include reference="OoN-Yh-p3r"/>
-                    <include reference="Zb3-B3-Z1d"/>
-                    <include reference="bDZ-Fx-GEQ"/>
-                    <include reference="x2r-BP-Nb8"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="1454" y="511"/>
+            <point key="canvasLocation" x="1454" y="510"/>
         </view>
     </objects>
     <resources>

@@ -32,6 +32,7 @@
 		962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1F7B1D487880006D2EA8 /* Comment.swift */; };
 		963289E31D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */; };
 		963289E71D4A11FF00B62040 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963289E61D4A11FF00B62040 /* Discount.swift */; };
+		9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
@@ -115,6 +116,7 @@
 		962A1F7B1D487880006D2EA8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCatalogoryPopoverView.xib; sourceTree = "<group>"; };
 		963289E61D4A11FF00B62040 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
+		9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
 				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
 				96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */,
+				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				963289E71D4A11FF00B62040 /* Discount.swift in Sources */,
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
 				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,
+				9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */,
 				96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */,
 				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,

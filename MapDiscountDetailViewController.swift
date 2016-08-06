@@ -12,6 +12,12 @@ class MapDiscountDetailViewController: UIViewController {
     
     var viewTintColor:UIColor?
 
+    @IBOutlet weak var discountTypeImgView: UIImageView!
+    
+    @IBOutlet weak var discountTagLabel: UILabel!
+    
+    @IBOutlet weak var TitleLabel: UILabel!
+    
     @IBOutlet weak var detailButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()

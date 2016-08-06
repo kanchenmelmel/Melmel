@@ -55,9 +55,16 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         // load discounts from core data
         //loadDiscountFromCoreData()
         let postUpdateUtility = PostsUpdateUtility()
+        
+        
+        
+
         postUpdateUtility.getAllDiscounts({ (discounts) in
-            self.addAnnotationViewsForDiscounts(discounts)
+            
+            //activityIndicatorVC.dismissViewControllerAnimated(true, completion: nil)
+            
             self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
+        
         })
         
 //        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
@@ -140,7 +147,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
                 annotationViewImgFilename = AnnotationPinImg.Fashion.rawValue
             }
             annotationView.image = UIImage(named: annotationViewImgFilename)
-            annotationView.canShowCallout = true
+            annotationView.canShowCallout = false
             //Right Callout Accessary View
             annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             //Left Callout Accessary View
@@ -207,6 +214,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
+    
+    // Prepare Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "discountWebViewSegue" {
             let annotationview = sender as! MKAnnotationView
@@ -215,6 +224,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             destinationCtrl.webRequestURLString = annotation.discount!.link!
             destinationCtrl.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
+        
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -249,18 +259,13 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     func addDiscountDetailViewController(){
         self.addChildViewController(discountDetailViewController)
         var viewRect:CGRect!
-//        if ( self.view.traitCollection.horizontalSizeClass == .Regular){
-//            viewRect = CGRectMake(0.0, self.mapView.frame.height-75.0, self.mapView.frame.width, 75.0)
-//        }
-//        else {
-//            print("other")
-//            viewRect = CGRectMake(0.0, self.mapView.frame.height-50.0, self.mapView.frame.width, 50.0)
-//        }
-        viewRect = CGRectMake(0.0, self.mapView.frame.height-50.0, self.mapView.frame.width, 50.0)
+
+        viewRect = CGRectMake(0.0, CGRectGetHeight(self.mapView.frame)-75.0, CGRectGetWidth(self.mapView.frame), 75.0)
         discountDetailViewController.view.frame = viewRect
         self.mapView.addSubview(discountDetailViewController.view)
         //self.discountDetailViewController.view.hidden = true
         print(discountDetailViewController.view.frame.height)
+        print(self.view.frame.height)
     }
     
     
