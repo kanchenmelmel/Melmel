@@ -61,8 +61,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
 
         postUpdateUtility.getAllDiscounts({ (discounts) in
             
-            //activityIndicatorVC.dismissViewControllerAnimated(true, completion: nil)
             
+            self.addAnnotationViewsForDiscounts(discounts)
             self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
         
         })
@@ -146,20 +146,12 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             if discountAnnotation.discount!.catagories[0] == .Fashion {
                 annotationViewImgFilename = AnnotationPinImg.Fashion.rawValue
             }
+            print(annotationViewImgFilename)
             annotationView.image = UIImage(named: annotationViewImgFilename)
-            annotationView.canShowCallout = false
+            
             //Right Callout Accessary View
-            annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+            //annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             //Left Callout Accessary View
-            
-            
-            if (discountAnnotation.discount?.discountTag != nil){
-                //print(discountAnnotation.discount?.discountTag)
-                let discountLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-                discountLabel.text = discountAnnotation.discount?.discountTag
-                discountLabel.textColor = UIColor.blackColor()
-                annotationView.leftCalloutAccessoryView = discountLabel
-            }
             
             
             
