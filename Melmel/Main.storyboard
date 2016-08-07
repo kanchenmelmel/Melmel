@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -668,6 +668,9 @@
                     <navigationItem key="navigationItem" id="L52-T3-T9u" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target">
                         <barButtonItem key="leftBarButtonItem" title="类别" id="nVY-zx-Mow">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didFilterButtonPress:" destination="uHM-4Q-TYE" id="GuS-pn-SXA"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -766,7 +769,7 @@
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5ST-g5-zK5"/>
+        <segue reference="ch7-PM-8P7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -10,6 +10,8 @@
 		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
 		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
 		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
+		4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D040B381D5757EA0011BF4A /* FilterViewController.swift */; };
+		4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D040B391D5757EA0011BF4A /* FilterViewController.xib */; };
 		4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */; };
 		4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */; };
 		4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */; };
@@ -89,6 +91,8 @@
 /* Begin PBXFileReference section */
 		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4D040B381D5757EA0011BF4A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		4D040B391D5757EA0011BF4A /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputSearchViewController.swift; path = Melmel/InputSearchViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */,
 				4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */,
 				4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */,
+				4D040B381D5757EA0011BF4A /* FilterViewController.swift */,
 				4D8644EF1CF96B0500E84028 /* CommentViewController.swift */,
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
@@ -311,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
+				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
 				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
@@ -481,6 +487,7 @@
 				967FFEA81D07E16900599E30 /* Main.storyboard in Resources */,
 				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
 				965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */,
+				4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */,
 				965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,6 +657,7 @@
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
 				4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */,
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
+				4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */,
 				4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */,
 				4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
