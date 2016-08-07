@@ -23,6 +23,8 @@ enum AnnotationPinImg: String {
 class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
     
     
+    let discountDetailViewController = MapDiscountDetailViewController()
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -33,7 +35,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     let melbourneLocation = CLLocation(latitude: -37.8136, longitude: 144.9631)
     var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
-    var discountDetailViewController:MapDiscountDetailViewController = MapDiscountDetailViewController()
+    
     
     var clusteringManager = FBClusteringManager()
     
@@ -71,7 +73,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
 //        discountDetailView.center = CGPoint(x: 0.0, y: 0.0)
 //        self.mapView.addSubview(discountDetailView)
         
-        addDiscountDetailViewController()
+        //addDiscountDetailViewController()
         
         
     }
@@ -129,7 +131,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             return nil
         } else if annotation.isKindOfClass(DiscountAnnotation){
             let discountAnnotation = annotation as! DiscountAnnotation
-            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            let annotationView = DiscountAnnotationView(annotation: annotation, reuseIdentifier: nil,delegate: self)
             var annotationViewImgFilename = ""
             if discountAnnotation.discount!.catagories[0] == .Shopping{
                 annotationViewImgFilename = AnnotationPinImg.Shopping.rawValue
@@ -248,7 +250,9 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
     }
     
-    func addDiscountDetailViewController(){
+    func addDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController){
+        
+        discountDetailViewController.showed = true
         self.addChildViewController(discountDetailViewController)
         var viewRect:CGRect!
 
@@ -259,6 +263,13 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         print(discountDetailViewController.view.frame.height)
         print(self.view.frame.height)
         print(self.mapView.frame.height)
+    }
+    
+    func removeDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController) {
+        discountDetailViewController.showed = false
+        discountDetailViewController.willMoveToParentViewController(nil)
+        discountDetailViewController.view.removeFromSuperview()
+        discountDetailViewController.removeFromParentViewController()
     }
     
     

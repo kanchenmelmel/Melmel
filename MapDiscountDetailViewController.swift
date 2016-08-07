@@ -11,6 +11,7 @@ import UIKit
 class MapDiscountDetailViewController: UIViewController {
     
     var viewTintColor:UIColor?
+    var showed = false
 
     @IBOutlet weak var discountTypeImgView: UIImageView!
     
