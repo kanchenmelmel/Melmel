@@ -84,11 +84,12 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.discounts.removeAll()
+   //     self.discounts.removeAll()
         if self.filtered == false{
 //        let discountUpdateUtility = PostsUpdateUtility()
 //        discounts = discountUpdateUtility.fetchDiscounts()
-        
+            
+        print ("test yi xia")
         self.updateDiscounts()
         
         self.categoryInt = "canLoadMore"
