@@ -266,6 +266,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         //self.discountDetailViewController.view.hidden = true
         print(discountDetailViewController.view.frame.height)
         print(self.view.frame.height)
+        print(self.mapView.frame.height)
     }
     
     
