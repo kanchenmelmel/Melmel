@@ -27,6 +27,13 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func didShishangButtonPress(sender: AnyObject) {
+      
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let catVC = storyboard.instantiateViewControllerWithIdentifier("testid") as?CategoryTableViewController
+        print (catVC)
+        self.navigationController?.pushViewController(catVC!, animated: true)
+        
+       // self.presentViewController(catVC!, animated: true, completion: nil)
     }
     
     
