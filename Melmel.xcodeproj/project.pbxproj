@@ -58,6 +58,8 @@
 		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
 		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
+		96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */; };
+		96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */; };
 		96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */; };
 		96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */; };
 		96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */; };
@@ -150,6 +152,8 @@
 		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
 		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotationView.swift; sourceTree = "<group>"; };
+		96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrlExtension.swift; sourceTree = "<group>"; };
 		96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
 		96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "woolworths-fresh-produce-section-instore.jpg"; path = "Melmel/woolworths-fresh-produce-section-instore.jpg"; sourceTree = "<group>"; };
 		96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewCell.swift; path = Melmel/MelGuideTableViewCell.swift; sourceTree = "<group>"; };
@@ -282,6 +286,25 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		96BDC6F71D57764200A75B71 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */,
+				965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */,
+				96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		96BDC6F81D57765E00A75B71 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
+				96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		96BF580D1CAA4589006D6CB6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +317,7 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				96BDC6F71D57764200A75B71 /* Map */,
 				4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */,
 				4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */,
 				4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */,
@@ -302,11 +326,9 @@
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
 				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
-				965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */,
 				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
 				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
-				96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */,
 				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
 			);
 			name = Controller;
@@ -315,6 +337,9 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+
+				96BDC6F81D57765E00A75B71 /* Map */,
+
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
 				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
@@ -648,6 +673,7 @@
 				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,
 				964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */,
 				4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */,
+				96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */,
 				4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
@@ -668,6 +694,7 @@
 				967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */,
 				4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */,
 				4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */,
+				96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */,
 				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,
 				962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */,
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,

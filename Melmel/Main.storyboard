@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -517,7 +516,11 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Melbourne" id="tpY-hz-hpM"/>
+                    <navigationItem key="navigationItem" title="Melbourne" id="tpY-hz-hpM">
+                        <barButtonItem key="leftBarButtonItem" image="categoryButtonIcon" id="VAa-Ps-xvz">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="currentLocationButton" destination="ZHM-jR-fXh" id="fpp-Ll-ezJ"/>
@@ -783,6 +786,7 @@
     </scenes>
     <resources>
         <image name="NavBarBackButton" width="10" height="19"/>
+        <image name="categoryButtonIcon" width="18" height="18"/>
         <image name="dateBackground" width="49" height="9"/>
         <image name="discount" width="20" height="20"/>
         <image name="discountHighlighted" width="20" height="20"/>

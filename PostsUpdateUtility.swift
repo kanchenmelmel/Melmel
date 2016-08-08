@@ -325,7 +325,22 @@ class PostsUpdateUtility {
                     if postEntry["featured_image_url"] != nil {
                         discount.featured_image_url = postEntry["thumbnail_url"] as? String
                     }
+                    let discountTag = postEntry["brand"] as? String
+                    if discountTag != nil {
+                        discount.discountTag = discountTag
+                    }
                     
+                    if let discountCatagories = postEntry["category"] as? NSArray{
+                        for catagoryEntry in discountCatagories {
+                            if let catagoryId = catagoryEntry as? Int {
+                                
+                                let catagory = DiscountCatagoryRecognizer.recognizeCatagory(catagoryId, postType: .Discount)
+                                if !discount.catagories.contains(catagory) {
+                                    discount.catagories.append(catagory)
+                                }
+                            }
+                        }
+                    }
                     
                     discounts.append(discount)
                     
