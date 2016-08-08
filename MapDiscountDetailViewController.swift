@@ -12,6 +12,8 @@ class MapDiscountDetailViewController: UIViewController {
     
     var viewTintColor:UIColor?
     var showed = false
+    
+    var discount:Discount!
 
     @IBOutlet weak var discountTypeImgView: UIImageView!
     
@@ -31,7 +33,21 @@ class MapDiscountDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewDidAppear(animated: Bool) {
+        setupView()
+    }
     
+//    init(){
+//        super.init(nibName: nil, bundle: nil)
+//    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     /*
     // MARK: - Navigation
@@ -47,9 +63,9 @@ class MapDiscountDetailViewController: UIViewController {
         self.view.layer.shadowOpacity = 1.0
         self.view.layer.shadowRadius = 13.0
         self.view.layer.shadowOffset = CGSizeMake(0.0, -2.0)
-        self.view.layer.shadowColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0).CGColor
+        self.view.layer.shadowColor = viewTintColor?.CGColor
         //self.view.backgroundColor = UIColor(colorLiteralRed: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
-        self.detailButton.backgroundColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
+        self.detailButton.backgroundColor = viewTintColor
     }
 
 }

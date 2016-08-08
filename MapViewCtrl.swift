@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import FBAnnotationClusteringSwift
 
+
 enum AnnotationPinImg: String {
     case Entertainment = "EntertainmentPin"
     case Shopping = "ShoppingPin"
@@ -212,10 +213,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     // Prepare Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "discountWebViewSegue" {
-            let annotationview = sender as! MKAnnotationView
+            let annotationviewController = sender as! MapDiscountDetailViewController
             let destinationCtrl = segue.destinationViewController as! PostWebViewController
-            let annotation = annotationview.annotation as! DiscountAnnotation
-            destinationCtrl.webRequestURLString = annotation.discount!.link!
+            //let annotation = annotationview.annotation as! DiscountAnnotation
+            destinationCtrl.webRequestURLString = annotationviewController.discount!.link!
             destinationCtrl.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
         
@@ -225,7 +226,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let postsUpdateUtility = PostsUpdateUtility()
         let keyWords = searchBar.text
         postsUpdateUtility.searchDiscountByKeyWords(keyWords!) { (discounts) in
+            self.discounts = discounts
+            
             self.addAnnotationViewsForDiscounts(discounts)
+            
         }
         searchBar.resignFirstResponder()
     }
@@ -271,6 +275,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         discountDetailViewController.view.removeFromSuperview()
         discountDetailViewController.removeFromParentViewController()
     }
+    
+    
     
     
 

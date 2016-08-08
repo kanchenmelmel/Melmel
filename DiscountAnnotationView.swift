@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 protocol DiscountAnnotationViewDelegate{
-    func tapAnnotation()
+    func tapAnnotation(discount:Discount)
 }
 
 class DiscountAnnotationView: MKAnnotationView {
@@ -29,7 +29,8 @@ class DiscountAnnotationView: MKAnnotationView {
     
     override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
         let uiView = super.hitTest(point, withEvent: event)
-        delegate.tapAnnotation()
+        let disocuntAnnotation = self.annotation as! DiscountAnnotation
+        delegate.tapAnnotation(disocuntAnnotation.discount!)
         return uiView
     }
     

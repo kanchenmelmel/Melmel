@@ -10,7 +10,7 @@
                 <outlet property="TitleLabel" destination="WYs-Vy-g1R" id="2eE-aj-WoG"/>
                 <outlet property="detailButton" destination="Tzj-is-bp0" id="bOB-lu-jhZ"/>
                 <outlet property="discountTagLabel" destination="WmN-e6-7NQ" id="sgw-aR-x3P"/>
-                <outlet property="discountTypeImgView" destination="6Y3-80-Dys" id="dYe-3T-btT"/>
+                <outlet property="discountTypeImgView" destination="6Y3-80-Dys" id="fnR-zT-yRu"/>
                 <outlet property="view" destination="iN0-l3-epB" id="5dK-Ek-t6Y"/>
             </connections>
         </placeholder>
