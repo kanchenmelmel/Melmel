@@ -342,7 +342,6 @@
 
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
 				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
-
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
 				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
