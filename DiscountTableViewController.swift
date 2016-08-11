@@ -87,7 +87,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
    //     self.discounts.removeAll()
         if self.filtered == false{
 //        let discountUpdateUtility = PostsUpdateUtility()
-//        discounts = discountUpdateUtility.fetchDiscounts()
+//        discounts = discountUpdateUtility.fetchDiscounts().
             
         print ("test yi xia")
         self.updateDiscounts()
