@@ -299,7 +299,6 @@
 		96BDC6F81D57765E00A75B71 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
 				96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */,
 			);
 			name = Map;
@@ -337,9 +336,7 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-
 				96BDC6F81D57765E00A75B71 /* Map */,
-
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
 				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
@@ -850,7 +847,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -868,7 +865,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
 				PRODUCT_NAME = "$(TARGET_NAME)";

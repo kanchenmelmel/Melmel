@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 protocol DiscountAnnotationViewDelegate{
     func tapAnnotation(discount:Discount)
+    func removeDiscountDetail()
 }
 
 class DiscountAnnotationView: MKAnnotationView {
@@ -27,14 +28,25 @@ class DiscountAnnotationView: MKAnnotationView {
         super.init(coder: aDecoder)
     }
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        let uiView = super.hitTest(point, withEvent: event)
-        let disocuntAnnotation = self.annotation as! DiscountAnnotation
-        delegate.tapAnnotation(disocuntAnnotation.discount!)
-        return uiView
-    }
-    
-//    override func setSelected(selected: Bool, animated: Bool) {
-//        delegate.tapAnnotation()
+//    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+//        
+//        let uiView = super.hitTest(point, withEvent: event)
+//        
+//        if uiView == nil && self.selected {
+//            let disocuntAnnotation = self.annotation as! DiscountAnnotation
+//            delegate.tapAnnotation(disocuntAnnotation.discount!)
+//            
+//        }
+//        return uiView
 //    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if selected {
+            let disocuntAnnotation = self.annotation as! DiscountAnnotation
+            self.delegate.tapAnnotation(disocuntAnnotation.discount!)
+        } else {
+            self.delegate.removeDiscountDetail()
+        }
+    }
 }

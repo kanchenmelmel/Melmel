@@ -63,7 +63,13 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
         self.discountDetailViewController.TitleLabel.text = discount.title
     }
     
+    
+    func removeDiscountDetail() {
+        self.removeDiscountDetailViewController(self.discountDetailViewController)
+    }
+    
     func showDiscountWebPage(){
         performSegueWithIdentifier("discountWebViewSegue", sender: self.discountDetailViewController)
     }
+    
 }
