@@ -3,7 +3,7 @@
 //  Melmel
 //
 //  Created by WuKaipeng on 19/05/2016.
-//  Copyright © 2016 Melmel. All rights reserved..
+//  Copyright © 2016 Melmel. All rights reserved.
 //
 
 import UIKit
