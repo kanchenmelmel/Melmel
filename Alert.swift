@@ -37,4 +37,11 @@ class Alert {
             alertController.dismissViewControllerAnimated(true, completion: nil)
         })
     }
+    
+    func showLoadingAlertController(viewController:UIViewController) {
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        let loadingAlertController = UIAlertController(title: "", message: "", preferredStyle: .Alert)
+        activityIndicatorView.center = loadingAlertController.view.center
+        
+    }
 }
