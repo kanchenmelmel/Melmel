@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Melmel/AppDelegate.swift"
-            timestampString = "490077455.15904"
+            timestampString = "491365599.92787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "persistentStoreCoordinator"
             landmarkType = "19">
          </BreakpointContent>
@@ -79,8 +79,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "getPostsFromAPI(_:)"
-            landmarkType = "5">
+            landmarkName = "APIHelper"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapViewCtrl.swift"
-            timestampString = "490795823.331656"
+            timestampString = "492876250.156481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "locationAuthStatus()"
             landmarkType = "5">
          </BreakpointContent>
@@ -232,7 +232,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Melmel/APIHelper.swift"
-            timestampString = "490625980.651733"
+            timestampString = "491365599.92787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "185"
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PostsUpdateUtility.swift"
-            timestampString = "490928595.816679"
+            timestampString = "491396271.465861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "updateDiscounts(_:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -13,6 +13,12 @@ enum PostType:String {
     case Post="posts"
     case Discount="discounts"
     case Comment = "comments"
+    case Media = "media"
+}
+
+enum HTTPMethod:String {
+    case Get = "GET"
+    case Post = "POST"
 }
 
 class APIHelper {
@@ -177,6 +183,7 @@ class APIHelper {
         case .Post:baseURIString = postUrlPathString
         case .Discount:baseURIString = discountUrlPathString
         case .Comment:baseURIString = commentUrlPathString
+        default:break
         }
         
         
@@ -237,6 +244,32 @@ class APIHelper {
             }
             }.resume()
     }
+    
+    func postPostToAPI(postType:PostType,params:[(String,String)],completionHandler:()->Void){
+        let url = buildURLComponent(.Comment, params: params)
+        let request = NSMutableURLRequest(URL: url.URL!)
+        
+        request.HTTPMethod = HTTPMethod.Post.rawValue
+        
+        let session = NSURLSession.sharedSession()
+        session.dataTaskWithRequest(request) { (data, response, error) in
+            guard error == nil && data != nil
+                else {
+                    print("error\(error)")
+                    return
+            }
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            completionHandler()
+        }.resume()
+        
+        
+        
+    }
+    
+    
     
     
     /*

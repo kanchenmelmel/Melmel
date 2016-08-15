@@ -11,7 +11,7 @@ import UIKit
 class ShowCommentTableViewController: UITableViewController {
     
     var postid:String?
-    var showcommentArray = Array<Array<String>>()
+    var comments = [Comment]()
     var featuredImage : UIImage?
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class ShowCommentTableViewController: UITableViewController {
         
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.getPostComments(self.postid!) {(comments) in
-            self.showcommentArray = comments
+            self.comments = comments
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })
@@ -39,63 +39,6 @@ class ShowCommentTableViewController: UITableViewController {
     }
     
     
-//    func getComments(){
-//        let endURL = "http://melmel.com.au/wp-json/wp/v2/comments?post=\(self.postid!)&per_page=100"
-//        
-//        let commentURL = NSURL(string: endURL)!
-//        let session = NSURLSession.sharedSession()
-//        var commentArray: NSArray?
-//    
-//        session.dataTaskWithURL(commentURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
-//            
-//            if let responseData = data {
-//                
-//                
-//                do{
-//                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
-//                    if let commentsArray = json as? NSArray{
-//                       // print (commentsArray)
-//                        commentArray = json as! NSArray
-//                        for comment in commentArray!{
-//                            var tmp = [String]()
-//                            
-//                            let name = comment["author_name"] as! String
-//                            
-//                            let date = comment["comment_date"] as! String
-//                            
-//                            let content = comment["content_raw"] as! String
-//                            
-//                            let avatarArray = comment["author_avatar_urls"] as! Dictionary<String,String>
-//                            let avatar = avatarArray["96"]!
-//                            
-//                            tmp.append(name)
-//                            tmp.append(date)
-//                            tmp.append(content)
-//                            tmp.append(avatar)
-//                            
-//                            self.showcommentArray.append(tmp)
-//
-//                        }
-//                        
-//                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                            self.tableView.reloadData()
-//                        })
-//                        
-//                        
-//                    }
-//                    else {
-//                        print ("error")
-//                    }
-//                } catch {
-//                    
-//                    print("could not serialize!")
-//                }
-//            }
-//            }.resume()
-//        
-//        
-//
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -111,26 +54,22 @@ class ShowCommentTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.showcommentArray.count
+        return self.comments.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("showcommentIdentifier", forIndexPath: indexPath) as! CommentTableViewCell
+
         
+        let comment = self.comments[indexPath.row]
+        cell.nameLabel.text = comment.autherName
+        let dateFormatter = DateFormatter()
+        cell.dateLabel.text = dateFormatter.formatDateToDateStringForDisplay(comment.date!)
+        cell.contentLabel.text = comment.content
         
-        cell.avatarImage.layer.cornerRadius = 25
-        cell.avatarImage.clipsToBounds = true
-      //  cell.layer.borderWidth = 2.5
-        cell.layer.borderColor = UIColor.grayColor().CGColor
-        
-        let comment = self.showcommentArray[indexPath.row]
-        cell.nameLabel.text = comment[0]
-        cell.dateLabel.text = comment[1]
-        cell.contentLabel.text = comment[2]
-        
-        let gravatarURL = comment[3]
-        let imageData = NSData(contentsOfURL:NSURL(string:gravatarURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        let gravatarURL = comment.avatar
+        let imageData = NSData(contentsOfURL:NSURL(string:gravatarURL!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
         self.featuredImage = UIImage(data: imageData!)
         cell.avatarImage.image = self.featuredImage
 

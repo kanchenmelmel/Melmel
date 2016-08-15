@@ -7,6 +7,7 @@ target 'Melmel' do
 
   # Pods for Melmel
 pod 'FBAnnotationClusteringSwift'
+pod 'pop', :git => 'https://github.com/facebook/pop.git'
 
   target 'MelmelTests' do
     inherit! :search_paths

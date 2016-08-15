@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DiscountTableViewController: UITableViewController{
+class DiscountTableViewController: UITableViewController,FilterPassValueDelegate{
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -31,6 +31,41 @@ class DiscountTableViewController: UITableViewController{
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     
+    var FilteredViewController:FilterViewController = FilterViewController()
+    
+    
+    @IBAction func didFilterButtonPress(sender: AnyObject) {
+        
+        //  FilteredViewController.view.viewWithTag(101)
+        
+        
+        if (FilteredViewController.view.tag == 100) {
+            //  if (FilteredViewController.view != nil){
+            FilteredViewController.view.tag = 101
+            FilteredViewController.view.removeFromSuperview()
+            print ("aprilllll")
+        }
+        else{
+            print ("aaaaaaaaaaaaaaa")
+            FilteredViewController.delegate = self
+            FilteredViewController.view.tag = 100
+            self.addChildViewController(FilteredViewController)
+            //  FilteredViewController.view.frame = CGRectMake(0.0, self.view.frame.height-74.0, self.view.frame.width, 74.0)
+            //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
+            
+            self.view.addSubview(FilteredViewController.view)
+        }
+        
+        
+    }
+    
+    func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
+        print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print(catergoryInt)
+        print(FilteredBool)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,11 +84,12 @@ class DiscountTableViewController: UITableViewController{
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.discounts.removeAll()
+   //     self.discounts.removeAll()
         if self.filtered == false{
 //        let discountUpdateUtility = PostsUpdateUtility()
-//        discounts = discountUpdateUtility.fetchDiscounts()
-        
+//        discounts = discountUpdateUtility.fetchDiscounts().
+            
+        print ("test yi xia")
         self.updateDiscounts()
         
         self.categoryInt = "canLoadMore"

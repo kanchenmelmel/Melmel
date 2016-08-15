@@ -82,50 +82,12 @@ class PostsUpdateUtility {
     /* Update discounts */
     func updateDiscounts(completionHandler:() -> Void){
         let apiHelper = APIHelper()
-        let coreDataUtility = CoreDataUtility()
         
         apiHelper.getDiscountsFromAPI { (discountArray, success) in
             if success {
                 
-                for discountEntry in discountArray! {
-                    
-                    //id
-                    let id = discountEntry["id"] as! Int
-                    if !coreDataUtility.checkIdExist(id, entityType: .Discount){
-                        let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
-                        discount.id = discountEntry["id"] as! Int
-                        
-                        //Date
-                        let dateString = discountEntry["date"] as! String
-                        let dateFormatter = DateFormatter()
-                        discount.date = dateFormatter.formatDateStringToMelTime(dateString)
-                        //Title
-                        discount.title = discountEntry["title"] as? String
-                        
-                        //Link
-                        discount.link = discountEntry["link"] as? String
-                        //Coordinate and address
-                        
-                        discount.featured_image_downloaded = false
-                        discount.address = discountEntry["address"] as? String
-                        
-                        
-                        let latitudeString = discountEntry["latitude"] as! String
-                        let longitudeString = discountEntry["longtitude"] as! String
-                        
-                        discount.latitude = Double(latitudeString)
-                        
-                        
-                        discount.longtitude = Double(longitudeString)
-                        
-                        
-                        //Featured image Link
-                        discount.featured_image_url = discountEntry["featured_image_url"] as? String
-                    }
-                    
-                    
-                }//End of for-in loop
-                
+                JSONParser.parseDiscountJSONArrayToDiscountArray(discountArray, checkConsistency: true, ifInsertIntoManagedContext: true)
+
                 do {
                     try self.managedObjectContext.save()
                 } catch {
@@ -301,55 +263,7 @@ class PostsUpdateUtility {
         params.append(("filter[posts_per_page]","-1"))
         apiHelper.getPostsFromAPI(.Discount, params: params) { (postsArray, success) in
             if success {
-                
-                
-                // create dispatch group
-                
-                for postEntry in postsArray! {
-                    //let discount = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
-                    let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: self.managedObjectContext)
-                    let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: nil)
-                    //id
-                    discount.id = postEntry["id"] as! Int
-                    
-                    //Date
-                    let dateString = postEntry["date"] as! String
-                    let dateFormatter = DateFormatter()
-                    discount.date = dateFormatter.formatDateStringToMelTime(dateString)
-                    //Title
-                    discount.title = postEntry["title"] as! String
-                    
-                    //Link
-                    discount.link = postEntry["link"] as! String
-                    
-                    //Media
-                    
-                    discount.featured_image_downloaded = false
-                    
-                    //Address and coordinates
-                    discount.address = postEntry["address"] as! String
-                    
-                    
-                    let latitudeString = postEntry["latitude"] as! String
-                    let longitudeString = postEntry["longtitude"] as! String
-                    
-                    discount.latitude = Double(latitudeString)
-                    //print(discount.latitude)
-                    
-                    discount.longtitude = Double(longitudeString)
-                    
-                    if postEntry["featured_image_url"] != nil {
-                        discount.featured_image_url = postEntry["thumbnail_url"] as? String
-                    }
-                    
-                    
-                    discounts.append(discount)
-                    
-                }//End postsArray Loop
-                
-                
-                
-                
+                discounts = JSONParser.parseDiscountJSONArrayToDiscountArray(postsArray, checkConsistency: false, ifInsertIntoManagedContext: false)
                 
                 print(discounts.count)
                 dispatch_async(dispatch_get_main_queue(), {
@@ -411,7 +325,22 @@ class PostsUpdateUtility {
                     if postEntry["featured_image_url"] != nil {
                         discount.featured_image_url = postEntry["thumbnail_url"] as? String
                     }
+                    let discountTag = postEntry["brand"] as? String
+                    if discountTag != nil {
+                        discount.discountTag = discountTag
+                    }
                     
+                    if let discountCatagories = postEntry["category"] as? NSArray{
+                        for catagoryEntry in discountCatagories {
+                            if let catagoryId = catagoryEntry as? Int {
+                                
+                                let catagory = DiscountCatagoryRecognizer.recognizeCatagory(catagoryId, postType: .Discount)
+                                if !discount.catagories.contains(catagory) {
+                                    discount.catagories.append(catagory)
+                                }
+                            }
+                        }
+                    }
                     
                     discounts.append(discount)
                     
@@ -434,9 +363,9 @@ class PostsUpdateUtility {
     
     func getDiscountsForCatagory(){}
     
-    func getPostComments(postID:String, completionHandler:(comments:Array<Array<String>>) -> Void) {
+    func getPostComments(postID:String, completionHandler:(comments:[Comment]) -> Void) {
         let apiHelper = APIHelper()
-        var commentsArray = Array<Array<String>>()
+        var commentsArray = [Comment]()
         
         var params = [(String,String)]()
         params.append(("post",postID))
@@ -446,24 +375,29 @@ class PostsUpdateUtility {
             if success {
                 print (commentsArray.count)
                 print ("--------------------")
-                for comment in commentArray!{
-                    var tmp = [String]()
+                for commentEntry in commentArray!{
                     
-                    let name = comment["author_name"] as! String
+                    let comment = Comment()
                     
-                    let date = comment["comment_date"] as! String
+                    if let name = commentEntry["author_name"] as? String {
+                        comment.autherName = name
+                    }
                     
-                    let content = comment["content_raw"] as! String
+                    if let date = commentEntry["date"] as? String {
+                        let dateFormatter = DateFormatter()
+                        comment.date = dateFormatter.formatDateStringToMelTime(date)
+                    }
                     
-                    let avatarArray = comment["author_avatar_urls"] as! Dictionary<String,String>
-                    let avatar = avatarArray["96"]!
+                    if let content = commentEntry["content_raw"] as? String {
+                        comment.content = content
+                    }
                     
-                    tmp.append(name)
-                    tmp.append(date)
-                    tmp.append(content)
-                    tmp.append(avatar)
+                    if let avatarDic = commentEntry["author_avatar_urls"] as? Dictionary<String,String>{
+                        comment.avatar = avatarDic["96"]!
+                    }
                     
-                    commentsArray.append(tmp)
+                    
+                    commentsArray.append(comment)
                     
                 }
                 
@@ -475,8 +409,139 @@ class PostsUpdateUtility {
         }
     }
     
+}
+
+
+class JSONParser {
+    /* postArray: JSON Array
+     postType; Type of post
+     checkConsistency: if check the posts have already been in core data
+     */
     
-    
-    
-    
+    static func parseDiscountJSONArrayToDiscountArray(postsArray:NSArray?,checkConsistency:Bool,ifInsertIntoManagedContext:Bool) -> [Discount]{
+        let coreDataUtility = CoreDataUtility()
+        
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        var discounts = [Discount]()
+        for postEntry in postsArray! {
+            let id = postEntry["id"] as! Int
+            if checkConsistency{
+                if !coreDataUtility.checkIdExist(id,entityType: .Discount){
+                    
+                    
+                    let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: managedObjectContext)
+                    var managedObjectContextToBeInserted:NSManagedObjectContext?
+                    managedObjectContextToBeInserted = managedObjectContext
+                    if !ifInsertIntoManagedContext {
+                        managedObjectContextToBeInserted = nil
+                    }
+                    let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: managedObjectContextToBeInserted)
+                    discount
+                    //id
+                    discount.id = postEntry["id"] as! Int
+                    
+                    //Date
+                    let dateString = postEntry["date"] as! String
+                    let dateFormatter = DateFormatter()
+                    discount.date = dateFormatter.formatDateStringToMelTime(dateString)
+                    //Title
+                    discount.title = postEntry["title"] as? String
+                    
+                    //Link
+                    discount.link = postEntry["link"] as? String
+                    
+                    //Media
+                    
+                    discount.featured_image_downloaded = false
+                    
+                    //Address and coordinates
+                    discount.address = postEntry["address"] as! String
+                    
+                    
+                    let latitudeString = postEntry["latitude"] as! String
+                    let longitudeString = postEntry["longtitude"] as! String
+                    
+                    discount.latitude = Double(latitudeString)
+                    //print(discount.latitude)
+                    
+                    discount.longtitude = Double(longitudeString)
+                    
+                    if postEntry["featured_image_url"] != nil {
+                        discount.featured_image_url = postEntry["thumbnail_url"] as? String
+                    }
+                    
+                    let discountTag = postEntry["brand"] as? String
+                    if discountTag != nil {
+                        discount.discountTag = discountTag
+                    }
+                    
+                    
+                    discounts.append(discount)
+                }
+                
+            }// end of checkConsistency
+            else {
+                let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: managedObjectContext)
+                var managedObjectContextToBeInserted:NSManagedObjectContext?
+                managedObjectContextToBeInserted = managedObjectContext
+                if !ifInsertIntoManagedContext {
+                    managedObjectContextToBeInserted = nil
+                }
+                let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: managedObjectContextToBeInserted)
+                discount
+                //id
+                discount.id = postEntry["id"] as! Int
+                
+                //Date
+                let dateString = postEntry["date"] as! String
+                let dateFormatter = DateFormatter()
+                discount.date = dateFormatter.formatDateStringToMelTime(dateString)
+                //Title
+                discount.title = postEntry["title"] as? String
+                
+                //Link
+                discount.link = postEntry["link"] as? String
+                
+                //Media
+                
+                discount.featured_image_downloaded = false
+                
+                //Address and coordinates
+                discount.address = postEntry["address"] as! String
+                
+                
+                let latitudeString = postEntry["latitude"] as! String
+                let longitudeString = postEntry["longtitude"] as! String
+                
+                discount.latitude = Double(latitudeString)
+                //print(discount.latitude)
+                
+                discount.longtitude = Double(longitudeString)
+                
+                if postEntry["featured_image_url"] != nil {
+                    discount.featured_image_url = postEntry["thumbnail_url"] as? String
+                }
+                let discountTag = postEntry["brand"] as? String
+                if discountTag != nil {
+                    discount.discountTag = discountTag
+                }
+                
+                if let discountCatagories = postEntry["category"] as? NSArray{
+                    for catagoryEntry in discountCatagories {
+                        if let catagoryId = catagoryEntry as? Int {
+                            
+                            let catagory = DiscountCatagoryRecognizer.recognizeCatagory(catagoryId, postType: .Discount)
+                            if !discount.catagories.contains(catagory) {
+                                discount.catagories.append(catagory)
+                            }
+                        }
+                    }
+                }
+                discounts.append(discount)
+            }
+            
+            
+        }//End postsArray Loop
+        return discounts
+    }
 }

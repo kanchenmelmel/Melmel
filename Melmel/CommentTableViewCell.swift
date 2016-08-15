@@ -17,12 +17,20 @@ class CommentTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupView()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+//    override func setSelected(selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//    }
+    
+    
+    func setupView(){
+        avatarImage.layer.cornerRadius = 25.0
+        avatarImage.clipsToBounds = true
+        
     }
 
 }

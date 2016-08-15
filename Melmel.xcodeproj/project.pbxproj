@@ -10,6 +10,8 @@
 		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
 		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
 		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
+		4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D040B381D5757EA0011BF4A /* FilterViewController.swift */; };
+		4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D040B391D5757EA0011BF4A /* FilterViewController.xib */; };
 		4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */; };
 		4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */; };
 		4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */; };
@@ -29,29 +31,36 @@
 		962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962124971CE03E8000DB4A37 /* FileDownloader.swift */; };
 		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
 		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
+		962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1F7B1D487880006D2EA8 /* Comment.swift */; };
+		963289E31D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */; };
+		963289E71D4A11FF00B62040 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963289E61D4A11FF00B62040 /* Discount.swift */; };
+		9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
-		9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
 		964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C891CA4CF7B00C69B71 /* Assets.xcassets */; };
 		964F4C8D1CA4CF7B00C69B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C8B1CA4CF7B00C69B71 /* LaunchScreen.storyboard */; };
 		964F4C981CA4CF7B00C69B71 /* MelmelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */; };
 		964F4CA31CA4CF7B00C69B71 /* MelmelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */; };
+		965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */; };
 		965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */; };
 		965AEF7A1CE9529700D2BB0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965AEF791CE9529700D2BB0A /* MapKit.framework */; };
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
 		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
 		965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF811CE986EC00D2BB0A /* LOGO-retina.png */; };
-		965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF881CE9ACA800D2BB0A /* Discount.swift */; };
+		96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */; };
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
 		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
+		967B5CCC1D60738100A42A17 /* LoadingAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967B5CCB1D60738100A42A17 /* LoadingAlertController.swift */; };
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
 		967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */; };
 		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
 		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
 		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
+		96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */; };
+		96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */; };
 		96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */; };
 		96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */; };
 		96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */; };
@@ -60,6 +69,7 @@
 		96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB14ED1CE46047006B5DD1 /* Media.swift */; };
 		96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF58191D06A42400DD4D53 /* GlobalVariables.swift */; };
 		96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */; };
+		96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */; };
 		96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */; };
 		96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96FC174D1CAE2CA5002F8817 /* Melmel.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -84,6 +94,8 @@
 /* Begin PBXFileReference section */
 		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4D040B381D5757EA0011BF4A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		4D040B391D5757EA0011BF4A /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputSearchViewController.swift; path = Melmel/InputSearchViewController.swift; sourceTree = "<group>"; };
@@ -108,8 +120,11 @@
 		962124971CE03E8000DB4A37 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = Melmel/FileDownloader.swift; sourceTree = "<group>"; };
 		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
+		962A1F7B1D487880006D2EA8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCatalogoryPopoverView.xib; sourceTree = "<group>"; };
+		963289E61D4A11FF00B62040 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
+		9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
-		9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -122,21 +137,25 @@
 		964F4C9E1CA4CF7B00C69B71 /* MelmelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelmelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelmelUITests.swift; sourceTree = "<group>"; };
 		964F4CA41CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapDiscountDetailView.xib; sourceTree = "<group>"; };
 		965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotation.swift; sourceTree = "<group>"; };
 		965AEF791CE9529700D2BB0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
 		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
 		965AEF811CE986EC00D2BB0A /* LOGO-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-retina.png"; sourceTree = "<group>"; };
-		965AEF881CE9ACA800D2BB0A /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
+		96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCatagoryRecognizer.swift; sourceTree = "<group>"; };
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
 		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
+		967B5CCB1D60738100A42A17 /* LoadingAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAlertController.swift; sourceTree = "<group>"; };
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
 		967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
 		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotationView.swift; sourceTree = "<group>"; };
+		96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrlExtension.swift; sourceTree = "<group>"; };
 		96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
 		96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "woolworths-fresh-produce-section-instore.jpg"; path = "Melmel/woolworths-fresh-produce-section-instore.jpg"; sourceTree = "<group>"; };
 		96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewCell.swift; path = Melmel/MelGuideTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +164,7 @@
 		96CB14ED1CE46047006B5DD1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		96CF58191D06A42400DD4D53 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewController.swift; path = Melmel/MelGuideTableViewController.swift; sourceTree = "<group>"; };
+		96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDiscountDetailViewController.swift; sourceTree = "<group>"; };
 		96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96FC174E1CAE2CA5002F8817 /* Melmel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Melmel.xcdatamodel; sourceTree = "<group>"; };
 		9B851BC0414D593B74824256 /* Pods-Melmel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Melmel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Melmel/Pods-Melmel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,9 +283,27 @@
 				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
 				9628C36F1CFD4A5A00666F69 /* Reachability.swift */,
 				96CF58191D06A42400DD4D53 /* GlobalVariables.swift */,
-				9646DFBE1D2E1C6900FA9FF2 /* JSONParser.swift */,
+				96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		96BDC6F71D57764200A75B71 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */,
+				965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */,
+				96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		96BDC6F81D57765E00A75B71 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		96BF580D1CAA4589006D6CB6 /* Assets */ = {
@@ -280,17 +318,20 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				967B5CCB1D60738100A42A17 /* LoadingAlertController.swift */,
+				96BDC6F71D57764200A75B71 /* Map */,
 				4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */,
 				4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */,
 				4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */,
+				4D040B381D5757EA0011BF4A /* FilterViewController.swift */,
 				4D8644EF1CF96B0500E84028 /* CommentViewController.swift */,
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
 				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
-				965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */,
 				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
 				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
+				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -298,8 +339,10 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				96BDC6F81D57765E00A75B71 /* Map */,
+				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
+				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
-				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
 				96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */,
 				4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */,
@@ -315,15 +358,18 @@
 		96FC17501CAE387B002F8817 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				963289E61D4A11FF00B62040 /* Discount.swift */,
 				967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */,
 				96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */,
 				965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */,
-				965AEF881CE9ACA800D2BB0A /* Discount.swift */,
 				96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */,
 				96CB14ED1CE46047006B5DD1 /* Media.swift */,
 				96BAECF61CE21410008B3B70 /* Post.swift */,
 				4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */,
 				4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */,
+				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
+				962A1F7B1D487880006D2EA8 /* Comment.swift */,
+				963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -417,7 +463,7 @@
 				TargetAttributes = {
 					964F4C7C1CA4CF7B00C69B71 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = D5XF8EMX6S;
+						DevelopmentTeam = 8387LU2S3Z;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -460,11 +506,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				964F4C8D1CA4CF7B00C69B71 /* LaunchScreen.storyboard in Resources */,
+				963289E31D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib in Resources */,
 				964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */,
 				965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */,
 				967FFEA81D07E16900599E30 /* Main.storyboard in Resources */,
 				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
 				965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */,
+				4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */,
+				965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,15 +664,16 @@
 				4DE3F3C01D16E81900D9D5A2 /* DiscountFilter.swift in Sources */,
 				4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */,
 				9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */,
-				965AEF8A1CE9ACA800D2BB0A /* Discount.swift in Sources */,
 				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
 				96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */,
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
+				96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
 				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,
 				964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */,
 				4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */,
+				96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */,
 				4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
@@ -633,26 +683,32 @@
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
 				4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */,
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
+				4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */,
 				4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */,
 				4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
 				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
 				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
 				96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */,
+				96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */,
 				967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */,
 				4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */,
 				4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */,
+				96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */,
 				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,
+				962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */,
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
 				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
 				4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */,
+				963289E71D4A11FF00B62040 /* Discount.swift in Sources */,
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
 				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,
+				9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */,
+				967B5CCC1D60738100A42A17 /* LoadingAlertController.swift in Sources */,
 				96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */,
 				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
-				9646DFBF1D2E1C6900FA9FF2 /* JSONParser.swift in Sources */,
 				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
 				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
 			);
@@ -795,9 +851,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.melmel.jason;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -813,9 +869,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.melmel.jason;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melmel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

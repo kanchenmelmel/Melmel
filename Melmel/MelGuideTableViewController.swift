@@ -60,7 +60,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         // Initialize the refresh control
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
+        self.refreshControl?.backgroundColor = DISCOUNT_TINT_COLOR
         self.refreshControl?.tintColor = UIColor.whiteColor()
         self.refreshControl?.addTarget(self, action: #selector(self.updatePosts), forControlEvents: .ValueChanged)
         self.refreshControl?.beginRefreshing()

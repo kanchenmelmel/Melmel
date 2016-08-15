@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Configure Tab bar
         let tabNavCntr = window?.rootViewController as? UITabBarController
-        tabNavCntr?.selectedIndex = 2
         
         for tabBarItem in (tabNavCntr?.tabBar.items)!{
             tabBarItem.image = tabBarItem.image?.imageWithRenderingMode(.AlwaysOriginal)

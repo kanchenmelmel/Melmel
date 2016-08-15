@@ -43,19 +43,21 @@ class CategoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.categories.count
+       // return self.categories.count
+        return 1
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! CategoryTableViewCell
-        
-        
-        let cate = categories[indexPath.row]
-        
-        cell.titleLabel.text = cate.name
+//        
+//        
+//        let cate = categories[indexPath.row]
+//        
+//        cell.titleLabel.text = cate.name
 
         // Configure the cell...
+        cell.nameLabel.text = "testing"
 
         return cell
     }

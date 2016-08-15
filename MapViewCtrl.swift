@@ -11,7 +11,21 @@ import MapKit
 import CoreLocation
 import FBAnnotationClusteringSwift
 
-class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
+
+enum AnnotationPinImg: String {
+    case Entertainment = "EntertainmentPin"
+    case Shopping = "ShoppingPin"
+    case Fashion = "FashionPin"
+    case Service = "ServicePin"
+    case Food = "FoodPin"
+}
+
+
+class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate {
+    
+    
+    let discountDetailViewController = MapDiscountDetailViewController()
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -24,7 +38,6 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     var discounts:[Discount] = []
     
     
-    
     var clusteringManager = FBClusteringManager()
     
     var userLocation:CLLocation?
@@ -35,21 +48,36 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         mapView.delegate=self
         searchBar.delegate = self
         
-        
-        let melmelAnnotation = MKPointAnnotation()
-        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
-        melmelAnnotation.title = "Melmel"
-        melmelAnnotation.subtitle = "416/566 St. Kilda Road, St. Kilda, VIC, 3004"
-        mapView.addAnnotation(melmelAnnotation)
+//        
+//        let melmelAnnotation = MKPointAnnotation()
+//        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
+//        melmelAnnotation.title = "Melmel"
+//        melmelAnnotation.subtitle = "416/566 St. Kilda Road, St. Kilda, VIC, 3004"
+//        mapView.addAnnotation(melmelAnnotation)
         locationAuthStatus()
         // load discounts from core data
         //loadDiscountFromCoreData()
         let postUpdateUtility = PostsUpdateUtility()
+        
+        
+        let loadingAlert = LoadingAlertController(title: "", message: nil, preferredStyle: .Alert)
+        //self.addChildViewController(loadingAlert)
+        presentViewController(loadingAlert, animated: true, completion: nil)
+        loadingAlert.activityIndicatorView.center = loadingAlert.view.center
+
         postUpdateUtility.getAllDiscounts({ (discounts) in
+            
+            
             self.addAnnotationViewsForDiscounts(discounts)
             self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
+            loadingAlert.close()
         })
         
+//        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
+//        discountDetailView.center = CGPoint(x: 0.0, y: 0.0)
+//        self.mapView.addSubview(discountDetailView)
+        
+        //addDiscountDetailViewController()
         
         
     }
@@ -95,6 +123,9 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     /*  Configure annotation view */
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         var reuseId = ""
+        
+        
+        
         if annotation.isKindOfClass(FBAnnotationCluster){
             reuseId = "Cluster"
             var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
@@ -103,15 +134,38 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }else if annotation.isKindOfClass(MKUserLocation) {
             return nil
         } else if annotation.isKindOfClass(DiscountAnnotation){
-            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-            annotationView.image = UIImage(named: "normalPin")
-            annotationView.canShowCallout = true
-            annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+            let discountAnnotation = annotation as! DiscountAnnotation
+            let annotationView = DiscountAnnotationView(annotation: annotation, reuseIdentifier: nil,delegate: self)
+            var annotationViewImgFilename = ""
+            if discountAnnotation.discount!.catagories[0] == .Shopping{
+                annotationViewImgFilename = AnnotationPinImg.Shopping.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Entertainment {
+                annotationViewImgFilename = AnnotationPinImg.Entertainment.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Food {
+                annotationViewImgFilename = AnnotationPinImg.Food.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Service {
+                annotationViewImgFilename = AnnotationPinImg.Service.rawValue
+            }
+            if discountAnnotation.discount!.catagories[0] == .Fashion {
+                annotationViewImgFilename = AnnotationPinImg.Fashion.rawValue
+            }
+            print(annotationViewImgFilename)
+            annotationView.image = UIImage(named: annotationViewImgFilename)
+            
+            //Right Callout Accessary View
+            //annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+            //Left Callout Accessary View
+            
+            
+            
             return annotationView
         }else {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             annotationView.image = UIImage(named: "melmelPin")
-            annotationView.canShowCallout = true
+            annotationView.canShowCallout = false
             return annotationView
         }
 
@@ -135,13 +189,15 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     func updateDiscounts() {
         let postUpdateUtility = PostsUpdateUtility()
+        
+        
         postUpdateUtility.updateDiscounts {
             
             dispatch_async(dispatch_get_main_queue(), { 
                 self.locationAuthStatus()
                 // load discounts from core data
                 self.loadDiscountFromCoreData()
-                print("Discounts:\(self.discounts.count)")
+                
                 for discount in self.discounts {
                     // Add Annotations
                     let annotation = self.createAnnotationObject(discount)
@@ -158,21 +214,37 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
+    @IBAction func showCategoryPopover(sender: AnyObject) {
+        let categoryPopoverCtrl = FilterViewController()
+        
+        self.addChildViewController(categoryPopoverCtrl)
+        self.view.addSubview(categoryPopoverCtrl.view)
+//        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+//        let popoverPresentationController = categoryPopoverCtrl.popoverPresentationController
+//        popoverPresentationController?.sourceView = sender.view
+//        popoverPresentationController?.delegate = self
+    }
+    
+    // Prepare Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "discountWebViewSegue" {
-            let annotationview = sender as! MKAnnotationView
+            let annotationviewController = sender as! MapDiscountDetailViewController
             let destinationCtrl = segue.destinationViewController as! PostWebViewController
-            let annotation = annotationview.annotation as! DiscountAnnotation
-            destinationCtrl.webRequestURLString = annotation.discount!.link!
+            //let annotation = annotationview.annotation as! DiscountAnnotation
+            destinationCtrl.webRequestURLString = annotationviewController.discount!.link!
             destinationCtrl.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
+        
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let postsUpdateUtility = PostsUpdateUtility()
         let keyWords = searchBar.text
         postsUpdateUtility.searchDiscountByKeyWords(keyWords!) { (discounts) in
+            self.discounts = discounts
+            
             self.addAnnotationViewsForDiscounts(discounts)
+            
         }
         searchBar.resignFirstResponder()
     }
@@ -181,19 +253,63 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     func addAnnotationViewsForDiscounts(discounts:[Discount]){
-        print("Discounts:\(discounts.count)")
         var annotations = [DiscountAnnotation]()
         clusteringManager = FBClusteringManager()
         
         for discount in discounts {
             // Add Annotations
+            //print(discount.catagories.count)
             let annotation = self.createAnnotationObject(discount)
             //mapView.addAnnotation(annotation)
             annotations.append(annotation)
         }
-        print("annotations:\(annotations.count)")
+        
+        
         self.clusteringManager.addAnnotations(annotations)
         self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
+    }
+    
+    func addDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController){
+        
+        discountDetailViewController.showed = true
+        addBasicEaseAnimationToView(discountDetailViewController.view)
+        discountDetailViewController.modalTransitionStyle = .CoverVertical
+        self.addChildViewController(discountDetailViewController)
+        var viewRect:CGRect!
+
+        viewRect = CGRectMake(0.0, CGRectGetHeight(self.mapView.frame)-75.0, CGRectGetWidth(self.mapView.frame), 75.0)
+        discountDetailViewController.view.frame = viewRect
+        
+        self.mapView.addSubview(discountDetailViewController.view)
+        discountDetailViewController.didMoveToParentViewController(self)
+        
+    }
+    
+    func removeDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController) {
+        addBasicEaseAnimationToView(discountDetailViewController.view)
+        discountDetailViewController.showed = false
+        discountDetailViewController.willMoveToParentViewController(nil)
+        discountDetailViewController.view.removeFromSuperview()
+        discountDetailViewController.removeFromParentViewController()
+    }
+    
+    func addBasicEaseAnimationToView(view:UIView){
+        UIView.animateWithDuration(0.3) {
+            let amount = CGFloat(97.0)
+            let positionY = CGRectGetHeight(self.mapView.frame)-75.0
+            print(view.frame.origin.y)
+            print(positionY)
+            if view.frame.origin.y != positionY {
+                view.frame = CGRectOffset(view.frame, 0, -amount)
+            } else {
+                print("remove")
+                view.frame = CGRectOffset(view.frame, 0, amount)
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
     
 
