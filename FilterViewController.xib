@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="Melmel" customModuleProvider="target">
             <connections>
-                <outlet property="didGouwuButtonPress" destination="jdq-rf-wtO" id="XSc-AJ-JEr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,30 +24,33 @@
                                 <action selector="didYuleButtonPress:" destination="-1" eventType="touchUpInside" id="kBc-yj-0PO"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKJ-kv-GZb">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKJ-kv-GZb">
                             <rect key="frame" x="62" y="0.0" width="45" height="30"/>
                             <state key="normal" title="时尚类"/>
                             <connections>
                                 <action selector="didShishangButtonPress:" destination="-1" eventType="touchUpInside" id="x8B-bs-kaj"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-Lu-xfo">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-Lu-xfo">
                             <rect key="frame" x="124" y="0.0" width="45" height="30"/>
                             <state key="normal" title="服务类"/>
                             <connections>
                                 <action selector="didFuwuButtonPress:" destination="-1" eventType="touchUpInside" id="BOx-la-c3p"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co5-Ph-zrO">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co5-Ph-zrO">
                             <rect key="frame" x="186" y="0.0" width="45" height="30"/>
                             <state key="normal" title="美食类"/>
                             <connections>
                                 <action selector="didMeishiButtonPress:" destination="-1" eventType="touchUpInside" id="xVi-uM-2Hn"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdq-rf-wtO">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdq-rf-wtO">
                             <rect key="frame" x="248" y="0.0" width="45" height="30"/>
                             <state key="normal" title="购物类"/>
+                            <connections>
+                                <action selector="didGouwuButtonPress:" destination="-1" eventType="touchUpInside" id="jvr-O8-mko"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
