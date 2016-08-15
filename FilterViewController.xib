@@ -16,43 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="74"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-<<<<<<< Updated upstream
-                <stackView opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" distribution="fillEqually" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="URY-yW-n2J">
-                    <rect key="frame" x="45" y="22" width="293" height="30"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2K-Zt-eX7">
-                            <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
-                            <state key="normal" title="娱乐类"/>
-                            <connections>
-                                <action selector="didYuleButtonPress:" destination="-1" eventType="touchUpInside" id="kBc-yj-0PO"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKJ-kv-GZb">
-                            <rect key="frame" x="62" y="0.0" width="45" height="30"/>
-                            <state key="normal" title="时尚类"/>
-                            <connections>
-                                <action selector="didShishangButtonPress:" destination="-1" eventType="touchUpInside" id="x8B-bs-kaj"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-Lu-xfo">
-                            <rect key="frame" x="124" y="0.0" width="45" height="30"/>
-                            <state key="normal" title="服务类"/>
-                            <connections>
-                                <action selector="didFuwuButtonPress:" destination="-1" eventType="touchUpInside" id="BOx-la-c3p"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co5-Ph-zrO">
-                            <rect key="frame" x="186" y="0.0" width="45" height="30"/>
-                            <state key="normal" title="美食类"/>
-                            <connections>
-                                <action selector="didMeishiButtonPress:" destination="-1" eventType="touchUpInside" id="xVi-uM-2Hn"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdq-rf-wtO">
-                            <rect key="frame" x="248" y="0.0" width="45" height="30"/>
-                            <state key="normal" title="购物类"/>
-                        </button>
-=======
                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xxq-FV-9Hk">
                     <rect key="frame" x="8" y="11" width="398" height="51"/>
                     <subviews>
@@ -158,7 +121,6 @@
                                 </label>
                             </subviews>
                         </stackView>
->>>>>>> Stashed changes
                     </subviews>
                 </stackView>
             </subviews>
@@ -169,11 +131,7 @@
                 <constraint firstItem="xxq-FV-9Hk" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uVg-2M-U84"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="338" y="227"/>
-=======
             <point key="canvasLocation" x="198" y="213"/>
->>>>>>> Stashed changes
         </view>
     </objects>
 </document>
