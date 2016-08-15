@@ -21,7 +21,7 @@ enum AnnotationPinImg: String {
 }
 
 
-class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
+class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate {
     
     
     let discountDetailViewController = MapDiscountDetailViewController()
@@ -214,6 +214,15 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
+    @IBAction func showCategoryPopover(sender: AnyObject) {
+        let categoryPopoverCtrl = FilterViewController()
+        categoryPopoverCtrl.modalPresentationStyle = UIModalPresentationStyle.Popover
+        categoryPopoverCtrl.preferredContentSize = CGSizeMake(400.0, 100.0)
+        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+        let popoverPresentationController = categoryPopoverCtrl.popoverPresentationController
+        popoverPresentationController?.sourceView = sender.view
+        popoverPresentationController?.delegate = self
+    }
     
     // Prepare Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -298,7 +307,9 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
-    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
     
 
 }

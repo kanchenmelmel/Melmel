@@ -12,11 +12,20 @@ protocol FilterPassValueDelegate{
     func UserDidFilterCategory(catergoryInt: String, FilteredBool:Bool)
 }
 
-class FilterViewController: UIViewController {
+class FilterViewController: UIViewController,UIPopoverPresentationControllerDelegate {
+    
+    
+    
+    convenience init() {
+        self.init(nibName: "FilterViewController", bundle: nil)
+    }
+    
     
     var delegate : FilterPassValueDelegate?
     
     
+    @IBAction func didAll(sender: AnyObject) {
+    }
     @IBAction func didYuleButtonPress(sender: AnyObject) {
         
         print ("Yulelelelele")
@@ -79,5 +88,7 @@ class FilterViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }
