@@ -216,12 +216,13 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     @IBAction func showCategoryPopover(sender: AnyObject) {
         let categoryPopoverCtrl = FilterViewController()
-        categoryPopoverCtrl.modalPresentationStyle = UIModalPresentationStyle.Popover
-        categoryPopoverCtrl.preferredContentSize = CGSizeMake(400.0, 100.0)
-        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
-        let popoverPresentationController = categoryPopoverCtrl.popoverPresentationController
-        popoverPresentationController?.sourceView = sender.view
-        popoverPresentationController?.delegate = self
+        
+        self.addChildViewController(categoryPopoverCtrl)
+        self.view.addSubview(categoryPopoverCtrl.view)
+//        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+//        let popoverPresentationController = categoryPopoverCtrl.popoverPresentationController
+//        popoverPresentationController?.sourceView = sender.view
+//        popoverPresentationController?.delegate = self
     }
     
     // Prepare Segue
