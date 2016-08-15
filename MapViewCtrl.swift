@@ -60,14 +60,17 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let postUpdateUtility = PostsUpdateUtility()
         
         
-        
+        let loadingAlert = LoadingAlertController(title: "", message: nil, preferredStyle: .Alert)
+        //self.addChildViewController(loadingAlert)
+        presentViewController(loadingAlert, animated: true, completion: nil)
+        loadingAlert.activityIndicatorView.center = loadingAlert.view.center
 
         postUpdateUtility.getAllDiscounts({ (discounts) in
             
             
             self.addAnnotationViewsForDiscounts(discounts)
             self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
-        
+            loadingAlert.close()
         })
         
 //        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
@@ -186,6 +189,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     func updateDiscounts() {
         let postUpdateUtility = PostsUpdateUtility()
+        
+        
         postUpdateUtility.updateDiscounts {
             
             dispatch_async(dispatch_get_main_queue(), { 

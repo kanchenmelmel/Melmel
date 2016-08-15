@@ -52,6 +52,7 @@
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
 		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
+		967B5CCC1D60738100A42A17 /* LoadingAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967B5CCB1D60738100A42A17 /* LoadingAlertController.swift */; };
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
 		967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */; };
 		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
@@ -146,6 +147,7 @@
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
 		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
+		967B5CCB1D60738100A42A17 /* LoadingAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAlertController.swift; sourceTree = "<group>"; };
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
 		967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				967B5CCB1D60738100A42A17 /* LoadingAlertController.swift */,
 				96BDC6F71D57764200A75B71 /* Map */,
 				4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */,
 				4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */,
@@ -701,6 +704,7 @@
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
 				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,
 				9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */,
+				967B5CCC1D60738100A42A17 /* LoadingAlertController.swift in Sources */,
 				96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */,
 				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
