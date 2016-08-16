@@ -11,6 +11,7 @@ import MapKit
 protocol DiscountAnnotationViewDelegate{
     func tapAnnotation(discount:Discount)
     func removeDiscountDetail()
+    func reCenterMap(discount:Discount)
 }
 
 class DiscountAnnotationView: MKAnnotationView {
@@ -44,6 +45,7 @@ class DiscountAnnotationView: MKAnnotationView {
         super.setSelected(selected, animated: animated)
         if selected {
             let disocuntAnnotation = self.annotation as! DiscountAnnotation
+            self.delegate.reCenterMap(disocuntAnnotation.discount!)
             self.delegate.tapAnnotation(disocuntAnnotation.discount!)
         } else {
             self.delegate.removeDiscountDetail()
