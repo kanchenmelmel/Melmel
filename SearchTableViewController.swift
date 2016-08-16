@@ -176,7 +176,7 @@ class SearchTableViewController: UITableViewController {
             if success {
                 
                 
-                // create dispatch group
+                // create dispatch group.
                 
                 for postEntry in postsArray! {
                     let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post

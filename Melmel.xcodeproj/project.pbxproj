@@ -333,13 +333,13 @@
 				4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */,
 				4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */,
 				4D040B381D5757EA0011BF4A /* FilterViewController.swift */,
+				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
 				4D8644EF1CF96B0500E84028 /* CommentViewController.swift */,
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
 				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
 				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
-				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
 				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
 			);
 			name = Controller;
