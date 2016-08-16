@@ -147,25 +147,25 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-uA-MBK">
+                                <rect key="frame" x="-2" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ir8-Kw-JHQ">
                                 <rect key="frame" x="0.0" y="64" width="598" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="ZQd-xV-WE7"/>
                                 </constraints>
                             </progressView>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-uA-MBK">
-                                <rect key="frame" x="-2" y="0.0" width="600" height="551"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ir8-Kw-JHQ" firstAttribute="top" secondItem="HdK-im-ae3" secondAttribute="bottom" id="3SA-tR-v6e"/>
                             <constraint firstAttribute="trailing" secondItem="AkB-uA-MBK" secondAttribute="trailing" id="5Oh-Os-4mY"/>
-                            <constraint firstItem="Ir8-Kw-JHQ" firstAttribute="leading" secondItem="cxA-kh-hxb" secondAttribute="leading" id="Fc3-Yt-FjF"/>
+                            <constraint firstAttribute="trailing" secondItem="Ir8-Kw-JHQ" secondAttribute="trailing" id="NpI-D3-zi3"/>
+                            <constraint firstItem="Ir8-Kw-JHQ" firstAttribute="top" secondItem="HdK-im-ae3" secondAttribute="bottom" id="Op8-gh-AvU"/>
                             <constraint firstItem="AkB-uA-MBK" firstAttribute="top" secondItem="cxA-kh-hxb" secondAttribute="top" id="TT3-30-0oj"/>
                             <constraint firstItem="yKC-7k-izk" firstAttribute="top" secondItem="AkB-uA-MBK" secondAttribute="bottom" id="ebv-je-s22"/>
-                            <constraint firstAttribute="trailing" secondItem="Ir8-Kw-JHQ" secondAttribute="trailing" id="yxQ-rO-g0U"/>
+                            <constraint firstItem="Ir8-Kw-JHQ" firstAttribute="leading" secondItem="cxA-kh-hxb" secondAttribute="leading" id="nwE-gY-X5e"/>
                             <constraint firstItem="AkB-uA-MBK" firstAttribute="leading" secondItem="cxA-kh-hxb" secondAttribute="leading" id="zdQ-w1-aCo"/>
                         </constraints>
                     </view>
@@ -618,20 +618,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="232"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
+                                            <rect key="frame" x="0.0" y="8" width="600" height="231"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dateBackground" translatesAutoresizingMaskIntoConstraints="NO" id="jHl-J1-kMd">
-                                            <rect key="frame" x="451" y="39" width="149" height="29"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="29" id="NVC-en-dkL"/>
-                                                <constraint firstAttribute="width" constant="149" id="RAm-Rk-Pk4"/>
-                                            </constraints>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9v-G4-PUV" customClass="CellMaskView" customModule="Melmel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9v-G4-PUV" customClass="CellMaskView" customModule="Melmel" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="120" width="600" height="119"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diz-zp-RG5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diz-zp-RG5">
                                                     <rect key="frame" x="34" y="47" width="558" height="64"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="墨尔本美食攻略之用绳命评测第四期&amp;#8211;土澳能量棒snack bar大全">
@@ -646,35 +639,28 @@
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="diz-zp-RG5" firstAttribute="leading" secondItem="N9v-G4-PUV" secondAttribute="leadingMargin" constant="26" id="00Y-d5-l72"/>
-                                                <constraint firstItem="diz-zp-RG5" firstAttribute="bottom" secondItem="N9v-G4-PUV" secondAttribute="bottomMargin" id="6SX-4q-aqF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="diz-zp-RG5" secondAttribute="trailing" constant="26" id="FGa-e0-C36"/>
-                                            </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SEP 22, 2016" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yz1-vz-6c8">
-                                            <rect key="frame" x="474" y="43" width="118" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="118" id="rhO-zQ-0kO"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SEP 22, 2016" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yz1-vz-6c8">
+                                            <rect key="frame" x="102" y="47" width="118" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="EntertainmentTag" translatesAutoresizingMaskIntoConstraints="NO" id="jHl-J1-kMd">
+                                            <rect key="frame" x="443" y="0.0" width="149" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="88.299999999999997" id="0MN-Lm-uOD"/>
+                                                <constraint firstAttribute="height" constant="23.300000000000001" id="fcC-v4-Zwh"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="yz1-vz-6c8" firstAttribute="top" secondItem="x1d-rp-UQP" secondAttribute="topMargin" constant="34" id="2uA-vo-Aqo"/>
-                                        <constraint firstItem="N9v-G4-PUV" firstAttribute="leading" secondItem="x1d-rp-UQP" secondAttribute="leadingMargin" constant="-8" id="4D1-nz-sLf"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="N9v-G4-PUV" secondAttribute="bottom" constant="-7.5" id="CPh-IR-Kqb"/>
-                                        <constraint firstAttribute="trailing" secondItem="jHl-J1-kMd" secondAttribute="trailing" id="GhL-HE-dVy"/>
-                                        <constraint firstItem="yz1-vz-6c8" firstAttribute="trailing" secondItem="x1d-rp-UQP" secondAttribute="trailingMargin" id="JNr-Na-eGH"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="N9v-G4-PUV" secondAttribute="trailing" constant="-8" id="WW1-lW-f0M"/>
-                                        <constraint firstItem="pIa-nN-00Z" firstAttribute="leading" secondItem="x1d-rp-UQP" secondAttribute="leadingMargin" constant="-8" id="cMf-fT-IOF"/>
-                                        <constraint firstItem="jHl-J1-kMd" firstAttribute="top" secondItem="x1d-rp-UQP" secondAttribute="top" constant="39" id="chm-wD-HpS"/>
-                                        <constraint firstItem="pIa-nN-00Z" firstAttribute="top" secondItem="x1d-rp-UQP" secondAttribute="top" id="e5q-FQ-iF6"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pIa-nN-00Z" secondAttribute="trailing" constant="-8" id="ivb-uG-7uR"/>
-                                        <constraint firstItem="yz1-vz-6c8" firstAttribute="trailing" secondItem="x1d-rp-UQP" secondAttribute="trailingMargin" id="jS5-Ws-pNJ"/>
-                                        <constraint firstItem="pIa-nN-00Z" firstAttribute="leading" secondItem="x1d-rp-UQP" secondAttribute="leading" id="ndW-Vp-fka"/>
+                                        <constraint firstAttribute="trailing" secondItem="pIa-nN-00Z" secondAttribute="trailing" id="4mv-WB-4h3"/>
+                                        <constraint firstItem="pIa-nN-00Z" firstAttribute="top" secondItem="x1d-rp-UQP" secondAttribute="top" constant="8" id="A1T-8A-lZZ"/>
+                                        <constraint firstItem="pIa-nN-00Z" firstAttribute="leading" secondItem="x1d-rp-UQP" secondAttribute="leading" id="QU2-mO-HTC"/>
+                                        <constraint firstAttribute="bottom" secondItem="pIa-nN-00Z" secondAttribute="bottom" id="SoO-7Y-yIt"/>
+                                        <constraint firstItem="jHl-J1-kMd" firstAttribute="top" secondItem="x1d-rp-UQP" secondAttribute="top" constant="3.7000000000000002" id="h3R-Yy-bMn"/>
+                                        <constraint firstAttribute="trailing" secondItem="jHl-J1-kMd" secondAttribute="trailing" constant="8" id="qI5-Im-alI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -818,6 +804,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EntertainmentTag" width="67" height="17"/>
         <image name="NavBarBackButton" width="10" height="19"/>
         <image name="categoryButtonIcon" width="18" height="18"/>
         <image name="dateBackground" width="49" height="9"/>

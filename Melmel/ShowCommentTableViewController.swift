@@ -28,11 +28,17 @@ class ShowCommentTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         
+        
+        let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+        self.tableView.addSubview(activityIndicatorView)
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.getPostComments(self.postid!) {(comments) in
             self.comments = comments
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                
+                activityIndicatorView.stopAnimating()
+                activityIndicatorView.willMoveToSuperview(self.tableView)
             })
         }
         
