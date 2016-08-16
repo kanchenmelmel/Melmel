@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 extension MapViewCtrl:DiscountAnnotationViewDelegate{
     func tapAnnotation(discount:Discount) {
@@ -70,6 +71,10 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
     
     func showDiscountWebPage(){
         performSegueWithIdentifier("discountWebViewSegue", sender: self.discountDetailViewController)
+    }
+    func reCenterMap(discount: Discount) {
+        let newLocation = CLLocation(latitude: Double(discount.latitude!), longitude: Double(discount.longtitude!))
+        centerMapOnLocation(newLocation, zoomLevel: 2.0)
     }
     
 }

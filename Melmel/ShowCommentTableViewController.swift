@@ -30,6 +30,7 @@ class ShowCommentTableViewController: UITableViewController {
         
         
         let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+        activityIndicatorView.center = self.tableView.center
         self.tableView.addSubview(activityIndicatorView)
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.getPostComments(self.postid!) {(comments) in
