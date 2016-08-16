@@ -44,7 +44,7 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ns-V4-LNU" id="sFU-gX-LbZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
@@ -202,7 +202,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="187"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gOY-AP-Djc" id="pvY-Dw-7L8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="186.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q5O-In-s5A">
@@ -398,7 +398,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5kh-2o-JQw" id="M4H-Oc-OFy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iqS-dq-zvX">
@@ -478,7 +478,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ws1-ve-PCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3913" y="1444"/>
+            <point key="canvasLocation" x="4725" y="1444"/>
         </scene>
         <!--Melbourne-->
         <scene sceneID="Rt2-Mq-X1X">
@@ -588,7 +588,7 @@
         <!--Discount Table View Controller-->
         <scene sceneID="ODm-Fg-12h">
             <objects>
-                <tableViewController id="uHM-4Q-TYE" customClass="DiscountTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="discountID" id="uHM-4Q-TYE" customClass="DiscountTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" id="OgJ-Ao-3dp">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,7 +618,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UsA-Gl-vOL" id="x1d-rp-UQP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
@@ -720,14 +720,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="64" id="tqU-hd-5Az" customClass="CategoryTableViewCell" customModule="Melmel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="64"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tqU-hd-5Az" id="xQE-OL-uHH">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="63.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTX-lm-O0q">
-                                            <rect key="frame" x="23" y="21" width="42" height="21"/>
+                                            <rect key="frame" x="23" y="21" width="186" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -744,10 +744,11 @@
                             <outlet property="delegate" destination="V0D-fi-FGX" id="u4y-zK-0xh"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="pLm-jr-pPG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygw-S1-yce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3261" y="1287"/>
+            <point key="canvasLocation" x="4073" y="1287"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TvS-lI-EcR">
@@ -818,6 +819,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="793-ck-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1585" y="293"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="opF-A1-mTX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="be8-B1-WSA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5zb-8D-hC9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="V0D-fi-FGX" kind="relationship" relationship="rootViewController" id="TQK-BQ-ydU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nc1-2j-SwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3261" y="1287"/>
         </scene>
     </scenes>
     <resources>

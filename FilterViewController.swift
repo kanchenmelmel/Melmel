@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol FilterPassValueDelegate{
-    func UserDidFilterCategory(catergoryInt: String, FilteredBool:Bool)
+protocol CloseFilterSubview{
+    func ShouldCloseSubview()
 }
 
 class FilterViewController: UIViewController,UIPopoverPresentationControllerDelegate {
@@ -19,47 +19,73 @@ class FilterViewController: UIViewController,UIPopoverPresentationControllerDele
     convenience init() {
         self.init(nibName: "FilterViewController", bundle: nil)
     }
+
     
+    var catVC : CategoryTableViewController?
     
-    var delegate : FilterPassValueDelegate?
-    
+    var delegate : CloseFilterSubview?
     
     @IBAction func didAll(sender: AnyObject) {
     }
     @IBAction func didYuleButtonPress(sender: AnyObject) {
-        
-        print ("Yulelelelele")
-        delegate?.UserDidFilterCategory("lalala", FilteredBool: false)
-        
         //  self.view.removeFromSuperview()
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let catVC = storyboard.instantiateViewControllerWithIdentifier("testid") as?CategoryTableViewController
+       
+        catVC?.catID = 1
+        self.navigationController?.pushViewController(catVC!, animated: true)
+        delegate?.ShouldCloseSubview()
+        self.view.removeFromSuperview()
+     //   self.navigationC ontroller?.presentViewController(catVC!, animated: true, completion: nil)
 
     }
     
     @IBAction func didShishangButtonPress(sender: AnyObject) {
       
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let catVC = storyboard.instantiateViewControllerWithIdentifier("testid") as?CategoryTableViewController
-        print (catVC)
+        catVC?.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
-        
+        delegate?.ShouldCloseSubview()
+        self.view.removeFromSuperview()
        // self.presentViewController(catVC!, animated: true, completion: nil)
     }
     
     
     @IBAction func didFuwuButtonPress(sender: AnyObject) {
+        
+        catVC?.catID = 3
+        self.navigationController?.pushViewController(catVC!, animated: true)
+        delegate?.ShouldCloseSubview()
+        self.view.removeFromSuperview()
     }
     
     
     @IBAction func didMeishiButtonPress(sender: AnyObject) {
+
+        catVC?.catID = 4
+        self.navigationController?.pushViewController(catVC!, animated: true)
+        delegate?.ShouldCloseSubview()
+        self.view.removeFromSuperview()
     }
     
     
-    @IBOutlet weak var didGouwuButtonPress: UIButton!
+    
+    @IBAction func didGouwuButtonPress(sender: AnyObject) {
+        
+        catVC?.catID = 5
+        self.navigationController?.pushViewController(catVC!, animated: true)
+        delegate?.ShouldCloseSubview()
+        self.view.removeFromSuperview()
+        
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
+        
+        
 
         // Do any additional setup after loading the view.
     }

@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="Melmel" customModuleProvider="target">
             <connections>
-                <outlet property="didGouwuButtonPress" destination="jdq-rf-wtO" id="XSc-AJ-JEr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

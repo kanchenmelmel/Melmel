@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DiscountTableViewController: UITableViewController,FilterPassValueDelegate{
+class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,CloseFilterSubview{
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -33,6 +33,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var FilteredViewController:FilterViewController = FilterViewController()
     
+    var CatergoryVC: CategoryTableViewController = CategoryTableViewController()
+    
+    
     
     @IBAction func didFilterButtonPress(sender: AnyObject) {
         
@@ -47,8 +50,18 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
         else{
             print ("aaaaaaaaaaaaaaa")
-            FilteredViewController.delegate = self
+            
+            
             FilteredViewController.view.tag = 100
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let catVC = storyboard.instantiateViewControllerWithIdentifier("testid") as?CategoryTableViewController
+            
+            catVC?.delegate = self
+            FilteredViewController.delegate = self
+            
+            FilteredViewController.catVC = catVC
+            
             self.addChildViewController(FilteredViewController)
             //  FilteredViewController.view.frame = CGRectMake(0.0, self.view.frame.height-74.0, self.view.frame.width, 74.0)
             //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
@@ -58,11 +71,15 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         
     }
+    func ShouldCloseSubview() {
+        FilteredViewController.view.tag = 101
+    }
     
     func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
-        print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        print(catergoryInt)
-        print(FilteredBool)
+        
+        self.categoryInt = catergoryInt
+        self.filtered = FilteredBool
+        self.viewWillAppear(true)
     }
     
     
@@ -74,8 +91,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.refreshControl?.tintColor = UIColor.whiteColor()
         self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), forControlEvents: .ValueChanged)
         self.refreshControl?.beginRefreshing()
+        
 
-       
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,12 +101,10 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     override func viewDidAppear(animated: Bool) {
-   //     self.discounts.removeAll()
+     //   self.discounts.removeAll()
+        print ("second is \(self.categoryInt)")
         if self.filtered == false{
-//        let discountUpdateUtility = PostsUpdateUtility()
-//        discounts = discountUpdateUtility.fetchDiscounts().
-            
-        print ("test yi xia")
+
         self.updateDiscounts()
         
         self.categoryInt = "canLoadMore"
@@ -100,6 +115,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.tableView.reloadData()
         }
         else{
+            self.discounts.removeAll()
             self.filtered = false
             tableView.scrollEnabled = false
             self.filterCategory()
