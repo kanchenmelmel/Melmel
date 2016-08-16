@@ -60,15 +60,12 @@ class ShowCommentTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("showcommentIdentifier", forIndexPath: indexPath) as! CommentTableViewCell
-        
-        
-        cell.avatarImage.layer.cornerRadius = 25
-        cell.avatarImage.clipsToBounds = true
+
         
         let comment = self.comments[indexPath.row]
         cell.nameLabel.text = comment.autherName
         let dateFormatter = DateFormatter()
-        cell.dateLabel.text = dateFormatter.formatDateToDateString(comment.date!)
+        cell.dateLabel.text = dateFormatter.formatDateToDateStringForDisplay(comment.date!)
         cell.contentLabel.text = comment.content
         
         let gravatarURL = comment.avatar

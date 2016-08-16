@@ -25,6 +25,22 @@ class DateFormatter {
         dateFormatter.timeZone=NSTimeZone(name: "UTC")
         dateFormatter.dateFormat="yyyy-MM-dd'T'HH:mm:ss"
         let dateString = dateFormatter.stringFromDate(date)
+        
         return dateString
     }
+    
+    func formatDateToDateStringForDisplay(date:NSDate)->String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        return dateFormatter.stringFromDate(date).uppercaseString
+    }
+    
+    func calculateDifferenceBetweenCurrentTimeInString(date:NSDate) ->String {
+        let calendar = NSCalendar.currentCalendar()
+        if calendar.isDateInToday(date){
+            
+        }
+        return ""
+    }
+    
 }

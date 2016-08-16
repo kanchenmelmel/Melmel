@@ -12,12 +12,21 @@ protocol CloseFilterSubview{
     func ShouldCloseSubview()
 }
 
-class FilterViewController: UIViewController{
+class FilterViewController: UIViewController,UIPopoverPresentationControllerDelegate {
+    
+    
+    
+    convenience init() {
+        self.init(nibName: "FilterViewController", bundle: nil)
+    }
+
     
     var catVC : CategoryTableViewController?
     
     var delegate : CloseFilterSubview?
     
+    @IBAction func didAll(sender: AnyObject) {
+    }
     @IBAction func didYuleButtonPress(sender: AnyObject) {
         //  self.view.removeFromSuperview()
         
@@ -105,5 +114,7 @@ class FilterViewController: UIViewController{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

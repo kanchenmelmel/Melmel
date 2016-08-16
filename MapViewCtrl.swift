@@ -21,7 +21,7 @@ enum AnnotationPinImg: String {
 }
 
 
-class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
+class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate {
     
     
     let discountDetailViewController = MapDiscountDetailViewController()
@@ -60,14 +60,17 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let postUpdateUtility = PostsUpdateUtility()
         
         
-        
+        let loadingAlert = LoadingAlertController(title: "", message: nil, preferredStyle: .Alert)
+        //self.addChildViewController(loadingAlert)
+        presentViewController(loadingAlert, animated: true, completion: nil)
+        loadingAlert.activityIndicatorView.center = loadingAlert.view.center
 
         postUpdateUtility.getAllDiscounts({ (discounts) in
             
             
             self.addAnnotationViewsForDiscounts(discounts)
             self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
-        
+            loadingAlert.close()
         })
         
 //        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
@@ -186,6 +189,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     func updateDiscounts() {
         let postUpdateUtility = PostsUpdateUtility()
+        
+        
         postUpdateUtility.updateDiscounts {
             
             dispatch_async(dispatch_get_main_queue(), { 
@@ -209,6 +214,16 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
+    @IBAction func showCategoryPopover(sender: AnyObject) {
+        let categoryPopoverCtrl = FilterViewController()
+        
+        self.addChildViewController(categoryPopoverCtrl)
+        self.view.addSubview(categoryPopoverCtrl.view)
+//        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+//        let popoverPresentationController = categoryPopoverCtrl.popoverPresentationController
+//        popoverPresentationController?.sourceView = sender.view
+//        popoverPresentationController?.delegate = self
+    }
     
     // Prepare Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -293,7 +308,9 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
-    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
     
 
 }
