@@ -19,7 +19,7 @@ class CellMaskView: UIView {
     
     override func drawRect(rect: CGRect) {
         let startColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0).CGColor
-        let endColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0).CGColor
+        let endColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6).CGColor
         gradientLayer.colors = [startColor,endColor]
     }
 }
