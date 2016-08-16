@@ -57,6 +57,7 @@
 		967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */; };
 		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
 		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
+		96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */; };
 		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
 		96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */; };
@@ -152,6 +153,7 @@
 		967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
+		96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotationView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */,
 				964F4C891CA4CF7B00C69B71 /* Assets.xcassets */,
 				964F4C8E1CA4CF7B00C69B71 /* Info.plist */,
+				96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */,
 			);
 			path = Melmel;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				963289E31D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib in Resources */,
 				964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */,
 				965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */,
+				96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */,
 				967FFEA81D07E16900599E30 /* Main.storyboard in Resources */,
 				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
 				965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */,
