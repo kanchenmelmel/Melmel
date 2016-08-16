@@ -288,6 +288,13 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		968041A11D61FA740040ED91 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
 		96BDC6F71D57764200A75B71 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +346,7 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				968041A11D61FA740040ED91 /* Comment */,
 				96BDC6F81D57765E00A75B71 /* Map */,
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
 				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
