@@ -40,7 +40,6 @@
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
 		964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C891CA4CF7B00C69B71 /* Assets.xcassets */; };
-		964F4C8D1CA4CF7B00C69B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C8B1CA4CF7B00C69B71 /* LaunchScreen.storyboard */; };
 		964F4C981CA4CF7B00C69B71 /* MelmelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */; };
 		964F4CA31CA4CF7B00C69B71 /* MelmelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */; };
 		965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */; };
@@ -58,6 +57,7 @@
 		967FFEA61D07CAF400599E30 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */; };
 		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
 		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
+		96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */; };
 		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
 		96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */; };
@@ -131,7 +131,6 @@
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		964F4C891CA4CF7B00C69B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		964F4C8C1CA4CF7B00C69B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		964F4C8E1CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		964F4C931CA4CF7B00C69B71 /* MelmelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelmelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelmelTests.swift; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		967FFEA51D07CAF400599E30 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
+		96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotationView.swift; sourceTree = "<group>"; };
@@ -249,8 +249,8 @@
 				967FFEA71D07E16900599E30 /* Main.storyboard */,
 				964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */,
 				964F4C891CA4CF7B00C69B71 /* Assets.xcassets */,
-				964F4C8B1CA4CF7B00C69B71 /* LaunchScreen.storyboard */,
 				964F4C8E1CA4CF7B00C69B71 /* Info.plist */,
+				96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */,
 			);
 			path = Melmel;
 			sourceTree = "<group>";
@@ -516,10 +516,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				964F4C8D1CA4CF7B00C69B71 /* LaunchScreen.storyboard in Resources */,
 				963289E31D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib in Resources */,
 				964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */,
 				965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */,
+				96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */,
 				967FFEA81D07E16900599E30 /* Main.storyboard in Resources */,
 				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
 				965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */,
@@ -757,17 +757,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		964F4C8B1CA4CF7B00C69B71 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				964F4C8C1CA4CF7B00C69B71 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		964F4CA51CA4CF7B00C69B71 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -859,6 +848,7 @@
 			baseConfigurationReference = 9B851BC0414D593B74824256 /* Pods-Melmel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -877,6 +867,7 @@
 			baseConfigurationReference = 68468148F44BB3530428F816 /* Pods-Melmel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

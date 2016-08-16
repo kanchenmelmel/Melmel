@@ -281,6 +281,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         discountDetailViewController.modalTransitionStyle = .CoverVertical
         self.addChildViewController(discountDetailViewController)
         var viewRect:CGRect!
+        
+        
 
         viewRect = CGRectMake(0.0, CGRectGetHeight(self.mapView.frame)-75.0, CGRectGetWidth(self.mapView.frame), 75.0)
         discountDetailViewController.view.frame = viewRect
