@@ -63,7 +63,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             FilteredViewController.catVC = catVC
             
             self.addChildViewController(FilteredViewController)
-            //  FilteredViewController.view.frame = CGRectMake(0.0, self.view.frame.height-74.0, self.view.frame.width, 74.0)
+              FilteredViewController.view.frame = CGRectMake(0.0, 0.0, self.view.frame.width, 74.0)
             //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
             
             self.view.addSubview(FilteredViewController.view)
