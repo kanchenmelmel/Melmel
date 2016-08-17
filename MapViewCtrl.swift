@@ -277,14 +277,14 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     func addDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController){
         
         discountDetailViewController.showed = true
-        addBasicEaseAnimationToView(discountDetailViewController.view)
+        AnimationEngine.addEaseInFromBottomAnimationToView(discountDetailViewController.view)
         discountDetailViewController.modalTransitionStyle = .CoverVertical
         self.addChildViewController(discountDetailViewController)
         var viewRect:CGRect!
         
         
 
-        viewRect = CGRectMake(0.0, CGRectGetHeight(self.mapView.frame)-75.0, CGRectGetWidth(self.mapView.frame), 75.0)
+        viewRect = CGRectMake(0.0, CGRectGetHeight(self.mapView.frame)-80.5, CGRectGetWidth(self.mapView.frame), 80.5)
         discountDetailViewController.view.frame = viewRect
         
         self.mapView.addSubview(discountDetailViewController.view)
@@ -293,31 +293,14 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     func removeDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController) {
-        addBasicEaseAnimationToView(discountDetailViewController.view)
+        AnimationEngine.addEaseOutToBottomAnimationToView(discountDetailViewController.view)
         discountDetailViewController.showed = false
         discountDetailViewController.willMoveToParentViewController(nil)
         discountDetailViewController.view.removeFromSuperview()
         discountDetailViewController.removeFromParentViewController()
     }
     
-    func addBasicEaseAnimationToView(view:UIView){
-        UIView.animateWithDuration(0.3) {
-            let amount = CGFloat(97.0)
-            let positionY = CGRectGetHeight(self.mapView.frame)-75.0
-            print(view.frame.origin.y)
-            print(positionY)
-            if view.frame.origin.y != positionY {
-                view.frame = CGRectOffset(view.frame, 0, -amount)
-            } else {
-                print("remove")
-                view.frame = CGRectOffset(view.frame, 0, amount)
-            }
-        }
-    }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
-    }
     
 
 }
