@@ -14,6 +14,9 @@ class SearchTableViewController: UITableViewController {
     var searchText:String?
     let endpointURL = "http://melmel.com.au/wp-json/wp/v2/posts?per_page=5&filter[s]="
     let end2pointURL = "http://melmel.com.au/wp-json/wp/v2/discounts?per_page=5&filter[s]="
+    
+    var postType:PostType!
+    var discounts:[Discount] = []
     var posts:[Post] = []
     let pendingOperations = PendingOperations()
     
@@ -29,26 +32,46 @@ class SearchTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        self.updateSearchPosts(self.endpointURL){
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                print("Update table view")
-                print(self.posts.count)
-                self.tableView.reloadData()
-                
+        let postUpdateUtility = PostsUpdateUtility()
+        
+        if postType == .Post {
+            postUpdateUtility.getAllDiscounts { (discounts) in
+                self.discounts = discounts
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+            }
+        } else {
+            postUpdateUtility.searchPostsByKeyWords(searchText!, completionHandler: { (posts) in
+                self.posts = posts
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.tableView.reloadData()
+                })
             })
         }
         
-        self.updateSearchPosts(self.end2pointURL){
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                print("Update table view")
-                print(self.posts.count)
-                self.tableView.reloadData()
-                
-            })
-        }
-        self.tableView.reloadData()
+        
+        
+//        self.updateSearchPosts(self.endpointURL){
+//            
+//            dispatch_async(dispatch_get_main_queue(), {
+//                print("Update table view")
+//                print(self.posts.count)
+//                self.tableView.reloadData()
+//                
+//            })
+//        }
+        
+//        self.updateSearchPosts(self.end2pointURL){
+//            
+//            dispatch_async(dispatch_get_main_queue(), {
+//                print("Update table view")
+//                print(self.posts.count)
+//                self.tableView.reloadData()
+//                
+//            })
+//        }
+//        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,32 +92,39 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if postType == .Discount {
         let cell = tableView.dequeueReusableCellWithIdentifier("searchTableViewCell", forIndexPath: indexPath) as! SearchTableViewCell
         
         // Configure the cell...
         
-        let post = self.posts[indexPath.row]
+        let discount = self.discounts[indexPath.row]
         
      
-        cell.titleLabel.text = post.title!
+        cell.titleLabel.text = discount.title!
         
     
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
-        cell.dateLabel.text = "\(dateFormatter.stringFromDate(post.date!).uppercaseString)" + " "
+        cell.dateLabel.text = "\(dateFormatter.stringFromDate(discount.date!).uppercaseString)" + " "
         
-        if post.featured_image_url != nil {
-            if post.featuredImageState == .Downloaded {
-                cell.featureImage.image = post.featuredImage
+        if discount.featured_image_url != nil {
+            if discount.featuredImageState == .Downloaded {
+                cell.featureImage.image = discount.featuredImage
             }
-            if post.featuredImageState == .New {
+            if discount.featuredImageState == .New {
                 startOperationsForPhoto(post, indexPath: indexPath)
             }
             
         }
         
-        return cell
+            return cell
+        }else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! SearchPostCell
+            
+            return cell
+
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
