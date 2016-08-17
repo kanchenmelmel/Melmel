@@ -27,6 +27,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var numOfDiscounts:Int?
     var reachToTheEnd = false
+    
+    var positionY : CGFloat = 0
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
@@ -63,11 +65,26 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             FilteredViewController.catVC = catVC
             
             self.addChildViewController(FilteredViewController)
-              FilteredViewController.view.frame = CGRectMake(0.0, 0.0, self.view.frame.width, 74.0)
+           // self.navigationController?.addChildViewController(FilteredViewController)
+
+            FilteredViewController.view.frame = CGRectMake(0.0, positionY, self.view.frame.width, 74.0)
             //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
             
             self.view.addSubview(FilteredViewController.view)
+           // self.view.superview?.addSubview(FilteredViewController.view)
         }
+        
+        
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        var frame: CGRect = self.FilteredViewController.view.frame
+        positionY = scrollView.contentOffset.y
+        frame.origin.y = positionY
+        self.FilteredViewController.view.frame = frame
+        self.view.bringSubviewToFront(self.FilteredViewController.view)
+        
         
         
     }
