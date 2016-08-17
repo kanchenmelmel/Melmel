@@ -17,6 +17,7 @@ class DiscountTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        self.featureImage.clipsToBounds = true
         
     }
 
