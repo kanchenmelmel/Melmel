@@ -28,6 +28,9 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +51,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         
         // Configure Conponents
+        searchBar.delegate = self
         
         LoadMoreActivityIndicator.hidden = true
         

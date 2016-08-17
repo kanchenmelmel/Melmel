@@ -360,6 +360,7 @@
 				96BDC6F81D57765E00A75B71 /* Map */,
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
 				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
+				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
 				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
 				96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */,
@@ -386,7 +387,6 @@
 				96BAECF61CE21410008B3B70 /* Post.swift */,
 				4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */,
 				4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */,
-				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				962A1F7B1D487880006D2EA8 /* Comment.swift */,
 				963289E21D49BD3500B62040 /* DiscountCatalogoryPopoverView.xib */,
 			);
