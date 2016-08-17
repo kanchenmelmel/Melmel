@@ -48,10 +48,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             //  if (FilteredViewController.view != nil){
             FilteredViewController.view.tag = 101
             FilteredViewController.view.removeFromSuperview()
-            print ("aprilllll")
         }
         else{
-            print ("aaaaaaaaaaaaaaa")
             
             
             FilteredViewController.view.tag = 100
@@ -99,10 +97,17 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.viewWillAppear(true)
     }
     
+    func didFindAll(){
+        self.filtered = false
+        self.updateDiscounts()
+
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print ("fishing")
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
         self.refreshControl?.tintColor = UIColor.whiteColor()
@@ -119,9 +124,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func viewDidAppear(animated: Bool) {
      //   self.discounts.removeAll()
-        print ("second is \(self.categoryInt)")
         if self.filtered == false{
-
+        let postUpdateUtility = PostsUpdateUtility()
+        discounts = postUpdateUtility.fetchDiscounts()
         self.updateDiscounts()
         
         self.categoryInt = "canLoadMore"
@@ -132,8 +137,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.tableView.reloadData()
         }
         else{
+            print ("filter is \(self.filtered)")
             self.discounts.removeAll()
-            self.filtered = false
+           // self.filtered = false
             tableView.scrollEnabled = false
             self.filterCategory()
         }
@@ -283,8 +289,11 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     func updateDiscounts(){
         
+        if self.filtered == true{
+            self.refreshControl?.endRefreshing()
+            return
+        }
         if reachabilityManager.isReachable(){
-            print ("hello Please ")
             print("is Reachable")
             let postUpdateUtility = PostsUpdateUtility()
             postUpdateUtility.updateDiscounts {

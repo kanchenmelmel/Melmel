@@ -10,7 +10,9 @@ import UIKit
 
 protocol CloseFilterSubview{
     func ShouldCloseSubview()
+    func didFindAll()
 }
+
 
 class FilterViewController: UIViewController,UIPopoverPresentationControllerDelegate {
     
@@ -26,6 +28,11 @@ class FilterViewController: UIViewController,UIPopoverPresentationControllerDele
     var delegate : CloseFilterSubview?
     
     @IBAction func didAll(sender: AnyObject) {
+        
+        delegate?.didFindAll()
+        delegate?.ShouldCloseSubview()
+        self.view.removeFromSuperview()
+        
     }
     @IBAction func didYuleButtonPress(sender: AnyObject) {
         //  self.view.removeFromSuperview()
@@ -71,7 +78,6 @@ class FilterViewController: UIViewController,UIPopoverPresentationControllerDele
     
     
     @IBAction func didGouwuButtonPress(sender: AnyObject) {
-        
         catVC?.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
