@@ -30,6 +30,9 @@ class CommentTableViewCell: UITableViewCell {
     func setupView(){
         avatarImage.layer.cornerRadius = 25.0
         avatarImage.clipsToBounds = true
+       // self.layer.borderColor = UIColor.redColor().CGColor
+       // self.layer.borderWidth = 0.5
+        
         
     }
 
