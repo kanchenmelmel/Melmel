@@ -19,14 +19,14 @@ class CommentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameInput.backgroundColor = UIColor.lightGrayColor()
-        nameInput.attributedPlaceholder = NSAttributedString(string: "NAME:", attributes: [NSForegroundColorAttributeName : UIColor.darkGrayColor()])
+//        nameInput.backgroundColor = UIColor.lightGrayColor()
+        nameInput.attributedPlaceholder = NSAttributedString(string: "姓名:", attributes: [NSForegroundColorAttributeName : POST_TINT_COLOR])
         
-        mobileInput.backgroundColor = UIColor.lightGrayColor()
-        mobileInput.attributedPlaceholder = NSAttributedString(string: "MOBILE:", attributes: [NSForegroundColorAttributeName : UIColor.darkGrayColor()])
+//        mobileInput.backgroundColor = UIColor.lightGrayColor()
+        mobileInput.attributedPlaceholder = NSAttributedString(string: "电话:", attributes: [NSForegroundColorAttributeName : POST_TINT_COLOR])
         
         
-        contentInput.backgroundColor = UIColor.lightGrayColor()
+//        contentInput.backgroundColor = UIColor.lightGrayColor()
         contentInput.layer.cornerRadius = 5.0
     
        

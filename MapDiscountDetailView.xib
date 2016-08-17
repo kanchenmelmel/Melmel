@@ -18,36 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="6Y3-80-Dys">
-                    <rect key="frame" x="8" y="16" width="42" height="42"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="JRB-1l-9Le"/>
-                        <constraint firstAttribute="height" constant="42" id="Sc6-bb-zCI"/>
-                        <constraint firstAttribute="width" constant="42" id="gDC-8i-MEU"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="JRB-1l-9Le"/>
-                            <exclude reference="gDC-8i-MEU"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="JRB-1l-9Le"/>
-                            <include reference="gDC-8i-MEU"/>
-                        </mask>
-                    </variation>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="周二到周四 20% OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-e6-7NQ">
-                    <rect key="frame" x="58" y="8" width="230" height="26"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.94901960784313721" green="0.42745098039215684" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzj-is-bp0">
-                    <rect key="frame" x="296" y="0.0" width="118" height="74"/>
+                    <rect key="frame" x="310" y="0.0" width="103.5" height="74"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="118" id="jMN-Tr-XhU"/>
+                        <constraint firstAttribute="width" constant="104" id="Lfz-AL-5JG"/>
                         <constraint firstAttribute="width" constant="118" id="rHX-dY-Ve8"/>
                     </constraints>
                     <state key="normal" title="阅读详情">
@@ -64,26 +38,72 @@
                         </mask>
                     </variation>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RAINBOW酒水券，还有豪华" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-Vy-g1R">
-                    <rect key="frame" x="58" y="42" width="230" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rUs-Md-NVL">
+                    <rect key="frame" x="8" y="16" width="294" height="53"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="6Y3-80-Dys">
+                            <rect key="frame" x="0.0" y="11" width="31" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="31" id="1Nw-4Z-p0H"/>
+                                <constraint firstAttribute="width" constant="31" id="2M8-Lv-Llc"/>
+                                <constraint firstAttribute="height" constant="42" id="JRB-1l-9Le"/>
+                                <constraint firstAttribute="width" constant="42" id="gDC-8i-MEU"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="JRB-1l-9Le"/>
+                                    <exclude reference="gDC-8i-MEU"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="JRB-1l-9Le"/>
+                                    <include reference="gDC-8i-MEU"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="39G-aC-ofl">
+                            <rect key="frame" x="39" y="0.0" width="255" height="53"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="周二到周四 20% OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-e6-7NQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="159" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.94901960784313721" green="0.42745098039215684" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-Vy-g1R">
+                                    <rect key="frame" x="0.0" y="29" width="216" height="24"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="RAINBOW">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="酒水券，还有豪华">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="PingFangSC-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Tzj-is-bp0" firstAttribute="leading" secondItem="WmN-e6-7NQ" secondAttribute="trailing" constant="8" id="4C5-Lm-QjT"/>
-                <constraint firstItem="WmN-e6-7NQ" firstAttribute="leading" secondItem="6Y3-80-Dys" secondAttribute="trailing" constant="8" id="DJQ-1B-F5x"/>
-                <constraint firstItem="WmN-e6-7NQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ENa-au-Q4w"/>
-                <constraint firstAttribute="bottom" secondItem="WYs-Vy-g1R" secondAttribute="bottom" constant="8" id="EfO-xY-hkd"/>
-                <constraint firstItem="Tzj-is-bp0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JsL-1U-nHY"/>
-                <constraint firstItem="WYs-Vy-g1R" firstAttribute="leading" secondItem="6Y3-80-Dys" secondAttribute="trailing" constant="8" id="P8w-ga-LTi"/>
-                <constraint firstItem="Tzj-is-bp0" firstAttribute="leading" secondItem="WYs-Vy-g1R" secondAttribute="trailing" constant="8" id="TnJ-3Q-5IG"/>
-                <constraint firstAttribute="bottom" secondItem="Tzj-is-bp0" secondAttribute="bottom" id="XW1-yT-OBG"/>
-                <constraint firstAttribute="trailing" secondItem="Tzj-is-bp0" secondAttribute="trailing" id="dng-ZP-ypT"/>
-                <constraint firstItem="6Y3-80-Dys" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="k3l-Pc-dRS"/>
-                <constraint firstItem="6Y3-80-Dys" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kuW-Vp-4rb"/>
+                <constraint firstItem="rUs-Md-NVL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="2et-9d-T9Q"/>
+                <constraint firstItem="Tzj-is-bp0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3Ty-o4-keI"/>
+                <constraint firstItem="rUs-Md-NVL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DLA-3H-uqK"/>
+                <constraint firstItem="Tzj-is-bp0" firstAttribute="leading" secondItem="rUs-Md-NVL" secondAttribute="trailing" constant="8" id="DeO-S2-GZc"/>
+                <constraint firstAttribute="bottom" secondItem="Tzj-is-bp0" secondAttribute="bottom" id="KS0-Q4-jYo"/>
+                <constraint firstAttribute="trailing" secondItem="Tzj-is-bp0" secondAttribute="trailing" id="yoe-k3-jIz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="1454" y="510"/>
