@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzj-is-bp0">
-                    <rect key="frame" x="310" y="0.0" width="103.5" height="74"/>
+                    <rect key="frame" x="310" y="0.0" width="104" height="74"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="104" id="Lfz-AL-5JG"/>
                         <constraint firstAttribute="width" constant="118" id="rHX-dY-Ve8"/>

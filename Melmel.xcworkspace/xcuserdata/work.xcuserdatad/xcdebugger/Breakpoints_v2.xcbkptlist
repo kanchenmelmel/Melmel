@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Melmel/MelGuideTableViewController.swift"
-            timestampString = "493117754.598003"
+            timestampString = "493175583.239707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "startOperationsForPhoto(_:indexPath:)"
             landmarkType = "5">
          </BreakpointContent>
