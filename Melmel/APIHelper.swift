@@ -61,12 +61,13 @@ class APIHelper {
         session.dataTaskWithURL(postUrl){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
             if let responseData = data {
                 let date = NSDate()
-                NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
+                //NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
                 
                 do{
                     let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
                     if let postsArray = json as? NSArray{
                         postsAcquired(postsArray:postsArray,success:true)
+                        NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
                     }
                     else {
                         postsAcquired(postsArray:nil,success:false)
@@ -104,12 +105,13 @@ class APIHelper {
             
             if let responseData = data {
                 let date = NSDate()
-                NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.discountLastUpdateTimeKey)
+                
                 
                 do{
                     let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
                     if let postsArray = json as? NSArray{
                         discountsAcquired(discountsArray:postsArray,success:true)
+                        NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.discountLastUpdateTimeKey)
                     }
                     else {
                         discountsAcquired(discountsArray:nil,success:false)

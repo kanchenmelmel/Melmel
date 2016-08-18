@@ -28,8 +28,7 @@ class CommentViewController: UIViewController {
         
 //        contentInput.backgroundColor = UIColor.lightGrayColor()
         contentInput.layer.cornerRadius = 5.0
-    
-       
+
         
 
         // Do any additional setup after loading the view.
