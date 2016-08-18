@@ -48,6 +48,11 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         mapView.delegate=self
         searchBar.delegate = self
         
+        let searchTextField = searchBar.valueForKey("searchField") as! UITextField
+        let color = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "例如：韩国餐馆折扣", attributes: [NSForegroundColorAttributeName:color])
+        
+        
 //        
 //        let melmelAnnotation = MKPointAnnotation()
 //        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate

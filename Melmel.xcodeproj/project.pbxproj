@@ -58,7 +58,7 @@
 		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
 		96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */; };
 		96B1621F1D63DD5600AA4849 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1621E1D63DD5600AA4849 /* AnimationEngine.swift */; };
-		96B162211D64897800AA4849 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162201D64897800AA4849 /* CustomSearchBar.swift */; };
+		96B162211D64897800AA4849 /* CustomSearchBar+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */; };
 		96B162231D64A4E000AA4849 /* SearchPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162221D64A4E000AA4849 /* SearchPostCell.swift */; };
 		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
@@ -156,7 +156,7 @@
 		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
 		96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		96B1621E1D63DD5600AA4849 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
-		96B162201D64897800AA4849 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomSearchBar+Designable.swift"; sourceTree = "<group>"; };
 		96B162221D64A4E000AA4849 /* SearchPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostCell.swift; sourceTree = "<group>"; };
 		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -353,7 +353,6 @@
 				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
 				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
-				96B162201D64897800AA4849 /* CustomSearchBar.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -367,6 +366,7 @@
 				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
 				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
+				96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */,
 				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
 				96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */,
 				4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */,
@@ -700,7 +700,7 @@
 				964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */,
 				4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */,
 				96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */,
-				96B162211D64897800AA4849 /* CustomSearchBar.swift in Sources */,
+				96B162211D64897800AA4849 /* CustomSearchBar+Designable.swift in Sources */,
 				4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
