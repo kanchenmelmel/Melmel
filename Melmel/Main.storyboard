@@ -108,13 +108,14 @@
                         <outlet property="LoadMoreActivityIndicator" destination="wjm-N8-WhF" id="5Fa-Me-mzH"/>
                         <outlet property="loadMorePostsLabel" destination="Kqe-jv-U7d" id="gzY-2I-swo"/>
                         <outlet property="searchBar" destination="xaJ-4b-U0l" id="WDo-fd-rit"/>
+                        <segue destination="Nv9-sU-sVg" kind="show" identifier="searchResultSegue" id="jAn-mX-nFS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BL-Af-QxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3116" y="-312"/>
         </scene>
-        <!--Title-->
+        <!--原创攻略-->
         <scene sceneID="dX1-zb-PcS">
             <objects>
                 <viewController id="g1v-G4-zYn" customClass="PostWebViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,7 +124,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yKC-7k-izk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cxA-kh-hxb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-uA-MBK">
@@ -149,7 +150,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="en5-hl-TBG" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target">
+                    <navigationItem key="navigationItem" title="原创攻略" id="en5-hl-TBG">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="a65-3e-XZh">
                             <connections>
                                 <segue destination="LiW-bF-1D1" kind="show" identifier="showcommentSegue" id="Fv4-wq-zxX"/>
@@ -172,7 +173,7 @@
             <objects>
                 <tableViewController title="Comments" id="LiW-bF-1D1" customClass="ShowCommentTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="187" sectionHeaderHeight="28" sectionFooterHeight="28" id="eps-Bu-Jzd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.80784313730000001" green="0.75294117650000003" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,7 +267,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bpT-aa-iJj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uGT-dX-EZH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xkr-gV-1L9">
@@ -419,7 +420,7 @@
             <objects>
                 <tableViewController id="Nv9-sU-sVg" customClass="SearchTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" id="b0D-4Z-BAl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -555,6 +556,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="Opv-HC-g1E" id="0GD-n1-Qub"/>
+                                    <outlet property="featuredImage" destination="hb9-Q4-OW2" id="szf-qs-h3Z"/>
                                     <outlet property="titleLabel" destination="ori-rx-BFP" id="lRh-46-1Co"/>
                                 </connections>
                             </tableViewCell>
@@ -564,11 +566,11 @@
                             <outlet property="delegate" destination="Nv9-sU-sVg" id="T6L-2S-EMR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="1wk-Il-a1g" customClass="CustomNavigationItem" customModule="Melmel" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" title="Search" id="1wk-Il-a1g"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ws1-ve-PCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4851" y="1870"/>
+            <point key="canvasLocation" x="3908" y="-336"/>
         </scene>
         <!--Melbourne-->
         <scene sceneID="Rt2-Mq-X1X">
@@ -947,7 +949,7 @@
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cgy-Hz-tIl"/>
+        <segue reference="vYJ-nB-JmP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -250,9 +250,17 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             postWebVeiwController.webRequestURLString = posts[path.row].link
             postWebVeiwController.postid = String(posts[path.row].id!)
         }
+        if segue.identifier == "searchResultSegue" {
+            let searchResultTableViewCtrl = segue.destinationViewController as! SearchTableViewController
+            searchResultTableViewCtrl.searchText = self.searchBar.text
+            searchResultTableViewCtrl.postType = .Post
+            
+        }
     }
     
     
+    
+    // Image Download Operation Functions
     func startOperationsForPhoto(post:Post,indexPath:NSIndexPath) {
         switch (post.featuredImageState) {
         case .New:
@@ -287,6 +295,42 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         
     }
+    
+//    // Image download operation functions for discounts
+//    func startOperationsForPhoto(discount:Discount,indexPath:NSIndexPath) {
+//        switch (discount.featuredImageState) {
+//        case .New:
+//            startDownloadFeaturedImageForPost (discount:discount,indexPath:indexPath)
+//        default: break
+//            //NSLog("Do nothing")
+//        }
+//    }
+//    
+//    func startDownloadFeaturedImageForPost(discount discount:Discount,indexPath:NSIndexPath) {
+//        if pendingOperations.downloadsInProgress[indexPath] != nil {
+//            return
+//        }
+//        
+//        if reachabilityManager.isReachable(){
+//            let downloader = ImageDownloader(post: discount)
+//            
+//            downloader.completionBlock = {
+//                if downloader.cancelled {
+//                    return
+//                }
+//                dispatch_async(dispatch_get_main_queue(), {
+//                    self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+//                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//                    post.featuredImageState = .Downloaded
+//                })
+//            }
+//            
+//            pendingOperations.downloadsInProgress[indexPath] = downloader
+//            pendingOperations.downloadQueue.addOperation(downloader)
+//        }
+//        
+//        
+//    }
     
     
     
@@ -340,6 +384,10 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         }
         
         
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.performSegueWithIdentifier("searchResultSegue", sender: self.searchBar)
     }
     
     

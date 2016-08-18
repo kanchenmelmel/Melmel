@@ -27,25 +27,46 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        var navBarTitle = ""
+        
+        if postType == .Post{
+            navBarTitle = "攻略搜索"
+        } else {
+            navBarTitle = "优惠搜索"
+        }
+        self.navigationItem.title = navBarTitle
+        
+        
+        
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         
         let postUpdateUtility = PostsUpdateUtility()
         
-        if postType == .Post {
-            postUpdateUtility.getAllDiscounts { (discounts) in
+        let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+        
+        self.tableView.addSubview(activityIndicatorView)
+        
+        if postType == .Discount {
+            postUpdateUtility.searchDiscountByKeyWords(searchText!, completionHandler: { (discounts) in
                 self.discounts = discounts
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
-                })
-            }
+                    activityIndicatorView.stopAnimating()
+                    activityIndicatorView.willMoveToSuperview(self.tableView)
+                }
+            )
+            })
         } else {
             postUpdateUtility.searchPostsByKeyWords(searchText!, completionHandler: { (posts) in
                 self.posts = posts
                 dispatch_async(dispatch_get_main_queue(), { 
                     self.tableView.reloadData()
+                    activityIndicatorView.stopAnimating()
+                    activityIndicatorView.willMoveToSuperview(self.tableView)
                 })
             })
         }
@@ -113,7 +134,7 @@ class SearchTableViewController: UITableViewController {
                 cell.featureImage.image = discount.featuredImage
             }
             if discount.featuredImageState == .New {
-                startOperationsForPhoto(post, indexPath: indexPath)
+                startOperationsForPhoto(discount: discount, indexPath: indexPath)
             }
             
         }
@@ -122,6 +143,27 @@ class SearchTableViewController: UITableViewController {
         }else {
             let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! SearchPostCell
             
+            let  post = self.posts[indexPath.row]
+            
+            
+            
+            cell.titleLabel.text = post.title!
+            
+            
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = .MediumStyle
+            cell.dateLabel.text = "\(dateFormatter.stringFromDate(post.date!).uppercaseString)" + " "
+            
+            if post.featured_image_url != nil {
+                if post.featuredImageState == .Downloaded {
+                    cell.featuredImage.image = post.featuredImage
+                }
+                if post.featuredImageState == .New {
+                    startOperationsForPhoto(post: post, indexPath: indexPath)
+                }
+                
+            }
             return cell
 
         }
@@ -137,7 +179,12 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
-    func startOperationsForPhoto(post:Post,indexPath:NSIndexPath) {
+    
+    
+    /*
+     Image Downloader operation functions for Post
+     */
+    func startOperationsForPhoto(post post:Post,indexPath:NSIndexPath) {
         switch (post.featuredImageState) {
         case .New:
             startDownloadFeaturedImageForPost (post:post,indexPath:indexPath)
@@ -167,83 +214,118 @@ class SearchTableViewController: UITableViewController {
         pendingOperations.downloadQueue.addOperation(downloader)
     }
     
-    func getPostsFromAPI (endURL:String,postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
-        
-        let session = NSURLSession.sharedSession()
-        let postUrl = endURL + self.searchText!
-        let postFinalURL = NSURL(string: postUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
-        
-     //   let postFinalURL = NSURL(string: postUrl.stringByAddingPercentEncodingWithAllowedCharacters(_:))!
-        
-        
-      //  NSData(contentsOfURL:NSURL(string:post.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
-        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
-            
-            if let responseData = data {
-                
-                do{
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
-                    if let postsArray = json as? NSArray{
-                        postsAcquired(postsArray:postsArray,success:true)
-                    }
-                    else {
-                        postsAcquired(postsArray:nil,success:false)
-                    }
-                } catch {
-                    postsAcquired(postsArray:nil,success:false)
-                    print("could not serialize!")
-                }
-            }
-            }.resume()
-        
-        
+    
+    /*
+     Image Downloader operation functions for Discount
+     */
+    
+    func startOperationsForPhoto(discount discount:Discount,indexPath:NSIndexPath) {
+        switch (discount.featuredImageState) {
+        case .New:
+            startDownloadFeaturedImageForPost (discount:discount,indexPath:indexPath)
+        default:
+            NSLog("Do nothing")
+        }
     }
     
-    func updateSearchPosts(endURL:String, completionHandler:() -> Void){
-       
-    
-        self.getPostsFromAPI(endURL) { (postsArray, success) in
-            if success {
-                
-                
-                // create dispatch group.
-                
-                for postEntry in postsArray! {
-                    let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
-                    //id
-                    post.id = postEntry["id"] as! Int
-                    
-                    //Date
-                    let dateString = postEntry["date"] as! String
-                    let dateFormatter = DateFormatter()
-                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
-                    //Title
-                    post.title = postEntry["title"] as! String
-                    
-                    //Link
-                    post.link = postEntry["link"] as! String
-                    
-                    //Media
-                    
-                    post.featured_image_downloaded = false
-                    
-                    if postEntry["featured_image_url"] != nil {
-                        post.featured_image_url = postEntry["thumbnail_url"] as? String
-                    }
-                    
-                    
-                    self.posts.append(post)
-                    
-                }//End postsArray Loop
-                completionHandler()
-              
+    func startDownloadFeaturedImageForPost(discount discount:Discount,indexPath:NSIndexPath) {
+        if pendingOperations.downloadsInProgress[indexPath] != nil {
+            return
+        }
+        
+        let downloader = DiscountImageDownloader(discount: discount)
+        
+        downloader.completionBlock = {
+            if downloader.cancelled {
+                return
             }
-            else {}
-        } // end getPostsFromAPI
+            dispatch_async(dispatch_get_main_queue(), {
+                self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            })
+        }
         
-        
+        pendingOperations.downloadsInProgress[indexPath] = downloader
+        pendingOperations.downloadQueue.addOperation(downloader)
     }
     
+//    func getPostsFromAPI (endURL:String,postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
+//        
+//        let session = NSURLSession.sharedSession()
+//        let postUrl = endURL + self.searchText!
+//        let postFinalURL = NSURL(string: postUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
+//        
+//     //   let postFinalURL = NSURL(string: postUrl.stringByAddingPercentEncodingWithAllowedCharacters(_:))!
+//        
+//        
+//      //  NSData(contentsOfURL:NSURL(string:post.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+//        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+//            
+//            if let responseData = data {
+//                
+//                do{
+//                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+//                    if let postsArray = json as? NSArray{
+//                        postsAcquired(postsArray:postsArray,success:true)
+//                    }
+//                    else {
+//                        postsAcquired(postsArray:nil,success:false)
+//                    }
+//                } catch {
+//                    postsAcquired(postsArray:nil,success:false)
+//                    print("could not serialize!")
+//                }
+//            }
+//            }.resume()
+//        
+//        
+//    }
+    
+//    func updateSearchPosts(endURL:String, completionHandler:() -> Void){
+//       
+//    
+//        self.getPostsFromAPI(endURL) { (postsArray, success) in
+//            if success {
+//                
+//                
+//                // create dispatch group.
+//                
+//                for postEntry in postsArray! {
+//                    let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
+//                    //id
+//                    post.id = postEntry["id"] as! Int
+//                    
+//                    //Date
+//                    let dateString = postEntry["date"] as! String
+//                    let dateFormatter = DateFormatter()
+//                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
+//                    //Title
+//                    post.title = postEntry["title"] as! String
+//                    
+//                    //Link
+//                    post.link = postEntry["link"] as! String
+//                    
+//                    //Media
+//                    
+//                    post.featured_image_downloaded = false
+//                    
+//                    if postEntry["featured_image_url"] != nil {
+//                        post.featured_image_url = postEntry["thumbnail_url"] as? String
+//                    }
+//                    
+//                    
+//                    self.posts.append(post)
+//                    
+//                }//End postsArray Loop
+//                completionHandler()
+//              
+//            }
+//            else {}
+//        } // end getPostsFromAPI
+    
+        
+//      }
+
     
     
 

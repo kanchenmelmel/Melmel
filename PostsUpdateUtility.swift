@@ -403,7 +403,7 @@ class PostsUpdateUtility {
                 
                 
             }//End postsArray Loop
-            completionHandler(discounts: posts)
+            completionHandler(posts: posts)
 
         }
     }
