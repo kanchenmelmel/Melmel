@@ -109,7 +109,11 @@ class SearchTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.posts.count
+        if postType == .Post{
+            return posts.count
+        } else {
+            return discounts.count
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -119,9 +123,10 @@ class SearchTableViewController: UITableViewController {
         // Configure the cell...
         
         let discount = self.discounts[indexPath.row]
-        
-     
-        cell.titleLabel.text = discount.title!
+        print("diaodiaodiao")
+        print (discount)
+    //    cell.titleLabel.text = discount.title!
+        cell.titleLabel.text = "testing"
         
     
         
