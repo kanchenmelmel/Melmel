@@ -403,6 +403,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iqS-dq-zvX">
+                                            <rect key="frame" x="0.0" y="-16" width="600" height="240"/>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dateBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fZ9-yl-sjI">
                                             <rect key="frame" x="451" y="39" width="149" height="29"/>
                                             <constraints>
@@ -444,9 +447,6 @@
                                                 <constraint firstItem="EoR-dP-oAc" firstAttribute="bottom" secondItem="691-bb-Ptw" secondAttribute="bottomMargin" id="wIl-ka-wzM"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iqS-dq-zvX">
-                                            <rect key="frame" x="0.0" y="-16" width="600" height="240"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="691-bb-Ptw" firstAttribute="leading" secondItem="M4H-Oc-OFy" secondAttribute="leading" id="1C9-At-Coo"/>
@@ -477,6 +477,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-Q4-OW2">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="dateBackground" translatesAutoresizingMaskIntoConstraints="NO" id="cyD-NK-zVR">
                                             <rect key="frame" x="451" y="32" width="149" height="29"/>
                                             <constraints>
@@ -518,9 +521,6 @@
                                                 <constraint firstItem="ori-rx-BFP" firstAttribute="bottom" secondItem="eWw-Ey-WpW" secondAttribute="bottomMargin" id="sF5-Kf-RBN"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-Q4-OW2">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="eWw-Ey-WpW" firstAttribute="top" secondItem="Opv-HC-g1E" secondAttribute="bottom" constant="55" id="hrB-zZ-Kjf"/>

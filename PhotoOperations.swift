@@ -138,3 +138,37 @@ class SearchImageDownloader:NSOperation {
     
     
 }
+
+class SearchDiscountImageDownloader:NSOperation {
+    let discount:Discount
+    init(discount: Discount) {
+        self.discount = discount
+    }
+    
+    override func main() {
+        if self.cancelled {
+            return
+        }
+        
+        let imageData = NSData(contentsOfURL:NSURL(string:discount.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        
+        if self.cancelled {
+            return
+        }
+        
+        if imageData?.length != 0 {
+            self.discount.featuredImage = UIImage(data: imageData!)
+            self.discount.featuredImageState = .Downloaded
+            
+        }
+            
+        else {
+            self.discount.featuredImageState = .Failed
+            self.discount.featuredImage = UIImage(named: "failed")
+            
+        }
+    }
+    
+    
+    
+}
