@@ -11,12 +11,13 @@ import UIKit
 class IntroductionPageViewCtrl: UIPageViewController {
     
     private(set) lazy var orderedViewControllers:[UIViewController] = {
-        return [self.newViewController("firstIntroductionViewCtrl"),self.newViewController("secondIntroductionViewCtrl")]
+        return [self.newViewController("firstIntroductionViewCtrl"),self.newViewController("secondIntroductionViewCtrl"),self.newViewController("thirdIntroductionViewCtrl")]
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
+        
         
         if let firstViewCtrl = orderedViewControllers.first {
             setViewControllers([firstViewCtrl], direction: .Forward, animated: true, completion: nil)
