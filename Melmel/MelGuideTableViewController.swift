@@ -35,6 +35,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         super.viewDidLoad()
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        navigationController?.hidesBarsOnSwipe = true
         
         
         
