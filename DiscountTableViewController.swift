@@ -43,6 +43,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var blankView = UIView()
     
+    var searchBlankView = UIView()
+    
     @IBAction func didFilterButtonPress(sender: AnyObject) {
         
         
@@ -54,6 +56,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             FilteredViewController.view.tag = 101
             FilteredViewController.view.removeFromSuperview()
             self.blankView.hidden = true
+            self.tableView.scrollEnabled = true
         }
         else{
             
@@ -79,6 +82,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             
             self.view.addSubview(FilteredViewController.view)
             self.blankView.hidden = false
+            self.tableView.scrollEnabled = false
            // self.view.superview?.addSubview(FilteredViewController.view)
         }
         
@@ -86,6 +90,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        self.searchBlankView.hidden = true
+        self.searchBar.resignFirstResponder()
         
         var frame: CGRect = self.FilteredViewController.view.frame
         positionY = scrollView.contentOffset.y
@@ -99,6 +106,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     func ShouldCloseSubview() {
         FilteredViewController.view.tag = 101
         self.blankView.hidden = true
+        self.tableView.scrollEnabled = true
     }
     
     func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
@@ -119,19 +127,24 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.performSegueWithIdentifier("discountSearchResultSegue", sender: self.searchBar)
     }
     
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = false
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = true
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let width = self.tableView.frame.size.width
-        let height = self.tableView.frame.size.height
+        setupBlankView()
         
-      //  var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
-        blankView.frame = CGRectMake(0.0, 0.0, width, height)
-        blankView.backgroundColor = UIColor.blackColor()
-        blankView.alpha = 0.5
-        self.view.addSubview(blankView)
-        self.blankView.hidden = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DiscountTableViewController.handleTap))
+        self.searchBlankView.addGestureRecognizer(tap)
         
         searchBar.delegate = self
         self.refreshControl = UIRefreshControl()
@@ -141,6 +154,33 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.refreshControl?.beginRefreshing()
         
 
+    }
+    
+    func handleTap(){
+        self.searchBlankView.hidden = true
+        self.searchBar.resignFirstResponder()
+        
+    }
+    
+    func setupBlankView(){
+        
+        let width = self.tableView.frame.size.width
+        let height = self.tableView.frame.size.height
+        let searchBarHeight = self.searchBar.bounds.height
+        
+        //  var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        blankView.frame = CGRectMake(0.0, 0.0, width, height)
+        blankView.backgroundColor = UIColor.blackColor()
+        blankView.alpha = 0.5
+        self.view.addSubview(blankView)
+        self.blankView.hidden = true
+        
+        searchBlankView.frame = CGRectMake(0.0, searchBarHeight, width, height)
+        searchBlankView.backgroundColor = UIColor.blackColor()
+        searchBlankView.alpha = 0.5
+        self.view.addSubview(searchBlankView)
+        self.searchBlankView.hidden = true
+        
     }
 
     override func didReceiveMemoryWarning() {
