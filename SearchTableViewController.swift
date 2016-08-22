@@ -131,6 +131,37 @@ class SearchTableViewController: UITableViewController {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
         cell.dateLabel.text = "\(dateFormatter.stringFromDate(discount.date!).uppercaseString)" + " "
+        
+//            if entertianmentTypes.contains(catagoryId){
+//                return DiscountCatagory.Entertainment
+//            }
+//            if fashionTypes.contains(catagoryId){
+//                return DiscountCatagory.Fashion
+//            }
+//            if serviceTypes.contains(catagoryId){
+//                return DiscountCatagory.Service
+//            }
+//            if foodTypes.contains(catagoryId){
+//                return DiscountCatagory.Food
+//            }
+//            if shoppomgTypes.contains(catagoryId){
+//                return DiscountCatagory.Shopping
+//            }
+            
+        switch discount.catagories[0] {
+        case .Entertainment:
+                cell.typeLabel.text = "娱乐"
+        case .Fashion:
+                cell.typeLabel.text = "时尚"
+        case .Service:
+                cell.typeLabel.text = "服务"
+        case .Food:
+                cell.typeLabel.text = "美食"
+        case .Shopping:
+                cell.typeLabel.text = "购物"
+        default:
+                cell.typeLabel.text = "优惠"
+        }
 
         if discount.featured_image_url != nil {
             if discount.featuredImageState == .Downloaded {
