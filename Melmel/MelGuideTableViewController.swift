@@ -26,6 +26,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     var numOfPosts:Int?
     var reachToTheEnd = false
     
+    var searchBlankView = UIView()
+    
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -36,22 +38,11 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
+        setupBlankView()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DiscountTableViewController.handleTap))
+        self.searchBlankView.addGestureRecognizer(tap)
         
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //Request Posts from Melmel Website
-        
-        
-        // Configure Conponents
         searchBar.delegate = self
         
         LoadMoreActivityIndicator.hidden = true
@@ -86,6 +77,33 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         self.tableView.reloadData()
     }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.searchBlankView.hidden = true
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func handleTap(){
+        self.searchBlankView.hidden = true
+        self.searchBar.resignFirstResponder()
+        
+    }
+    
+    func setupBlankView(){
+        
+        let width = self.tableView.frame.size.width
+        let height = self.tableView.frame.size.height
+        let searchBarHeight = self.searchBar.bounds.height
+        
+        
+        searchBlankView.frame = CGRectMake(0.0, searchBarHeight, width, height)
+        searchBlankView.backgroundColor = UIColor.blackColor()
+        searchBlankView.alpha = 0.5
+        self.view.addSubview(searchBlankView)
+        self.searchBlankView.hidden = true
+        
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -392,6 +410,14 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.performSegueWithIdentifier("searchResultSegue", sender: self.searchBar)
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = false
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = true
     }
     
     
