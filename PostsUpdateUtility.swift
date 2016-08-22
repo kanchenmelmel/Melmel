@@ -337,6 +337,7 @@ class PostsUpdateUtility {
                                 let catagory = DiscountCatagoryRecognizer.recognizeCatagory(catagoryId, postType: .Discount)
                                 if !discount.catagories.contains(catagory) {
                                     discount.catagories.append(catagory)
+                                    print (catagory)
                                 }
                             }
                         }

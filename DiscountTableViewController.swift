@@ -130,6 +130,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
      //   self.discounts.removeAll()
         navigationController?.navigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
@@ -223,6 +225,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         // Configure the cell...
         let discount  = discounts[indexPath.row]
+        
+    
+        
         cell.titleLabel.text = discount.title!
         
         let dateFormatter = NSDateFormatter()
