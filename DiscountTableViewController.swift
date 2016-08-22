@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,CloseFilterSubview{
+class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,CloseFilterSubview,UISearchBarDelegate{
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -32,6 +32,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
 
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var FilteredViewController:FilterViewController = FilterViewController()
     
@@ -104,10 +106,15 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
     }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.performSegueWithIdentifier("discountSearchResultSegue", sender: self.searchBar)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print ("fishing")
+        
+        searchBar.delegate = self
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
         self.refreshControl?.tintColor = UIColor.whiteColor()
@@ -452,6 +459,13 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = discounts[path.row].link
             postWebVeiwController.navigationItem.setRightBarButtonItem(nil, animated: true)
+        }
+        
+        if segue.identifier == "discountSearchResultSegue" {
+            let searchResultTableViewCtrl = segue.destinationViewController as! SearchTableViewController
+            searchResultTableViewCtrl.searchText = self.searchBar.text
+            searchResultTableViewCtrl.postType = .Discount
+            
         }
     }
     

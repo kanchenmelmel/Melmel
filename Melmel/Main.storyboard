@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="xaJ-4b-U0l" customClass="CustomSearchBar" customModule="Melmel" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" red="0.80784313730000001" green="0.75294117650000003" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
@@ -511,7 +511,7 @@
             <objects>
                 <tableViewController id="Nv9-sU-sVg" customClass="SearchTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" id="b0D-4Z-BAl">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -777,8 +777,14 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.87843137250000003" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="bPd-cF-R9U" customClass="CustomSearchBar" customModule="Melmel" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="0.89411764705882357" green="0.0" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <view key="tableFooterView" contentMode="scaleToFill" id="rzZ-yl-IOC">
-                            <rect key="frame" x="0.0" y="168" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="487" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="teM-vL-3i5">
@@ -803,17 +809,17 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="discountCell" rowHeight="140" id="UsA-Gl-vOL" customClass="DiscountTableViewCell" customModule="Melmel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="140"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="discountCell" rowHeight="200" id="UsA-Gl-vOL" customClass="DiscountTableViewCell" customModule="Melmel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UsA-Gl-vOL" id="x1d-rp-UQP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="139.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
                                             <rect key="frame" x="0.0" y="8" width="600" height="231"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9v-G4-PUV" customClass="CellMaskView" customModule="Melmel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9v-G4-PUV" customClass="CellMaskView" customModule="Melmel" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="8" width="600" height="192"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diz-zp-RG5">
@@ -902,11 +908,13 @@
                     <connections>
                         <outlet property="LoadMoreActivityIndicator" destination="xsx-f0-kR4" id="jOu-KX-h6v"/>
                         <outlet property="loadMorePostsLabel" destination="I6N-bJ-0Qz" id="vAF-vh-ZLy"/>
+                        <outlet property="searchBar" destination="bPd-cF-R9U" id="cHv-z8-MXe"/>
+                        <segue destination="Nv9-sU-sVg" kind="show" identifier="discountSearchResultSegue" id="FEs-0A-bpX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2iX-WW-9uA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3383" y="431"/>
+            <point key="canvasLocation" x="3194" y="458"/>
         </scene>
         <!--Category Table View Controller-->
         <scene sceneID="IWg-6y-5ui">
@@ -1058,7 +1066,8 @@
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vYJ-nB-JmP"/>
+        <segue reference="Cgy-Hz-tIl"/>
+        <segue reference="FEs-0A-bpX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>
