@@ -109,7 +109,11 @@ class SearchTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.posts.count
+        if postType == .Post{
+            return posts.count
+        } else {
+            return discounts.count
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -119,9 +123,10 @@ class SearchTableViewController: UITableViewController {
         // Configure the cell...
         
         let discount = self.discounts[indexPath.row]
-        
-     
+        print("diaodiaodiao")
+        print (discount)
         cell.titleLabel.text = discount.title!
+    //    cell.titleLabel.text = "testing"
         
     
         
@@ -129,6 +134,8 @@ class SearchTableViewController: UITableViewController {
         dateFormatter.dateStyle = .MediumStyle
         cell.dateLabel.text = "\(dateFormatter.stringFromDate(discount.date!).uppercaseString)" + " "
         
+        print ("zzzzzzzzzzzz")
+        print (discount.featuredImageState)
         if discount.featured_image_url != nil {
             if discount.featuredImageState == .Downloaded {
                 cell.featureImage.image = discount.featuredImage
@@ -233,7 +240,7 @@ class SearchTableViewController: UITableViewController {
             return
         }
         
-        let downloader = DiscountImageDownloader(discount: discount)
+        let downloader = SearchDiscountImageDownloader(discount: discount)
         
         downloader.completionBlock = {
             if downloader.cancelled {
@@ -241,6 +248,7 @@ class SearchTableViewController: UITableViewController {
             }
             dispatch_async(dispatch_get_main_queue(), {
                 self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                 print("hello b")
                 self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             })
         }
