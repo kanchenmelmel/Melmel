@@ -29,7 +29,6 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     
     let regionRadius: CLLocationDistance = 1000
@@ -292,7 +291,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         viewRect = CGRectMake(0.0, CGRectGetHeight(self.mapView.frame)-80.5, CGRectGetWidth(self.mapView.frame), 80.5)
         discountDetailViewController.view.frame = viewRect
         
-        self.mapView.addSubview(discountDetailViewController.view)
+        self.view.addSubview(discountDetailViewController.view)
         discountDetailViewController.didMoveToParentViewController(self)
         
     }

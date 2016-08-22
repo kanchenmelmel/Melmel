@@ -14,6 +14,8 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var mobileInput: UITextField!
     @IBOutlet weak var contentInput: UITextView!
     
+    let placeholder = "写下你的评论……"
+    
     var postid:String?
     
     override func viewDidLoad() {
@@ -28,6 +30,9 @@ class CommentViewController: UIViewController {
         
 //        contentInput.backgroundColor = UIColor.lightGrayColor()
         contentInput.layer.cornerRadius = 5.0
+        
+        contentInput.text = placeholder
+        contentInput.delegate = self
 
         
 
@@ -87,5 +92,21 @@ class CommentViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
+}
+
+extension CommentViewController:UITextViewDelegate {
+    func textViewDidBeginEditing(textView: UITextView) {
+        if self.contentInput.text == placeholder {
+            contentInput.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if contentInput.text == "" {
+            contentInput.text = placeholder
+        }
+    }
 }

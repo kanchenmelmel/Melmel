@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set up managed object context
         
         
+        
+        
         // Configure Tab bar
         let tabNavCntr = window?.rootViewController as? UITabBarController
         
@@ -37,6 +39,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        
+        
+        // Setup init screen
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if !NSUserDefaults.standardUserDefaults().boolForKey("hasSeenIntroduction") {
+            let rootCtrl = storyboard.instantiateViewControllerWithIdentifier("introductionPageViewCtrl")
+            self.window?.rootViewController = rootCtrl
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenIntroduction")
+        } else {
+            let rootCtrl = storyboard.instantiateViewControllerWithIdentifier("tabBarCtrl")
+            self.window?.rootViewController = rootCtrl
+        }
+        
+        
         return true
     }
     
