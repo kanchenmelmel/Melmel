@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentViewController: UIViewController {
+class CommentViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var mobileInput: UITextField!
@@ -33,6 +33,9 @@ class CommentViewController: UIViewController {
         
         contentInput.text = placeholder
         contentInput.delegate = self
+        
+        mobileInput.delegate = self
+        mobileInput.keyboardType = .NumberPad
 
         
 
@@ -44,8 +47,59 @@ class CommentViewController: UIViewController {
         navigationController?.hidesBarsOnSwipe = false
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = NSCharacterSet(charactersInString: "0123456789").invertedSet
+        return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+    }
+    
     @IBAction func submitComment(sender: AnyObject) {
         
+        guard let nameText = nameInput.text where !nameInput.text!.isEmpty else{
+            let alert = UIAlertController(title: "Empty Name", message: "请填写用户姓名",preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+                print("OK")
+            
+            }
+            
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+        guard let contentText = contentInput.text where (!contentInput.text!.isEmpty && contentInput.text != placeholder) else{
+            let alert = UIAlertController(title: "Empty Content", message: "请填写评论内容",preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+                print("OK")
+                
+            }
+            
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+        guard let mobileText = mobileInput.text where !mobileInput.text!.isEmpty else{
+            let alert = UIAlertController(title: "Empty Moible", message: "请填写电话号码",preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+                print("OK")
+                
+            }
+            
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+
+        
+        postComment()
+        
+    }
+    
+    func postComment(){
         let endpointURL = "http://melmel.com.au/wp-json/wp/v2/comments?"
         let post = "post=\(self.postid!)&"
         let name = "author_name=\(nameInput.text!)&"
@@ -54,7 +108,7 @@ class CommentViewController: UIViewController {
         
         let urlWithParams = endpointURL+post+name+mobile+content
         
-
+        
         let myURL = NSURL(string: urlWithParams.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
         
         
@@ -80,7 +134,6 @@ class CommentViewController: UIViewController {
         task.resume()
         
         self.navigationController!.popViewControllerAnimated(true)
-        
     }
 
     override func didReceiveMemoryWarning() {
