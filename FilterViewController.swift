@@ -91,6 +91,8 @@ class FilterViewController: UIViewController {
         
         setupView()
         
+       // self.view.alpha = 1.0
+        
         
 
         // Do any additional setup after loading the view.

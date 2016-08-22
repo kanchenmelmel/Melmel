@@ -39,19 +39,25 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var CatergoryVC: CategoryTableViewController = CategoryTableViewController()
     
+   // var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
     
+    var blankView = UIView()
     
     @IBAction func didFilterButtonPress(sender: AnyObject) {
         
-        //  FilteredViewController.view.viewWithTag(101)
         
+        
+        //  FilteredViewController.view.viewWithTag(101)
         
         if (FilteredViewController.view.tag == 100) {
             //  if (FilteredViewController.view != nil){
             FilteredViewController.view.tag = 101
             FilteredViewController.view.removeFromSuperview()
+            self.blankView.hidden = true
         }
         else{
+            
+            
             
             
             FilteredViewController.view.tag = 100
@@ -70,7 +76,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             FilteredViewController.view.frame = CGRectMake(0.0, positionY, self.view.frame.width, 74.0)
             //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
             
+            
             self.view.addSubview(FilteredViewController.view)
+            self.blankView.hidden = false
            // self.view.superview?.addSubview(FilteredViewController.view)
         }
         
@@ -90,6 +98,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     func ShouldCloseSubview() {
         FilteredViewController.view.tag = 101
+        self.blankView.hidden = true
     }
     
     func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
@@ -114,6 +123,16 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let width = self.tableView.frame.size.width
+        let height = self.tableView.frame.size.height
+        
+      //  var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        blankView.frame = CGRectMake(0.0, 0.0, width, height)
+        blankView.backgroundColor = UIColor.blackColor()
+        blankView.alpha = 0.5
+        self.view.addSubview(blankView)
+        self.blankView.hidden = true
+        
         searchBar.delegate = self
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
@@ -130,7 +149,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+       // self.tableView.backgroundColor = UIColor.blackColor()
+       // print ("alpha is \(self.tableView.alpha)")
+       // self.tableView.alpha = 0.40
         self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
      //   self.discounts.removeAll()
         navigationController?.navigationBarHidden = false
@@ -226,7 +247,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         // Configure the cell...
         let discount  = discounts[indexPath.row]
         
-    
+       // cell.contentView.alpha = 0.5
         
         cell.titleLabel.text = discount.title!
         
