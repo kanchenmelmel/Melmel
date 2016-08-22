@@ -437,7 +437,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x2-wZ-eY8">
                                 <rect key="frame" x="277" y="520" width="47" height="30"/>
                                 <state key="normal" title="START">
-                                    <color key="titleColor" red="0.70980392156862748" green="0.0" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="49e-Tb-3d3" kind="show" id="OzV-3u-mX7"/>
@@ -1077,8 +1077,8 @@
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FEs-0A-bpX"/>
-        <segue reference="vYJ-nB-JmP"/>
+        <segue reference="5ST-g5-zK5"/>
+        <segue reference="jAn-mX-nFS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

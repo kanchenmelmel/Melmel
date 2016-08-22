@@ -93,7 +93,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     override func viewDidAppear(animated: Bool) {
 
-        
+        self.navigationController?.hidesBarsOnSwipe = false
         
     }
     
@@ -223,16 +223,27 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
-    @IBAction func showCategoryPopover(sender: AnyObject) {
+    @IBAction func showCategoryPopover(sender: UIBarButtonItem) {
         let categoryPopoverCtrl = FilterViewController()
         
-        self.addChildViewController(categoryPopoverCtrl)
-        self.view.addSubview(categoryPopoverCtrl.view)
+//
+//        self.addChildViewController(categoryPopoverCtrl)
+//        self.view.addSubview(categoryPopoverCtrl.view)
 //        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
-//        let popoverPresentationController = categoryPopoverCtrl.popoverPresentationController
-//        popoverPresentationController?.sourceView = sender.view
-//        popoverPresentationController?.delegate = self
+        categoryPopoverCtrl.modalPresentationStyle = .Popover
+        let popover = categoryPopoverCtrl.popoverPresentationController!
+        categoryPopoverCtrl.preferredContentSize = CGSizeMake(UIScreen().bounds.width, 113.0)
+        popover.barButtonItem = sender
+        popover.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
+        popover.delegate = self
+        presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
     }
+    
+    // Implement Popover Ctrl Delegate
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+    
     
     // Prepare Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
