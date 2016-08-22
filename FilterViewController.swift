@@ -14,7 +14,7 @@ protocol CloseFilterSubview{
 }
 
 
-class FilterViewController: UIViewController,UIPopoverPresentationControllerDelegate {
+class FilterViewController: UIViewController {
     
     
     
