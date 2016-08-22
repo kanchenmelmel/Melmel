@@ -27,7 +27,8 @@ class ShowCommentTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+        navigationController?.navigationBarHidden = false
+        navigationController?.hidesBarsOnSwipe = true
         
         let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
         activityIndicatorView.center = self.tableView.center

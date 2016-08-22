@@ -38,6 +38,12 @@ class CommentViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        navigationController?.navigationBarHidden = false
+        navigationController?.hidesBarsOnSwipe = false
+    }
+    
     @IBAction func submitComment(sender: AnyObject) {
         
         let endpointURL = "http://melmel.com.au/wp-json/wp/v2/comments?"

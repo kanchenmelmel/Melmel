@@ -131,6 +131,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func viewDidAppear(animated: Bool) {
      //   self.discounts.removeAll()
+        navigationController?.navigationBarHidden = false
+        navigationController?.hidesBarsOnSwipe = true
         if self.filtered == false{
         let postUpdateUtility = PostsUpdateUtility()
         discounts = postUpdateUtility.fetchDiscounts()

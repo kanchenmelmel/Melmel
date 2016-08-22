@@ -31,6 +31,11 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         postWebView.delegate = self
     }
     
+    override func viewDidAppear(animated: Bool) {
+        navigationController?.navigationBarHidden = false
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showcommentSegue" {
             let DC = segue.destinationViewController as! ShowCommentTableViewController

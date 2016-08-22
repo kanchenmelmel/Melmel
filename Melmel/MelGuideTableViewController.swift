@@ -35,7 +35,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         super.viewDidLoad()
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        navigationController?.hidesBarsOnSwipe = true
+        
         
         
         
@@ -80,6 +80,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         let postUpdateUtility = PostsUpdateUtility()
         posts = postUpdateUtility.fetchPosts()
         updatePosts()
+        
+        navigationController?.hidesBarsOnSwipe = true
         
         
         self.tableView.reloadData()
