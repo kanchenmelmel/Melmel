@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension String {
+    func isValidMobile() -> Bool{
+        
+        
+        let regex = try! NSRegularExpression(pattern: "^\\({0,1}((0|\\+61)(2|4|3|7|8)){0,1}\\){0,1}(\\ |-){0,1}[0-9]{2}(\\ |-){0,1}[0-9]{2}(\\ |-){0,1}[0-9]{1}(\\ |-){0,1}[0-9]{3}$", options: .CaseInsensitive)
+          //  return regex.firstMatchInString(self, options: nil, range: NSMakeRange(0, count(self))) != nil
+            return regex.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
+    }
+}
+
 class CommentViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameInput: UITextField!
@@ -17,6 +27,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     let placeholder = "写下你的评论……"
     
     var postid:String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +63,28 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let invalidCharacters = NSCharacterSet(charactersInString: "0123456789").invertedSet
+        let invalidCharacters = NSCharacterSet(charactersInString: "0123456789()+ ").invertedSet
         return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
     }
     
     @IBAction func submitComment(sender: AnyObject) {
         
+        if !(mobileInput.text?.isValidMobile())!{
+            let alert = UIAlertController(title: "电话号码格式不正确", message: "请填写正确的电话号码",preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+                print("OK")
+                
+            }
+            
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+            
+        }
+        
         guard let nameText = nameInput.text where !nameInput.text!.isEmpty else{
-            let alert = UIAlertController(title: "Empty Name", message: "请填写用户姓名",preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "用户名字不能为空白", message: "请填写用户姓名",preferredStyle: UIAlertControllerStyle.Alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 print("OK")
@@ -72,7 +97,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         }
         
         guard let contentText = contentInput.text where (!contentInput.text!.isEmpty && contentInput.text != placeholder) else{
-            let alert = UIAlertController(title: "Empty Content", message: "请填写评论内容",preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "评论内容不能为空白", message: "请填写评论内容",preferredStyle: UIAlertControllerStyle.Alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 print("OK")
@@ -85,7 +110,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         }
         
         guard let mobileText = mobileInput.text where !mobileInput.text!.isEmpty else{
-            let alert = UIAlertController(title: "Empty Moible", message: "请填写电话号码",preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "电话号码不能为空白", message: "请填写电话号码",preferredStyle: UIAlertControllerStyle.Alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 print("OK")
