@@ -11,6 +11,11 @@ import UIKit
 protocol CloseFilterSubview{
     func ShouldCloseSubview()
     func didFindAll()
+    func didEntertainment()
+    func didFashion()
+    func didFood()
+    func didShopping()
+    func didService()
 }
 
 
@@ -31,7 +36,8 @@ class FilterViewController: UIViewController {
         
         delegate?.didFindAll()
         delegate?.ShouldCloseSubview()
-        self.view.removeFromSuperview()
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.view.removeFromSuperview()
         
     }
     @IBAction func didYuleButtonPress(sender: AnyObject) {
@@ -40,48 +46,55 @@ class FilterViewController: UIViewController {
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let catVC = storyboard.instantiateViewControllerWithIdentifier("testid") as?CategoryTableViewController
        
-        catVC?.catID = 1
+        catVC!.catID = 1
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
-        self.view.removeFromSuperview()
+        //delegate.
+        //self.view.removeFromSuperview()
+        delegate?.didEntertainment()
+        self.dismissViewControllerAnimated(true, completion: nil)
      //   self.navigationC ontroller?.presentViewController(catVC!, animated: true, completion: nil)
 
     }
     
     @IBAction func didShishangButtonPress(sender: AnyObject) {
       
-        catVC?.catID = 2
+        catVC!.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
-        self.view.removeFromSuperview()
-       // self.presentViewController(catVC!, animated: true, completion: nil)
+        //self.view.removeFromSuperview()
+        delegate?.didFashion()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     @IBAction func didFuwuButtonPress(sender: AnyObject) {
         
-        catVC?.catID = 3
+        catVC!.catID = 3
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
-        self.view.removeFromSuperview()
+        delegate?.didService()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     @IBAction func didMeishiButtonPress(sender: AnyObject) {
 
-        catVC?.catID = 4
+        catVC!.catID = 4
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
-        self.view.removeFromSuperview()
+        delegate?.didFood()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     
     @IBAction func didGouwuButtonPress(sender: AnyObject) {
-        catVC?.catID = 5
+        catVC!.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
-        self.view.removeFromSuperview()
+        delegate?.didShopping()
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     

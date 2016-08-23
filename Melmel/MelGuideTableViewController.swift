@@ -71,20 +71,22 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         self.refreshControl?.beginRefreshing()
         
         
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
         
         let postUpdateUtility = PostsUpdateUtility()
         posts = postUpdateUtility.fetchPosts()
         updatePosts()
+        self.tableView.reloadData()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
         
         navigationController?.hidesBarsOnSwipe = true
         
         
-        self.tableView.reloadData()
+        
     }
     // MARK: - Table view data source
     

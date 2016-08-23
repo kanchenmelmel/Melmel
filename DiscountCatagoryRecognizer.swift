@@ -18,7 +18,7 @@ class DiscountCatagoryRecognizer{
             let serviceTypes = [272,294,455,536,273,487]
             let foodTypes = [103,104,205,127,360,144,162,161,153,422,474,159,349,151,148,152,154]
             let shoppomgTypes = [17,1201]
-            
+            print(catagoryId)
             if entertianmentTypes.contains(catagoryId){
                 return DiscountCatagory.Entertainment
             }

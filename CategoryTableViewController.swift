@@ -112,29 +112,7 @@ class CategoryTableViewController: UITableViewController {
         filterCat5.append(cat041)
         filterCat5.append(cat042)
         
-        print ("catID is \(self.catID)")
         
-        switch self.catID!{
-        case 1 :
-            self.categories = self.filterCat1
-            print (self.categories)
-            
-        case 2 :
-            self.categories = self.filterCat2
-            
-        case 3 :
-            self.categories = self.filterCat3
-            
-        case 4 :
-            self.categories = self.filterCat4
-            
-        case 5 :
-            self.categories = self.filterCat5
-            
-        default :
-            self.categories = []
-        }
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -163,6 +141,30 @@ class CategoryTableViewController: UITableViewController {
 //        default :
 //            self.categories = []
 //        }
+        print ("catID is \(self.catID)")
+        
+        switch self.catID!{
+        case 1 :
+            self.categories = self.filterCat1
+            print (self.categories)
+            
+        case 2 :
+            self.categories = self.filterCat2
+            
+        case 3 :
+            self.categories = self.filterCat3
+            
+        case 4 :
+            self.categories = self.filterCat4
+            
+        case 5 :
+            self.categories = self.filterCat5
+            
+        default :
+            self.categories = []
+        }
+        self.tableView.reloadData()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -219,11 +221,13 @@ class CategoryTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
         delegate!.UserDidFilterCategory(categories[indexPath.row].category, FilteredBool: true)
-        self.navigationController!.popViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
         
         
     }
     
+    func setupTable() {
+    }
     
     
     
