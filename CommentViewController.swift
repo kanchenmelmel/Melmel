@@ -45,6 +45,10 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         navigationController?.navigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = false
+        
+        if let userDefaultsMobile = NSUserDefaults.standardUserDefaults().objectForKey("mobileInput") as? String{
+            self.mobileInput.text = userDefaultsMobile
+        }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -93,9 +97,14 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-
+        
+//        if !NSUserDefaults.standardUserDefaults().boolForKey("hasSeenIntroduction") {
+//            let rootCtrl = storyboard.instantiateViewControllerWithIdentifier("introductionPageViewCtrl")
+//            self.window?.rootViewController = rootCtrl
+//            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenIntroduction")
         
         postComment()
+        NSUserDefaults.standardUserDefaults().setObject(self.mobileInput.text, forKey: "mobileInput")
         
     }
     
