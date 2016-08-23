@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CloseFilterSubview{
+protocol FilterViewControllerDelegate{
     func ShouldCloseSubview()
     func didFindAll()
     func didEntertainment()
@@ -30,7 +30,7 @@ class FilterViewController: UIViewController {
     
     var catVC : CategoryTableViewController?
     
-    var delegate : CloseFilterSubview?
+    var delegate : FilterViewControllerDelegate?
     
     @IBAction func didAll(sender: AnyObject) {
         

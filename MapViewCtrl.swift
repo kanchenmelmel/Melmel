@@ -28,9 +28,15 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
 //    let exampleTransitionDelegate = Example
     
     
+    let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("testid") as? CategoryTableViewController
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    var categoryInt = ""
+    var filtered = false
     
     let regionRadius: CLLocationDistance = 1000
     let melbourneLocation = CLLocation(latitude: -37.8136, longitude: 144.9631)
@@ -40,6 +46,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     var clusteringManager = FBClusteringManager()
     
+    let categoryPopoverCtrl = FilterViewController()
+    
     var userLocation:CLLocation?
     
     
@@ -47,6 +55,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         super.viewDidLoad()
         mapView.delegate=self
         searchBar.delegate = self
+        categoryPopoverCtrl.delegate = self
+        catVC!.delegate = self
+        categoryPopoverCtrl.catVC = catVC
+        
         
         let searchTextField = searchBar.valueForKey("searchField") as! UITextField
         let color = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
@@ -62,33 +74,14 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         locationAuthStatus()
         // load discounts from core data
         //loadDiscountFromCoreData()
-        let postUpdateUtility = PostsUpdateUtility()
         
-        
-        //let loadingAlert = LoadingAlertController(title: "", message: nil, preferredStyle: .Alert)
-        //self.addChildViewController(loadingAlert)
-        //presentViewController(loadingAlert, animated: true, completion: nil)
-        //loadingAlert.activityIndicatorView.center = loadingAlert.view.center
-        let activityIndicatorRect = CGRectMake(0, 0, 100.0, 80.0)
-        let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
-        self.view.addSubview(activityInidicatorView)
-
-        postUpdateUtility.getAllDiscounts({ (discounts) in
-            
-            
-            self.addAnnotationViewsForDiscounts(discounts)
-            self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
-            activityInidicatorView.stopAnimating()
-            activityInidicatorView.willMoveToSuperview(self.view)
-            
-        })
         
 //        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
 //        discountDetailView.center = CGPoint(x: 0.0, y: 0.0)
 //        self.mapView.addSubview(discountDetailView)
         
         //addDiscountDetailViewController()
-        
+        loadAllDiscount()
         
     }
     
@@ -225,7 +218,6 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     @IBAction func showCategoryPopover(sender: UIBarButtonItem) {
-        let categoryPopoverCtrl = FilterViewController()
         
 //
 //        self.addChildViewController(categoryPopoverCtrl)
@@ -318,7 +310,89 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         discountDetailViewController.removeFromParentViewController()
     }
     
+    func loadAllDiscount(){
+        let postUpdateUtility = PostsUpdateUtility()
+        
+        
+        //let loadingAlert = LoadingAlertController(title: "", message: nil, preferredStyle: .Alert)
+        //self.addChildViewController(loadingAlert)
+        //presentViewController(loadingAlert, animated: true, completion: nil)
+        //loadingAlert.activityIndicatorView.center = loadingAlert.view.center
+        let activityIndicatorRect = CGRectMake(0, 0, 100.0, 80.0)
+        let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
+        self.view.addSubview(activityInidicatorView)
+        
+        postUpdateUtility.getAllDiscounts({ (discounts) in
+            
+            
+            self.addAnnotationViewsForDiscounts(discounts)
+            self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
+            activityInidicatorView.stopAnimating()
+            activityInidicatorView.willMoveToSuperview(self.view)
+            
+        })
+    }
     
     
 
+}
+
+
+/* 
+ Implementation of FilterViewControllerDelegate
+ */
+extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
+    func ShouldCloseSubview() {
+    }
+    func didFindAll(){
+        
+    }
+    func didEntertainment() {
+        catVC?.catID = 1
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    func didFashion() {
+        catVC?.catID = 2
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    func didService() {
+        catVC?.catID = 3
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    
+    func didFood(){
+        catVC?.catID = 4
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    func didShopping() {
+        catVC?.catID = 5
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
+        
+        self.categoryInt = catergoryInt
+        self.filtered = FilteredBool
+        if self.filtered == false{
+            
+        }
+        else{
+            print ("filter is \(self.filtered)")
+            self.discounts.removeAll()
+            // self.filtered = false
+            self.updateFilteredDiscounts()
+        }
+        
+    }
+    
+    func updateFilteredDiscounts(){
+        let postUpdateUtility = PostsUpdateUtility()
+        postUpdateUtility.updateFilterDiscounts(self.categoryInt) { (filteredDiscounts, success) in
+            if success {
+                self.discounts = filteredDiscounts
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.addAnnotationViewsForDiscounts(self.discounts)
+                })
+            }
+        }
+    }
 }
