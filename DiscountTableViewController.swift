@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,CloseFilterSubview,UISearchBarDelegate,UIPopoverPresentationControllerDelegate{
+class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,FilterViewControllerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate{
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
