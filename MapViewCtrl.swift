@@ -42,11 +42,20 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     var userLocation:CLLocation?
     
+    var blankView = UIView()
+    
+    var searchBlankView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         mapView.delegate=self
         searchBar.delegate = self
+        
+        setupBlankView()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(MapViewCtrl.handleTap))
+        self.searchBlankView.addGestureRecognizer(tap)
         
         let searchTextField = searchBar.valueForKey("searchField") as! UITextField
         let color = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
@@ -98,6 +107,36 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
     }
     
+    func setupBlankView(){
+        
+        let width = self.view.frame.size.width
+        let height = self.view.frame.size.height
+        let searchBarHeight = self.searchBar.bounds.height
+        
+        //  var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        blankView.frame = CGRectMake(0.0, 0.0, width, height)
+        blankView.backgroundColor = UIColor.blackColor()
+        blankView.alpha = 0.5
+        self.view.addSubview(blankView)
+        self.blankView.hidden = true
+        
+        searchBlankView.frame = CGRectMake(0.0, searchBarHeight, width, height)
+        searchBlankView.backgroundColor = UIColor.blackColor()
+        searchBlankView.alpha = 0.5
+        self.view.addSubview(searchBlankView)
+        self.searchBlankView.hidden = true
+        
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = false
+    }
+    
+    func handleTap(){
+        self.searchBlankView.hidden = true
+        self.searchBar.resignFirstResponder()
+        
+    }
     
     func locationAuthStatus(){
         if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
@@ -268,10 +307,12 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             
         }
         searchBar.resignFirstResponder()
+        self.searchBlankView.hidden = true
     }
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
     
     
     
