@@ -386,7 +386,8 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     func ShouldCloseSubview() {
     }
     func didFindAll(){
-        
+        self.filtered = false
+        self.loadAllDiscount()
     }
     func didEntertainment() {
         catVC?.catID = 1
