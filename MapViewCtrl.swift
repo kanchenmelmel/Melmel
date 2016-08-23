@@ -273,6 +273,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         searchBar.resignFirstResponder()
     }
     
+    
+    
     func addAnnotationViewsForDiscounts(discounts:[Discount]){
         var annotations = [DiscountAnnotation]()
         clusteringManager = FBClusteringManager()
