@@ -34,7 +34,11 @@ class SearchTableViewController: UITableViewController {
         } else {
             navBarTitle = "优惠搜索"
         }
+        let textAttributes  = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.navigationItem.title = navBarTitle
+        
+        
         
         
         

@@ -39,11 +39,17 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("testid") as? CategoryTableViewController
     
+   // var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
     
+    var blankView = UIView()
+    
+    var searchBlankView = UIView()
     
     @IBAction func didFilterButtonPress(sender: UIBarButtonItem) {
         
+
 //        let filterViewController = FilterViewController()
+
         
         filteredViewController.modalPresentationStyle = .Popover
         filteredViewController.preferredContentSize = CGSizeMake(400.0, 113.0)
@@ -52,35 +58,6 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         popover.delegate = self
         presentViewController(filteredViewController, animated: true, completion: nil)
         
-        
-        
-//        if (filteredViewController.view.tag == 100) {
-//            //  if (FilteredViewController.view != nil){
-//            filteredViewController.view.tag = 101
-//            filteredViewController.view.removeFromSuperview()
-//        }
-//        else{
-//            
-//            
-//            filteredViewController.view.tag = 100
-//            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let catVC = storyboard.instantiateViewControllerWithIdentifier("testid") as? CategoryTableViewController
-//            
-//            catVC?.delegate = self
-//            filteredViewController.delegate = self
-//            
-//            filteredViewController.catVC = catVC
-//            
-//            self.addChildViewController(filteredViewController)
-//           // self.navigationController?.addChildViewController(FilteredViewController)
-//
-//            filteredViewController.view.frame = CGRectMake(0.0, positionY, self.view.frame.width, 74.0)
-//            //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
-//            
-//            self.view.addSubview(filteredViewController.view)
-//           // self.view.superview?.addSubview(FilteredViewController.view)
-//        }
         
         
     }
@@ -103,7 +80,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
 //        
 //    }
     func ShouldCloseSubview() {
-        //filteredViewController.view.tag = 101
+
     }
     
     func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
@@ -168,6 +145,16 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.performSegueWithIdentifier("discountSearchResultSegue", sender: self.searchBar)
     }
     
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = false
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = true
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -179,6 +166,11 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         super.viewDidLoad()
         
+        setupBlankView()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DiscountTableViewController.handleTap))
+        self.searchBlankView.addGestureRecognizer(tap)
+        
         searchBar.delegate = self
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
@@ -188,6 +180,33 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
 
     }
+    
+    func handleTap(){
+        self.searchBlankView.hidden = true
+        self.searchBar.resignFirstResponder()
+        
+    }
+    
+    func setupBlankView(){
+        
+        let width = self.tableView.frame.size.width
+        let height = self.tableView.frame.size.height
+        let searchBarHeight = self.searchBar.bounds.height
+        
+        //  var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        blankView.frame = CGRectMake(0.0, 0.0, width, height)
+        blankView.backgroundColor = UIColor.blackColor()
+        blankView.alpha = 0.5
+        self.view.addSubview(blankView)
+        self.blankView.hidden = true
+        
+        searchBlankView.frame = CGRectMake(0.0, searchBarHeight, width, height)
+        searchBlankView.backgroundColor = UIColor.blackColor()
+        searchBlankView.alpha = 0.5
+        self.view.addSubview(searchBlankView)
+        self.searchBlankView.hidden = true
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -195,7 +214,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+       // self.tableView.backgroundColor = UIColor.blackColor()
+       // print ("alpha is \(self.tableView.alpha)")
+       // self.tableView.alpha = 0.40
         self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
      //   self.discounts.removeAll()
         navigationController?.navigationBarHidden = false
@@ -292,7 +313,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         print(discounts.count)
         let discount  = discounts[indexPath.row]
         
-    
+       // cell.contentView.alpha = 0.5
         
         cell.titleLabel.text = discount.title!
         
