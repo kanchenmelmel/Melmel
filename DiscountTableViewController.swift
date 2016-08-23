@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,CloseFilterSubview,UISearchBarDelegate{
+class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,CloseFilterSubview,UISearchBarDelegate,UIPopoverPresentationControllerDelegate{
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -35,9 +35,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var FilteredViewController:FilterViewController = FilterViewController()
+    var filteredViewController:FilterViewController = FilterViewController()
     
-    var CatergoryVC: CategoryTableViewController = CategoryTableViewController()
+    let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("testid") as? CategoryTableViewController
     
    // var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
     
@@ -45,83 +45,101 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var searchBlankView = UIView()
     
-    @IBAction func didFilterButtonPress(sender: AnyObject) {
+    @IBAction func didFilterButtonPress(sender: UIBarButtonItem) {
         
-        
-        
-        //  FilteredViewController.view.viewWithTag(101)
-        
-        if (FilteredViewController.view.tag == 100) {
-            //  if (FilteredViewController.view != nil){
-            FilteredViewController.view.tag = 101
-            FilteredViewController.view.removeFromSuperview()
-            self.blankView.hidden = true
-            self.tableView.scrollEnabled = true
-        }
-        else{
-            
-            
-            
-            
-            FilteredViewController.view.tag = 100
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let catVC = storyboard.instantiateViewControllerWithIdentifier("testid") as?CategoryTableViewController
-            
-            catVC?.delegate = self
-            FilteredViewController.delegate = self
-            
-            FilteredViewController.catVC = catVC
-            
-            self.addChildViewController(FilteredViewController)
-           // self.navigationController?.addChildViewController(FilteredViewController)
 
-            FilteredViewController.view.frame = CGRectMake(0.0, positionY, self.view.frame.width, 74.0)
-            //   FilteredViewController.view.center = CGPoint(FilteredViewController.view.x + self.view.conten)
-            
-            
-            self.view.addSubview(FilteredViewController.view)
-            self.blankView.hidden = false
-            self.tableView.scrollEnabled = false
-           // self.view.superview?.addSubview(FilteredViewController.view)
-        }
+//        let filterViewController = FilterViewController()
+
+        
+        filteredViewController.modalPresentationStyle = .Popover
+        filteredViewController.preferredContentSize = CGSizeMake(400.0, 113.0)
+        let popover = filteredViewController.popoverPresentationController!
+        popover.barButtonItem = sender
+        popover.delegate = self
+        presentViewController(filteredViewController, animated: true, completion: nil)
+        
         
         
     }
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        self.searchBlankView.hidden = true
-        self.searchBar.resignFirstResponder()
-        
-        var frame: CGRect = self.FilteredViewController.view.frame
-        positionY = scrollView.contentOffset.y
-        frame.origin.y = positionY
-        self.FilteredViewController.view.frame = frame
-        self.view.bringSubviewToFront(self.FilteredViewController.view)
-        
-        
-        
+    // Implement Popover Ctrl Delegate
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
+    
+    
+//    override func scrollViewDidScroll(scrollView: UIScrollView) {
+//        
+//        var frame: CGRect = self.filteredViewController.view.frame
+//        positionY = scrollView.contentOffset.y
+//        frame.origin.y = positionY
+//        self.filteredViewController.view.frame = frame
+//        self.view.bringSubviewToFront(self.filteredViewController.view)
+//        
+//        
+//        
+//    }
     func ShouldCloseSubview() {
-        FilteredViewController.view.tag = 101
-        self.blankView.hidden = true
-        self.tableView.scrollEnabled = true
+
     }
     
     func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
         
         self.categoryInt = catergoryInt
         self.filtered = FilteredBool
-        self.viewWillAppear(true)
+        if self.filtered == false{
+            let postUpdateUtility = PostsUpdateUtility()
+            discounts = postUpdateUtility.fetchDiscounts()
+            self.updateDiscounts()
+            
+            self.categoryInt = "canLoadMore"
+            if self.reachToTheEnd == false{
+                self.loadMorePostsLabel.hidden = false
+                self.LoadMoreActivityIndicator.hidden = false
+            }
+            self.tableView.reloadData()
+        }
+        else{
+            print ("filter is \(self.filtered)")
+            self.discounts.removeAll()
+            // self.filtered = false
+            tableView.scrollEnabled = false
+            self.filterCategory()
+        }
+
     }
     
+    
+    // Implement FilterPassValueDelegate
     func didFindAll(){
         self.filtered = false
         self.updateDiscounts()
 
         
     }
+    
+    func didEntertainment() {
+        catVC?.catID = 1
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    func didFashion() {
+        catVC?.catID = 2
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    func didService() {
+        catVC?.catID = 3
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    
+    func didFood(){
+        catVC?.catID = 4
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    func didShopping() {
+        catVC?.catID = 5
+        self.navigationController?.pushViewController(catVC!, animated: true)
+    }
+    
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.performSegueWithIdentifier("discountSearchResultSegue", sender: self.searchBar)
@@ -139,6 +157,13 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     
     override func viewDidLoad() {
+        
+        filteredViewController.delegate = self
+        catVC?.delegate = self
+        filteredViewController.catVC = catVC
+        
+        
+        
         super.viewDidLoad()
         
         setupBlankView()
@@ -285,6 +310,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         let cell = tableView.dequeueReusableCellWithIdentifier("discountCell", forIndexPath: indexPath) as! DiscountTableViewCell
         
         // Configure the cell...
+        print(discounts.count)
         let discount  = discounts[indexPath.row]
         
        // cell.contentView.alpha = 0.5
@@ -320,8 +346,47 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
        // cell.featureImage.contentMode = .ScaleAspectFit
         cell.featureImage.image = discount.featuredImage
         
+        if discount.discountTag != nil {
+            cell.discountTagLabel.text = discount.discountTag
+        } else {
+            cell.discountTagLabel.text = "墨尔本优惠"
+        }
         
-        
+        if discount.catagories.count != 0 {
+        cell.categoryLabel.hidden = false
+        cell.categoryBackground.hidden = false
+        var categoryBackgroundFileName = ""
+        if discount.catagories[0] == .Shopping{
+            
+            cell.categoryLabel.text = "购物"
+            categoryBackgroundFileName = "ShoppingTag"
+        }else if discount.catagories[0] == .Food {
+            
+            cell.categoryLabel.text = "美食"
+            categoryBackgroundFileName = "FoodTag"
+            //print("yes")
+        } else if discount.catagories[0] == .Service {
+            
+            cell.categoryLabel.text = "服务"
+            categoryBackgroundFileName = "ServiceTag"
+        }else if discount.catagories[0] == .Fashion{
+            
+            cell.categoryLabel.text = "时尚"
+            categoryBackgroundFileName = "FashionTag"
+        }else if discount.catagories[0] == .Entertainment{
+            cell.categoryLabel.text = "娱乐"
+            categoryBackgroundFileName = "EntertainmentTag"
+        } else {
+            cell.categoryLabel.hidden = true
+            cell.categoryBackground.hidden = true
+            print("no")
+        }
+        //print(categoryBackgroundFileName)
+        cell.categoryBackground.image = UIImage(named: categoryBackgroundFileName)
+        } else {
+            cell.categoryLabel.hidden = true
+            cell.categoryBackground.hidden = true
+        }
         
         return cell;
     }
@@ -539,9 +604,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     func filterCategory() {
         self.discounts.removeAll()
-        let endpointURL = "http://melmel.com.au/wp-json/wp/v2/discounts?filter[posts_per_page]=-1&item_category="
+        //let endpointURL = "http://melmel.com.au/wp-json/wp/v2/discounts?filter[posts_per_page]=-1&item_category="
         
-        self.updateFilterDiscounts(endpointURL){
+        self.updateFilterDiscounts(){
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
@@ -552,79 +617,85 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
     }
     
-    func getPostsFromAPI (endURL:String,postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
-        
-        let session = NSURLSession.sharedSession()
-        let postUrl = endURL + self.categoryInt!
-        print (postUrl)
-        let postFinalURL = NSURL(string: postUrl)!
-        
-        
-        
-        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
-            
-            if let responseData = data {
-                
-                do{
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
-                    if let postsArray = json as? NSArray{
-                        postsAcquired(postsArray:postsArray,success:true)
-                    }
-                    else {
-                        postsAcquired(postsArray:nil,success:false)
-                    }
-                } catch {
-                    postsAcquired(postsArray:nil,success:false)
-                    print("could not serialize!")
-                }
-            }
-            }.resume()
-        
-        
-    }
+//    func getPostsFromAPI (endURL:String,postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
+//        
+//        let session = NSURLSession.sharedSession()
+//        let postUrl = endURL + self.categoryInt!
+//        print (postUrl)
+//        let postFinalURL = NSURL(string: postUrl)!
+//        
+//        
+//        
+//        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+//            
+//            if let responseData = data {
+//                
+//                do{
+//                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+//                    if let postsArray = json as? NSArray{
+//                        postsAcquired(postsArray:postsArray,success:true)
+//                    }
+//                    else {
+//                        postsAcquired(postsArray:nil,success:false)
+//                    }
+//                } catch {
+//                    postsAcquired(postsArray:nil,success:false)
+//                    print("could not serialize!")
+//                }
+//            }
+//            }.resume()
+//        
+//        
+//    }
     
-    func updateFilterDiscounts(endURL:String, completionHandler:() -> Void){
+    func updateFilterDiscounts(completionHandler:() -> Void){
         
         
-        self.getPostsFromAPI(endURL) { (postsArray, success) in
+//        self.getPostsFromAPI(endURL) { (postsArray, success) in
+//            if success {
+//                
+//                
+//                // create dispatch group
+//                
+//                for postEntry in postsArray! {
+//                    let post = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+//                    //id
+//                    post.id = postEntry["id"] as! Int
+//                    
+//                    //Date
+//                    let dateString = postEntry["date"] as! String
+//                    let dateFormatter = DateFormatter()
+//                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
+//                    //Title
+//                    post.title = postEntry["title"] as! String
+//                    
+//                    //Link
+//                    post.link = postEntry["link"] as! String
+//                    
+//                    //Media
+//                    
+//                    post.featured_image_downloaded = false
+//                    
+//                    if postEntry["featured_image_url"] != nil {
+//                        post.featured_image_url = postEntry["thumbnail_url"] as? String
+//                    }
+//                    
+//                    
+//                    self.discounts.append(post)
+//                    
+//                }//End postsArray Loop
+//                completionHandler()
+//                
+//            }
+//            else {}
+//        } // end getPostsFromAPI
+        let postUpdateUtility = PostsUpdateUtility()
+        postUpdateUtility.updateFilterDiscounts(self.categoryInt!) { (filteredDiscounts, success) in
             if success {
-                
-                
-                // create dispatch group
-                
-                for postEntry in postsArray! {
-                    let post = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
-                    //id
-                    post.id = postEntry["id"] as! Int
-                    
-                    //Date
-                    let dateString = postEntry["date"] as! String
-                    let dateFormatter = DateFormatter()
-                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
-                    //Title
-                    post.title = postEntry["title"] as! String
-                    
-                    //Link
-                    post.link = postEntry["link"] as! String
-                    
-                    //Media
-                    
-                    post.featured_image_downloaded = false
-                    
-                    if postEntry["featured_image_url"] != nil {
-                        post.featured_image_url = postEntry["thumbnail_url"] as? String
-                    }
-                    
-                    
-                    self.discounts.append(post)
-                    
-                }//End postsArray Loop
-                completionHandler()
-                
+                self.discounts = filteredDiscounts
             }
-            else {}
-        } // end getPostsFromAPI
-        
+            completionHandler()
+        }
         
     }
  

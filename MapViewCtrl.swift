@@ -25,6 +25,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     
     let discountDetailViewController = MapDiscountDetailViewController()
+//    let exampleTransitionDelegate = Example
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -232,7 +233,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
 //        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
         categoryPopoverCtrl.modalPresentationStyle = .Popover
         let popover = categoryPopoverCtrl.popoverPresentationController!
-        categoryPopoverCtrl.preferredContentSize = CGSizeMake(UIScreen().bounds.width, 113.0)
+        categoryPopoverCtrl.preferredContentSize = CGSizeMake(400, 113.0)
         popover.barButtonItem = sender
         popover.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
         popover.delegate = self
