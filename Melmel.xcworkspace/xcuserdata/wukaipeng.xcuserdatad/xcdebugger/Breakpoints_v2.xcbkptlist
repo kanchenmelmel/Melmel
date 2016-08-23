@@ -143,8 +143,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "543"
             endingLineNumber = "543"
-            landmarkName = "filterCategory()"
-            landmarkType = "5">
+            landmarkName = "DiscountTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -159,8 +159,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "544"
             endingLineNumber = "544"
-            landmarkName = "filterCategory()"
-            landmarkType = "5">
+            landmarkName = "DiscountTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -175,8 +175,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "283"
             endingLineNumber = "283"
-            landmarkName = "DiscountTableViewController"
-            landmarkType = "3">
+            landmarkName = "loadPreviousPosts(_:excludeId:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -211,7 +211,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
