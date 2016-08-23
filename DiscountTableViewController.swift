@@ -15,7 +15,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
    // var discountList=[(Discount,UIImage)]()
     var discounts:[Discount] = []
-    var filteredDiscounts:[Discount] = []
+    //var filteredDiscounts:[Discount] = []
     
     var reachabilityManager = ReachabilityManager.sharedReachabilityManager
     var isLoading = false
