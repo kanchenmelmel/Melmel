@@ -704,7 +704,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="04r-cO-viR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" text="" placeholder="例如：韩国餐馆折扣" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmV-Pu-ooj" customClass="CustomSearchBar" customModule="Melmel" customModuleProvider="target">
+                                    <searchBar contentMode="redraw" text="" placeholder="例如：韩国餐馆折扣" translatesAutoresizingMaskIntoConstraints="NO" id="cmV-Pu-ooj" customClass="CustomSearchBar" customModule="Melmel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.42745098040000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>

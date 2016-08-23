@@ -142,11 +142,14 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchBlankView.hidden = true
+        self.tableView.scrollEnabled = true
         self.performSegueWithIdentifier("discountSearchResultSegue", sender: self.searchBar)
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchBlankView.hidden = false
+        self.tableView.scrollEnabled = false
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -184,6 +187,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     func handleTap(){
         self.searchBlankView.hidden = true
         self.searchBar.resignFirstResponder()
+        self.tableView.scrollEnabled = true
         
     }
     
@@ -214,11 +218,11 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     override func viewDidAppear(animated: Bool) {
-       // self.tableView.backgroundColor = UIColor.blackColor()
-       // print ("alpha is \(self.tableView.alpha)")
-       // self.tableView.alpha = 0.40
+        
+        self.searchBlankView.hidden = true
+        self.tableView.scrollEnabled = true
+        
         self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
-     //   self.discounts.removeAll()
         navigationController?.navigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
         if self.filtered == false{
