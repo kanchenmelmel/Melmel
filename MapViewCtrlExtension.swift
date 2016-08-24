@@ -74,7 +74,7 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
     }
     func reCenterMap(discount: Discount) {
         let newLocation = CLLocation(latitude: Double(discount.latitude!), longitude: Double(discount.longtitude!))
-        centerMapOnLocation(newLocation, zoomLevel: 2.0)
+        centerMapOnLocation(newLocation, zoomLevel: 0.1)
     }
     
 }

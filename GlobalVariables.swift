@@ -15,3 +15,5 @@ let DISCOUNT_TINT_COLOR = UIColor(red: 206.0/255.0, green: 192.0/255.0, blue: 16
 let POST_TINT_COLOR = UIColor(red: 206.0/255.0, green: 192.0/255.0, blue: 166.0/255.0, alpha: 1.0)
 
 let FEATURED_IMAGE_NAME = "featured_image.jpg"
+
+let MAP_TINT = UIColor(red: 255.0/255/0, green: 0, blue: 0, alpha: 1.0)

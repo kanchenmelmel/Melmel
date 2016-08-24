@@ -36,7 +36,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         setupBlankView()
         
@@ -75,6 +75,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         
         navigationController?.hidesBarsOnSwipe = true
+        
         
         
         

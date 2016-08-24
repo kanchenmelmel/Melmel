@@ -208,12 +208,19 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "searchLinkSegue" {
+        if segue.identifier == "postWebSegue" {
             let postWebVeiwController = segue.destinationViewController as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
-            print (posts[path.row].link)
             postWebVeiwController.webRequestURLString = posts[path.row].link
+            postWebVeiwController.navigationItem.title = "原创攻略"
             postWebVeiwController.postid = String(posts[path.row].id!)
+        }
+        if segue.identifier == "disocuntWebSegue" {
+            let postWebVeiwController = segue.destinationViewController as! PostWebViewController
+            let path = tableView.indexPathForSelectedRow!
+            postWebVeiwController.webRequestURLString = discounts[path.row].link
+            postWebVeiwController.navigationItem.title = "墨尔本优惠"
+            postWebVeiwController.navigationItem.setRightBarButtonItem(nil, animated: true)
         }
     }
     

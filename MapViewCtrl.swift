@@ -97,7 +97,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     override func viewDidAppear(animated: Bool) {
 
         self.navigationController?.hidesBarsOnSwipe = false
-        
+        UIApplication.sharedApplication().statusBarStyle = .Default
     }
     
     func setupBlankView(){
@@ -285,6 +285,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             //let annotation = annotationview.annotation as! DiscountAnnotation
             destinationCtrl.webRequestURLString = annotationviewController.discount!.link!
             destinationCtrl.navigationItem.setRightBarButtonItem(nil, animated: true)
+            destinationCtrl.navigationItem.title = "墨尔本优惠"
+            
         }
         
     }
@@ -436,5 +438,9 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
                 })
             }
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
 }

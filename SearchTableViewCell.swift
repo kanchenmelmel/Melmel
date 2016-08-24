@@ -20,6 +20,7 @@ class SearchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        featureImage.clipsToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
