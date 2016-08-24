@@ -49,7 +49,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
 
 //        let filterViewController = FilterViewController()
-
+        
+        self.blankView.hidden = false
         
         filteredViewController.modalPresentationStyle = .Popover
         filteredViewController.preferredContentSize = CGSizeMake(400.0, 113.0)
@@ -61,6 +62,12 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         
     }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        self.blankView.hidden = true
+    }
+    
+   
     
     // Implement Popover Ctrl Delegate
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -112,30 +119,37 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     // Implement FilterPassValueDelegate
     func didFindAll(){
+        self.blankView.hidden = true
         self.filtered = false
         self.updateDiscounts()
+        
 
         
     }
     
     func didEntertainment() {
+        self.blankView.hidden = true
         catVC?.catID = 1
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didFashion() {
+        self.blankView.hidden = true
         catVC?.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didService() {
+        self.blankView.hidden = true
         catVC?.catID = 3
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     
     func didFood(){
+        self.blankView.hidden = true
         catVC?.catID = 4
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didShopping() {
+        self.blankView.hidden = true
         catVC?.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
