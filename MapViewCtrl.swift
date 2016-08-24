@@ -262,6 +262,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
 //        self.addChildViewController(categoryPopoverCtrl)
 //        self.view.addSubview(categoryPopoverCtrl.view)
 //        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+        self.blankView.hidden = false
         categoryPopoverCtrl.modalPresentationStyle = .Popover
         let popover = categoryPopoverCtrl.popoverPresentationController!
         categoryPopoverCtrl.preferredContentSize = CGSizeMake(400, 113.0)
@@ -269,6 +270,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         popover.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
         popover.delegate = self
         presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        self.blankView.hidden = true
     }
     
     // Implement Popover Ctrl Delegate
@@ -388,27 +393,33 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     func ShouldCloseSubview() {
     }
     func didFindAll(){
+        self.blankView.hidden = true
         self.filtered = false
         self.loadAllDiscount()
     }
     func didEntertainment() {
+        self.blankView.hidden = true
         catVC?.catID = 1
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didFashion() {
+        self.blankView.hidden = true
         catVC?.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didService() {
+        self.blankView.hidden = true
         catVC?.catID = 3
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     
     func didFood(){
+        self.blankView.hidden = true
         catVC?.catID = 4
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didShopping() {
+        self.blankView.hidden = true
         catVC?.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
