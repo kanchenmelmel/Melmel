@@ -60,6 +60,10 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         if let userDefaultsMobile = NSUserDefaults.standardUserDefaults().objectForKey("mobileInput") as? String{
             self.mobileInput.text = userDefaultsMobile
         }
+        
+        if let userDefaultsName = NSUserDefaults.standardUserDefaults().objectForKey("nameInput") as? String{
+            self.nameInput.text = userDefaultsName
+        }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -130,6 +134,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         
         postComment()
         NSUserDefaults.standardUserDefaults().setObject(self.mobileInput.text, forKey: "mobileInput")
+        NSUserDefaults.standardUserDefaults().setObject(self.nameInput.text, forKey: "nameInput")
         
     }
     
@@ -137,7 +142,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         let endpointURL = "http://melmel.com.au/wp-json/wp/v2/comments?"
         let post = "post=\(self.postid!)&"
         let name = "author_name=\(nameInput.text!)&"
-        let mobile = "mobile=\(mobileInput.text!)&"
+        let mobile = "author_url=\(mobileInput.text!)&"
         let content = "content=\(contentInput.text!)"
         
         let urlWithParams = endpointURL+post+name+mobile+content
