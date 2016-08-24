@@ -39,10 +39,10 @@
                     </variation>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rUs-Md-NVL">
-                    <rect key="frame" x="8" y="16" width="294" height="31"/>
+                    <rect key="frame" x="8" y="16" width="294" height="53"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="6Y3-80-Dys">
-                            <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                            <rect key="frame" x="0.0" y="11" width="31" height="31"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="31" id="1Nw-4Z-p0H"/>
                                 <constraint firstAttribute="width" constant="31" id="2M8-Lv-Llc"/>
@@ -63,7 +63,7 @@
                             </variation>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="39G-aC-ofl">
-                            <rect key="frame" x="39" y="2" width="255" height="29"/>
+                            <rect key="frame" x="39" y="0.0" width="255" height="53"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="周二到周四 20% OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-e6-7NQ">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="21"/>
@@ -72,7 +72,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-Vy-g1R">
-                                    <rect key="frame" x="0.0" y="29" width="255" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="29" width="216" height="24"/>
                                     <attributedString key="attributedText">
                                         <fragment content="RAINBOW">
                                             <attributes>
@@ -110,6 +110,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Entertainment" width="45" height="45"/>
+        <image name="Entertainment" width="40" height="40"/>
     </resources>
 </document>

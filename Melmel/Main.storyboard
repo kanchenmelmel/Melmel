@@ -163,7 +163,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="原创攻略" id="en5-hl-TBG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="a65-3e-XZh">
+                        <barButtonItem key="rightBarButtonItem" image="showCommentsIcon" id="a65-3e-XZh">
                             <connections>
                                 <segue destination="LiW-bF-1D1" kind="show" identifier="showcommentSegue" id="Fv4-wq-zxX"/>
                             </connections>
@@ -259,7 +259,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="评论" id="WIB-0E-W17">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YGs-9I-li9">
+                        <barButtonItem key="rightBarButtonItem" image="writeCommentIcon" id="YGs-9I-li9">
                             <connections>
                                 <segue destination="arV-f0-AC6" kind="show" identifier="commentSegue" id="BRl-eZ-2XB"/>
                             </connections>
@@ -509,7 +509,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Xl-IX-DMz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Xl-IX-DMz">
                                             <rect key="frame" x="0.0" y="8" width="600" height="231"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EntertainmentTag" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-2t-XAO">
@@ -581,6 +581,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.87843137250000003" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="categoryTagBg" destination="O9B-2t-XAO" id="45u-ek-2eL"/>
                                     <outlet property="dateLabel" destination="O2X-48-NAV" id="FOR-oN-2b4"/>
                                     <outlet property="featureImage" destination="8Xl-IX-DMz" id="1lD-Su-NxI"/>
                                     <outlet property="titleLabel" destination="wf8-B7-W7K" id="2gZ-9I-g7N"/>
@@ -595,7 +596,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-Q4-OW2">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-Q4-OW2">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWw-Ey-WpW" customClass="CellMaskView" customModule="Melmel" customModuleProvider="target">
@@ -1035,34 +1036,102 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6cq-uc-zYT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="l5M-kW-wrT" kind="relationship" relationship="rootViewController" id="xqo-2W-DV8"/>
+                        <segue destination="Z1W-0B-Bqf" kind="relationship" relationship="rootViewController" id="AkJ-8u-NIK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="793-ck-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1607" y="479"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="NgR-gM-VpG">
+        <!--设置-->
+        <scene sceneID="3yw-1D-Ja2">
             <objects>
-                <viewController id="l5M-kW-wrT" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ebs-tJ-DFo"/>
-                        <viewControllerLayoutGuide type="bottom" id="EcV-94-cL0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ahW-X7-alT">
+                <tableViewController id="Z1W-0B-Bqf" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CSp-1S-z46">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="jrK-cY-OC7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e0g-Wy-dB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <sections>
+                            <tableViewSection id="4is-7A-igv">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DbB-kC-KNp">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DbB-kC-KNp" id="es2-Lq-SUv">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="关于喵喵" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVS-xf-wZh">
+                                                    <rect key="frame" x="252" y="11" width="97" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EVS-xf-wZh" firstAttribute="centerX" secondItem="es2-Lq-SUv" secondAttribute="centerX" id="81L-hO-rYv"/>
+                                                <constraint firstItem="EVS-xf-wZh" firstAttribute="centerY" secondItem="es2-Lq-SUv" secondAttribute="centerY" id="PEt-De-Q3n"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BzI-LC-IwI" kind="show" id="x1B-Pr-S64"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Z1W-0B-Bqf" id="2Ps-XP-uxD"/>
+                            <outlet property="delegate" destination="Z1W-0B-Bqf" id="j71-8P-86h"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="设置" id="z1C-Cr-gTh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NtP-S2-kH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1456" y="1317"/>
+            <point key="canvasLocation" x="-927" y="685"/>
+        </scene>
+        <!--关于喵喵-->
+        <scene sceneID="jVR-EB-shP">
+            <objects>
+                <viewController id="BzI-LC-IwI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WcE-XL-rV4"/>
+                        <viewControllerLayoutGuide type="bottom" id="2gX-tM-F9r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jte-xF-Qqc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="tgf-5l-7v3">
+                                <rect key="frame" x="214" y="271" width="172" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="MKr-AQ-ix6"/>
+                                    <constraint firstAttribute="height" constant="57" id="iIp-1b-bVq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tgf-5l-7v3" firstAttribute="centerY" secondItem="Jte-xF-Qqc" secondAttribute="centerY" id="93p-OW-L1N"/>
+                            <constraint firstItem="tgf-5l-7v3" firstAttribute="centerX" secondItem="Jte-xF-Qqc" secondAttribute="centerX" id="ioi-ai-OKi"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="关于喵喵" id="Ith-2K-H1d"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wtj-SV-B1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-169" y="743"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="opF-A1-mTX">
@@ -1085,6 +1154,7 @@
     </scenes>
     <resources>
         <image name="EntertainmentTag" width="67" height="17"/>
+        <image name="Logo" width="170" height="56"/>
         <image name="NavBarBackButton" width="10" height="19"/>
         <image name="ProfileImgPlaceholder" width="49" height="49"/>
         <image name="TutorialPage1" width="248" height="440"/>
@@ -1100,11 +1170,13 @@
         <image name="postHighlighted" width="20" height="19"/>
         <image name="setting" width="20" height="20"/>
         <image name="settingHighlighted" width="20" height="20"/>
+        <image name="showCommentsIcon" width="19" height="18"/>
         <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
+        <image name="writeCommentIcon" width="21" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ch7-PM-8P7"/>
         <segue reference="FEs-0A-bpX"/>
+        <segue reference="YPU-UF-mkH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -71,7 +71,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
         let searchTextField = searchBar.valueForKey("searchField") as! UITextField
         let color = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "例如：韩国餐馆折扣", attributes: [NSForegroundColorAttributeName:color])
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "例如：韩餐，日餐", attributes: [NSForegroundColorAttributeName:color])
         
         
 //        
@@ -297,13 +297,17 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        let activityIndicatorRect = CGRectMake(0, 0, 100.0, 80.0)
+        let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
+        self.view.addSubview(activityInidicatorView)
         let postsUpdateUtility = PostsUpdateUtility()
         let keyWords = searchBar.text
         postsUpdateUtility.searchDiscountByKeyWords(keyWords!) { (discounts) in
             self.discounts = discounts
             
             self.addAnnotationViewsForDiscounts(discounts)
-            
+            activityInidicatorView.stopAnimating()
+            activityInidicatorView.willMoveToSuperview(self.view)
         }
         searchBar.resignFirstResponder()
         self.searchBlankView.hidden = true
@@ -440,12 +444,18 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     }
     
     func updateFilteredDiscounts(){
+        let activityIndicatorRect = CGRectMake(0, 0, 100.0, 80.0)
+        let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
+        self.view.addSubview(activityInidicatorView)
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.updateFilterDiscounts(self.categoryInt) { (filteredDiscounts, success) in
             if success {
                 self.discounts = filteredDiscounts
                 dispatch_async(dispatch_get_main_queue(), {
                     self.addAnnotationViewsForDiscounts(self.discounts)
+                    activityInidicatorView.stopAnimating()
+                    activityInidicatorView.willMoveToSuperview(self.view)
+                    
                 })
             }
         }

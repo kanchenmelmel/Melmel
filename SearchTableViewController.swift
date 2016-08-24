@@ -151,21 +151,27 @@ class SearchTableViewController: UITableViewController {
 //            if shoppomgTypes.contains(catagoryId){
 //                return DiscountCatagory.Shopping
 //            }
-            
+        var categoryBackgroundFileName = ""
         switch discount.catagories[0] {
         case .Entertainment:
                 cell.typeLabel.text = "娱乐"
+            categoryBackgroundFileName = "EntertainmentTag"
         case .Fashion:
                 cell.typeLabel.text = "时尚"
+            categoryBackgroundFileName = "FashionTag"
         case .Service:
                 cell.typeLabel.text = "服务"
+            categoryBackgroundFileName = "ServiceTag"
         case .Food:
                 cell.typeLabel.text = "美食"
+            categoryBackgroundFileName = "FoodTag"
         case .Shopping:
                 cell.typeLabel.text = "购物"
+            categoryBackgroundFileName = "ShoppingTag"
         default:
                 cell.typeLabel.text = "优惠"
         }
+            cell.categoryTagBg.image = UIImage(named: categoryBackgroundFileName)
 
         if discount.featured_image_url != nil {
             if discount.featuredImageState == .Downloaded {

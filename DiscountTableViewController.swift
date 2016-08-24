@@ -178,7 +178,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         filteredViewController.delegate = self
         catVC?.delegate = self
         filteredViewController.catVC = catVC
-        
+        self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
         
         
         super.viewDidLoad()
@@ -236,7 +236,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.searchBlankView.hidden = true
         self.tableView.scrollEnabled = true
         
-        self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
+        
         navigationController?.navigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
         if self.filtered == false{
