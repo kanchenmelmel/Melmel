@@ -997,7 +997,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZC3-bV-NAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="59" y="1337"/>
+            <point key="canvasLocation" x="57" y="1594"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jpa-Bj-BM6">
@@ -1054,33 +1054,35 @@
         <!--设置-->
         <scene sceneID="3yw-1D-Ja2">
             <objects>
-                <tableViewController id="Z1W-0B-Bqf" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CSp-1S-z46">
+                <tableViewController id="Z1W-0B-Bqf" customClass="SettingTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="CSp-1S-z46">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.87450980392156863" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.91372549020000005" green="0.87843137250000003" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="4is-7A-igv">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DbB-kC-KNp">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DbB-kC-KNp" id="es2-Lq-SUv">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="关于喵喵" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVS-xf-wZh">
-                                                    <rect key="frame" x="252" y="11" width="97" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="关于喵喵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVS-xf-wZh">
+                                                    <rect key="frame" x="37" y="11" width="97" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EVS-xf-wZh" firstAttribute="centerX" secondItem="es2-Lq-SUv" secondAttribute="centerX" id="81L-hO-rYv"/>
-                                                <constraint firstItem="EVS-xf-wZh" firstAttribute="centerY" secondItem="es2-Lq-SUv" secondAttribute="centerY" id="PEt-De-Q3n"/>
+                                                <constraint firstItem="EVS-xf-wZh" firstAttribute="leading" secondItem="es2-Lq-SUv" secondAttribute="leadingMargin" constant="30" id="OkL-aV-eZg"/>
+                                                <constraint firstItem="EVS-xf-wZh" firstAttribute="centerY" secondItem="es2-Lq-SUv" secondAttribute="centerY" id="nK1-ag-A5f"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="BzI-LC-IwI" kind="show" id="x1B-Pr-S64"/>
                                         </connections>
