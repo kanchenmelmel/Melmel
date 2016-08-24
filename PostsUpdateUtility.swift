@@ -472,6 +472,8 @@ class JSONParser {
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         var discounts = [Discount]()
         for postEntry in postsArray! {
+            let status = postEntry["status"] as! String
+            if status == "publish" {
             let id = postEntry["id"] as! Int
             if checkConsistency{
                 if !coreDataUtility.checkIdExist(id,entityType: .Discount){
@@ -602,6 +604,7 @@ class JSONParser {
                     }
                 }
                 discounts.append(discount)
+            }
             }
             
             
