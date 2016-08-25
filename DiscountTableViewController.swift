@@ -45,6 +45,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var searchBlankView = UIView()
     
+    let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+    
     @IBAction func didFilterButtonPress(sender: UIBarButtonItem) {
         
 
@@ -105,6 +107,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                 self.LoadMoreActivityIndicator.hidden = false
             }
             self.tableView.reloadData()
+            activityIndicatorView.stopAnimating()
+            activityIndicatorView.willMoveToSuperview(self.tableView)
         }
         else{
             print ("filter is \(self.filtered)")
@@ -122,6 +126,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.blankView.hidden = true
         self.filtered = false
         self.updateDiscounts()
+        
         
 
         
@@ -237,6 +242,10 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.tableView.scrollEnabled = true
         
         
+        activityIndicatorView.center = self.tableView.center
+        self.tableView.addSubview(activityIndicatorView)
+        
+        
         navigationController?.navigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
         if self.filtered == false{
@@ -304,6 +313,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                 dispatch_async(dispatch_get_main_queue(), {
                     self.discounts = postsUpdateUtility.fetchDiscounts()
                     self.tableView.reloadData()
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.isLoading = false
                     self.LoadMoreActivityIndicator.stopAnimating()
                     self.LoadMoreActivityIndicator.hidden = true
@@ -460,6 +471,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                     print("Update table view")
                     self.discounts = postUpdateUtility.fetchDiscounts()
                     self.tableView.reloadData()
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.refreshControl?.endRefreshing()
                 })
             }
@@ -628,6 +641,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
+                self.activityIndicatorView.stopAnimating()
+                self.self.activityIndicatorView.willMoveToSuperview(self.tableView)
                 self.tableView.scrollEnabled = true
                 self.loadMorePostsLabel.hidden = true
                 self.LoadMoreActivityIndicator.hidden = true
