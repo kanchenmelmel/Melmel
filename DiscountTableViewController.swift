@@ -108,7 +108,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             }
             self.tableView.reloadData()
             activityIndicatorView.stopAnimating()
-            activityIndicatorView.willMoveToSuperview(self.tableView)
+            self.activityIndicatorView.removeFromSuperview()
+            self.tableView.allowsSelection = true
+           // activityIndicatorView.willMoveToSuperview(self.tableView)
         }
         else{
             print ("filter is \(self.filtered)")
@@ -123,6 +125,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     // Implement FilterPassValueDelegate
     func didFindAll(){
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
         self.blankView.hidden = true
         self.filtered = false
         self.updateDiscounts()
@@ -133,27 +137,37 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     func didEntertainment() {
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
         self.blankView.hidden = true
         catVC?.catID = 1
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didFashion() {
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
         self.blankView.hidden = true
         catVC?.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didService() {
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
         self.blankView.hidden = true
         catVC?.catID = 3
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     
     func didFood(){
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
         self.blankView.hidden = true
         catVC?.catID = 4
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didShopping() {
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
         self.blankView.hidden = true
         catVC?.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
@@ -238,12 +252,16 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func viewDidAppear(animated: Bool) {
         
+        
+        
         self.searchBlankView.hidden = true
         self.tableView.scrollEnabled = true
         
         
         activityIndicatorView.center = self.tableView.center
+        self.activityIndicatorView.startAnimating()
         self.tableView.addSubview(activityIndicatorView)
+        self.tableView.allowsSelection = false
         
         
         navigationController?.navigationBarHidden = false
@@ -314,7 +332,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                     self.discounts = postsUpdateUtility.fetchDiscounts()
                     self.tableView.reloadData()
                     self.activityIndicatorView.stopAnimating()
-                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
+                    self.activityIndicatorView.removeFromSuperview()
+                    self.tableView.allowsSelection = true
+                   // self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.isLoading = false
                     self.LoadMoreActivityIndicator.stopAnimating()
                     self.LoadMoreActivityIndicator.hidden = true
@@ -472,7 +492,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                     self.discounts = postUpdateUtility.fetchDiscounts()
                     self.tableView.reloadData()
                     self.activityIndicatorView.stopAnimating()
-                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
+                    self.activityIndicatorView.removeFromSuperview()
+                    self.tableView.allowsSelection = true
+                   // self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.refreshControl?.endRefreshing()
                 })
             }
@@ -642,7 +664,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
                 self.activityIndicatorView.stopAnimating()
-                self.self.activityIndicatorView.willMoveToSuperview(self.tableView)
+                self.activityIndicatorView.removeFromSuperview()
+                self.tableView.allowsSelection = true
+               // self.self.activityIndicatorView.willMoveToSuperview(self.tableView)
                 self.tableView.scrollEnabled = true
                 self.loadMorePostsLabel.hidden = true
                 self.LoadMoreActivityIndicator.hidden = true
