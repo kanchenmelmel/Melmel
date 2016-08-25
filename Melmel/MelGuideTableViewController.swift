@@ -32,6 +32,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,9 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         
         navigationController?.hidesBarsOnSwipe = true
+        
+        activityIndicatorView.center = self.tableView.center
+        self.tableView.addSubview(activityIndicatorView)
         
         
         
@@ -369,6 +373,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                     print("Update table view")
                     self.posts = postUpdateUtility.fetchPosts()
                     self.tableView.reloadData()
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.refreshControl?.endRefreshing()
                 })
             }
@@ -392,6 +398,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.posts = postsUpdateUtility.fetchPosts()
                     self.tableView.reloadData()
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.isLoading = false
                     self.LoadMoreActivityIndicator.stopAnimating()
                     self.LoadMoreActivityIndicator.hidden = true
