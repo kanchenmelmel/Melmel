@@ -13,7 +13,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-   // var discountList=[(Discount,UIImage)]()
+    // var discountList=[(Discount,UIImage)]()
     var discounts:[Discount] = []
     //var filteredDiscounts:[Discount] = []
     
@@ -29,7 +29,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     var reachToTheEnd = false
     
     var positionY : CGFloat = 0
-
+    
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     
@@ -39,7 +39,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("testid") as? CategoryTableViewController
     
-   // var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+    // var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
     
     var blankView = UIView()
     
@@ -49,8 +49,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     @IBAction func didFilterButtonPress(sender: UIBarButtonItem) {
         
-
-//        let filterViewController = FilterViewController()
+        
+        //        let filterViewController = FilterViewController()
         
         self.blankView.hidden = false
         
@@ -69,7 +69,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.blankView.hidden = true
     }
     
-   
+    
     
     // Implement Popover Ctrl Delegate
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -77,19 +77,19 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     
-//    override func scrollViewDidScroll(scrollView: UIScrollView) {
-//        
-//        var frame: CGRect = self.filteredViewController.view.frame
-//        positionY = scrollView.contentOffset.y
-//        frame.origin.y = positionY
-//        self.filteredViewController.view.frame = frame
-//        self.view.bringSubviewToFront(self.filteredViewController.view)
-//        
-//        
-//        
-//    }
+    //    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    //
+    //        var frame: CGRect = self.filteredViewController.view.frame
+    //        positionY = scrollView.contentOffset.y
+    //        frame.origin.y = positionY
+    //        self.filteredViewController.view.frame = frame
+    //        self.view.bringSubviewToFront(self.filteredViewController.view)
+    //
+    //
+    //
+    //    }
     func ShouldCloseSubview() {
-
+        
     }
     
     func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
@@ -119,7 +119,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             tableView.scrollEnabled = false
             self.filterCategory()
         }
-
+        
     }
     
     
@@ -130,7 +130,6 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.blankView.hidden = true
         self.filtered = false
         self.updateDiscounts()
-        
         
 
         
@@ -214,7 +213,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), forControlEvents: .ValueChanged)
         self.refreshControl?.beginRefreshing()
         
-
+        
     }
     
     func handleTap(){
@@ -244,7 +243,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.searchBlankView.hidden = true
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -267,35 +266,35 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         navigationController?.navigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
         if self.filtered == false{
-        let postUpdateUtility = PostsUpdateUtility()
-        discounts = postUpdateUtility.fetchDiscounts()
-        self.updateDiscounts()
-        
-        self.categoryInt = "canLoadMore"
-        if self.reachToTheEnd == false{
-            self.loadMorePostsLabel.hidden = false
-            self.LoadMoreActivityIndicator.hidden = false
-        }
-        self.tableView.reloadData()
+            let postUpdateUtility = PostsUpdateUtility()
+            discounts = postUpdateUtility.fetchDiscounts()
+            self.updateDiscounts()
+            
+            self.categoryInt = "canLoadMore"
+            if self.reachToTheEnd == false{
+                self.loadMorePostsLabel.hidden = false
+                self.LoadMoreActivityIndicator.hidden = false
+            }
+            self.tableView.reloadData()
         }
         else{
             print ("filter is \(self.filtered)")
             self.discounts.removeAll()
-           // self.filtered = false
+            // self.filtered = false
             tableView.scrollEnabled = false
             self.filterCategory()
         }
-      
+        
         
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return discounts.count
@@ -304,22 +303,22 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if (self.categoryInt == "canLoadMore"){
-        if (indexPath.row == discounts.count-1) && !isLoading{
-            isLoading = true
-            if reachToTheEnd == false{
-                self.LoadMoreActivityIndicator.hidden = false
-                self.LoadMoreActivityIndicator.startAnimating()
-            
-                self.loadMorePostsLabel.text = "加载中……"
-                let oldestPost = discounts[indexPath.row]
-                self.numOfDiscounts = self.discounts.count
-                loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+            if (indexPath.row == discounts.count-1) && !isLoading{
+                isLoading = true
+                if reachToTheEnd == false{
+                    self.LoadMoreActivityIndicator.hidden = false
+                    self.LoadMoreActivityIndicator.startAnimating()
+                    
+                    self.loadMorePostsLabel.text = "加载中……"
+                    let oldestPost = discounts[indexPath.row]
+                    self.numOfDiscounts = self.discounts.count
+                    loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+                }
             }
         }
-        }
-//        else{
-//         //   self.categoryInt = "unlockFilter" 1
-//        }
+        //        else{
+        //         //   self.categoryInt = "unlockFilter" 1
+        //        }
     }
     
     func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
@@ -362,7 +361,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         print(discounts.count)
         let discount  = discounts[indexPath.row]
         
-       // cell.contentView.alpha = 0.5
+        // cell.contentView.alpha = 0.5
         
         cell.titleLabel.text = discount.title!
         
@@ -392,7 +391,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             }
             
         }
-       // cell.featureImage.contentMode = .ScaleAspectFit
+        // cell.featureImage.contentMode = .ScaleAspectFit
         cell.featureImage.image = discount.featuredImage
         
         if discount.discountTag != nil {
@@ -402,36 +401,36 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
         
         if discount.catagories.count != 0 {
-        cell.categoryLabel.hidden = false
-        cell.categoryBackground.hidden = false
-        var categoryBackgroundFileName = ""
-        if discount.catagories[0] == .Shopping{
-            
-            cell.categoryLabel.text = "购物"
-            categoryBackgroundFileName = "ShoppingTag"
-        }else if discount.catagories[0] == .Food {
-            
-            cell.categoryLabel.text = "美食"
-            categoryBackgroundFileName = "FoodTag"
-            //print("yes")
-        } else if discount.catagories[0] == .Service {
-            
-            cell.categoryLabel.text = "服务"
-            categoryBackgroundFileName = "ServiceTag"
-        }else if discount.catagories[0] == .Fashion{
-            
-            cell.categoryLabel.text = "时尚"
-            categoryBackgroundFileName = "FashionTag"
-        }else if discount.catagories[0] == .Entertainment{
-            cell.categoryLabel.text = "娱乐"
-            categoryBackgroundFileName = "EntertainmentTag"
-        } else {
-            cell.categoryLabel.hidden = true
-            cell.categoryBackground.hidden = true
-            print("no")
-        }
-        //print(categoryBackgroundFileName)
-        cell.categoryBackground.image = UIImage(named: categoryBackgroundFileName)
+            cell.categoryLabel.hidden = false
+            cell.categoryBackground.hidden = false
+            var categoryBackgroundFileName = ""
+            if discount.catagories[0] == .Shopping{
+                
+                cell.categoryLabel.text = "购物"
+                categoryBackgroundFileName = "ShoppingTag"
+            }else if discount.catagories[0] == .Food {
+                
+                cell.categoryLabel.text = "美食"
+                categoryBackgroundFileName = "FoodTag"
+                //print("yes")
+            } else if discount.catagories[0] == .Service {
+                
+                cell.categoryLabel.text = "服务"
+                categoryBackgroundFileName = "ServiceTag"
+            }else if discount.catagories[0] == .Fashion{
+                
+                cell.categoryLabel.text = "时尚"
+                categoryBackgroundFileName = "FashionTag"
+            }else if discount.catagories[0] == .Entertainment{
+                cell.categoryLabel.text = "娱乐"
+                categoryBackgroundFileName = "EntertainmentTag"
+            } else {
+                cell.categoryLabel.hidden = true
+                cell.categoryBackground.hidden = true
+                print("no")
+            }
+            //print(categoryBackgroundFileName)
+            cell.categoryBackground.image = UIImage(named: categoryBackgroundFileName)
         } else {
             cell.categoryLabel.hidden = true
             cell.categoryBackground.hidden = true
@@ -455,21 +454,21 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
         
         if reachabilityManager.isReachable(){
-        let downloader = DiscountImageDownloader(discount: discount)
-        
-        downloader.completionBlock = {
-            if downloader.cancelled {
-                return
+            let downloader = DiscountImageDownloader(discount: discount)
+            
+            downloader.completionBlock = {
+                if downloader.cancelled {
+                    return
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    discount.featuredImageState = .Downloaded
+                })
             }
-            dispatch_async(dispatch_get_main_queue(), {
-                self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                discount.featuredImageState = .Downloaded
-            })
-        }
-        
-        pendingOperations.downloadsInProgress[indexPath] = downloader
-        pendingOperations.downloadQueue.addOperation(downloader)
+            
+            pendingOperations.downloadsInProgress[indexPath] = downloader
+            pendingOperations.downloadQueue.addOperation(downloader)
             
         }
     }
@@ -501,8 +500,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         } else {
             print("No Internet Connection")
             self.refreshControl?.endRefreshing()
-          //  popUpWarningMessage("No Internet Connection")
-          //  self.showAlert()
+            //  popUpWarningMessage("No Internet Connection")
+            //  self.showAlert()
             alert.showAlert(self)
             
             
@@ -538,10 +537,10 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     func loadImageForOnScreenCells(){
         if let pathsArray = tableView.indexPathsForVisibleRows{
             
-            var allPendingOperations = Set(pendingOperations.downloadsInProgress.keys)
+            let allPendingOperations = Set(pendingOperations.downloadsInProgress.keys)
             
             var toBeCancelled = allPendingOperations
-            let visiblePaths = Set(pathsArray as! [NSIndexPath])
+            let visiblePaths = Set(pathsArray )
             toBeCancelled.subtractInPlace(visiblePaths)
             
             var toBeStarted = visiblePaths
@@ -558,87 +557,87 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             for indexPath in toBeStarted{
                 let indexPath = indexPath as NSIndexPath
                 let recordToProcess = self.discounts[indexPath.row]
-                startOperationsForPhoto(recordToProcess, indexPath: indexPath)         
+                startOperationsForPhoto(recordToProcess, indexPath: indexPath)
             }
             
         }
     }
     
-
+    
     /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+     
+     // Configure the cell...
+     
+     return cell
+     }
+     */
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+     if editingStyle == .Delete {
+     // Delete the row from the data source
+     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+     } else if editingStyle == .Insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     
     // MARK: - Navigation
     
-//    func showAlert(){
-//        
-//                let attributedString = NSAttributedString(string: "请检查你的网络", attributes: [
-//            NSFontAttributeName : UIFont.systemFontOfSize(20),
-//            NSForegroundColorAttributeName : UIColor.whiteColor()
-//            ])
-//        
-//        
-//        let alertController = UIAlertController(title: nil, message: "", preferredStyle: .Alert)
-//        self.presentViewController(alertController, animated: true, completion: nil)
-//        alertController.setValue(attributedString, forKey: "attributedMessage")
-//        
-//        
-//        let subview :UIView = alertController.view.subviews.last! as UIView
-//        let alertContentView = subview.subviews.last! as UIView
-//        alertContentView.backgroundColor = UIColor(red: 252/255, green: 50/255, blue: 0/255, alpha: 1.0)
-//        alertContentView.layer.cornerRadius = 10
-//     
-//        
-//        let delay = 2.0 * Double(NSEC_PER_SEC)
-//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-//        dispatch_after(time, dispatch_get_main_queue(), {
-//            alertController.dismissViewControllerAnimated(true, completion: nil)
-//        })
-//    }
-
+    //    func showAlert(){
+    //
+    //                let attributedString = NSAttributedString(string: "请检查你的网络", attributes: [
+    //            NSFontAttributeName : UIFont.systemFontOfSize(20),
+    //            NSForegroundColorAttributeName : UIColor.whiteColor()
+    //            ])
+    //
+    //
+    //        let alertController = UIAlertController(title: nil, message: "", preferredStyle: .Alert)
+    //        self.presentViewController(alertController, animated: true, completion: nil)
+    //        alertController.setValue(attributedString, forKey: "attributedMessage")
+    //
+    //
+    //        let subview :UIView = alertController.view.subviews.last! as UIView
+    //        let alertContentView = subview.subviews.last! as UIView
+    //        alertContentView.backgroundColor = UIColor(red: 252/255, green: 50/255, blue: 0/255, alpha: 1.0)
+    //        alertContentView.layer.cornerRadius = 10
+    //
+    //
+    //        let delay = 2.0 * Double(NSEC_PER_SEC)
+    //        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+    //        dispatch_after(time, dispatch_get_main_queue(), {
+    //            alertController.dismissViewControllerAnimated(true, completion: nil)
+    //        })
+    //    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "discountSegue" {
             let postWebVeiwController = segue.destinationViewController as! PostWebViewController
@@ -674,78 +673,78 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
     }
     
-//    func getPostsFromAPI (endURL:String,postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
-//        
-//        let session = NSURLSession.sharedSession()
-//        let postUrl = endURL + self.categoryInt!
-//        print (postUrl)
-//        let postFinalURL = NSURL(string: postUrl)!
-//        
-//        
-//        
-//        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
-//            
-//            if let responseData = data {
-//                
-//                do{
-//                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
-//                    if let postsArray = json as? NSArray{
-//                        postsAcquired(postsArray:postsArray,success:true)
-//                    }
-//                    else {
-//                        postsAcquired(postsArray:nil,success:false)
-//                    }
-//                } catch {
-//                    postsAcquired(postsArray:nil,success:false)
-//                    print("could not serialize!")
-//                }
-//            }
-//            }.resume()
-//        
-//        
-//    }
+    //    func getPostsFromAPI (endURL:String,postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
+    //
+    //        let session = NSURLSession.sharedSession()
+    //        let postUrl = endURL + self.categoryInt!
+    //        print (postUrl)
+    //        let postFinalURL = NSURL(string: postUrl)!
+    //
+    //
+    //
+    //        session.dataTaskWithURL(postFinalURL){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+    //
+    //            if let responseData = data {
+    //
+    //                do{
+    //                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+    //                    if let postsArray = json as? NSArray{
+    //                        postsAcquired(postsArray:postsArray,success:true)
+    //                    }
+    //                    else {
+    //                        postsAcquired(postsArray:nil,success:false)
+    //                    }
+    //                } catch {
+    //                    postsAcquired(postsArray:nil,success:false)
+    //                    print("could not serialize!")
+    //                }
+    //            }
+    //            }.resume()
+    //
+    //
+    //    }
     
     func updateFilterDiscounts(completionHandler:() -> Void){
         
         
-//        self.getPostsFromAPI(endURL) { (postsArray, success) in
-//            if success {
-//                
-//                
-//                // create dispatch group
-//                
-//                for postEntry in postsArray! {
-//                    let post = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
-//                    //id
-//                    post.id = postEntry["id"] as! Int
-//                    
-//                    //Date
-//                    let dateString = postEntry["date"] as! String
-//                    let dateFormatter = DateFormatter()
-//                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
-//                    //Title
-//                    post.title = postEntry["title"] as! String
-//                    
-//                    //Link
-//                    post.link = postEntry["link"] as! String
-//                    
-//                    //Media
-//                    
-//                    post.featured_image_downloaded = false
-//                    
-//                    if postEntry["featured_image_url"] != nil {
-//                        post.featured_image_url = postEntry["thumbnail_url"] as? String
-//                    }
-//                    
-//                    
-//                    self.discounts.append(post)
-//                    
-//                }//End postsArray Loop
-//                completionHandler()
-//                
-//            }
-//            else {}
-//        } // end getPostsFromAPI
+        //        self.getPostsFromAPI(endURL) { (postsArray, success) in
+        //            if success {
+        //
+        //
+        //                // create dispatch group
+        //
+        //                for postEntry in postsArray! {
+        //                    let post = NSEntityDescription.insertNewObjectForEntityForName("Discount", inManagedObjectContext: self.managedObjectContext) as! Discount
+        //                    //id
+        //                    post.id = postEntry["id"] as! Int
+        //
+        //                    //Date
+        //                    let dateString = postEntry["date"] as! String
+        //                    let dateFormatter = DateFormatter()
+        //                    post.date = dateFormatter.formatDateStringToMelTime(dateString)
+        //                    //Title
+        //                    post.title = postEntry["title"] as! String
+        //
+        //                    //Link
+        //                    post.link = postEntry["link"] as! String
+        //
+        //                    //Media
+        //
+        //                    post.featured_image_downloaded = false
+        //                    
+        //                    if postEntry["featured_image_url"] != nil {
+        //                        post.featured_image_url = postEntry["thumbnail_url"] as? String
+        //                    }
+        //                    
+        //                    
+        //                    self.discounts.append(post)
+        //                    
+        //                }//End postsArray Loop
+        //                completionHandler()
+        //                
+        //            }
+        //            else {}
+        //        } // end getPostsFromAPI
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.updateFilterDiscounts(self.categoryInt!) { (filteredDiscounts, success) in
             if success {
@@ -755,6 +754,6 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
         
     }
- 
-
+    
+    
 }
