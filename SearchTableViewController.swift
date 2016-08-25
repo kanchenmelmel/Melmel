@@ -152,6 +152,7 @@ class SearchTableViewController: UITableViewController {
             //                return DiscountCatagory.Shopping
             //            }
             var categoryBackgroundFileName = ""
+            print ("discount cater is \(discount.catagories[0])")
             switch discount.catagories[0] {
             case .Entertainment:
                 cell.typeLabel.text = "娱乐"
