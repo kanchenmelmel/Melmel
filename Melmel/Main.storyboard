@@ -1099,7 +1099,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtP-S2-kH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-927" y="685"/>
+            <point key="canvasLocation" x="-914" y="1042"/>
         </scene>
         <!--关于喵喵-->
         <scene sceneID="jVR-EB-shP">
@@ -1113,18 +1113,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="tgf-5l-7v3">
-                                <rect key="frame" x="214" y="271" width="172" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="172" id="MKr-AQ-ix6"/>
-                                    <constraint firstAttribute="height" constant="57" id="iIp-1b-bVq"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s5k-hC-vq8">
+                                <rect key="frame" x="215" y="247" width="170" height="105"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="tgf-5l-7v3">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="56"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本 0.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-wt-Gkd">
+                                        <rect key="frame" x="56" y="64" width="58" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.melmel.com.au" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGZ-uu-WA5">
+                                        <rect key="frame" x="19" y="88" width="133" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tgf-5l-7v3" firstAttribute="centerY" secondItem="Jte-xF-Qqc" secondAttribute="centerY" id="93p-OW-L1N"/>
-                            <constraint firstItem="tgf-5l-7v3" firstAttribute="centerX" secondItem="Jte-xF-Qqc" secondAttribute="centerX" id="ioi-ai-OKi"/>
+                            <constraint firstItem="s5k-hC-vq8" firstAttribute="centerX" secondItem="Jte-xF-Qqc" secondAttribute="centerX" id="HCo-j5-vPn"/>
+                            <constraint firstItem="s5k-hC-vq8" firstAttribute="centerY" secondItem="Jte-xF-Qqc" secondAttribute="centerY" id="ceT-FO-Okw"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
