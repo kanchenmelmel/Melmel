@@ -400,6 +400,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             cell.discountTagLabel.text = "墨尔本优惠"
         }
         
+        print ("discount cater is \(discount.catagories[0])")
         if discount.catagories.count != 0 {
             cell.categoryLabel.hidden = false
             cell.categoryBackground.hidden = false
@@ -421,6 +422,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                 
                 cell.categoryLabel.text = "时尚"
                 categoryBackgroundFileName = "FashionTag"
+                
             }else if discount.catagories[0] == .Entertainment{
                 cell.categoryLabel.text = "娱乐"
                 categoryBackgroundFileName = "EntertainmentTag"

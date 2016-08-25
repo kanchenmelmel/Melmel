@@ -14,11 +14,11 @@ class DiscountCatagoryRecognizer{
     static func recognizeCatagory (catagoryId:Int,postType:PostType) -> DiscountCatagory {
         if postType == .Discount {
             let entertianmentTypes = [141,433,306,79,1037]
-            let fashionTypes = [280,532,306,300,533]
+            let fashionTypes = [280,532,306,300,533,1206,654,383,585]
             let serviceTypes = [272,294,455,536,273,487]
             let foodTypes = [103,104,205,127,360,144,162,161,153,371,422,474,159,349,151,148,152,154,1087,1096]
             let shoppomgTypes = [17,1201]
-            print(catagoryId)
+            print("cat ID is \(catagoryId)")
             if entertianmentTypes.contains(catagoryId){
                 return DiscountCatagory.Entertainment
             }
