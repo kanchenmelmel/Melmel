@@ -53,7 +53,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="139.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO-retina.png" translatesAutoresizingMaskIntoConstraints="NO" id="AWf-g5-1J8">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8G-Da-1o5" customClass="CellMaskView" customModule="Melmel" customModuleProvider="target">
@@ -509,7 +509,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Xl-IX-DMz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LOGO-retina.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Xl-IX-DMz">
                                             <rect key="frame" x="0.0" y="8" width="600" height="231"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EntertainmentTag" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-2t-XAO">
@@ -596,7 +596,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="139.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-Q4-OW2">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO-retina.png" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-Q4-OW2">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWw-Ey-WpW" customClass="CellMaskView" customModule="Melmel" customModuleProvider="target">
@@ -822,7 +822,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="woolworths-fresh-produce-section-instore.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LOGO-retina.png" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-nN-00Z">
                                             <rect key="frame" x="0.0" y="8" width="600" height="231"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EntertainmentTag" translatesAutoresizingMaskIntoConstraints="NO" id="jHl-J1-kMd">
@@ -1156,6 +1156,7 @@
     </scenes>
     <resources>
         <image name="EntertainmentTag" width="67" height="17"/>
+        <image name="LOGO-retina.png" width="436" height="80"/>
         <image name="Logo" width="170" height="56"/>
         <image name="NavBarBackButton" width="10" height="19"/>
         <image name="ProfileImgPlaceholder" width="49" height="49"/>
@@ -1173,12 +1174,11 @@
         <image name="setting" width="20" height="20"/>
         <image name="settingHighlighted" width="20" height="20"/>
         <image name="showCommentsIcon" width="19" height="18"/>
-        <image name="woolworths-fresh-produce-section-instore.jpg" width="620" height="349"/>
         <image name="writeCommentIcon" width="21" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FEs-0A-bpX"/>
-        <segue reference="YPU-UF-mkH"/>
+        <segue reference="ch7-PM-8P7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>
