@@ -182,13 +182,14 @@ class SearchTableViewController: UITableViewController {
             
             if discount.featured_image_url != nil {
                 if discount.featuredImageState == .Downloaded {
-                    cell.featureImage.image = discount.featuredImage
+                    
                 }
                 if discount.featuredImageState == .New {
                     if (!tableView.dragging && !tableView.decelerating){
                         startOperationsForPhoto(discount: discount, indexPath: indexPath)
                     }
                 }
+                cell.featureImage.image = discount.featuredImage
                 
             }
             
@@ -210,7 +211,8 @@ class SearchTableViewController: UITableViewController {
             
             if post.featured_image_url != nil {
                 if post.featuredImageState == .Downloaded {
-                    cell.featuredImage.image = post.featuredImage
+                    // Wrong way to do
+                    //cell.featuredImage.image = post.featuredImage
                 }
                 if post.featuredImageState == .New {
                     if (!tableView.dragging && !tableView.decelerating){
@@ -219,6 +221,9 @@ class SearchTableViewController: UITableViewController {
                 }
                 
             }
+            
+            //correct way to do
+            cell.featuredImage.image = post.featuredImage
             return cell
             
         }
@@ -264,7 +269,7 @@ class SearchTableViewController: UITableViewController {
             return
         }
         
-        if postType == .Post{}
+        
         let downloader = SearchImageDownloader(post: post)
         
         
@@ -275,6 +280,7 @@ class SearchTableViewController: UITableViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
                 self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                post.featuredImageState = .Downloaded
             })
         }
         
@@ -310,6 +316,7 @@ class SearchTableViewController: UITableViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
                 self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                discount.featuredImageState = .Downloaded
             })
         }
         

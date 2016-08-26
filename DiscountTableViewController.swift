@@ -176,6 +176,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchBlankView.hidden = true
         self.tableView.scrollEnabled = true
+        self.searchBar.resignFirstResponder()
         self.performSegueWithIdentifier("discountSearchResultSegue", sender: self.searchBar)
     }
     
@@ -192,6 +193,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     
     override func viewDidLoad() {
+        
+        resumeAllOperations()
         
         filteredViewController.delegate = self
         catVC?.delegate = self
@@ -363,7 +366,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         // cell.contentView.alpha = 0.5
         
-        cell.titleLabel.text = discount.title!
+        cell.titleLabel.text = discount.title
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
@@ -755,6 +758,11 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             completionHandler()
         }
         
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        suspendAllOperations()
     }
     
     

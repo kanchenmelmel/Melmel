@@ -49,7 +49,13 @@ class ImageDownloader:NSOperation {
             let saver = FileDownloader()
             saver.saveImageFile(image!, postId: post.id! as Int, fileName: FEATURED_IMAGE_NAME)
             post.featured_image_downloaded = true
-            try! post.managedObjectContext?.save()
+            do {
+                try post.managedObjectContext?.save()
+            } catch {
+                print("unable to update image to core data")
+            }
+            
+            
         }
             
         else {
@@ -86,7 +92,13 @@ class DiscountImageDownloader:NSOperation {
             let saver = FileDownloader()
             saver.saveImageFile(image!, postId: discount.id! as Int, fileName: FEATURED_IMAGE_NAME)
             discount.featured_image_downloaded = true
-            try! discount.managedObjectContext?.save()
+            
+            do {
+                try discount.managedObjectContext?.save()
+            } catch {
+                print("unable to save discount image to core data")
+            }
+            
             
         //    self.discount.featuredImage = UIImage(data: imageData!)
         //    self.discount.featuredImageState = .Downloaded
@@ -149,12 +161,13 @@ class SearchDiscountImageDownloader:NSOperation {
         if self.cancelled {
             return
         }
-        
-        let imageData = NSData(contentsOfURL:NSURL(string:discount.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
-        
         if self.cancelled {
             return
         }
+        
+        let imageData = NSData(contentsOfURL:NSURL(string:discount.featured_image_url!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        
+        
         
         if imageData?.length != 0 {
             self.discount.featuredImage = UIImage(data: imageData!)
