@@ -9,6 +9,8 @@
 import UIKit
 
 @IBDesignable
+
+//Mask view for the posts and discounts UI
 class CellMaskView: UIView {
     override class func layerClass() -> AnyClass {
         return CAGradientLayer.self

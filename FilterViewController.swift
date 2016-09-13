@@ -116,6 +116,7 @@ class FilterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //setup the popover view
     func setupView(){
         self.view.layer.shadowOpacity = 1.0
         self.view.layer.shadowRadius = 13.0

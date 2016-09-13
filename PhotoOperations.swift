@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class PendingOperations {
     lazy var downloadsInProgress = [NSIndexPath:NSOperation]()
     
@@ -20,6 +21,8 @@ class PendingOperations {
     }()
 }
 
+
+//this class inherits NSOperation, using operation queues to download posts images at the background thread
 class ImageDownloader:NSOperation {
     let post:Post
     
@@ -67,7 +70,7 @@ class ImageDownloader:NSOperation {
     
 }
 
-
+//this class inherits NSOperation, using operation queues to download discount images at the background thread
 class DiscountImageDownloader:NSOperation {
     let discount:Discount
     init(discount: Discount) {
@@ -116,7 +119,7 @@ class DiscountImageDownloader:NSOperation {
     
 }
 
-
+//this class inherits NSOperation, using operation queues to download searched posts images at the background thread
 class SearchImageDownloader:NSOperation {
     let post:Post
     init(post: Post) {
@@ -150,7 +153,7 @@ class SearchImageDownloader:NSOperation {
     
     
 }
-
+//this class inherits NSOperation, using operation queues to download searched discounts images at the background thread
 class SearchDiscountImageDownloader:NSOperation {
     let discount:Discount
     init(discount: Discount) {

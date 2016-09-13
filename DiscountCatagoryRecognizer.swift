@@ -9,7 +9,7 @@
 import Foundation
 
 
-
+//a class that identify the correct category for a discount post
 class DiscountCatagoryRecognizer{
     static func recognizeCatagory (catagoryId:Int,postType:PostType) -> DiscountCatagory {
         if postType == .Discount {

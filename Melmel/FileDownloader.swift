@@ -8,6 +8,7 @@
 
 import UIKit
 
+//this class uses a image url string and then downloads the image of the url and returns an image in completionHandler
 class FileDownloader {
     func downloadFeaturedImageForPostFromUrlAndSave(imageUrlString:String, postId:Int, completionHandler:(image:UIImage) -> Void){
         let session = NSURLSession.sharedSession()

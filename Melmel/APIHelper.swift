@@ -21,6 +21,7 @@ enum HTTPMethod:String {
     case Post = "POST"
 }
 
+//A class to uses NSURL session that loads the RESTful request and return a JSON object
 class APIHelper {
     let melmelRESTURL = "http://www.melmel.com.au/wp-json/wp/v2/"
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"

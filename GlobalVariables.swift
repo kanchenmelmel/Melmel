@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//global constants
 let GLOBAL_TINT_COLOR = UIColor(red: 236.0/255.0, green: 28.0/255.0, blue: 41.0/255.0, alpha: 1)
 let DISCOUNT_TINT_COLOR = UIColor(red: 206.0/255.0, green: 192.0/255.0, blue: 166.0/255.0, alpha: 1.0)
 

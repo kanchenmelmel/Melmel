@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class SearchTableViewController: UITableViewController {
     
     var searchText:String?

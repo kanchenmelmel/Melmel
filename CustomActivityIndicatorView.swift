@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Custom class for the indicator UI
 class CustomActivityIndicatorView: UIActivityIndicatorView {
     
     override init(frame: CGRect) {

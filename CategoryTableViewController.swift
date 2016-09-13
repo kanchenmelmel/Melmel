@@ -13,6 +13,7 @@ protocol FilterPassValueDelegate{
     func UserDidFilterCategory(catergoryInt: String, FilteredBool:Bool)
 }
 
+//this controll class creates every category group for the discount posts
 class CategoryTableViewController: UITableViewController {
     
     var categories: [DiscountCategory] = []

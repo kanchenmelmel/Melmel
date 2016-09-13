@@ -8,6 +8,7 @@
 
 import Foundation
 
+//this class is used to transform the date into different date format.
 class DateFormatter {
     
     func formatDateStringToMelTime(dateString:String) -> NSDate {
