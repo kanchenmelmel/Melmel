@@ -324,6 +324,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         //        }
     }
     
+    //load previous posts when slide down
     func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
         
         if reachabilityManager.isReachable(){
@@ -453,6 +454,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         }
     }
     
+    //using NSoperation to start download images
     func startDownloadFeaturedImageForPost(discount discount:Discount,indexPath:NSIndexPath) {
         if pendingOperations.downloadsInProgress[indexPath] != nil {
             return
@@ -479,7 +481,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     
-    
+    //update the discounts
     func updateDiscounts(){
         
         if self.filtered == true{

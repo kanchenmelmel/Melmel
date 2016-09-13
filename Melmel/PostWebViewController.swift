@@ -20,6 +20,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     var postid:String?
 
     @IBOutlet weak var postWebView: UIWebView!
+    //using the URL, loads the website on the webview
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

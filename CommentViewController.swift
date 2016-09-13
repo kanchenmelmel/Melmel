@@ -9,6 +9,7 @@
 import UIKit
 
 extension String {
+    //regex for Australia mobile
     func isValidMobile() -> Bool{
         
         
@@ -17,7 +18,7 @@ extension String {
             return regex.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
     }
     
-    
+    //regex for email
     func isValidEmail() -> Bool{
         
         
@@ -146,7 +147,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         NSUserDefaults.standardUserDefaults().setObject(self.nameInput.text, forKey: "nameInput")
         
     }
-    
+    //using POST method to post a comment
     func postComment(){
         let endpointURL = "http://melmel.com.au/wp-json/wp/v2/comments?"
         let post = "post=\(self.postid!)&"

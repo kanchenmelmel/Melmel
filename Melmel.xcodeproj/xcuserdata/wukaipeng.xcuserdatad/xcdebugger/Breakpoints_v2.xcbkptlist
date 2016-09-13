@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
             endingLineNumber = "226"
-            landmarkName = "setupBlankView()"
+            landmarkName = "handleTap()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

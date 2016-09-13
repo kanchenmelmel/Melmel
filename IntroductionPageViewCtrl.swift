@@ -8,6 +8,7 @@
 
 import UIKit
 
+//this class uses page view controller to show user intro info when they first use the app
 class IntroductionPageViewCtrl: UIPageViewController {
     
     private(set) lazy var orderedViewControllers:[UIViewController] = {
