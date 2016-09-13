@@ -9,6 +9,7 @@
 import UIKit
 
 @IBDesignable
+//Custome class for the navigation item UI
 class CustomNavigationItem: UINavigationItem {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
