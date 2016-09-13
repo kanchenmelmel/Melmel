@@ -16,6 +16,15 @@ extension String {
           //  return regex.firstMatchInString(self, options: nil, range: NSMakeRange(0, count(self))) != nil
             return regex.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
     }
+    
+    
+    func isValidEmail() -> Bool{
+        
+        
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .CaseInsensitive)
+        //  return regex.firstMatchInString(self, options: nil, range: NSMakeRange(0, count(self))) != nil
+        return regex.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
+    }
 }
 
 class CommentViewController: UIViewController, UITextFieldDelegate {
@@ -36,7 +45,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         nameInput.attributedPlaceholder = NSAttributedString(string: "姓名:", attributes: [NSForegroundColorAttributeName : POST_TINT_COLOR])
         
 //        mobileInput.backgroundColor = UIColor.lightGrayColor()
-        mobileInput.attributedPlaceholder = NSAttributedString(string: "电话:", attributes: [NSForegroundColorAttributeName : POST_TINT_COLOR])
+        mobileInput.attributedPlaceholder = NSAttributedString(string: "邮箱:", attributes: [NSForegroundColorAttributeName : POST_TINT_COLOR])
         
         
 //        contentInput.backgroundColor = UIColor.lightGrayColor()
@@ -46,7 +55,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         contentInput.delegate = self
         
         mobileInput.delegate = self
-        mobileInput.keyboardType = .NumberPad
+        //mobileInput.keyboardType = .NumberPad
 
         
 
@@ -66,15 +75,15 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let invalidCharacters = NSCharacterSet(charactersInString: "0123456789()+ ").invertedSet
-        return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
-    }
+//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+//        let invalidCharacters = NSCharacterSet(charactersInString: "0123456789()+ ").invertedSet
+//        return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+//    }
     
     @IBAction func submitComment(sender: AnyObject) {
         
-        if !(mobileInput.text?.isValidMobile())!{
-            let alert = UIAlertController(title: "电话号码格式不正确", message: "请填写正确的电话号码",preferredStyle: UIAlertControllerStyle.Alert)
+        if !(mobileInput.text?.isValidEmail())!{
+            let alert = UIAlertController(title: "邮箱地址格式不正确", message: "请填写正确的邮箱地址",preferredStyle: UIAlertControllerStyle.Alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 print("OK")
@@ -142,7 +151,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         let endpointURL = "http://melmel.com.au/wp-json/wp/v2/comments?"
         let post = "post=\(self.postid!)&"
         let name = "author_name=\(nameInput.text!)&"
-        let mobile = "author_url=\(mobileInput.text!)&"
+        let mobile = "author_email=\(mobileInput.text!)&"
         let content = "content=\(contentInput.text!)"
         
         let urlWithParams = endpointURL+post+name+mobile+content
