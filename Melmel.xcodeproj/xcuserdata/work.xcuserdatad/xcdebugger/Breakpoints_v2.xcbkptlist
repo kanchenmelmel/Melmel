@@ -112,7 +112,7 @@
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "getPostsFromAPI(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -144,7 +144,7 @@
             startingLineNumber = "71"
             endingLineNumber = "71"
             landmarkName = "getPostsFromAPI(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -238,23 +238,7 @@
             startingLineNumber = "187"
             endingLineNumber = "187"
             landmarkName = "getPreviousPosts(_:beforeDate:excludeId:completionHandler:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PostsUpdateUtility.swift"
-            timestampString = "491396271.465861"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "updateDiscounts(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -270,7 +254,7 @@
             startingLineNumber = "185"
             endingLineNumber = "185"
             landmarkName = "getPreviousPosts(_:beforeDate:excludeId:completionHandler:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

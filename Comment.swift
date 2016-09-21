@@ -12,12 +12,12 @@ import Foundation
 
 class Comment {
     var autherName:String?
-    var date:NSDate?
+    var date:Date?
     var content:String?
     var avatar:String?
     init() {
         autherName=""
-        date = NSDate()
+        date = Date()
         content = ""
         avatar = ""
     }

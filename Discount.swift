@@ -11,12 +11,12 @@ import CoreData
 import UIKit
 
 enum DiscountCatagory {
-    case Shopping
-    case Entertainment
-    case Service
-    case Fashion
-    case Food
-    case None
+    case shopping
+    case entertainment
+    case service
+    case fashion
+    case food
+    case none
     
 }
 
@@ -28,6 +28,6 @@ class Discount: NSManagedObject {
 // Insert code here to add functionality to your managed object subclass
 
     var featuredImage : UIImage?
-    var featuredImageState : PhotoRecordState = .New
+    var featuredImageState : PhotoRecordState = .new
     var catagories = [DiscountCatagory]()
 }

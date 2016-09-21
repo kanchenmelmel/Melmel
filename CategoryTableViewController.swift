@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol FilterPassValueDelegate{
-    func UserDidFilterCategory(catergoryInt: String, FilteredBool:Bool)
+    func UserDidFilterCategory(_ catergoryInt: String, FilteredBool:Bool)
 }
 
 //this controll class creates every category group for the discount posts
@@ -121,7 +121,7 @@ class CategoryTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 //        switch self.catID!{
 //        case 1 :
 //            self.categories = self.filterCat1
@@ -175,12 +175,12 @@ class CategoryTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.categories.count
       
@@ -188,11 +188,11 @@ class CategoryTableViewController: UITableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! CategoryTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryTableViewCell
         
         
-        let cate = categories[indexPath.row]
+        let cate = categories[(indexPath as NSIndexPath).row]
         
         cell.nameLabel.text = cate.name
 
@@ -219,10 +219,10 @@ class CategoryTableViewController: UITableViewController {
 //        
 //    }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        delegate!.UserDidFilterCategory(categories[indexPath.row].category, FilteredBool: true)
-        self.navigationController?.popViewControllerAnimated(true)
+        delegate!.UserDidFilterCategory(categories[(indexPath as NSIndexPath).row].category, FilteredBool: true)
+        self.navigationController?.popViewController(animated: true)
         
         
     }

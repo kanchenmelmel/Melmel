@@ -28,7 +28,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
 //    let exampleTransitionDelegate = Example
     
     
-    let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("testid") as? CategoryTableViewController
+    let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "testid") as? CategoryTableViewController
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -40,7 +40,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     let regionRadius: CLLocationDistance = 1000
     let melbourneLocation = CLLocation(latitude: -37.8136, longitude: 144.9631)
-    var locationManager = (UIApplication.sharedApplication().delegate as! AppDelegate).locationManager
+    var locationManager = (UIApplication.shared.delegate as! AppDelegate).locationManager
     var discounts:[Discount] = []
     
     
@@ -69,7 +69,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let tap = UITapGestureRecognizer(target: self, action: #selector(MapViewCtrl.handleTap))
         self.searchBlankView.addGestureRecognizer(tap)
         
-        let searchTextField = searchBar.valueForKey("searchField") as! UITextField
+        let searchTextField = searchBar.value(forKey: "searchField") as! UITextField
         let color = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
         searchTextField.attributedPlaceholder = NSAttributedString(string: "例如：韩餐，日餐", attributes: [NSForegroundColorAttributeName:color])
         
@@ -94,10 +94,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 
         self.navigationController?.hidesBarsOnSwipe = false
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.shared.statusBarStyle = .default
     }
     
     func setupBlankView(){
@@ -107,51 +107,51 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let searchBarHeight = self.searchBar.bounds.height
         
         //  var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
-        blankView.frame = CGRectMake(0.0, 0.0, width, height)
-        blankView.backgroundColor = UIColor.blackColor()
+        blankView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: height)
+        blankView.backgroundColor = UIColor.black
         blankView.alpha = 0.5
         self.view.addSubview(blankView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         
-        searchBlankView.frame = CGRectMake(0.0, searchBarHeight, width, height)
-        searchBlankView.backgroundColor = UIColor.blackColor()
+        searchBlankView.frame = CGRect(x: 0.0, y: searchBarHeight, width: width, height: height)
+        searchBlankView.backgroundColor = UIColor.black
         searchBlankView.alpha = 0.5
         self.view.addSubview(searchBlankView)
-        self.searchBlankView.hidden = true
+        self.searchBlankView.isHidden = true
         
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.searchBlankView.hidden = false
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBlankView.isHidden = false
     }
     
     func handleTap(){
-        self.searchBlankView.hidden = true
+        self.searchBlankView.isHidden = true
         self.searchBar.resignFirstResponder()
         
     }
     
     func locationAuthStatus(){
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
         } else {
             locationManager?.requestWhenInUseAuthorization()
         }
     }
     
-    func centerMapOnLocation(location:CLLocation, zoomLevel:Double) {
+    func centerMapOnLocation(_ location:CLLocation, zoomLevel:Double) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * zoomLevel, regionRadius * zoomLevel)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         if userLocation.location != nil{
             self.userLocation = userLocation.location
         }
     }
     
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        NSOperationQueue().addOperationWithBlock { 
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        OperationQueue().addOperation { 
             let mapBoundsWidth = Double(self.mapView.bounds.size.width)
             let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
             let scale:Double = mapBoundsWidth / mapRectWidth
@@ -163,35 +163,35 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     
     /*  Configure annotation view */
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var reuseId = ""
         
         
         
-        if annotation.isKindOfClass(FBAnnotationCluster){
+        if annotation.isKind(of: FBAnnotationCluster.self){
             reuseId = "Cluster"
-            var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+            var clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
             clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
             return clusterView
-        }else if annotation.isKindOfClass(MKUserLocation) {
+        }else if annotation.isKind(of: MKUserLocation.self) {
             return nil
-        } else if annotation.isKindOfClass(DiscountAnnotation){
+        } else if annotation.isKind(of: DiscountAnnotation.self){
             let discountAnnotation = annotation as! DiscountAnnotation
             let annotationView = DiscountAnnotationView(annotation: annotation, reuseIdentifier: nil,delegate: self)
             var annotationViewImgFilename = ""
-            if discountAnnotation.discount!.catagories[0] == .Shopping{
+            if discountAnnotation.discount!.catagories[0] == .shopping{
                 annotationViewImgFilename = AnnotationPinImg.Shopping.rawValue
             }
-            if discountAnnotation.discount!.catagories[0] == .Entertainment {
+            if discountAnnotation.discount!.catagories[0] == .entertainment {
                 annotationViewImgFilename = AnnotationPinImg.Entertainment.rawValue
             }
-            if discountAnnotation.discount!.catagories[0] == .Food {
+            if discountAnnotation.discount!.catagories[0] == .food {
                 annotationViewImgFilename = AnnotationPinImg.Food.rawValue
             }
-            if discountAnnotation.discount!.catagories[0] == .Service {
+            if discountAnnotation.discount!.catagories[0] == .service {
                 annotationViewImgFilename = AnnotationPinImg.Service.rawValue
             }
-            if discountAnnotation.discount!.catagories[0] == .Fashion {
+            if discountAnnotation.discount!.catagories[0] == .fashion {
                 annotationViewImgFilename = AnnotationPinImg.Fashion.rawValue
             }
             print(annotationViewImgFilename)
@@ -214,11 +214,11 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     /*  Configure tapped behavior */
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        self.performSegueWithIdentifier("discountWebViewSegue", sender: view)
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.performSegue(withIdentifier: "discountWebViewSegue", sender: view)
     }
     
-    func createAnnotationObject(discountForAnnotation:Discount) -> DiscountAnnotation{
+    func createAnnotationObject(_ discountForAnnotation:Discount) -> DiscountAnnotation{
         let annotation = DiscountAnnotation(discount:discountForAnnotation)
         return annotation
         
@@ -235,7 +235,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
         postUpdateUtility.updateDiscounts {
             
-            dispatch_async(dispatch_get_main_queue(), { 
+            DispatchQueue.main.async(execute: { 
                 self.locationAuthStatus()
                 // load discounts from core data
                 self.loadDiscountFromCoreData()
@@ -243,61 +243,61 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
                 for discount in self.discounts {
                     // Add Annotations
                     let annotation = self.createAnnotationObject(discount)
-                    self.mapView.addAnnotation(annotation)
+                    self.mapView.addAnnotation(annotation as! MKAnnotation)
                 }
             })
             
         }
     }
     
-    @IBAction func currentLocation(sender: AnyObject) {
+    @IBAction func currentLocation(_ sender: AnyObject) {
         if userLocation != nil {
             centerMapOnLocation(userLocation!,zoomLevel: 2.0)
         }
     }
     
-    @IBAction func showCategoryPopover(sender: UIBarButtonItem) {
+    @IBAction func showCategoryPopover(_ sender: UIBarButtonItem) {
         
 //
 //        self.addChildViewController(categoryPopoverCtrl)
 //        self.view.addSubview(categoryPopoverCtrl.view)
 //        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
-        self.blankView.hidden = false
-        categoryPopoverCtrl.modalPresentationStyle = .Popover
+        self.blankView.isHidden = false
+        categoryPopoverCtrl.modalPresentationStyle = .popover
         let popover = categoryPopoverCtrl.popoverPresentationController!
-        categoryPopoverCtrl.preferredContentSize = CGSizeMake(400, 113.0)
+        categoryPopoverCtrl.preferredContentSize = CGSize(width: 400, height: 113.0)
         popover.barButtonItem = sender
         popover.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
         popover.delegate = self
-        presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+        present(categoryPopoverCtrl, animated: true, completion: nil)
     }
     
-    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        self.blankView.hidden = true
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        self.blankView.isHidden = true
     }
     
     // Implement Popover Ctrl Delegate
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
     
     // Prepare Segue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "discountWebViewSegue" {
             let annotationviewController = sender as! MapDiscountDetailViewController
-            let destinationCtrl = segue.destinationViewController as! PostWebViewController
+            let destinationCtrl = segue.destination as! PostWebViewController
             //let annotation = annotationview.annotation as! DiscountAnnotation
             destinationCtrl.webRequestURLString = annotationviewController.discount!.link!
-            destinationCtrl.navigationItem.setRightBarButtonItem(nil, animated: true)
+            destinationCtrl.navigationItem.setRightBarButton(nil, animated: true)
             destinationCtrl.navigationItem.title = "墨尔本优惠"
             
         }
         
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        let activityIndicatorRect = CGRectMake(0, 0, 100.0, 80.0)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let activityIndicatorRect = CGRect(x: 0, y: 0, width: 100.0, height: 80.0)
         let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
         self.view.addSubview(activityInidicatorView)
         let postsUpdateUtility = PostsUpdateUtility()
@@ -307,19 +307,19 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             
             self.addAnnotationViewsForDiscounts(discounts)
             activityInidicatorView.stopAnimating()
-            activityInidicatorView.willMoveToSuperview(self.view)
+            activityInidicatorView.willMove(toSuperview: self.view)
         }
         searchBar.resignFirstResponder()
-        self.searchBlankView.hidden = true
+        self.searchBlankView.isHidden = true
     }
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
     
     
     
     
-    func addAnnotationViewsForDiscounts(discounts:[Discount]){
+    func addAnnotationViewsForDiscounts(_ discounts:[Discount]){
         var annotations = [DiscountAnnotation]()
         clusteringManager = FBClusteringManager()
         
@@ -336,28 +336,28 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
     }
     
-    func addDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController){
+    func addDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController){
         
         discountDetailViewController.showed = true
         AnimationEngine.addEaseInFromBottomAnimationToView(discountDetailViewController.view)
-        discountDetailViewController.modalTransitionStyle = .CoverVertical
+        discountDetailViewController.modalTransitionStyle = .coverVertical
         self.addChildViewController(discountDetailViewController)
         var viewRect:CGRect!
         
         
 
-        viewRect = CGRectMake(0.0, CGRectGetHeight(self.mapView.frame)-80.5, CGRectGetWidth(self.mapView.frame), 80.5)
+        viewRect = CGRect(x: 0.0, y: self.mapView.frame.height-80.5, width: self.mapView.frame.width, height: 80.5)
         discountDetailViewController.view.frame = viewRect
         
         self.view.addSubview(discountDetailViewController.view)
-        discountDetailViewController.didMoveToParentViewController(self)
+        discountDetailViewController.didMove(toParentViewController: self)
         
     }
     
-    func removeDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController) {
+    func removeDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController) {
         AnimationEngine.addEaseOutToBottomAnimationToView(discountDetailViewController.view)
         discountDetailViewController.showed = false
-        discountDetailViewController.willMoveToParentViewController(nil)
+        discountDetailViewController.willMove(toParentViewController: nil)
         discountDetailViewController.view.removeFromSuperview()
         discountDetailViewController.removeFromParentViewController()
     }
@@ -370,7 +370,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         //self.addChildViewController(loadingAlert)
         //presentViewController(loadingAlert, animated: true, completion: nil)
         //loadingAlert.activityIndicatorView.center = loadingAlert.view.center
-        let activityIndicatorRect = CGRectMake(0, 0, 100.0, 80.0)
+        let activityIndicatorRect = CGRect(x: 0, y: 0, width: 100.0, height: 80.0)
         let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
         self.view.addSubview(activityInidicatorView)
         
@@ -380,7 +380,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             self.addAnnotationViewsForDiscounts(discounts)
             self.centerMapOnLocation(self.melbourneLocation, zoomLevel: 10.0)
             activityInidicatorView.stopAnimating()
-            activityInidicatorView.willMoveToSuperview(self.view)
+            activityInidicatorView.willMove(toSuperview: self.view)
             
         })
     }
@@ -397,37 +397,37 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     func ShouldCloseSubview() {
     }
     func didFindAll(){
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         self.filtered = false
         self.loadAllDiscount()
     }
     func didEntertainment() {
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 1
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didFashion() {
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didService() {
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 3
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     
     func didFood(){
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 4
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didShopping() {
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
-    func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
+    func UserDidFilterCategory(_ catergoryInt: String, FilteredBool: Bool) {
         
         self.categoryInt = catergoryInt
         self.filtered = FilteredBool
@@ -444,24 +444,24 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     }
     
     func updateFilteredDiscounts(){
-        let activityIndicatorRect = CGRectMake(0, 0, 100.0, 80.0)
+        let activityIndicatorRect = CGRect(x: 0, y: 0, width: 100.0, height: 80.0)
         let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
         self.view.addSubview(activityInidicatorView)
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.updateFilterDiscounts(self.categoryInt) { (filteredDiscounts, success) in
             if success {
                 self.discounts = filteredDiscounts
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.addAnnotationViewsForDiscounts(self.discounts)
                     activityInidicatorView.stopAnimating()
-                    activityInidicatorView.willMoveToSuperview(self.view)
+                    activityInidicatorView.willMove(toSuperview: self.view)
                     
                 })
             }
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 }

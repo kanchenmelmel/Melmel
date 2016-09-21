@@ -11,7 +11,7 @@ import UIKit
 class PostWebViewController: UIViewController,UIWebViewDelegate {
     
     var loading = false
-    var timer:NSTimer? = nil
+    var timer:Timer? = nil
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var commentButton: UIBarButtonItem!
@@ -26,20 +26,20 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         // Do view setup here.
         
         progressView.progress  = 0
-        let url = NSURL(string:webRequestURLString!)
-        let request = NSMutableURLRequest(URL: url!, cachePolicy: .ReturnCacheDataElseLoad, timeoutInterval: 10.0)
-        postWebView.loadRequest(request)
+        let url = URL(string:webRequestURLString!)
+        let request = NSMutableURLRequest(url: url!, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
+        postWebView.loadRequest(request as URLRequest)
         postWebView.delegate = self
     }
     
-    override func viewDidAppear(animated: Bool) {
-        navigationController?.navigationBarHidden = false
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showcommentSegue" {
-            let DC = segue.destinationViewController as! ShowCommentTableViewController
+            let DC = segue.destination as! ShowCommentTableViewController
             
             DC.postid = self.postid!
             
@@ -49,14 +49,14 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     
     
     // Web View Start Load page
-    func webViewDidStartLoad(webView: UIWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         progressView.progress = 0
         loading = true
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01667, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01667, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
     }
     
     // Web View Finish Loading Page
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         loading = false
     }
     
@@ -71,7 +71,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
             }
         }
         else {
-            progressView.hidden = true
+            progressView.isHidden = true
             timer?.invalidate()
         }
     }

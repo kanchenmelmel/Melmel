@@ -33,15 +33,15 @@ class InputSearchViewController: UIViewController,UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.performSegueWithIdentifier("searchSegue", sender: self)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.performSegue(withIdentifier: "searchSegue", sender: self)
     }
     
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchSegue" {
-            let DC = segue.destinationViewController as! SearchTableViewController
+            let DC = segue.destination as! SearchTableViewController
             
             DC.searchText = self.searchBar.text!
             

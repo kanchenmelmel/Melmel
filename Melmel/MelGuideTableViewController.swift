@@ -14,7 +14,7 @@ import CoreData
 
 class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
-    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     var posts:[Post] = []
     let pendingOperations = PendingOperations()
@@ -32,7 +32,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+    let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         searchBar.delegate = self
         
-        LoadMoreActivityIndicator.hidden = true
+        LoadMoreActivityIndicator.isHidden = true
         
         
         
@@ -58,8 +58,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         // Initialize the refresh control
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = DISCOUNT_TINT_COLOR
-        self.refreshControl?.tintColor = UIColor.whiteColor()
-        self.refreshControl?.addTarget(self, action: #selector(self.updatePosts), forControlEvents: .ValueChanged)
+        self.refreshControl?.tintColor = UIColor.white
+        self.refreshControl?.addTarget(self, action: #selector(self.updatePosts), for: .valueChanged)
         self.refreshControl?.beginRefreshing()
         
         
@@ -72,7 +72,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         
         navigationController?.hidesBarsOnSwipe = true
@@ -85,13 +85,13 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
     }
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        self.searchBlankView.hidden = true
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.searchBlankView.isHidden = true
         self.searchBar.resignFirstResponder()
     }
     
     func handleTap(){
-        self.searchBlankView.hidden = true
+        self.searchBlankView.isHidden = true
         self.searchBar.resignFirstResponder()
         
     }
@@ -103,39 +103,39 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         let searchBarHeight = self.searchBar.bounds.height
         
         
-        searchBlankView.frame = CGRectMake(0.0, searchBarHeight, width, height)
-        searchBlankView.backgroundColor = UIColor.blackColor()
+        searchBlankView.frame = CGRect(x: 0.0, y: searchBarHeight, width: width, height: height)
+        searchBlankView.backgroundColor = UIColor.black
         searchBlankView.alpha = 0.5
         self.view.addSubview(searchBlankView)
-        self.searchBlankView.hidden = true
+        self.searchBlankView.isHidden = true
         
     }
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return posts.count
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("melGuideTableViewCell", forIndexPath: indexPath) as! MelGuideTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "melGuideTableViewCell", for: indexPath) as! MelGuideTableViewCell
         
         // Configure the cell...
         
-        let post = posts[indexPath.row]
+        let post = posts[(indexPath as NSIndexPath).row]
         
         cell.titleLabel.text = post.title!
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        cell.dateLabel.text = "\(dateFormatter.stringFromDate(post.date!).uppercaseString)" + " "
+        let dateFormatter = Foundation.DateFormatter()
+        dateFormatter.dateStyle = .medium
+        cell.dateLabel.text = "\(dateFormatter.string(from: post.date! as Date).uppercased())" + " "
         
         
         // Configure featured image
@@ -143,15 +143,15 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         if post.featured_image_downloaded == true {
             let fileDownloader = FileDownloader()
             post.featuredImage = fileDownloader.imageFromFile(post.id! as Int, fileName: FEATURED_IMAGE_NAME)
-            post.featuredImageState = .Downloaded
+            post.featuredImageState = .downloaded
             
         } else {
             if post.featured_image_url != nil {
-                if post.featuredImageState == .Downloaded {
+                if post.featuredImageState == .downloaded {
                     
                 }
-                if post.featuredImageState == .New {
-                    if (!tableView.dragging && !tableView.decelerating){
+                if post.featuredImageState == .new {
+                    if (!tableView.isDragging && !tableView.isDecelerating){
                         startOperationsForPhoto(post, indexPath: indexPath)
                     }
                 }
@@ -163,43 +163,43 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         return cell
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row == posts.count-1) && !isLoading{
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if ((indexPath as NSIndexPath).row == posts.count-1) && !isLoading{
             isLoading = true
             if reachToTheEnd == false{
-                self.LoadMoreActivityIndicator.hidden = false
+                self.LoadMoreActivityIndicator.isHidden = false
                 self.LoadMoreActivityIndicator.startAnimating()
                 
                 self.loadMorePostsLabel.text = "加载中……"
-                let oldestPost = posts[indexPath.row]
+                let oldestPost = posts[(indexPath as NSIndexPath).row]
                 self.numOfPosts = self.posts.count
-                loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+                loadPreviousPosts(oldestPost.date! as Date,excludeId: oldestPost.id as! Int)
             }
         }
     }
     
-    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         suspendAllOperations()
     }
     
-    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate{
             loadImageForOnScreenCells()
             resumeAllOperations()
         }
     }
     
-    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         loadImageForOnScreenCells()
         resumeAllOperations()
     }
     
     func suspendAllOperations(){
-        pendingOperations.downloadQueue.suspended = true
+        pendingOperations.downloadQueue.isSuspended = true
     }
     
     func resumeAllOperations(){
-        pendingOperations.downloadQueue.suspended = false
+        pendingOperations.downloadQueue.isSuspended = false
     }
     
     func loadImageForOnScreenCells(){
@@ -209,22 +209,22 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             
             var toBeCancelled = allPendingOperations
             let visiblePaths = Set(pathsArray)
-            toBeCancelled.subtractInPlace(visiblePaths)
+            toBeCancelled.subtract(visiblePaths)
             
             var toBeStarted = visiblePaths
-            toBeStarted.subtractInPlace(allPendingOperations)
+            toBeStarted.subtract(allPendingOperations)
             
             for indexPath in toBeCancelled{
                 if let pendingDownload = pendingOperations.downloadsInProgress[indexPath]{
                     pendingDownload.cancel()
                 }
-                pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
                 
             }
             
             for indexPath in toBeStarted{
-                let indexPath = indexPath as NSIndexPath
-                let recordToProcess = self.posts[indexPath.row]
+                let indexPath = indexPath as IndexPath
+                let recordToProcess = self.posts[(indexPath as NSIndexPath).row]
                 print("test")
                 startOperationsForPhoto(recordToProcess, indexPath: indexPath)
             }
@@ -272,15 +272,15 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
      
      In a storyboard-based application, you will often want to do a little preparation before navigation
      */
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "postSegue" {
-            let postWebVeiwController = segue.destinationViewController as! PostWebViewController
+            let postWebVeiwController = segue.destination as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
-            postWebVeiwController.webRequestURLString = posts[path.row].link
-            postWebVeiwController.postid = String(posts[path.row].id!)
+            postWebVeiwController.webRequestURLString = posts[(path as NSIndexPath).row].link
+            postWebVeiwController.postid = String(describing: posts[(path as NSIndexPath).row].id!)
         }
         if segue.identifier == "searchResultSegue" {
-            let searchResultTableViewCtrl = segue.destinationViewController as! SearchTableViewController
+            let searchResultTableViewCtrl = segue.destination as! SearchTableViewController
             searchResultTableViewCtrl.searchText = self.searchBar.text
             searchResultTableViewCtrl.postType = .Post
             
@@ -290,16 +290,16 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
     
     // Image Download Operation Functions
-    func startOperationsForPhoto(post:Post,indexPath:NSIndexPath) {
+    func startOperationsForPhoto(_ post:Post,indexPath:IndexPath) {
         switch (post.featuredImageState) {
-        case .New:
+        case .new:
             startDownloadFeaturedImageForPost (post:post,indexPath:indexPath)
         default: break
             //NSLog("Do nothing")
         }
     }
     
-    func startDownloadFeaturedImageForPost(post post:Post,indexPath:NSIndexPath) {
+    func startDownloadFeaturedImageForPost(post:Post,indexPath:IndexPath) {
         if pendingOperations.downloadsInProgress[indexPath] != nil {
             return
         }
@@ -308,13 +308,13 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             let downloader = ImageDownloader(post: post)
             
             downloader.completionBlock = {
-                if downloader.cancelled {
+                if downloader.isCancelled {
                     return
                 }
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
-                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                    post.featuredImageState = .Downloaded
+                DispatchQueue.main.async(execute: {
+                    self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                    self.tableView.reloadRows(at: [indexPath], with: .fade)
+                    post.featuredImageState = .downloaded
                 })
             }
             
@@ -369,12 +369,12 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             let postUpdateUtility = PostsUpdateUtility()
             postUpdateUtility.updateAllPosts {
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     print("Update table view")
                     self.posts = postUpdateUtility.fetchPosts()
                     self.tableView.reloadData()
                     self.activityIndicatorView.stopAnimating()
-                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
+                    self.activityIndicatorView.willMove(toSuperview: self.tableView)
                     self.refreshControl?.endRefreshing()
                 })
             }
@@ -389,24 +389,24 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
     }
     
-    func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
+    func loadPreviousPosts(_ oldestPostDate:Date,excludeId:Int){
         
         if reachabilityManager.isReachable(){
             
             let postsUpdateUtility = PostsUpdateUtility()
             postsUpdateUtility.getPreviousPosts(oldestPostDate,excludeId: excludeId) {
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.posts = postsUpdateUtility.fetchPosts()
                     self.tableView.reloadData()
                     self.activityIndicatorView.stopAnimating()
-                    self.activityIndicatorView.willMoveToSuperview(self.tableView)
+                    self.activityIndicatorView.willMove(toSuperview: self.tableView)
                     self.isLoading = false
                     self.LoadMoreActivityIndicator.stopAnimating()
-                    self.LoadMoreActivityIndicator.hidden = true
+                    self.LoadMoreActivityIndicator.isHidden = true
                     if self.numOfPosts == self.posts.count{
                         self.reachToTheEnd = true
-                        self.loadMorePostsLabel.hidden = true
-                        self.LoadMoreActivityIndicator.hidden = true
+                        self.loadMorePostsLabel.isHidden = true
+                        self.LoadMoreActivityIndicator.isHidden = true
                     }
                 })
             }
@@ -419,16 +419,16 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.performSegueWithIdentifier("searchResultSegue", sender: self.searchBar)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.performSegue(withIdentifier: "searchResultSegue", sender: self.searchBar)
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.searchBlankView.hidden = false
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBlankView.isHidden = false
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.searchBlankView.hidden = true
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBlankView.isHidden = true
     }
     
     

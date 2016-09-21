@@ -9,11 +9,11 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
-    override func viewDidAppear(animated: Bool) {
-        UIApplication.sharedApplication().statusBarStyle = .Default
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
     }
-    override func viewWillDisappear(animated: Bool) {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 
 }

@@ -36,93 +36,93 @@ class APIHelper {
     let discountLastUpdateTimeKey = "discountLastUpdateTime"
     
     
-    let session = NSURLSession.sharedSession()
+    let session = URLSession.shared
   
     
     
     
     
-    func getPostsFromAPI (postsAcquired:(postsArray: NSArray?, success: Bool) -> Void ){
+    func getPostsFromAPI (_ postsAcquired:@escaping (_ postsArray: NSArray?, _ success: Bool) -> Void ){
         
-        let session = NSURLSession.sharedSession()
-        let postUrl:NSURL
+        let session = URLSession.shared
+        let postUrl:URL
         
-        if let lastUpdateTimeObject = NSUserDefaults.standardUserDefaults().objectForKey(self.postLastUpdateTimeKey) {
-            let lastUpdateTime = lastUpdateTimeObject as! NSDate
+        if let lastUpdateTimeObject = UserDefaults.standard.object(forKey: self.postLastUpdateTimeKey) {
+            let lastUpdateTime = lastUpdateTimeObject as! Date
             let dateFormatter = DateFormatter()
-            postUrl = NSURL(string: postUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
+            postUrl = URL(string: postUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
             print(dateFormatter.formatDateToDateString(lastUpdateTime))
             
         } else {
-            postUrl = NSURL(string: postUrlPathString)!
+            postUrl = URL(string: postUrlPathString)!
         }
         
         
         
-        session.dataTaskWithURL(postUrl){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+        session.dataTask(with: postUrl, completionHandler: { (data:Data?, response:URLResponse?, error: NSError?) -> Void in
             if let responseData = data {
-                let date = NSDate()
+                let date = Date()
                 //NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
                 
                 do{
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
                     if let postsArray = json as? NSArray{
-                        postsAcquired(postsArray:postsArray,success:true)
-                        NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
+                        postsAcquired(postsArray,true)
+                        UserDefaults.standard.set(date, forKey: self.postLastUpdateTimeKey)
                     }
                     else {
-                        postsAcquired(postsArray:nil,success:false)
+                        postsAcquired(nil,false)
                     }
                 } catch {
-                    postsAcquired(postsArray:nil,success:false)
+                    postsAcquired(nil,false)
                     print("could not serialize!")
                 }
                 
             }
-        }.resume()
+        } as! (Data?, URLResponse?, Error?) -> Void).resume()
         
         
     }
     
     // Get discounts from API
-    func getDiscountsFromAPI (discountsAcquired:(discountsArray: NSArray?, success: Bool) -> Void ){
+    func getDiscountsFromAPI (_ discountsAcquired:@escaping (_ discountsArray: NSArray?, _ success: Bool) -> Void ){
         
-        let session = NSURLSession.sharedSession()
-        let postUrl:NSURL
+        let session = URLSession.shared
+        let postUrl:URL
         
-        if let lastUpdateTimeObject = NSUserDefaults.standardUserDefaults().objectForKey(self.discountLastUpdateTimeKey) {
-            let lastUpdateTime = lastUpdateTimeObject as! NSDate
+        if let lastUpdateTimeObject = UserDefaults.standard.object(forKey: self.discountLastUpdateTimeKey) {
+            let lastUpdateTime = lastUpdateTimeObject as! Date
             let dateFormatter = DateFormatter()
-            postUrl = NSURL(string: discountUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
+            postUrl = URL(string: discountUrlPathString+"?after=\(dateFormatter.formatDateToDateString(lastUpdateTime))")!
             print(postUrl.absoluteString)
             
         } else {
-            postUrl = NSURL(string: discountUrlPathString)!
+            postUrl = URL(string: discountUrlPathString)!
         }
         
         
         
-        session.dataTaskWithURL(postUrl){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+        session.dataTask(with: postUrl, completionHandler: { (data:Data?, response:URLResponse?, error: NSError?) -> Void in
             
             if let responseData = data {
-                let date = NSDate()
+                let date = Date()
                 
                 
                 do{
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
                     if let postsArray = json as? NSArray{
-                        discountsAcquired(discountsArray:postsArray,success:true)
-                        NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.discountLastUpdateTimeKey)
+                        discountsAcquired(postsArray,true)
+                        UserDefaults.standard.set(date, forKey: self.discountLastUpdateTimeKey)
                     }
                     else {
-                        discountsAcquired(discountsArray:nil,success:false)
+                        discountsAcquired(nil,false)
                     }
                 } catch {
-                    discountsAcquired(discountsArray:nil,success:false)
+                    discountsAcquired(nil,false)
                     print("could not serialize!")
                 }
             }
-            }.resume()
+            } as! (Data?, URLResponse?, Error?) -> Void).resume()
         
         
     }
@@ -130,47 +130,47 @@ class APIHelper {
     
     
     /* Get All Media */
-    func getAllMediaFromAPI(mediaAcquired:(mediaArray:NSArray?,success:Bool) -> Void){
-        let url = NSURL(string: mediaUrlPathString)
-        session.dataTaskWithURL(url!) { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+    func getAllMediaFromAPI(_ mediaAcquired:@escaping (_ mediaArray:NSArray?,_ success:Bool) -> Void){
+        let url = URL(string: mediaUrlPathString)
+        session.dataTask(with: url!, completionHandler: { (data:Data?, response:URLResponse?, error:NSError?) -> Void in
             if let responseData = data {
                 do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
                     if let mediaList = json as? NSArray{
-                        mediaAcquired(mediaArray:mediaList,success:true)
+                        mediaAcquired(mediaList,true)
                     }
                     else {
-                        mediaAcquired(mediaArray: nil, success: false)
+                        mediaAcquired(nil, false)
                     }
                 } catch{
-                    mediaAcquired(mediaArray: nil, success: false)
+                    mediaAcquired(nil, false)
                 }
             }
-        }.resume()
+        } as! (Data?, URLResponse?, Error?) -> Void) .resume()
     }
     
     /* GetMediaById */
-    func getMediaById(mediaId:Int, mediaAcquired:(mediaDictionary:Dictionary<String,AnyObject>?,success:Bool) -> Void){
+    func getMediaById(_ mediaId:Int, mediaAcquired:(_ mediaDictionary:Dictionary<String,AnyObject>?,_ success:Bool) -> Void){
         // Request featured media
-        let mediaUrl = NSURL(string:mediaUrlPathString + "\(mediaId)/")!
+        let mediaUrl = URL(string:mediaUrlPathString + "\(mediaId)/")!
         
-        let request = NSURLRequest(URL: mediaUrl)
+        let request = URLRequest(url: mediaUrl)
         
         
         
         do{
-            let responseData = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let responseData = try NSURLConnection.sendSynchronousRequest(request, returning: nil)
             
-            let featuredMediaData = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+            let featuredMediaData = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
             
             if let json = featuredMediaData as? Dictionary<String,AnyObject>{
-                mediaAcquired(mediaDictionary:json,success:true)
+                mediaAcquired(json,true)
             }
             else {
-                mediaAcquired(mediaDictionary:nil,success:false)
+                mediaAcquired(nil,false)
             }
         }catch {
-            mediaAcquired(mediaDictionary:nil,success:false)
+            mediaAcquired(nil,false)
         }
         
 //        session.dataTaskWithURL(mediaUrl, completionHandler: { (responseData:NSData?, mediaResponse:NSURLResponse?, mediaError:NSError?) in
@@ -180,7 +180,7 @@ class APIHelper {
     }
     
     
-    func getPreviousPosts(postType:PostType, beforeDate:NSDate,excludeId:Int,completionHandler:(resultsArray:NSArray?, success:Bool) -> Void ){
+    func getPreviousPosts(_ postType:PostType, beforeDate:Date,excludeId:Int,completionHandler:@escaping (_ resultsArray:NSArray?, _ success:Bool) -> Void ){
         var baseURIString:String!
         switch postType {
         case .Post:baseURIString = postUrlPathString
@@ -190,18 +190,18 @@ class APIHelper {
         }
         
         
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         
         let dateFormatter = DateFormatter()
         let beforeDateString = dateFormatter.formatDateToDateString(beforeDate)
-        let url = NSURL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
         print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
         
         
-        session.dataTaskWithURL(url!) { (data:NSData?, response:NSURLResponse?, error:NSError?) in
+        session.dataTask(with: url!, completionHandler: { (data:Data?, response:URLResponse?, error:NSError?) in
             if let responseData = data {
                 do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: .AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
                     if let resultsArray = json as? NSArray{
                         completionHandler(resultsArray:resultsArray,success:true)
                     }
@@ -212,7 +212,7 @@ class APIHelper {
                     completionHandler(resultsArray: nil, success: false)
                 }
             }
-        }.resume()
+        }) .resume()
         
     }
     
@@ -220,53 +220,53 @@ class APIHelper {
     
     
     // General Purpose get Posts
-    func getPostsFromAPI(postType:PostType,params:[(String,String)],completionHandler:(postsArray: NSArray?, success: Bool) -> Void ) {
+    func getPostsFromAPI(_ postType:PostType,params:[(String,String)],completionHandler:@escaping (_ postsArray: NSArray?, _ success: Bool) -> Void ) {
         
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         let url = buildURLComponent(postType, params: params)
         
         
-        session.dataTaskWithURL(url.URL!){ (data:NSData?, response:NSURLResponse?, error: NSError?) -> Void in
+        session.dataTask(with: url.url!, completionHandler: { (data:Data?, response:URLResponse?, error: NSError?) -> Void in
             
             if let responseData = data {
                 //let date = NSDate()
                 //NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
                 
                 do{
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
                     if let postsArray = json as? NSArray{
-                        completionHandler(postsArray:postsArray,success:true)
+                        completionHandler(postsArray,true)
                     }
                     else {
-                        completionHandler(postsArray:nil,success:false)
+                        completionHandler(nil,false)
                     }
                 } catch {
-                    completionHandler(postsArray:nil,success:false)
+                    completionHandler(nil,false)
                     print("could not serialize!")
                 }
             }
-            }.resume()
+            } as! (Data?, URLResponse?, Error?) -> Void).resume()
     }
     
-    func postPostToAPI(postType:PostType,params:[(String,String)],completionHandler:()->Void){
+    func postPostToAPI(_ postType:PostType,params:[(String,String)],completionHandler:@escaping ()->Void){
         let url = buildURLComponent(.Comment, params: params)
-        let request = NSMutableURLRequest(URL: url.URL!)
+        let request = NSMutableURLRequest(url: url.url!)
         
-        request.HTTPMethod = HTTPMethod.Post.rawValue
+        request.httpMethod = HTTPMethod.Post.rawValue
         
-        let session = NSURLSession.sharedSession()
-        session.dataTaskWithRequest(request) { (data, response, error) in
+        let session = URLSession.shared
+        session.dataTask(with: request, completionHandler: { (data, response, error) in
             guard error == nil && data != nil
                 else {
                     print("error\(error)")
                     return
             }
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
+            if let httpStatus = response as? HTTPURLResponse , httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             }
             completionHandler()
-        }.resume()
+        }) .resume()
         
         
         
@@ -278,16 +278,16 @@ class APIHelper {
     /*
      Build URL using NSURLComponents
      */
-    func buildURLComponent(postType:PostType,params:[(String,String)]) -> NSURLComponents{
-        let url = NSURLComponents()
+    func buildURLComponent(_ postType:PostType,params:[(String,String)]) -> URLComponents{
+        var url = URLComponents()
         url.scheme = "http"
         url.host = "www.melmel.com.au"
         
         url.path = "/wp-json/wp/v2/\(postType.rawValue)"
-        var queryItems = [NSURLQueryItem]()
+        var queryItems = [URLQueryItem]()
         
         for param in params {
-            queryItems.append(NSURLQueryItem(name: param.0, value: param.1))
+            queryItems.append(URLQueryItem(name: param.0, value: param.1))
         }
         
         url.queryItems = queryItems

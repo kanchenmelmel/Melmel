@@ -13,10 +13,10 @@ import CoreData
 
 //this class manages the data storage using coredtata, it ultilises the APIhelper class to download the data, then save the data into Coredata
 class PostsUpdateUtility {
-    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     // UpdatePosts
-    func updateAllPosts(completionHandler:() -> Void){
+    func updateAllPosts(_ completionHandler:() -> Void){
         var posts:[Post] = []
         let apiHelper = APIHelper()
         let coreDataUtility = CoreDataUtility()
@@ -35,7 +35,7 @@ class PostsUpdateUtility {
                     //id
                     let id = postEntry["id"] as! Int
                     if !coreDataUtility.checkIdExist(id, entityType: .Post) {
-                        let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
+                        let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: self.managedObjectContext) as! Post
                         post.id = id
                         
                         //Date
@@ -80,7 +80,7 @@ class PostsUpdateUtility {
     
     
     /* Update discounts */
-    func updateDiscounts(completionHandler:() -> Void){
+    func updateDiscounts(_ completionHandler:() -> Void){
         let apiHelper = APIHelper()
         
         apiHelper.getDiscountsFromAPI { (discountArray, success) in
@@ -101,7 +101,7 @@ class PostsUpdateUtility {
     /* 
      Get filtered discounts from api
      */
-    func updateFilterDiscounts(categoryId:String, completionHandler:(filteredDiscounts:[Discount],success:Bool) -> Void) {
+    func updateFilterDiscounts(_ categoryId:String, completionHandler:@escaping (_ filteredDiscounts:[Discount],_ success:Bool) -> Void) {
         var discounts = [Discount]()
         let apiHelper = APIHelper()
         
@@ -113,7 +113,7 @@ class PostsUpdateUtility {
                 discounts = JSONParser.parseDiscountJSONArrayToDiscountArray(postsArray, checkConsistency: false, ifInsertIntoManagedContext: false)
                 
                 print(discounts.count)
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     completionHandler(filteredDiscounts: discounts,success: success)
                 })
                 
@@ -123,7 +123,7 @@ class PostsUpdateUtility {
         }
     }
     
-    func getPreviousPosts(beforeDate:NSDate,excludeId:Int,completionHandler:() -> Void){
+    func getPreviousPosts(_ beforeDate:Date,excludeId:Int,completionHandler:@escaping () -> Void){
         var posts:[Post] = []
         let apiHelper = APIHelper()
         let coreDataUitility = CoreDataUtility()
@@ -138,7 +138,7 @@ class PostsUpdateUtility {
                 
                 for postEntry in postsArray! {
                     
-                    let post = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: self.managedObjectContext) as! Post
+                    let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: self.managedObjectContext) as! Post
                     
                     
                     //id
@@ -183,7 +183,7 @@ class PostsUpdateUtility {
         
     }
     
-    func getPreviousDiscounts(beforeDate:NSDate,excludeId:Int,completionHandler:() -> Void){
+    func getPreviousDiscounts(_ beforeDate:Date,excludeId:Int,completionHandler:@escaping () -> Void){
         
         let apiHelper = APIHelper()
         
@@ -216,11 +216,11 @@ class PostsUpdateUtility {
     func fetchPosts() -> [Post] {
         
         let request = NSFetchRequest()
-        request.entity = NSEntityDescription.entityForName("Post", inManagedObjectContext: managedObjectContext)
+        request.entity = NSEntityDescription.entity(forEntityName: "Post", in: managedObjectContext)
         let dateSort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors=[dateSort]
         do{
-            let results = try managedObjectContext.executeFetchRequest(request) as! [Post]
+            let results = try managedObjectContext.fetch(request) as! [Post]
             
             
             
@@ -232,11 +232,11 @@ class PostsUpdateUtility {
     func fetchDiscounts() -> [Discount] {
         
         let request = NSFetchRequest()
-        request.entity = NSEntityDescription.entityForName("Discount", inManagedObjectContext: managedObjectContext)
+        request.entity = NSEntityDescription.entity(forEntityName: "Discount", in: managedObjectContext)
         let dateSort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors=[dateSort]
         do{
-            let results = try managedObjectContext.executeFetchRequest(request) as! [Discount]
+            let results = try managedObjectContext.fetch(request) as! [Discount]
             for result in results {
                 let discountCategoryArray = result.discountCategories?.allObjects as! [DiscountCategoryEntity]
                 for discountCatagory in discountCategoryArray {
@@ -255,7 +255,7 @@ class PostsUpdateUtility {
     }
     
     
-    func getAllDiscounts(completionHandler:(discounts:[Discount])->Void) {
+    func getAllDiscounts(_ completionHandler:@escaping (_ discounts:[Discount])->Void) {
         var discounts = [Discount]()
         let apiHelper = APIHelper()
         
@@ -266,7 +266,7 @@ class PostsUpdateUtility {
                 discounts = JSONParser.parseDiscountJSONArrayToDiscountArray(postsArray, checkConsistency: false, ifInsertIntoManagedContext: false)
                 
                 print(discounts.count)
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     completionHandler(discounts: discounts)
                 })
                 
@@ -276,7 +276,7 @@ class PostsUpdateUtility {
         }
     }
     
-    func searchDiscountByKeyWords (keyWords:String, completionHandler:(discounts:[Discount]) -> Void) {
+    func searchDiscountByKeyWords (_ keyWords:String, completionHandler:@escaping (_ discounts:[Discount]) -> Void) {
         var discounts = [Discount]()
         let apiHelper = APIHelper()
         
@@ -290,9 +290,8 @@ class PostsUpdateUtility {
                 // create dispatch group
                 
                 for postEntry in postsArray! {
-                    let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: self.managedObjectContext)
-                    let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: nil)
-                    discount
+                    let discountDescription = NSEntityDescription.entity(forEntityName: "Discount", in: self.managedObjectContext)
+                    let discount = Discount(entity: discountDescription!, insertInto: nil)
                     //id
                     discount.id = postEntry["id"] as! Int
                     
@@ -352,7 +351,7 @@ class PostsUpdateUtility {
                 
                 
                 print(discounts.count)
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     completionHandler(discounts: discounts)
                 })
                 
@@ -362,7 +361,7 @@ class PostsUpdateUtility {
         }
     }
     
-    func searchPostsByKeyWords(keyWords:String, completionHandler:(posts:[Post]) -> Void) {
+    func searchPostsByKeyWords(_ keyWords:String, completionHandler:@escaping (_ posts:[Post]) -> Void) {
         var posts = [Post]()
         let apiHelper = APIHelper()
         
@@ -373,9 +372,9 @@ class PostsUpdateUtility {
             for postEntry in postsArray! {
                 
                 
-                let postDescription = NSEntityDescription.entityForName("Post", inManagedObjectContext: self.managedObjectContext)
+                let postDescription = NSEntityDescription.entity(forEntityName: "Post", in: self.managedObjectContext)
                 
-                let post = Post(entity: postDescription!, insertIntoManagedObjectContext: nil)
+                let post = Post(entity: postDescription!, insertInto: nil)
                 
                 //id
                 let id = postEntry["id"] as! Int
@@ -411,7 +410,7 @@ class PostsUpdateUtility {
     
     func getDiscountsForCatagory(){}
     
-    func getPostComments(postID:String, completionHandler:(comments:[Comment]) -> Void) {
+    func getPostComments(_ postID:String, completionHandler:@escaping (_ comments:[Comment]) -> Void) {
         let apiHelper = APIHelper()
         var commentsArray = [Comment]()
         
@@ -449,7 +448,7 @@ class PostsUpdateUtility {
                     
                 }
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     completionHandler(comments: commentsArray)
                 })
             }
@@ -466,10 +465,10 @@ class JSONParser {
      checkConsistency: if check the posts have already been in core data
      */
     
-    static func parseDiscountJSONArrayToDiscountArray(postsArray:NSArray?,checkConsistency:Bool,ifInsertIntoManagedContext:Bool) -> [Discount]{
+    static func parseDiscountJSONArrayToDiscountArray(_ postsArray:NSArray?,checkConsistency:Bool,ifInsertIntoManagedContext:Bool) -> [Discount]{
         let coreDataUtility = CoreDataUtility()
         
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         var discounts = [Discount]()
         for postEntry in postsArray! {
             let status = postEntry["status"] as! String
@@ -479,13 +478,13 @@ class JSONParser {
                 if !coreDataUtility.checkIdExist(id,entityType: .Discount){
                     
                     
-                    let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: managedObjectContext)
+                    let discountDescription = NSEntityDescription.entity(forEntityName: "Discount", in: managedObjectContext)
                     var managedObjectContextToBeInserted:NSManagedObjectContext?
                     managedObjectContextToBeInserted = managedObjectContext
                     if !ifInsertIntoManagedContext {
                         managedObjectContextToBeInserted = nil
                     }
-                    let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: managedObjectContextToBeInserted)
+                    let discount = Discount(entity: discountDescription!, insertInto: managedObjectContextToBeInserted)
                     //id
                     discount.id = postEntry["id"] as! Int
                     
@@ -527,12 +526,12 @@ class JSONParser {
                     if let discountCategories = postEntry["category"] as? NSArray{
                         for catagoryEntry in discountCategories {
                             if let catagoryId = catagoryEntry as? Int {
-                                let discountCategoryEntityDescription = NSEntityDescription.entityForName("DiscountCategoryEntity", inManagedObjectContext: managedObjectContext)
+                                let discountCategoryEntityDescription = NSEntityDescription.entity(forEntityName: "DiscountCategoryEntity", in: managedObjectContext)
                                 
-                                let discountCategoryEntity = DiscountCategoryEntity(entity: discountCategoryEntityDescription!, insertIntoManagedObjectContext: managedObjectContextToBeInserted)
+                                let discountCategoryEntity = DiscountCategoryEntity(entity: discountCategoryEntityDescription!, insertInto: managedObjectContextToBeInserted)
                                 discountCategoryEntity.categoryId = catagoryId
                                 
-                                discount.mutableSetValueForKey("discountCategories").addObject(discountCategoryEntity)
+                                discount.mutableSetValue(forKey: "discountCategories").add(discountCategoryEntity)
                                 let catagory = DiscountCatagoryRecognizer.recognizeCatagory(catagoryId, postType: .Discount)
                                 if !discount.catagories.contains(catagory) {
                                     discount.catagories.append(catagory)
@@ -547,13 +546,13 @@ class JSONParser {
                 
             }// end of checkConsistency
             else {
-                let discountDescription = NSEntityDescription.entityForName("Discount", inManagedObjectContext: managedObjectContext)
+                let discountDescription = NSEntityDescription.entity(forEntityName: "Discount", in: managedObjectContext)
                 var managedObjectContextToBeInserted:NSManagedObjectContext?
                 managedObjectContextToBeInserted = managedObjectContext
                 if !ifInsertIntoManagedContext {
                     managedObjectContextToBeInserted = nil
                 }
-                let discount = Discount(entity: discountDescription!, insertIntoManagedObjectContext: managedObjectContextToBeInserted)
+                let discount = Discount(entity: discountDescription!, insertInto: managedObjectContextToBeInserted)
                 discount
                 //id
                 discount.id = postEntry["id"] as! Int

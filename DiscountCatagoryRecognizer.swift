@@ -11,7 +11,7 @@ import Foundation
 
 //a class that identify the correct category for a discount post
 class DiscountCatagoryRecognizer{
-    static func recognizeCatagory (catagoryId:Int,postType:PostType) -> DiscountCatagory {
+    static func recognizeCatagory (_ catagoryId:Int,postType:PostType) -> DiscountCatagory {
         if postType == .Discount {
             let entertianmentTypes = [141,433,306,79,1037]
             let fashionTypes = [280,532,306,300,533,1206,654,383,585]
@@ -20,21 +20,21 @@ class DiscountCatagoryRecognizer{
             let shoppomgTypes = [17,1201]
             print("cat ID is \(catagoryId)")
             if entertianmentTypes.contains(catagoryId){
-                return DiscountCatagory.Entertainment
+                return DiscountCatagory.entertainment
             }
             if fashionTypes.contains(catagoryId){
-                return DiscountCatagory.Fashion
+                return DiscountCatagory.fashion
             }
             if serviceTypes.contains(catagoryId){
-                return DiscountCatagory.Service
+                return DiscountCatagory.service
             }
             if foodTypes.contains(catagoryId){
-                return DiscountCatagory.Food
+                return DiscountCatagory.food
             }
             if shoppomgTypes.contains(catagoryId){
-                return DiscountCatagory.Shopping
+                return DiscountCatagory.shopping
             }
         }
-        return DiscountCatagory.None
+        return DiscountCatagory.none
     }
 }

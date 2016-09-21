@@ -10,31 +10,31 @@ import UIKit
 import MapKit
 
 extension MapViewCtrl:DiscountAnnotationViewDelegate{
-    func tapAnnotation(discount:Discount) {
+    func tapAnnotation(_ discount:Discount) {
         
         var annotationViewImgFilename = ""
         
         self.discountDetailViewController.discount = discount
         
         // Set up tint color and type Img
-        if discount.catagories[0] == .Shopping{
+        if discount.catagories[0] == .shopping{
             annotationViewImgFilename = "Shopping"
             self.discountDetailViewController.viewTintColor = UIColor(red: 246.0/255.0, green: 150.0/255.0, blue: 121.0/255.0, alpha: 1.0)
         }
-        if discount.catagories[0] == .Entertainment {
+        if discount.catagories[0] == .entertainment {
             annotationViewImgFilename = "Entertainment"
             self.discountDetailViewController.viewTintColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
         }
-        if discount.catagories[0] == .Food {
+        if discount.catagories[0] == .food {
             annotationViewImgFilename = "Food"
             self.discountDetailViewController.viewTintColor = UIColor(red: 255.0/255.0, green: 211.0/255.0, blue: 8.0/255.0, alpha: 1.0)
             
         }
-        if discount.catagories[0] == .Service {
+        if discount.catagories[0] == .service {
             annotationViewImgFilename = "Service"
             self.discountDetailViewController.viewTintColor = UIColor(red: 60.0/255.0, green: 184.0/255.0, blue: 120.0/255.0, alpha: 1.0)
         }
-        if discount.catagories[0] == .Fashion {
+        if discount.catagories[0] == .fashion {
             annotationViewImgFilename = "Fashion"
             self.discountDetailViewController.viewTintColor = UIColor(red: 109.0/255.0, green: 207.0/255.0, blue: 246.0/255.0, alpha: 1.0)
         }
@@ -50,7 +50,7 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
         }
         
 
-        self.discountDetailViewController.detailButton.addTarget(nil, action: #selector(showDiscountWebPage), forControlEvents: .TouchUpInside)
+        self.discountDetailViewController.detailButton.addTarget(nil, action: #selector(showDiscountWebPage), for: .touchUpInside)
 
         
         self.discountDetailViewController.discountTypeImgView.image = UIImage(named: annotationViewImgFilename)
@@ -70,9 +70,9 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
     }
     
     func showDiscountWebPage(){
-        performSegueWithIdentifier("discountWebViewSegue", sender: self.discountDetailViewController)
+        performSegue(withIdentifier: "discountWebViewSegue", sender: self.discountDetailViewController)
     }
-    func reCenterMap(discount: Discount) {
+    func reCenterMap(_ discount: Discount) {
         let newLocation = CLLocation(latitude: Double(discount.latitude!), longitude: Double(discount.longtitude!))
         centerMapOnLocation(newLocation, zoomLevel: 0.1)
     }

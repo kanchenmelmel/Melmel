@@ -12,16 +12,16 @@ import UIKit
 
 class Alert {
     
-    func showAlert(viewcontroller: UITableViewController) -> Void{
+    func showAlert(_ viewcontroller: UITableViewController) -> Void{
         
         let attributedString = NSAttributedString(string: "请检查你的网络", attributes: [
-            NSFontAttributeName : UIFont.systemFontOfSize(20),
-            NSForegroundColorAttributeName : UIColor.whiteColor()
+            NSFontAttributeName : UIFont.systemFont(ofSize: 20),
+            NSForegroundColorAttributeName : UIColor.white
             ])
         
   
-        let alertController = UIAlertController(title: nil, message: "", preferredStyle: .Alert)
-        viewcontroller.presentViewController(alertController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: nil, message: "", preferredStyle: .alert)
+        viewcontroller.present(alertController, animated: true, completion: nil)
         alertController.setValue(attributedString, forKey: "attributedMessage")
         
         
@@ -32,15 +32,15 @@ class Alert {
         
         
         let delay = 2.0 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue(), {
-            alertController.dismissViewControllerAnimated(true, completion: nil)
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
+            alertController.dismiss(animated: true, completion: nil)
         })
     }
     
-    func showLoadingAlertController(viewController:UIViewController) {
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        let loadingAlertController = UIAlertController(title: "", message: "", preferredStyle: .Alert)
+    func showLoadingAlertController(_ viewController:UIViewController) {
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let loadingAlertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
         activityIndicatorView.center = loadingAlertController.view.center
         
     }

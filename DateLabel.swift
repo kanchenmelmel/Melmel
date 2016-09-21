@@ -15,7 +15,7 @@ class DateLabel: UILabel {
         let backgroundImageSize = self.frame.size
         
         UIGraphicsBeginImageContext(backgroundImageSize)
-        backgroundImage?.drawInRect(CGRect(x: 0, y: 0, width: backgroundImageSize.width, height: backgroundImageSize.height))
+        backgroundImage?.draw(in: CGRect(x: 0, y: 0, width: backgroundImageSize.width, height: backgroundImageSize.height))
         let newBackgroundImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
         

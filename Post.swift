@@ -11,13 +11,13 @@ import UIKit
 import CoreData
 
 enum PhotoRecordState {
-    case New, Downloaded, Filtered, Failed
+    case new, downloaded, filtered, failed
 }
 
 class Post: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
     var featuredImage : UIImage?
-    var featuredImageState : PhotoRecordState = .New
+    var featuredImageState : PhotoRecordState = .new
 
 }

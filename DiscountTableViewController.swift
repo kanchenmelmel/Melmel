@@ -11,7 +11,7 @@ import CoreData
 
 class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,FilterViewControllerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate{
     
-    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     // var discountList=[(Discount,UIImage)]()
     var discounts:[Discount] = []
@@ -37,7 +37,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var filteredViewController:FilterViewController = FilterViewController()
     
-    let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("testid") as? CategoryTableViewController
+    let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "testid") as? CategoryTableViewController
     
     // var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
     
@@ -45,35 +45,35 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     var searchBlankView = UIView()
     
-    let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+    let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
     
-    @IBAction func didFilterButtonPress(sender: UIBarButtonItem) {
+    @IBAction func didFilterButtonPress(_ sender: UIBarButtonItem) {
         
         
         //        let filterViewController = FilterViewController()
         
-        self.blankView.hidden = false
+        self.blankView.isHidden = false
         
-        filteredViewController.modalPresentationStyle = .Popover
-        filteredViewController.preferredContentSize = CGSizeMake(400.0, 113.0)
+        filteredViewController.modalPresentationStyle = .popover
+        filteredViewController.preferredContentSize = CGSize(width: 400.0, height: 113.0)
         let popover = filteredViewController.popoverPresentationController!
         popover.barButtonItem = sender
         popover.delegate = self
-        presentViewController(filteredViewController, animated: true, completion: nil)
+        present(filteredViewController, animated: true, completion: nil)
         
         
         
     }
     
-    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        self.blankView.hidden = true
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        self.blankView.isHidden = true
     }
     
     
     
     // Implement Popover Ctrl Delegate
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
     
@@ -92,7 +92,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
     }
     
-    func UserDidFilterCategory(catergoryInt: String, FilteredBool: Bool) {
+    func UserDidFilterCategory(_ catergoryInt: String, FilteredBool: Bool) {
         
         self.categoryInt = catergoryInt
         self.filtered = FilteredBool
@@ -103,8 +103,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             
             self.categoryInt = "canLoadMore"
             if self.reachToTheEnd == false{
-                self.loadMorePostsLabel.hidden = false
-                self.LoadMoreActivityIndicator.hidden = false
+                self.loadMorePostsLabel.isHidden = false
+                self.LoadMoreActivityIndicator.isHidden = false
             }
             self.tableView.reloadData()
             activityIndicatorView.stopAnimating()
@@ -116,7 +116,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             print ("filter is \(self.filtered)")
             self.discounts.removeAll()
             // self.filtered = false
-            tableView.scrollEnabled = false
+            tableView.isScrollEnabled = false
             self.filterCategory()
         }
         
@@ -127,7 +127,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     func didFindAll(){
         self.activityIndicatorView.startAnimating()
         self.tableView.addSubview(activityIndicatorView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         self.filtered = false
         self.updateDiscounts()
         
@@ -138,21 +138,21 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     func didEntertainment() {
         self.activityIndicatorView.startAnimating()
         self.tableView.addSubview(activityIndicatorView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 1
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didFashion() {
         self.activityIndicatorView.startAnimating()
         self.tableView.addSubview(activityIndicatorView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didService() {
         self.activityIndicatorView.startAnimating()
         self.tableView.addSubview(activityIndicatorView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 3
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
@@ -160,33 +160,33 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     func didFood(){
         self.activityIndicatorView.startAnimating()
         self.tableView.addSubview(activityIndicatorView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 4
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     func didShopping() {
         self.activityIndicatorView.startAnimating()
         self.tableView.addSubview(activityIndicatorView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         catVC?.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
     }
     
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.searchBlankView.hidden = true
-        self.tableView.scrollEnabled = true
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBlankView.isHidden = true
+        self.tableView.isScrollEnabled = true
         self.searchBar.resignFirstResponder()
-        self.performSegueWithIdentifier("discountSearchResultSegue", sender: self.searchBar)
+        self.performSegue(withIdentifier: "discountSearchResultSegue", sender: self.searchBar)
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.searchBlankView.hidden = false
-        self.tableView.scrollEnabled = false
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBlankView.isHidden = false
+        self.tableView.isScrollEnabled = false
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.searchBlankView.hidden = true
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBlankView.isHidden = true
     }
     
     
@@ -212,17 +212,17 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         searchBar.delegate = self
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = GLOBAL_TINT_COLOR
-        self.refreshControl?.tintColor = UIColor.whiteColor()
-        self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), forControlEvents: .ValueChanged)
+        self.refreshControl?.tintColor = UIColor.white
+        self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), for: .valueChanged)
         self.refreshControl?.beginRefreshing()
         
         
     }
     
     func handleTap(){
-        self.searchBlankView.hidden = true
+        self.searchBlankView.isHidden = true
         self.searchBar.resignFirstResponder()
-        self.tableView.scrollEnabled = true
+        self.tableView.isScrollEnabled = true
         
     }
     
@@ -233,17 +233,17 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         let searchBarHeight = self.searchBar.bounds.height
         
         //  var blankView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
-        blankView.frame = CGRectMake(0.0, 0.0, width, height)
-        blankView.backgroundColor = UIColor.blackColor()
+        blankView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: height)
+        blankView.backgroundColor = UIColor.black
         blankView.alpha = 0.5
         self.view.addSubview(blankView)
-        self.blankView.hidden = true
+        self.blankView.isHidden = true
         
-        searchBlankView.frame = CGRectMake(0.0, searchBarHeight, width, height)
-        searchBlankView.backgroundColor = UIColor.blackColor()
+        searchBlankView.frame = CGRect(x: 0.0, y: searchBarHeight, width: width, height: height)
+        searchBlankView.backgroundColor = UIColor.black
         searchBlankView.alpha = 0.5
         self.view.addSubview(searchBlankView)
-        self.searchBlankView.hidden = true
+        self.searchBlankView.isHidden = true
         
     }
     
@@ -252,12 +252,12 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         
         
-        self.searchBlankView.hidden = true
-        self.tableView.scrollEnabled = true
+        self.searchBlankView.isHidden = true
+        self.tableView.isScrollEnabled = true
         
         
         activityIndicatorView.center = self.tableView.center
@@ -266,7 +266,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.tableView.allowsSelection = false
         
         
-        navigationController?.navigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
         if self.filtered == false{
             let postUpdateUtility = PostsUpdateUtility()
@@ -275,8 +275,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             
             self.categoryInt = "canLoadMore"
             if self.reachToTheEnd == false{
-                self.loadMorePostsLabel.hidden = false
-                self.LoadMoreActivityIndicator.hidden = false
+                self.loadMorePostsLabel.isHidden = false
+                self.LoadMoreActivityIndicator.isHidden = false
             }
             self.tableView.reloadData()
         }
@@ -284,7 +284,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             print ("filter is \(self.filtered)")
             self.discounts.removeAll()
             // self.filtered = false
-            tableView.scrollEnabled = false
+            tableView.isScrollEnabled = false
             self.filterCategory()
         }
         
@@ -293,29 +293,29 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return discounts.count
     }
     
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (self.categoryInt == "canLoadMore"){
-            if (indexPath.row == discounts.count-1) && !isLoading{
+            if ((indexPath as NSIndexPath).row == discounts.count-1) && !isLoading{
                 isLoading = true
                 if reachToTheEnd == false{
-                    self.LoadMoreActivityIndicator.hidden = false
+                    self.LoadMoreActivityIndicator.isHidden = false
                     self.LoadMoreActivityIndicator.startAnimating()
                     
                     self.loadMorePostsLabel.text = "加载中……"
-                    let oldestPost = discounts[indexPath.row]
+                    let oldestPost = discounts[(indexPath as NSIndexPath).row]
                     self.numOfDiscounts = self.discounts.count
-                    loadPreviousPosts(oldestPost.date!,excludeId: oldestPost.id as! Int)
+                    loadPreviousPosts(oldestPost.date! as Date,excludeId: oldestPost.id as! Int)
                 }
             }
         }
@@ -325,13 +325,13 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     //load previous posts when slide down
-    func loadPreviousPosts(oldestPostDate:NSDate,excludeId:Int){
+    func loadPreviousPosts(_ oldestPostDate:Date,excludeId:Int){
         
         if reachabilityManager.isReachable(){
             
             let postsUpdateUtility = PostsUpdateUtility()
             postsUpdateUtility.getPreviousDiscounts(oldestPostDate,excludeId: excludeId) {
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.discounts = postsUpdateUtility.fetchDiscounts()
                     self.tableView.reloadData()
                     self.activityIndicatorView.stopAnimating()
@@ -340,12 +340,12 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                    // self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.isLoading = false
                     self.LoadMoreActivityIndicator.stopAnimating()
-                    self.LoadMoreActivityIndicator.hidden = true
+                    self.LoadMoreActivityIndicator.isHidden = true
                     
                     if self.numOfDiscounts == self.discounts.count{
                         self.reachToTheEnd = true
-                        self.loadMorePostsLabel.hidden = true
-                        self.LoadMoreActivityIndicator.hidden = true
+                        self.loadMorePostsLabel.isHidden = true
+                        self.LoadMoreActivityIndicator.isHidden = true
                     }
                 })
             }
@@ -358,20 +358,20 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("discountCell", forIndexPath: indexPath) as! DiscountTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "discountCell", for: indexPath) as! DiscountTableViewCell
         
         // Configure the cell...
         print(discounts.count)
-        let discount  = discounts[indexPath.row]
+        let discount  = discounts[(indexPath as NSIndexPath).row]
         
         // cell.contentView.alpha = 0.5
         
         cell.titleLabel.text = discount.title
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        cell.dateLabel.text = "\(dateFormatter.stringFromDate(discount.date!).uppercaseString)" + " "
+        let dateFormatter = Foundation.DateFormatter()
+        dateFormatter.dateStyle = .medium
+        cell.dateLabel.text = "\(dateFormatter.string(from: discount.date! as Date).uppercased())" + " "
         
         
         
@@ -380,14 +380,14 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         if discount.featured_image_downloaded == true {
             let fileDownloader = FileDownloader()
             discount.featuredImage = fileDownloader.imageFromFile(discount.id! as Int, fileName: FEATURED_IMAGE_NAME)
-            discount.featuredImageState = .Downloaded
+            discount.featuredImageState = .downloaded
         } else {
             if discount.featured_image_url != nil {
-                if discount.featuredImageState == .Downloaded {
+                if discount.featuredImageState == .downloaded {
                     
                 }
-                if discount.featuredImageState == .New {
-                    if (!tableView.dragging && !tableView.decelerating){
+                if discount.featuredImageState == .new {
+                    if (!tableView.isDragging && !tableView.isDecelerating){
                         startOperationsForPhoto(discount, indexPath: indexPath)
                     }
                 }
@@ -406,48 +406,48 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         print ("discount cater is \(discount.catagories[0])")
         if discount.catagories.count != 0 {
-            cell.categoryLabel.hidden = false
-            cell.categoryBackground.hidden = false
+            cell.categoryLabel.isHidden = false
+            cell.categoryBackground.isHidden = false
             var categoryBackgroundFileName = ""
-            if discount.catagories[0] == .Shopping{
+            if discount.catagories[0] == .shopping{
                 
                 cell.categoryLabel.text = "购物"
                 categoryBackgroundFileName = "ShoppingTag"
-            }else if discount.catagories[0] == .Food {
+            }else if discount.catagories[0] == .food {
                 
                 cell.categoryLabel.text = "美食"
                 categoryBackgroundFileName = "FoodTag"
                 //print("yes")
-            } else if discount.catagories[0] == .Service {
+            } else if discount.catagories[0] == .service {
                 
                 cell.categoryLabel.text = "服务"
                 categoryBackgroundFileName = "ServiceTag"
-            }else if discount.catagories[0] == .Fashion{
+            }else if discount.catagories[0] == .fashion{
                 
                 cell.categoryLabel.text = "时尚"
                 categoryBackgroundFileName = "FashionTag"
                 
-            }else if discount.catagories[0] == .Entertainment{
+            }else if discount.catagories[0] == .entertainment{
                 cell.categoryLabel.text = "娱乐"
                 categoryBackgroundFileName = "EntertainmentTag"
             } else {
-                cell.categoryLabel.hidden = true
-                cell.categoryBackground.hidden = true
+                cell.categoryLabel.isHidden = true
+                cell.categoryBackground.isHidden = true
                 print("no")
             }
             //print(categoryBackgroundFileName)
             cell.categoryBackground.image = UIImage(named: categoryBackgroundFileName)
         } else {
-            cell.categoryLabel.hidden = true
-            cell.categoryBackground.hidden = true
+            cell.categoryLabel.isHidden = true
+            cell.categoryBackground.isHidden = true
         }
         
         return cell;
     }
     
-    func startOperationsForPhoto(discount:Discount,indexPath:NSIndexPath) {
+    func startOperationsForPhoto(_ discount:Discount,indexPath:IndexPath) {
         switch (discount.featuredImageState) {
-        case .New:
+        case .new:
             startDownloadFeaturedImageForPost (discount:discount,indexPath:indexPath)
         default:
             NSLog("Do nothing")
@@ -455,7 +455,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     }
     
     //using NSoperation to start download images
-    func startDownloadFeaturedImageForPost(discount discount:Discount,indexPath:NSIndexPath) {
+    func startDownloadFeaturedImageForPost(discount:Discount,indexPath:IndexPath) {
         if pendingOperations.downloadsInProgress[indexPath] != nil {
             return
         }
@@ -464,13 +464,13 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             let downloader = DiscountImageDownloader(discount: discount)
             
             downloader.completionBlock = {
-                if downloader.cancelled {
+                if downloader.isCancelled {
                     return
                 }
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
-                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                    discount.featuredImageState = .Downloaded
+                DispatchQueue.main.async(execute: {
+                    self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                    self.tableView.reloadRows(at: [indexPath], with: .fade)
+                    discount.featuredImageState = .downloaded
                 })
             }
             
@@ -493,7 +493,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             let postUpdateUtility = PostsUpdateUtility()
             postUpdateUtility.updateDiscounts {
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     print("Update table view")
                     self.discounts = postUpdateUtility.fetchDiscounts()
                     self.tableView.reloadData()
@@ -517,28 +517,28 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
     }
     
-    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         suspendAllOperations()
     }
     
-    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate{
             loadImageForOnScreenCells()
             resumeAllOperations()
         }
     }
     
-    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         loadImageForOnScreenCells()
         resumeAllOperations()
     }
     
     func suspendAllOperations(){
-        pendingOperations.downloadQueue.suspended = true
+        pendingOperations.downloadQueue.isSuspended = true
     }
     
     func resumeAllOperations(){
-        pendingOperations.downloadQueue.suspended = false
+        pendingOperations.downloadQueue.isSuspended = false
     }
     
     func loadImageForOnScreenCells(){
@@ -548,22 +548,22 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             
             var toBeCancelled = allPendingOperations
             let visiblePaths = Set(pathsArray )
-            toBeCancelled.subtractInPlace(visiblePaths)
+            toBeCancelled.subtract(visiblePaths)
             
             var toBeStarted = visiblePaths
-            toBeStarted.subtractInPlace(allPendingOperations)
+            toBeStarted.subtract(allPendingOperations)
             
             for indexPath in toBeCancelled{
                 if let pendingDownload = pendingOperations.downloadsInProgress[indexPath]{
                     pendingDownload.cancel()
                 }
-                pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
                 
             }
             
             for indexPath in toBeStarted{
-                let indexPath = indexPath as NSIndexPath
-                let recordToProcess = self.discounts[indexPath.row]
+                let indexPath = indexPath as IndexPath
+                let recordToProcess = self.discounts[(indexPath as NSIndexPath).row]
                 startOperationsForPhoto(recordToProcess, indexPath: indexPath)
             }
             
@@ -645,16 +645,16 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     //        })
     //    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "discountSegue" {
-            let postWebVeiwController = segue.destinationViewController as! PostWebViewController
+            let postWebVeiwController = segue.destination as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
-            postWebVeiwController.webRequestURLString = discounts[path.row].link
-            postWebVeiwController.navigationItem.setRightBarButtonItem(nil, animated: true)
+            postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
+            postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
         }
         
         if segue.identifier == "discountSearchResultSegue" {
-            let searchResultTableViewCtrl = segue.destinationViewController as! SearchTableViewController
+            let searchResultTableViewCtrl = segue.destination as! SearchTableViewController
             searchResultTableViewCtrl.searchText = self.searchBar.text
             searchResultTableViewCtrl.postType = .Discount
             
@@ -667,15 +667,15 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         self.updateFilterDiscounts(){
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
                 self.activityIndicatorView.stopAnimating()
                 self.activityIndicatorView.removeFromSuperview()
                 self.tableView.allowsSelection = true
                // self.self.activityIndicatorView.willMoveToSuperview(self.tableView)
-                self.tableView.scrollEnabled = true
-                self.loadMorePostsLabel.hidden = true
-                self.LoadMoreActivityIndicator.hidden = true
+                self.tableView.isScrollEnabled = true
+                self.loadMorePostsLabel.isHidden = true
+                self.LoadMoreActivityIndicator.isHidden = true
             })
         }
     }
@@ -711,7 +711,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     //
     //    }
     
-    func updateFilterDiscounts(completionHandler:() -> Void){
+    func updateFilterDiscounts(_ completionHandler:@escaping () -> Void){
         
         
         //        self.getPostsFromAPI(endURL) { (postsArray, success) in
@@ -763,7 +763,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         suspendAllOperations()
     }
     
