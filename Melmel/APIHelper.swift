@@ -101,7 +101,7 @@ class APIHelper {
         
         
         
-        session.dataTask(with: postUrl, completionHandler: { (data:Data?, response:URLResponse?, error: NSError?) -> Void in
+        session.dataTask(with: postUrl, completionHandler: { data, response, error in
             
             if let responseData = data {
                 let date = Date()
@@ -121,7 +121,7 @@ class APIHelper {
                     print("could not serialize!")
                 }
             }
-            } as! (Data?, URLResponse?, Error?) -> Void).resume()
+        }).resume()
         
         
     }
