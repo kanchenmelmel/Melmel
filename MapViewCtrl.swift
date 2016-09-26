@@ -166,8 +166,6 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var reuseId = ""
         
-        
-        
         if annotation.isKind(of: FBAnnotationCluster.self){
             reuseId = "Cluster"
             var clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
@@ -243,7 +241,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
                 for discount in self.discounts {
                     // Add Annotations
                     let annotation = self.createAnnotationObject(discount)
-                    self.mapView.addAnnotation(annotation as! MKAnnotation)
+                    self.mapView.addAnnotation(annotation as MKAnnotation)
                 }
             })
             

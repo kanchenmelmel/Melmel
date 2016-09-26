@@ -43,7 +43,6 @@ class APIHelper {
     
     
     func getPostsFromAPI (_ postsAcquired:@escaping (_ postsArray: NSArray?, _ success: Bool) -> Void ){
-        
         let session = URLSession.shared
         let postUrl:URL
         
@@ -59,7 +58,7 @@ class APIHelper {
         
         
         
-        session.dataTask(with: postUrl, completionHandler: { (data:Data?, response:URLResponse?, error: NSError?) -> Void in
+        session.dataTask(with: postUrl, completionHandler: { (data, response, error) in
             if let responseData = data {
                 let date = Date()
                 //NSUserDefaults.standardUserDefaults().setObject(date, forKey: self.postLastUpdateTimeKey)
@@ -79,7 +78,7 @@ class APIHelper {
                 }
                 
             }
-        } as! (Data?, URLResponse?, Error?) -> Void).resume()
+        }).resume()
         
         
     }
@@ -180,7 +179,7 @@ class APIHelper {
     }
     
     
-    func getPreviousPosts(_ postType:PostType, beforeDate:Date,excludeId:Int,completionHandler:@escaping (_ resultsArray:NSArray?, _ success:Bool) -> Void ){
+    func getPreviousPosts(_ postType: PostType, beforeDate: Date, excludeId: Int, completionHandler:@escaping (_ resultsArray:NSArray?, _ success:Bool) -> Void ) {
         var baseURIString:String!
         switch postType {
         case .Post:baseURIString = postUrlPathString
@@ -194,25 +193,30 @@ class APIHelper {
         
         let dateFormatter = DateFormatter()
         let beforeDateString = dateFormatter.formatDateToDateString(beforeDate)
-        let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
-        print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        
+        var url_string = "\(baseURIString!)?before=\(beforeDateString)&exclude=\(excludeId)"
+        url_string = url_string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        print(url_string)
+        let url = URL(string: url_string)
+        print(url)
         
         
-        session.dataTask(with: url!, completionHandler: { (data:Data?, response:URLResponse?, error:NSError?) in
+        session.dataTask(with: url!, completionHandler: { data, response, error in
             if let responseData = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
                     if let resultsArray = json as? NSArray{
-                        completionHandler(resultsArray:resultsArray,success:true)
+                        completionHandler(resultsArray,true)
                     }
                     else {
-                        completionHandler(resultsArray: nil, success: false)
+                        completionHandler(nil, false)
                     }
                 }catch{
-                    completionHandler(resultsArray: nil, success: false)
+                    completionHandler(nil, false)
                 }
             }
-        }) .resume()
+            
+        }).resume()
         
     }
     
@@ -226,7 +230,7 @@ class APIHelper {
         let url = buildURLComponent(postType, params: params)
         
         
-        session.dataTask(with: url.url!, completionHandler: { (data:Data?, response:URLResponse?, error: NSError?) -> Void in
+        session.dataTask(with: url.url!, completionHandler: { data, response, error in
             
             if let responseData = data {
                 //let date = NSDate()
@@ -245,7 +249,7 @@ class APIHelper {
                     print("could not serialize!")
                 }
             }
-            } as! (Data?, URLResponse?, Error?) -> Void).resume()
+        }).resume()
     }
     
     func postPostToAPI(_ postType:PostType,params:[(String,String)],completionHandler:@escaping ()->Void){
@@ -255,7 +259,7 @@ class APIHelper {
         request.httpMethod = HTTPMethod.Post.rawValue
         
         let session = URLSession.shared
-        session.dataTask(with: request, completionHandler: { (data, response, error) in
+        session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
             guard error == nil && data != nil
                 else {
                     print("error\(error)")

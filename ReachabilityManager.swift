@@ -24,7 +24,7 @@ class ReachabilityManager {
     
     init(){
         do {
-            reachability = try Reachability.reachabilityForInternetConnection()
+            reachability = Reachability()
         } catch {
             return
         }
@@ -33,22 +33,22 @@ class ReachabilityManager {
     }
     
     func isReachable() -> Bool {
-        return (reachability?.isReachable())!
+        return (reachability?.isReachable)!
     }
     
     func isReachableViaWiFi() -> Bool {
-        return (reachability?.isReachableViaWiFi())!
+        return (reachability?.isReachableViaWiFi)!
     }
     
     func isReachableViaWWAN() -> Bool {
-        return (reachability?.isReachableViaWWAN())!
+        return (reachability?.isReachableViaWWAN)!
     }
     
     func setupReachability(hostname:String?, useClosure:Bool) {
         do {
-            let reachability = try hostname == nil ? Reachability.reachabilityForInternetConnection() : Reachability(hostname: hostname!)
+            let reachability = hostname == nil ? Reachability() : Reachability(hostname: hostname!)
             self.reachability = reachability
-        } catch ReachabilityError.failedToCreateWithAddress(let address) {
+        } catch ReachabilityError.FailedToCreateWithAddress(let address) {
             print("Unable to create\nReachability with address:\n\(address)")
             return
         } catch {}
@@ -67,7 +67,7 @@ class ReachabilityManager {
     
     @objc func reachabilityChanged(_ note:Notification) {
         let reachability = note.object as! Reachability
-        if reachability.isReachable(){
+        if reachability.isReachable{
 //            reachableCallback()
         } else {
 //            unreachableCallback()

@@ -18,7 +18,7 @@ class CoreDataUtility {
     var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     func getEarliestDate(_ entityType:EntityType) -> Date?{
-        let request = NSFetchRequest()
+        let request = NSFetchRequest<NSFetchRequestResult>()
 //        var entityName = ""
 //        switch entityType {
 //        case .Post:entityName = "Post"
@@ -44,8 +44,8 @@ class CoreDataUtility {
             let fetchResults = try managedObjectContext.fetch(request)
             
             
-            if fetchResults[0].value(forKey: "earliestDate") != nil {
-                let earliestDate = fetchResults[0].value(forKey: "earliestDate") as! Date
+            if (fetchResults[0] as AnyObject).value(forKey: "earliestDate") != nil {
+                let earliestDate = (fetchResults[0] as AnyObject).value(forKey: "earliestDate") as! Date
                 return earliestDate
             }
             
@@ -57,21 +57,21 @@ class CoreDataUtility {
     }
     
     func checkIdExist(_ id:Int,entityType:EntityType) -> Bool {
-        let request = NSFetchRequest()
+        let request = NSFetchRequest<NSFetchRequestResult>()
         request.entity = NSEntityDescription.entity(forEntityName: entityType.rawValue, in: managedObjectContext)
         //request.resultType = .CountResultType
         
         // Set up predicate
         let predicate = NSPredicate(format: "id = %@", "\(id)")
         request.predicate = predicate
-
-        let count = managedObjectContext.count(for: request, error: nil)
-
         
-        if count != 0 {
-            print(true)
-            return true
-        }
+        do {
+            let count = try managedObjectContext.count(for: request)
+            if count != 0 {
+                print(true)
+                return true
+            }
+        } catch {}
         print(false)
         return false
         

@@ -16,10 +16,11 @@ protocol DiscountAnnotationViewDelegate{
 
 class DiscountAnnotationView: MKAnnotationView {
     var delegate:DiscountAnnotationViewDelegate!
-    
+    /*
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+ */
     init(annotation: MKAnnotation?, reuseIdentifier: String?, delegate:DiscountAnnotationViewDelegate?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.delegate = delegate

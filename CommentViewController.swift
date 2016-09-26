@@ -97,7 +97,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
             
         }
         
-        guard let nameText = nameInput.text , !nameInput.text!.isEmpty else{
+        guard let _ = nameInput.text , !nameInput.text!.isEmpty else{
             let alert = UIAlertController(title: "用户名字不能为空白", message: "请填写用户姓名",preferredStyle: UIAlertControllerStyle.alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
@@ -110,7 +110,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        guard let contentText = contentInput.text , (!contentInput.text!.isEmpty && contentInput.text != placeholder) else{
+        guard let _ = contentInput.text , (!contentInput.text!.isEmpty && contentInput.text != placeholder) else{
             let alert = UIAlertController(title: "评论内容不能为空白", message: "请填写评论内容",preferredStyle: UIAlertControllerStyle.alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
@@ -123,7 +123,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        guard let mobileText = mobileInput.text , !mobileInput.text!.isEmpty else{
+        guard let _ = mobileInput.text , !mobileInput.text!.isEmpty else{
             let alert = UIAlertController(title: "电话号码不能为空白", message: "请填写电话号码",preferredStyle: UIAlertControllerStyle.alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
@@ -165,8 +165,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         let request = NSMutableURLRequest(url: myURL!);
         request.httpMethod = "POST"
         
-        
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print("error=\(error)")
                 return
@@ -177,7 +176,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
                 print("response = \(response)")
             }
             
-            let responseString = NSString(data: data!, encoding: String.Encoding.utf8)
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("responseString = \(responseString)")
         }) 
         task.resume()
