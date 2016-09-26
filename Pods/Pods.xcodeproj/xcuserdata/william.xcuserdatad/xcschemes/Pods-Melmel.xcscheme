@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEC070E2FE1BF339F6C4F516D4F62724"
+               BlueprintIdentifier = "08804F9A46AE4B965D7679F096AD0A09"
                BuildableName = "Pods_Melmel.framework"
                BlueprintName = "Pods-Melmel"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEC070E2FE1BF339F6C4F516D4F62724"
+            BlueprintIdentifier = "08804F9A46AE4B965D7679F096AD0A09"
             BuildableName = "Pods_Melmel.framework"
             BlueprintName = "Pods-Melmel"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEC070E2FE1BF339F6C4F516D4F62724"
-            BuildableName = "Pods_Melmel.framework"
-            BlueprintName = "Pods-Melmel"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

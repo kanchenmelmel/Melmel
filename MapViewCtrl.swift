@@ -150,12 +150,15 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
     }
     
+    
+    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         OperationQueue().addOperation { 
             let mapBoundsWidth = Double(self.mapView.bounds.size.width)
             let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
             let scale:Double = mapBoundsWidth / mapRectWidth
             let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+            print(annotationArray)
             self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
         }
     }
@@ -165,7 +168,6 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     /*  Configure annotation view */
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var reuseId = ""
-        
         if annotation.isKind(of: FBAnnotationCluster.self){
             reuseId = "Cluster"
             var clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
@@ -192,7 +194,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             if discountAnnotation.discount!.catagories[0] == .fashion {
                 annotationViewImgFilename = AnnotationPinImg.Fashion.rawValue
             }
-            print(annotationViewImgFilename)
+            //print(annotationViewImgFilename)
             annotationView.image = UIImage(named: annotationViewImgFilename)
             
             //Right Callout Accessary View
