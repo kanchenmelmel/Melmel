@@ -553,7 +553,11 @@ class JSONParser {
                     managedObjectContextToBeInserted = nil
                 }
                 let discount = Discount(entity: discountDescription!, insertInto: managedObjectContextToBeInserted)
+<<<<<<< Updated upstream
                 
+=======
+                //discount
+>>>>>>> Stashed changes
                 //id
                 discount.id = post["id"] as! NSNumber?
                 

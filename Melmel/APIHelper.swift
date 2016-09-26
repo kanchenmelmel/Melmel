@@ -193,6 +193,7 @@ class APIHelper {
         
         let dateFormatter = DateFormatter()
         let beforeDateString = dateFormatter.formatDateToDateString(beforeDate)
+<<<<<<< Updated upstream
         
         var url_string = "\(baseURIString!)?before=\(beforeDateString)&exclude=\(excludeId)"
         url_string = url_string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -202,6 +203,12 @@ class APIHelper {
         
         
         session.dataTask(with: url!, completionHandler: { data, response, error in
+=======
+        let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        //print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        
+        session.dataTask(with: url!) { (data, response, error) in
+>>>>>>> Stashed changes
             if let responseData = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
@@ -215,8 +222,14 @@ class APIHelper {
                     completionHandler(nil, false)
                 }
             }
+<<<<<<< Updated upstream
             
         }).resume()
+=======
+        }.resume()
+        
+        
+>>>>>>> Stashed changes
         
     }
     
@@ -254,12 +267,19 @@ class APIHelper {
     
     func postPostToAPI(_ postType:PostType,params:[(String,String)],completionHandler:@escaping ()->Void){
         let url = buildURLComponent(.Comment, params: params)
-        let request = NSMutableURLRequest(url: url.url!)
+        //let request = NSMutableURLRequest(url: url.url!)
         
+        //request.httpMethod = HTTPMethod.Post.rawValue
+        var request = URLRequest(url: url.url!)
         request.httpMethod = HTTPMethod.Post.rawValue
         
+<<<<<<< Updated upstream
         let session = URLSession.shared
         session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+=======
+        
+        let session = URLSession.shared.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) -> Void in
+>>>>>>> Stashed changes
             guard error == nil && data != nil
                 else {
                     print("error\(error)")
@@ -270,8 +290,9 @@ class APIHelper {
                 print("response = \(response)")
             }
             completionHandler()
-        }) .resume()
+        })
         
+        session.resume()
         
         
     }
