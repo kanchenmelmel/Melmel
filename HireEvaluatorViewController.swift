@@ -23,7 +23,36 @@ class HireEvaluatorViewController: UIViewController {
         sendMessageButton.addTarget(self, action: #selector(self.sendMessageButtonPressed), for: .touchUpInside)
     }
     
+    func validate() -> Bool {
+        return self.nameTextField.text!.match("^.+$") &&
+            self.emailTextField.text!.match("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}") &&
+            self.mobileTextField.text!.match("^0[0-8]\\d{8}$") &&
+            self.wechatTextField.text!.match("^.+$") &&
+            self.selfIntroTextField.text!.match("^.+$")
+    }
+    
+    func showDialog(_ status: String) {
+        var alert: UIAlertController
+        if status == "success" {
+            alert = UIAlertController(title: "发送成功", message: "您的申请已收到", preferredStyle: .alert)
+        } else if status == "invalid" {
+            alert = UIAlertController(title: "发送失败", message: "您填写的信息有误", preferredStyle: .alert)
+        } else {
+            alert = UIAlertController(title: "发送失败", message: "网络错误", preferredStyle: .alert)
+        }
+        alert.addAction(UIAlertAction(title: "确认", style: UIAlertActionStyle.default) { _ in
+            print("done")
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func sendMessageButtonPressed() {
+        
+        if !validate() {
+            showDialog("invalid")
+            return
+        }
+        
         let name = self.nameTextField.text!
         let _email = self.emailTextField.text!
         let mobile = self.mobileTextField.text!
@@ -38,13 +67,7 @@ class HireEvaluatorViewController: UIViewController {
         )
         
         EmailEjector.eject(email: email) { _ in
-            let alert = UIAlertController(
-                title: "发送成功",
-                message: "您的申请已收到",
-                preferredStyle: UIAlertControllerStyle.alert
-            )
-            alert.addAction(UIAlertAction(title: "确认", style: UIAlertActionStyle.default) { _ in print("done") })
-            self.present(alert, animated: true, completion: nil)
+            self.showDialog("success")
         }
     }
 

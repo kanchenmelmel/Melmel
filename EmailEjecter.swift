@@ -9,6 +9,20 @@
 import Foundation
 import Alamofire
 
+extension String {
+    func match(_ pattern: NSRegularExpression) -> Bool {
+        return pattern.matches(in: self, options: [], range: NSMakeRange(0, self.characters.count)).count > 0
+    }
+    func match(_ pattern: String, options: NSRegularExpression.Options = []) -> Bool {
+        do {
+            return try self.match(NSRegularExpression(pattern: pattern, options: options))
+        } catch {
+            return false
+        }
+    }
+}
+
+
 struct Email {
     var from: String
     var to: String
