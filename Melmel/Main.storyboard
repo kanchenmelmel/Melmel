@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -161,17 +162,21 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="原创攻略" id="en5-hl-TBG">
-                        <barButtonItem key="rightBarButtonItem" image="showCommentsIcon" id="a65-3e-XZh">
-                            <connections>
-                                <segue destination="LiW-bF-1D1" kind="show" identifier="showcommentSegue" id="Fv4-wq-zxX"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="xGR-9s-WxI"/>
+                            <barButtonItem image="showCommentsIcon" id="a65-3e-XZh">
+                                <connections>
+                                    <segue destination="LiW-bF-1D1" kind="show" identifier="showcommentSegue" id="Fv4-wq-zxX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentButton" destination="a65-3e-XZh" id="h0q-QU-Sdz"/>
                         <outlet property="postWebView" destination="AkB-uA-MBK" id="VJf-Ma-i3X"/>
                         <outlet property="progressView" destination="Ir8-Kw-JHQ" id="aXx-RV-5fM"/>
+                        <outlet property="shareButtom" destination="xGR-9s-WxI" id="G8S-ke-7zy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2A-Gg-EXz" userLabel="First Responder" sceneMemberID="firstResponder"/>

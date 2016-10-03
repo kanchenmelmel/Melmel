@@ -45,7 +45,7 @@ class ImageDownloader:Operation {
         
         let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
         
-        if imageData?.count != 0 {
+        if imageData != nil && imageData?.count != 0 {
             let image = UIImage(data: imageData!)
             self.post.featuredImage = image
             
