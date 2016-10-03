@@ -222,7 +222,7 @@ class CategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         delegate!.UserDidFilterCategory(categories[(indexPath as NSIndexPath).row].category, FilteredBool: true)
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
         
         
     }

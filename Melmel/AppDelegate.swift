@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
         
         
+        
+        
         // Setup init screen
         
         self.window = UIWindow(frame: UIScreen.main.bounds)

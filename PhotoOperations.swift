@@ -43,7 +43,7 @@ class ImageDownloader:Operation {
         }
         
         
-        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEscapes(using: String.Encoding.utf8)!)!)
+        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
         
         if imageData?.count != 0 {
             let image = UIImage(data: imageData!)
@@ -131,7 +131,7 @@ class SearchImageDownloader:Operation {
             return
         }
         
-        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEscapes(using: String.Encoding.utf8)!)!)
+        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
         
         if self.isCancelled {
             return
@@ -168,7 +168,7 @@ class SearchDiscountImageDownloader:Operation {
             return
         }
         
-        let imageData = try? Data(contentsOf: URL(string:discount.featured_image_url!.addingPercentEscapes(using: String.Encoding.utf8)!)!)
+        let imageData = try? Data(contentsOf: URL(string:discount.featured_image_url!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
         
         
         

@@ -165,13 +165,9 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         var request = URLRequest(url: myURL!);
         request.httpMethod = "POST"
         
-<<<<<<< Updated upstream
+
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-=======
-        
-        
-        let task = URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
->>>>>>> Stashed changes
+
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print("error=\(error)")
                 return
@@ -184,8 +180,8 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
             
             let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("responseString = \(responseString)")
-        }
-        task.resume()
+        })
+            task.resume()
         
         self.navigationController!.popViewController(animated: true)
     }

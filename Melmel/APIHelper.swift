@@ -149,7 +149,7 @@ class APIHelper {
     }
     
     /* GetMediaById */
-    func getMediaById(_ mediaId:Int, mediaAcquired:(_ mediaDictionary:Dictionary<String,AnyObject>?,_ success:Bool) -> Void){
+    func getMediaById(_ mediaId:Int, mediaAcquired:(_ mediaDictionary:Dictionary<String,AnyObject>?,_ success:Bool) -> Void) {
         // Request featured media
         let mediaUrl = URL(string:mediaUrlPathString + "\(mediaId)/")!
         
@@ -158,6 +158,7 @@ class APIHelper {
         
         
         do{
+            
             let responseData = try NSURLConnection.sendSynchronousRequest(request, returning: nil)
             
             let featuredMediaData = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -193,22 +194,12 @@ class APIHelper {
         
         let dateFormatter = DateFormatter()
         let beforeDateString = dateFormatter.formatDateToDateString(beforeDate)
-<<<<<<< Updated upstream
-        
-        var url_string = "\(baseURIString!)?before=\(beforeDateString)&exclude=\(excludeId)"
-        url_string = url_string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        print(url_string)
-        let url = URL(string: url_string)
-        print(url)
-        
-        
-        session.dataTask(with: url!, completionHandler: { data, response, error in
-=======
+
         let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
         //print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
         
         session.dataTask(with: url!) { (data, response, error) in
->>>>>>> Stashed changes
+
             if let responseData = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
@@ -222,14 +213,9 @@ class APIHelper {
                     completionHandler(nil, false)
                 }
             }
-<<<<<<< Updated upstream
-            
-        }).resume()
-=======
+
         }.resume()
         
-        
->>>>>>> Stashed changes
         
     }
     
@@ -273,13 +259,8 @@ class APIHelper {
         var request = URLRequest(url: url.url!)
         request.httpMethod = HTTPMethod.Post.rawValue
         
-<<<<<<< Updated upstream
-        let session = URLSession.shared
-        session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
-=======
-        
-        let session = URLSession.shared.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) -> Void in
->>>>>>> Stashed changes
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil && data != nil
                 else {
                     print("error\(error)")
@@ -290,9 +271,7 @@ class APIHelper {
                 print("response = \(response)")
             }
             completionHandler()
-        })
-        
-        session.resume()
+        }.resume()
         
         
     }

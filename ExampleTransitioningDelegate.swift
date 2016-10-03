@@ -9,7 +9,7 @@
 import UIKit
 
 class ExampleTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController??, source: UIViewController) -> UIPresentationController? {
+    private func presentationController(forPresented presented: UIViewController, presenting: UIViewController??, source: UIViewController) -> UIPresentationController? {
         let presentationController = CategoryFilterPresentationCtrl(presentedViewController:presented, presenting:presenting!)
         
         return presentationController

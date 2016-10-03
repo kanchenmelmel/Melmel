@@ -77,7 +77,7 @@ class ShowCommentTableViewController: UITableViewController {
         cell.contentLabel.text = comment.content
         
         let gravatarURL = comment.avatar
-        let imageData = try? Data(contentsOf: URL(string:gravatarURL!.addingPercentEscapes(using: String.Encoding.utf8)!)!)
+        let imageData = try? Data(contentsOf: URL(string:gravatarURL!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
         self.featuredImage = UIImage(data: imageData!)
         cell.avatarImage.image = self.featuredImage
 

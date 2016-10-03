@@ -23,11 +23,8 @@ class ReachabilityManager {
 //    var unreachableCallback:() -> Void
     
     init(){
-        do {
-            reachability = Reachability()
-        } catch {
-            return
-        }
+        
+        reachability = Reachability()
         
        // NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: reachabilityChangedNotification, object: reachability)
     }
@@ -45,13 +42,9 @@ class ReachabilityManager {
     }
     
     func setupReachability(hostname:String?, useClosure:Bool) {
-        do {
-            let reachability = hostname == nil ? Reachability() : Reachability(hostname: hostname!)
-            self.reachability = reachability
-        } catch ReachabilityError.FailedToCreateWithAddress(let address) {
-            print("Unable to create\nReachability with address:\n\(address)")
-            return
-        } catch {}
+        
+        let reachability = hostname == nil ? Reachability() : Reachability(hostname: hostname!)
+        self.reachability = reachability
         
         if useClosure {
             reachability?.whenReachable = {(reachability) in
