@@ -1056,7 +1056,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 邮箱 Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywo-Is-Ctz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="邮箱 Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywo-Is-Ctz">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1109,10 +1109,10 @@
             </objects>
             <point key="canvasLocation" x="-1967.2" y="1704.1979010494754"/>
         </scene>
-        <!--招募测评员-->
+        <!--Hire Evaluator-->
         <scene sceneID="ZGd-Pi-mfN">
             <objects>
-                <viewController title="招募测评员" id="rAd-FO-sbA" sceneMemberID="viewController">
+                <viewController title="招募测评员" id="rAd-FO-sbA" userLabel="Hire Evaluator" customClass="HireEvaluatorViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qLN-zE-BhS"/>
                         <viewControllerLayoutGuide type="bottom" id="tZ4-Xt-81i"/>
@@ -1120,13 +1120,73 @@
                     <view key="view" contentMode="scaleToFill" id="Neq-LB-dAd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ccq-Nl-00m">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2G-RC-vML">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="微信" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dcE-lt-wIJ">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="自我介绍" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H7L-wV-Dui">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="PTo-XN-hlh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jai-fC-UaJ">
+                                <state key="normal" title="马上申请测评"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ay-4Q-WOr">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="H7L-wV-Dui" firstAttribute="top" secondItem="dcE-lt-wIJ" secondAttribute="bottom" constant="8" id="0yl-Go-6cT"/>
+                            <constraint firstItem="7ay-4Q-WOr" firstAttribute="top" secondItem="Ccq-Nl-00m" secondAttribute="bottom" constant="8" id="HkT-Bz-Emb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c2G-RC-vML" secondAttribute="trailing" id="MX4-TU-M7f"/>
+                            <constraint firstItem="c2G-RC-vML" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="NP3-Oq-HUh"/>
+                            <constraint firstItem="Jai-fC-UaJ" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="Oy1-A2-gG2"/>
+                            <constraint firstItem="Ccq-Nl-00m" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="Pea-5P-MxD"/>
+                            <constraint firstItem="H7L-wV-Dui" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="VJX-RM-Mlt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dcE-lt-wIJ" secondAttribute="trailing" id="Xf3-E3-Y99"/>
+                            <constraint firstItem="dcE-lt-wIJ" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="Y7b-Dw-lNr"/>
+                            <constraint firstItem="Ccq-Nl-00m" firstAttribute="trailing" secondItem="Neq-LB-dAd" secondAttribute="trailingMargin" id="Zjs-cT-yaL"/>
+                            <constraint firstItem="Jai-fC-UaJ" firstAttribute="top" secondItem="H7L-wV-Dui" secondAttribute="bottom" constant="8" id="dh3-Fe-BTL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H7L-wV-Dui" secondAttribute="trailing" id="dmy-Wa-rU6"/>
+                            <constraint firstItem="c2G-RC-vML" firstAttribute="top" secondItem="7ay-4Q-WOr" secondAttribute="bottom" constant="8" id="nd3-od-vIt"/>
+                            <constraint firstItem="7ay-4Q-WOr" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="pCl-jK-JQb"/>
+                            <constraint firstItem="dcE-lt-wIJ" firstAttribute="top" secondItem="c2G-RC-vML" secondAttribute="bottom" constant="8" id="pzC-jk-5zy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7ay-4Q-WOr" secondAttribute="trailing" id="qH5-6u-sn0"/>
+                            <constraint firstItem="Ccq-Nl-00m" firstAttribute="top" secondItem="qLN-zE-BhS" secondAttribute="bottom" constant="8" id="yxn-Cc-ok8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="招募测评员" id="b6q-0Q-HUe"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="7ay-4Q-WOr" id="I3Q-9h-0O4"/>
+                        <outlet property="mobileTextField" destination="c2G-RC-vML" id="ohS-ho-9oJ"/>
+                        <outlet property="nameTextField" destination="Ccq-Nl-00m" id="tNN-Vx-3h4"/>
+                        <outlet property="selfIntroTextField" destination="H7L-wV-Dui" id="Bes-0G-4NI"/>
+                        <outlet property="sendMessageButton" destination="Jai-fC-UaJ" id="NvO-8h-838"/>
+                        <outlet property="wechatTextField" destination="dcE-lt-wIJ" id="4va-L1-GaF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1s-Og-MPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1144" y="1785"/>
+            <point key="canvasLocation" x="-1144.8" y="1784.257871064468"/>
         </scene>
         <!--设置-->
         <scene sceneID="3yw-1D-Ja2">
@@ -1316,7 +1376,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FEs-0A-bpX"/>
-        <segue reference="ch7-PM-8P7"/>
+        <segue reference="5ST-g5-zK5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -333,7 +333,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
         
         self.clusteringManager.addAnnotations(annotations)
-        self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
+        //self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
     }
     
     func addDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController){

@@ -35,31 +35,28 @@ class EmailEjector {
         }
     }
     
-    private class func eject_email(type: BodyType, email: Email) -> (@escaping (DataResponse<Any>) -> Void) -> Void {
+    private class func eject_email(type: BodyType, email: Email, completionHandler: @escaping (DataResponse<Any>) -> Void) {
         let parameters = [
             "from": email.from,
             "to":  email.to,
             "subject": email.title,
-            "body": email.content
+            "body": email.content,
         ]
-        return { callback in
-            Alamofire.request(
-                "http://\(DOMAIN)/wp-content/plugins/mailgun-rest/html.php",
-                method: .post,
-                parameters: parameters,
-                encoding: JSONEncoding.default
-            ).responseJSON(completionHandler:  callback)
-            return
-        }
+        Alamofire.request(
+            "http://\(DOMAIN)/wp-content/plugins/mailgun-rest/html.php",
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.prettyPrinted
+        ).responseJSON(completionHandler: completionHandler)
         
     }
     
-    class func eject(email: Email) -> (@escaping (DataResponse<Any>) -> Void) -> Void {
-        return eject_email(type: .TEXT, email: email);
+    class func eject(email: Email, completionHandler: @escaping (DataResponse<Any>) -> Void) {
+        eject_email(type: .TEXT, email: email, completionHandler: completionHandler);
     }
     
-    class func ejectHTMLEmail(email: Email) -> (@escaping (DataResponse<Any>) -> Void) -> Void {
-        return eject_email(type: .HTML, email: email);
+    class func ejectHTMLEmail(email: Email, completionHandler: @escaping (DataResponse<Any>) -> Void) {
+        eject_email(type: .HTML, email: email, completionHandler: completionHandler);
     }
 }
 

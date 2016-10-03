@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   FBAnnotationClusteringSwift:
-    :commit: 4ec55b98fd644541edbfd65083d825321a6b580b
+    :commit: ce7e1c9b4e60f7f9cef38d8453736086dd85abf6
     :git: https://github.com/ribl/FBAnnotationClusteringSwift.git
   pop:
     :commit: b30efd828111e4dfd1651635c8586f859d1fd3c2
