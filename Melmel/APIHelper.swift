@@ -158,7 +158,7 @@ class APIHelper {
         
         
         do{
-            
+
             let responseData = try NSURLConnection.sendSynchronousRequest(request, returning: nil)
             
             let featuredMediaData = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)

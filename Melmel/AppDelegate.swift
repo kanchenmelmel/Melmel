@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set up location manager
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
+        //UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
         
         
         
