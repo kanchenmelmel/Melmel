@@ -195,7 +195,7 @@ class APIHelper {
         let dateFormatter = DateFormatter()
         let beforeDateString = dateFormatter.formatDateToDateString(beforeDate)
 
-        let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
         //print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
         
         session.dataTask(with: url!) { (data, response, error) in

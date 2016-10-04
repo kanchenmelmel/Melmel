@@ -15,7 +15,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var commentButton: UIBarButtonItem!
-    @IBOutlet weak var shareButtom: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var webRequestURLString:String?
     var postid:String?
@@ -31,8 +31,10 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         let request = NSMutableURLRequest(url: url!, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
         postWebView.loadRequest(request as URLRequest)
         postWebView.delegate = self
-        shareButtom.target = self
-        shareButtom.action = #selector(self.presentSocialShareActivityView)
+        if shareButton != nil {
+            shareButton.target = self
+            shareButton.action = #selector(self.presentSocialShareActivityView)
+        }
     }
     
     func presentSocialShareActivityView() {

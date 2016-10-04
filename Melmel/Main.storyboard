@@ -168,7 +168,7 @@
                         <outlet property="commentButton" destination="a65-3e-XZh" id="h0q-QU-Sdz"/>
                         <outlet property="postWebView" destination="AkB-uA-MBK" id="VJf-Ma-i3X"/>
                         <outlet property="progressView" destination="Ir8-Kw-JHQ" id="aXx-RV-5fM"/>
-                        <outlet property="shareButtom" destination="xGR-9s-WxI" id="G8S-ke-7zy"/>
+                        <outlet property="shareButton" destination="xGR-9s-WxI" id="NTB-Cw-rbE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2A-Gg-EXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1331,7 +1331,7 @@
         <image name="writeCommentIcon" width="21" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vYJ-nB-JmP"/>
+        <segue reference="ch7-PM-8P7"/>
         <segue reference="jAn-mX-nFS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
