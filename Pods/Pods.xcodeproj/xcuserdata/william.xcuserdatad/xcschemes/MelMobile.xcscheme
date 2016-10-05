@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '62C7C9A9FC072573EE8E5F3ECAE4B466'
-               BlueprintName = 'pop'
+               BlueprintIdentifier = '89C1D030F9706361C5A8A57037A648E1'
+               BlueprintName = 'MelMobile'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'pop.framework'>
+               BuildableName = 'MelMobile.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -9,6 +9,7 @@ target 'Melmel' do
   pod 'FBAnnotationClusteringSwift', :git => 'https://github.com/ribl/FBAnnotationClusteringSwift.git'
   pod 'pop', :git => 'https://github.com/facebook/pop.git'
   pod 'Alamofire', '~> 4.0'
+  pod 'MelMobile', :git => 'https://github.com/wenyuzhao/MelMobile.git'
 
   target 'MelmelTests' do
     inherit! :search_paths

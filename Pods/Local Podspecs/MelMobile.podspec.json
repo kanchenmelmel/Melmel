@@ -1,0 +1,27 @@
+{
+  "name": "MelMobile",
+  "version": "0.1.1",
+  "summary": "A short description of MelMobile.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/wenyuzhao/MelMobile",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "william": "wenyuzhaox@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/wenyuzhao/MelMobile.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "MelMobile/Classes/**/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.0"
+    ]
+  }
+}

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
 		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
-		3D4BC7231D98E793001F3A75 /* EmailEjecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BC7221D98E793001F3A75 /* EmailEjecter.swift */; };
 		3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */; };
 		3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */; };
 		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
@@ -105,7 +104,6 @@
 /* Begin PBXFileReference section */
 		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3D4BC7221D98E793001F3A75 /* EmailEjecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailEjecter.swift; sourceTree = "<group>"; };
 		3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireEvaluatorViewController.swift; sourceTree = "<group>"; };
 		4D040B381D5757EA0011BF4A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 		967E73C11CD72D0100A63BFB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				3D4BC7221D98E793001F3A75 /* EmailEjecter.swift */,
 				96B1621D1D63DD3A00AA4849 /* Animation Engine */,
 				967E73C21CD72D1800A63BFB /* APIHelper.swift */,
 				966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */,
@@ -760,7 +757,6 @@
 				3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
-				3D4BC7231D98E793001F3A75 /* EmailEjecter.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
 				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
 				963C6DB81D6B77B300B31B45 /* DiscountCategoryEntity.swift in Sources */,

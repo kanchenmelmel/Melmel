@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MelMobile.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Melmel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08804F9A46AE4B965D7679F096AD0A09</key>
+		<key>3E1C6AF8615F55E2FB4F17DFA1C0CE64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,12 +57,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>62C7C9A9FC072573EE8E5F3ECAE4B466</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D37B97A2DA07922BCF2E8C06AA6811BF</key>
+		<key>89C1D030F9706361C5A8A57037A648E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,0 +1,6 @@
+framework module MelMobile {
+  umbrella header "MelMobile-umbrella.h"
+
+  export *
+  module * { export * }
+}

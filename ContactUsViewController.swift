@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MelMobile
 
 class ContactUsViewController: UIViewController {
 
@@ -59,7 +60,7 @@ class ContactUsViewController: UIViewController {
             from: "Melmel iOS <contact-us-ios.noreply@melmel.com.au>",
             to: "Melmel Consulting <wenyuzhaox@gmail.com>", // TODO: Replace email address with: pte@ail.vic.edu.au
             title: "Melmel用户留言 (Melmel iOS客户端<联系我们>)",
-            content: "姓名：\(name)\n邮箱：\(_email)\n手机：\(mobile)\n\n\n反馈：\n\(content)"
+            content: "姓名：\(name)\n邮箱：\(_email)\n手机：\(mobile)\n\n反馈：\n\n\(content)"
         )
         
         EmailEjector.eject(email: email) { _ in

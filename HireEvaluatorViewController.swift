@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MelMobile
 
 class HireEvaluatorViewController: UIViewController {
 
@@ -63,7 +64,7 @@ class HireEvaluatorViewController: UIViewController {
             from: "Melmel iOS <hire-evaluator-ios.noreply@melmel.com.au>",
             to: "Melmel Consulting <wenyuzhaox@gmail.com>",
             title: "Melmel测评员申请 (Melmel iOS客户端<招募测评员>)",
-            content: "姓名：\(name)\n邮箱：\(_email)\n手机：\(mobile)\n微信：\(wechat)\n\n\n自我介绍：\n\(content)"
+            content: "姓名：\(name)\n邮箱：\(_email)\n手机：\(mobile)\n微信：\(wechat)\n\n自我介绍：\n\n\(content)"
         )
         
         EmailEjector.eject(email: email) { _ in
