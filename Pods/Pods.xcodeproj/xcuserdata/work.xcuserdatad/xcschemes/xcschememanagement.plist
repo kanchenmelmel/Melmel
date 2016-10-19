@@ -16,6 +16,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>MelMobile.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Pods-Melmel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,6 +57,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3E1C6AF8615F55E2FB4F17DFA1C0CE64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>423C10F04A172BB11C7A3702F8F09B90</key>
 		<dict>
 			<key>primary</key>
@@ -62,7 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>62C7C9A9FC072573EE8E5F3ECAE4B466</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89C1D030F9706361C5A8A57037A648E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
