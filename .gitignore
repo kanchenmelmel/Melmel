@@ -1,2 +1,4 @@
 
 Melmel/FileDownloader.swift
+*.xcuserstate
+*.DS_Store

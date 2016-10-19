@@ -11,10 +11,11 @@ import UIKit
 class PostWebViewController: UIViewController,UIWebViewDelegate {
     
     var loading = false
-    var timer:NSTimer? = nil
+    var timer:Timer? = nil
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var commentButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var webRequestURLString:String?
     var postid:String?
@@ -26,20 +27,34 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         // Do view setup here.
         
         progressView.progress  = 0
-        let url = NSURL(string:webRequestURLString!)
-        let request = NSMutableURLRequest(URL: url!, cachePolicy: .ReturnCacheDataElseLoad, timeoutInterval: 10.0)
-        postWebView.loadRequest(request)
+        let url = URL(string:webRequestURLString!)
+        let request = NSMutableURLRequest(url: url!, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
+        postWebView.loadRequest(request as URLRequest)
         postWebView.delegate = self
+        if shareButton != nil {
+            shareButton.target = self
+            shareButton.action = #selector(self.presentSocialShareActivityView)
+        }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        navigationController?.navigationBarHidden = false
+    func presentSocialShareActivityView() {
+        let url = webRequestURLString!
+        if let nsurl = NSURL(string: url) {
+            let activityVC = UIActivityViewController(activityItems: [url, nsurl], applicationActivities: nil)
+            //activityVC.popoverPresentationController?.sourceView = sender
+            
+            present(activityVC, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showcommentSegue" {
-            let DC = segue.destinationViewController as! ShowCommentTableViewController
+            let DC = segue.destination as! ShowCommentTableViewController
             
             DC.postid = self.postid!
             
@@ -49,14 +64,14 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     
     
     // Web View Start Load page
-    func webViewDidStartLoad(webView: UIWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         progressView.progress = 0
         loading = true
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01667, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01667, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
     }
     
     // Web View Finish Loading Page
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         loading = false
     }
     
@@ -71,7 +86,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
             }
         }
         else {
-            progressView.hidden = true
+            progressView.isHidden = true
             timer?.invalidate()
         }
     }

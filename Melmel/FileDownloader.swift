@@ -10,58 +10,58 @@ import UIKit
 
 //this class uses a image url string and then downloads the image of the url and returns an image in completionHandler
 class FileDownloader {
-    func downloadFeaturedImageForPostFromUrlAndSave(imageUrlString:String, postId:Int, completionHandler:(image:UIImage) -> Void){
-        let session = NSURLSession.sharedSession()
+    func downloadFeaturedImageForPostFromUrlAndSave(_ imageUrlString:String, postId:Int, completionHandler:@escaping (_ image:UIImage) -> Void){
+        let session = URLSession.shared
         
-        let URL = NSURL(string: imageUrlString)!
-        let request = NSURLRequest(URL: URL, cachePolicy: .ReturnCacheDataElseLoad, timeoutInterval: 10)
+        let URL = Foundation.URL(string: imageUrlString)!
+        let request = URLRequest(url: URL, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
         
-        session.dataTaskWithRequest(request) { (data:NSData?, response:NSURLResponse?, error:NSError?) in
+        session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:NSError?) in
             if data != nil {
                 let image = UIImage(data: data!)
                 
                 self.saveImageFile(image!, postId: postId, fileName: "featured_image.jpg")
                 
                 
-                completionHandler(image: image!)
+                completionHandler(image!)
             }
-        }.resume()
+        } as! (Data?, URLResponse?, Error?) -> Void) .resume()
     }
     
-    func saveImageFile(image:UIImage, postId:Int,fileName:String) {
+    func saveImageFile(_ image:UIImage, postId:Int,fileName:String) {
         let imgData = UIImageJPEGRepresentation(image, 1.0)
         
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         
         
         
-        let documentDirectory = try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-        let postDirectoryLocation = documentDirectory.URLByAppendingPathComponent("posts")
+        let documentDirectory = try! FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let postDirectoryLocation = documentDirectory.appendingPathComponent("posts")
         // Create post Directory
         do {
-            try fileManager.createDirectoryAtURL(postDirectoryLocation, withIntermediateDirectories: true, attributes: nil)
+            try fileManager.createDirectory(at: postDirectoryLocation, withIntermediateDirectories: true, attributes: nil)
         } catch {
             
         }
         
-        let imageLocation = postDirectoryLocation.URLByAppendingPathComponent("\(postId)")
+        let imageLocation = postDirectoryLocation.appendingPathComponent("\(postId)")
         // Create image Directory
         do {
-            try fileManager.createDirectoryAtURL(imageLocation, withIntermediateDirectories: true, attributes: nil)
+            try fileManager.createDirectory(at: imageLocation, withIntermediateDirectories: true, attributes: nil)
         }catch{}//
         
-        let imageURL = imageLocation.URLByAppendingPathComponent(fileName)
-        imgData!.writeToFile(imageURL.path!, atomically:true)//Write image to disk
+        let imageURL = imageLocation.appendingPathComponent(fileName)
+        try? imgData!.write(to: URL(fileURLWithPath: imageURL.path), options: [.atomic])//Write image to disk
     }
     
     
-    func imageFromFile(postId:Int,fileName:String) -> UIImage{
-        let documentDirectory = try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-        let postDirectoryLocation = documentDirectory.URLByAppendingPathComponent("posts")
+    func imageFromFile(_ postId:Int,fileName:String) -> UIImage{
+        let documentDirectory = try! FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let postDirectoryLocation = documentDirectory.appendingPathComponent("posts")
         
-        let imageLocation = postDirectoryLocation.URLByAppendingPathComponent("\(postId)").URLByAppendingPathComponent("\(fileName)")
+        let imageLocation = postDirectoryLocation.appendingPathComponent("\(postId)").appendingPathComponent("\(fileName)")
         
-        let image = UIImage(contentsOfFile: imageLocation.path!)
+        let image = UIImage(contentsOfFile: imageLocation.path)
         return image!
     }
 }

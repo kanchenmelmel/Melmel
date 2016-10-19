@@ -21,7 +21,7 @@ class SearchTableViewController: UITableViewController {
     var posts:[Post] = []
     let pendingOperations = PendingOperations()
     
-    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     
     // var finalURL = endpointURL + searchText!
@@ -35,7 +35,7 @@ class SearchTableViewController: UITableViewController {
         } else {
             navBarTitle = "优惠搜索"
         }
-        let textAttributes  = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        let textAttributes  = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.navigationItem.title = navBarTitle
         
@@ -47,31 +47,31 @@ class SearchTableViewController: UITableViewController {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         let postUpdateUtility = PostsUpdateUtility()
         
-        let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+        let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
         
         self.tableView.addSubview(activityIndicatorView)
         
         if postType == .Discount {
             postUpdateUtility.searchDiscountByKeyWords(searchText!, completionHandler: { (discounts) in
                 self.discounts = discounts
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                     activityIndicatorView.stopAnimating()
-                    activityIndicatorView.willMoveToSuperview(self.tableView)
+                    activityIndicatorView.willMove(toSuperview: self.tableView)
                     }
                 )
             })
         } else {
             postUpdateUtility.searchPostsByKeyWords(searchText!, completionHandler: { (posts) in
                 self.posts = posts
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                     activityIndicatorView.stopAnimating()
-                    activityIndicatorView.willMoveToSuperview(self.tableView)
+                    activityIndicatorView.willMove(toSuperview: self.tableView)
                 })
             })
         }
@@ -107,12 +107,12 @@ class SearchTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if postType == .Post{
             return posts.count
@@ -121,21 +121,21 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if postType == .Discount {
-            let cell = tableView.dequeueReusableCellWithIdentifier("searchTableViewCell", forIndexPath: indexPath) as! SearchTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "searchTableViewCell", for: indexPath) as! SearchTableViewCell
             
             // Configure the cell...
             
-            let discount = self.discounts[indexPath.row]
+            let discount = self.discounts[(indexPath as NSIndexPath).row]
             cell.titleLabel.text = discount.title!
             //    cell.titleLabel.text = "testing"
             
             
             
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = .MediumStyle
-            cell.dateLabel.text = "\(dateFormatter.stringFromDate(discount.date!).uppercaseString)" + " "
+            let dateFormatter = Foundation.DateFormatter()
+            dateFormatter.dateStyle = .medium
+            cell.dateLabel.text = "\(dateFormatter.string(from: discount.date! as Date).uppercased())" + " "
             
             //            if entertianmentTypes.contains(catagoryId){
             //                return DiscountCatagory.Entertainment
@@ -155,19 +155,19 @@ class SearchTableViewController: UITableViewController {
             var categoryBackgroundFileName = ""
             print ("discount cater is \(discount.catagories[0])")
             switch discount.catagories[0] {
-            case .Entertainment:
+            case .entertainment:
                 cell.typeLabel.text = "娱乐"
                 categoryBackgroundFileName = "EntertainmentTag"
-            case .Fashion:
+            case .fashion:
                 cell.typeLabel.text = "时尚"
                 categoryBackgroundFileName = "FashionTag"
-            case .Service:
+            case .service:
                 cell.typeLabel.text = "服务"
                 categoryBackgroundFileName = "ServiceTag"
-            case .Food:
+            case .food:
                 cell.typeLabel.text = "美食"
                 categoryBackgroundFileName = "FoodTag"
-            case .Shopping:
+            case .shopping:
                 cell.typeLabel.text = "购物"
                 categoryBackgroundFileName = "ShoppingTag"
             default:
@@ -182,11 +182,11 @@ class SearchTableViewController: UITableViewController {
             
             
             if discount.featured_image_url != nil {
-                if discount.featuredImageState == .Downloaded {
+                if discount.featuredImageState == .downloaded {
                     
                 }
-                if discount.featuredImageState == .New {
-                    if (!tableView.dragging && !tableView.decelerating){
+                if discount.featuredImageState == .new {
+                    if (!tableView.isDragging && !tableView.isDecelerating){
                         startOperationsForPhoto(discount: discount, indexPath: indexPath)
                     }
                 }
@@ -196,9 +196,9 @@ class SearchTableViewController: UITableViewController {
             
             return cell
         }else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! SearchPostCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SearchPostCell
             
-            let  post = self.posts[indexPath.row]
+            let  post = self.posts[(indexPath as NSIndexPath).row]
             
             
             
@@ -206,17 +206,17 @@ class SearchTableViewController: UITableViewController {
             
             
             
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = .MediumStyle
-            cell.dateLabel.text = "\(dateFormatter.stringFromDate(post.date!).uppercaseString)" + " "
+            let dateFormatter = Foundation.DateFormatter()
+            dateFormatter.dateStyle = .medium
+            cell.dateLabel.text = "\(dateFormatter.string(from: post.date! as Date).uppercased())" + " "
             
             if post.featured_image_url != nil {
-                if post.featuredImageState == .Downloaded {
+                if post.featuredImageState == .downloaded {
                     // Wrong way to do
                     //cell.featuredImage.image = post.featuredImage
                 }
-                if post.featuredImageState == .New {
-                    if (!tableView.dragging && !tableView.decelerating){
+                if post.featuredImageState == .new {
+                    if (!tableView.isDragging && !tableView.isDecelerating){
                         startOperationsForPhoto(post: post, indexPath: indexPath)
                     }
                 }
@@ -230,20 +230,20 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "postWebSegue" {
-            let postWebVeiwController = segue.destinationViewController as! PostWebViewController
+            let postWebVeiwController = segue.destination as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
-            postWebVeiwController.webRequestURLString = posts[path.row].link
+            postWebVeiwController.webRequestURLString = posts[(path as NSIndexPath).row].link
             postWebVeiwController.navigationItem.title = "原创攻略"
-            postWebVeiwController.postid = String(posts[path.row].id!)
+            postWebVeiwController.postid = String(describing: posts[(path as NSIndexPath).row].id!)
         }
         if segue.identifier == "disocuntWebSegue" {
-            let postWebVeiwController = segue.destinationViewController as! PostWebViewController
+            let postWebVeiwController = segue.destination as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
-            postWebVeiwController.webRequestURLString = discounts[path.row].link
+            postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
-            postWebVeiwController.navigationItem.setRightBarButtonItem(nil, animated: true)
+            postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
         }
     }
     
@@ -252,9 +252,9 @@ class SearchTableViewController: UITableViewController {
     /*
      Image Downloader operation functions for Post
      */
-    func startOperationsForPhoto(post post:Post,indexPath:NSIndexPath) {
+    func startOperationsForPhoto(post:Post,indexPath:IndexPath) {
         switch (post.featuredImageState) {
-        case .New:
+        case .new:
             startDownloadFeaturedImageForPost (post:post,indexPath:indexPath)
         default:
             NSLog("Do nothing")
@@ -265,7 +265,7 @@ class SearchTableViewController: UITableViewController {
     /*
      Image Downloader operation functions for Post
      */
-    func startDownloadFeaturedImageForPost(post post:Post,indexPath:NSIndexPath) {
+    func startDownloadFeaturedImageForPost(post:Post,indexPath:IndexPath) {
         if pendingOperations.downloadsInProgress[indexPath] != nil {
             return
         }
@@ -275,13 +275,13 @@ class SearchTableViewController: UITableViewController {
         
         
         downloader.completionBlock = {
-            if downloader.cancelled {
+            if downloader.isCancelled {
                 return
             }
-            dispatch_async(dispatch_get_main_queue(), {
-                self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                post.featuredImageState = .Downloaded
+            DispatchQueue.main.async(execute: {
+                self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                post.featuredImageState = .downloaded
             })
         }
         
@@ -294,16 +294,16 @@ class SearchTableViewController: UITableViewController {
      Image Downloader operation functions for Discount
      */
     
-    func startOperationsForPhoto(discount discount:Discount,indexPath:NSIndexPath) {
+    func startOperationsForPhoto(discount:Discount,indexPath:IndexPath) {
         switch (discount.featuredImageState) {
-        case .New:
+        case .new:
             startDownloadFeaturedImageForPost (discount:discount,indexPath:indexPath)
         default:
             NSLog("Do nothing")
         }
     }
     
-    func startDownloadFeaturedImageForPost(discount discount:Discount,indexPath:NSIndexPath) {
+    func startDownloadFeaturedImageForPost(discount:Discount,indexPath:IndexPath) {
         if pendingOperations.downloadsInProgress[indexPath] != nil {
             return
         }
@@ -311,13 +311,13 @@ class SearchTableViewController: UITableViewController {
         let downloader = SearchDiscountImageDownloader(discount: discount)
         
         downloader.completionBlock = {
-            if downloader.cancelled {
+            if downloader.isCancelled {
                 return
             }
-            dispatch_async(dispatch_get_main_queue(), {
-                self.pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                discount.featuredImageState = .Downloaded
+            DispatchQueue.main.async(execute: {
+                self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                discount.featuredImageState = .downloaded
             })
         }
         
@@ -326,10 +326,10 @@ class SearchTableViewController: UITableViewController {
     }
     
     func suspendAllOperations(){
-        pendingOperations.downloadQueue.suspended = true
+        pendingOperations.downloadQueue.isSuspended = true
     }
     func resumeAllOperations(){
-        pendingOperations.downloadQueue.suspended = false
+        pendingOperations.downloadQueue.isSuspended = false
     }
     
     func loadImageForOnScreenCells(){
@@ -339,28 +339,28 @@ class SearchTableViewController: UITableViewController {
             
             var toBeCancelled = allPendingOperations
             let visiblePaths = Set(pathsArray )
-            toBeCancelled.subtractInPlace(visiblePaths)
+            toBeCancelled.subtract(visiblePaths)
             
             var toBeStarted = visiblePaths
-            toBeStarted.subtractInPlace(allPendingOperations)
+            toBeStarted.subtract(allPendingOperations)
             
             for indexPath in toBeCancelled{
                 if let pendingDownload = pendingOperations.downloadsInProgress[indexPath]{
                     pendingDownload.cancel()
                 }
-                pendingOperations.downloadsInProgress.removeValueForKey(indexPath)
+                pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
                 
             }
             
             for indexPath in toBeStarted{
                 
                 if postType == .Discount{
-                    let indexPath = indexPath as NSIndexPath
-                    let recordToProcess = self.discounts[indexPath.row]
+                    let indexPath = indexPath as IndexPath
+                    let recordToProcess = self.discounts[(indexPath as NSIndexPath).row]
                     startOperationsForPhoto(discount: recordToProcess, indexPath: indexPath)
                 } else {
-                    let indexPath = indexPath as NSIndexPath
-                    let recordToProcess = self.posts[indexPath.row]
+                    let indexPath = indexPath as IndexPath
+                    let recordToProcess = self.posts[(indexPath as NSIndexPath).row]
                     startOperationsForPhoto(post: recordToProcess, indexPath: indexPath)
                 }
                 
@@ -369,18 +369,18 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
-    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         suspendAllOperations()
     }
     
-    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate{
             loadImageForOnScreenCells()
             resumeAllOperations()
         }
     }
     
-    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         loadImageForOnScreenCells()
         resumeAllOperations()
     }

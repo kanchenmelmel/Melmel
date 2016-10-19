@@ -32,15 +32,15 @@ class FilterViewController: UIViewController {
     
     var delegate : FilterViewControllerDelegate?
     
-    @IBAction func didAll(sender: AnyObject) {
+    @IBAction func didAll(_ sender: AnyObject) {
         
         delegate?.didFindAll()
         delegate?.ShouldCloseSubview()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         //self.view.removeFromSuperview()
         
     }
-    @IBAction func didYuleButtonPress(sender: AnyObject) {
+    @IBAction func didYuleButtonPress(_ sender: AnyObject) {
         //  self.view.removeFromSuperview()
         
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -52,49 +52,49 @@ class FilterViewController: UIViewController {
         //delegate.
         //self.view.removeFromSuperview()
         delegate?.didEntertainment()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
      //   self.navigationC ontroller?.presentViewController(catVC!, animated: true, completion: nil)
 
     }
     
-    @IBAction func didShishangButtonPress(sender: AnyObject) {
+    @IBAction func didShishangButtonPress(_ sender: AnyObject) {
       
         catVC!.catID = 2
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
         //self.view.removeFromSuperview()
         delegate?.didFashion()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction func didFuwuButtonPress(sender: AnyObject) {
+    @IBAction func didFuwuButtonPress(_ sender: AnyObject) {
         
         catVC!.catID = 3
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
         delegate?.didService()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction func didMeishiButtonPress(sender: AnyObject) {
+    @IBAction func didMeishiButtonPress(_ sender: AnyObject) {
 
         catVC!.catID = 4
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
         delegate?.didFood()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     
-    @IBAction func didGouwuButtonPress(sender: AnyObject) {
+    @IBAction func didGouwuButtonPress(_ sender: AnyObject) {
         catVC!.catID = 5
         self.navigationController?.pushViewController(catVC!, animated: true)
         delegate?.ShouldCloseSubview()
         delegate?.didShopping()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         
     }
     
@@ -120,8 +120,8 @@ class FilterViewController: UIViewController {
     func setupView(){
         self.view.layer.shadowOpacity = 1.0
         self.view.layer.shadowRadius = 13.0
-        self.view.layer.shadowOffset = CGSizeMake(0.0, -2.0)
-        self.view.layer.shadowColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0).CGColor
+        self.view.layer.shadowOffset = CGSize(width: 0.0, height: -2.0)
+        self.view.layer.shadowColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0).cgColor
         //self.view.backgroundColor = UIColor(colorLiteralRed: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         // self.detailButton.backgroundColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)
     }

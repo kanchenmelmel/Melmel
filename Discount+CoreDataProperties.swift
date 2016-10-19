@@ -15,7 +15,7 @@ import CoreData
 extension Discount {
 
     @NSManaged var address: String?
-    @NSManaged var date: NSDate?
+    @NSManaged var date: Date?
     @NSManaged var discountTag: String?
     @NSManaged var featured_image_downloaded: NSNumber?
     @NSManaged var featured_image_url: String?

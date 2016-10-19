@@ -13,18 +13,18 @@ extension String {
     func isValidMobile() -> Bool{
         
         
-        let regex = try! NSRegularExpression(pattern: "^\\({0,1}((0|\\+61)(2|4|3|7|8)){0,1}\\){0,1}(\\ |-){0,1}[0-9]{2}(\\ |-){0,1}[0-9]{2}(\\ |-){0,1}[0-9]{1}(\\ |-){0,1}[0-9]{3}$", options: .CaseInsensitive)
+        let regex = try! NSRegularExpression(pattern: "^\\({0,1}((0|\\+61)(2|4|3|7|8)){0,1}\\){0,1}(\\ |-){0,1}[0-9]{2}(\\ |-){0,1}[0-9]{2}(\\ |-){0,1}[0-9]{1}(\\ |-){0,1}[0-9]{3}$", options: .caseInsensitive)
           //  return regex.firstMatchInString(self, options: nil, range: NSMakeRange(0, count(self))) != nil
-            return regex.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
+            return regex.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
     }
     
     //regex for email
     func isValidEmail() -> Bool{
         
         
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .CaseInsensitive)
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
         //  return regex.firstMatchInString(self, options: nil, range: NSMakeRange(0, count(self))) != nil
-        return regex.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
+        return regex.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.characters.count)) > 0
     }
 }
 
@@ -63,15 +63,15 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
-        navigationController?.navigationBarHidden = false
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = false
         
-        if let userDefaultsMobile = NSUserDefaults.standardUserDefaults().objectForKey("mobileInput") as? String{
+        if let userDefaultsMobile = UserDefaults.standard.object(forKey: "mobileInput") as? String{
             self.mobileInput.text = userDefaultsMobile
         }
         
-        if let userDefaultsName = NSUserDefaults.standardUserDefaults().objectForKey("nameInput") as? String{
+        if let userDefaultsName = UserDefaults.standard.object(forKey: "nameInput") as? String{
             self.nameInput.text = userDefaultsName
         }
     }
@@ -81,58 +81,58 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
 //        return string.rangeOfCharacterFromSet(invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
 //    }
     
-    @IBAction func submitComment(sender: AnyObject) {
+    @IBAction func submitComment(_ sender: AnyObject) {
         
         if !(mobileInput.text?.isValidEmail())!{
-            let alert = UIAlertController(title: "邮箱地址格式不正确", message: "请填写正确的邮箱地址",preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "邮箱地址格式不正确", message: "请填写正确的邮箱地址",preferredStyle: UIAlertControllerStyle.alert)
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                 print("OK")
                 
             }
             
             alert.addAction(okAction)
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             return
             
         }
         
-        guard let nameText = nameInput.text where !nameInput.text!.isEmpty else{
-            let alert = UIAlertController(title: "用户名字不能为空白", message: "请填写用户姓名",preferredStyle: UIAlertControllerStyle.Alert)
+        guard let _ = nameInput.text , !nameInput.text!.isEmpty else{
+            let alert = UIAlertController(title: "用户名字不能为空白", message: "请填写用户姓名",preferredStyle: UIAlertControllerStyle.alert)
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                 print("OK")
             
             }
             
             alert.addAction(okAction)
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
-        guard let contentText = contentInput.text where (!contentInput.text!.isEmpty && contentInput.text != placeholder) else{
-            let alert = UIAlertController(title: "评论内容不能为空白", message: "请填写评论内容",preferredStyle: UIAlertControllerStyle.Alert)
+        guard let _ = contentInput.text , (!contentInput.text!.isEmpty && contentInput.text != placeholder) else{
+            let alert = UIAlertController(title: "评论内容不能为空白", message: "请填写评论内容",preferredStyle: UIAlertControllerStyle.alert)
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                print("OK")
-                
-            }
-            
-            alert.addAction(okAction)
-            self.presentViewController(alert, animated: true, completion: nil)
-            return
-        }
-        
-        guard let mobileText = mobileInput.text where !mobileInput.text!.isEmpty else{
-            let alert = UIAlertController(title: "电话号码不能为空白", message: "请填写电话号码",preferredStyle: UIAlertControllerStyle.Alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                 print("OK")
                 
             }
             
             alert.addAction(okAction)
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        guard let _ = mobileInput.text , !mobileInput.text!.isEmpty else{
+            let alert = UIAlertController(title: "电话号码不能为空白", message: "请填写电话号码",preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                print("OK")
+                
+            }
+            
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
@@ -143,8 +143,8 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
 //            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenIntroduction")
         
         postComment()
-        NSUserDefaults.standardUserDefaults().setObject(self.mobileInput.text, forKey: "mobileInput")
-        NSUserDefaults.standardUserDefaults().setObject(self.nameInput.text, forKey: "nameInput")
+        UserDefaults.standard.set(self.mobileInput.text, forKey: "mobileInput")
+        UserDefaults.standard.set(self.nameInput.text, forKey: "nameInput")
         
     }
     //using POST method to post a comment
@@ -158,31 +158,32 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         let urlWithParams = endpointURL+post+name+mobile+content
         
         
-        let myURL = NSURL(string: urlWithParams.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
+        let myURL = URL(string: urlWithParams.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
         
         
-        let request = NSMutableURLRequest(URL: myURL!);
-        request.HTTPMethod = "POST"
+        var request = URLRequest(url: myURL!);
+        request.httpMethod = "POST"
         
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print("error=\(error)")
                 return
             }
             
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+            if let httpStatus = response as? HTTPURLResponse , httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             }
             
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("responseString = \(responseString)")
-        }
-        task.resume()
+        })
+            task.resume()
         
-        self.navigationController!.popViewControllerAnimated(true)
+        self.navigationController!.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -206,13 +207,13 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension CommentViewController:UITextViewDelegate {
-    func textViewDidBeginEditing(textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         if self.contentInput.text == placeholder {
             contentInput.text = nil
         }
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if contentInput.text == "" {
             contentInput.text = placeholder
         }

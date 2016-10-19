@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
 		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
+		3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */; };
+		3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */; };
 		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
 		4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D040B381D5757EA0011BF4A /* FilterViewController.swift */; };
 		4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D040B391D5757EA0011BF4A /* FilterViewController.xib */; };
@@ -102,6 +104,8 @@
 /* Begin PBXFileReference section */
 		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireEvaluatorViewController.swift; sourceTree = "<group>"; };
 		4D040B381D5757EA0011BF4A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		4D040B391D5757EA0011BF4A /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 				96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */,
 				963C6D9D1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift */,
 				96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */,
+				3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */,
+				3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -442,12 +448,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 964F4CA71CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "Melmel" */;
 			buildPhases = (
-				FBFEDF1F3DF468A4BFF1FD87 /* 📦 Check Pods Manifest.lock */,
+				FBFEDF1F3DF468A4BFF1FD87 /* [CP] Check Pods Manifest.lock */,
 				964F4C791CA4CF7B00C69B71 /* Sources */,
 				964F4C7A1CA4CF7B00C69B71 /* Frameworks */,
 				964F4C7B1CA4CF7B00C69B71 /* Resources */,
-				7926247EC755EFADBCDF36D1 /* 📦 Embed Pods Frameworks */,
-				DD0F9D533D8821F6A439E984 /* 📦 Copy Pods Resources */,
+				7926247EC755EFADBCDF36D1 /* [CP] Embed Pods Frameworks */,
+				DD0F9D533D8821F6A439E984 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -462,12 +468,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 964F4CAA1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelTests" */;
 			buildPhases = (
-				E27D31FBBF9712A997C535C9 /* 📦 Check Pods Manifest.lock */,
+				E27D31FBBF9712A997C535C9 /* [CP] Check Pods Manifest.lock */,
 				964F4C8F1CA4CF7B00C69B71 /* Sources */,
 				964F4C901CA4CF7B00C69B71 /* Frameworks */,
 				964F4C911CA4CF7B00C69B71 /* Resources */,
-				4E41EBCFF5F7363D0CCE5DAE /* 📦 Embed Pods Frameworks */,
-				C570C8AF0B27AEC063010543 /* 📦 Copy Pods Resources */,
+				4E41EBCFF5F7363D0CCE5DAE /* [CP] Embed Pods Frameworks */,
+				C570C8AF0B27AEC063010543 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -483,11 +489,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 964F4CAD1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelUITests" */;
 			buildPhases = (
-				746DD8B400B2DE13288E2DB3 /* 📦 Check Pods Manifest.lock */,
+				746DD8B400B2DE13288E2DB3 /* [CP] Check Pods Manifest.lock */,
 				964F4C9A1CA4CF7B00C69B71 /* Sources */,
 				964F4C9B1CA4CF7B00C69B71 /* Frameworks */,
 				964F4C9C1CA4CF7B00C69B71 /* Resources */,
-				77CE45B7F514B7A3C74D2A25 /* 📦 Copy Pods Resources */,
+				77CE45B7F514B7A3C74D2A25 /* [CP] Copy Pods Resources */,
+				CEC45CC57F91378B3A0B8CB9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -512,6 +519,7 @@
 					964F4C7C1CA4CF7B00C69B71 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = SSKL6SFPT2;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -520,10 +528,12 @@
 					};
 					964F4C921CA4CF7B00C69B71 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 964F4C7C1CA4CF7B00C69B71;
 					};
 					964F4C9D1CA4CF7B00C69B71 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 964F4C7C1CA4CF7B00C69B71;
 					};
 				};
@@ -581,14 +591,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E41EBCFF5F7363D0CCE5DAE /* 📦 Embed Pods Frameworks */ = {
+		4E41EBCFF5F7363D0CCE5DAE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,29 +606,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		746DD8B400B2DE13288E2DB3 /* 📦 Check Pods Manifest.lock */ = {
+		746DD8B400B2DE13288E2DB3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		77CE45B7F514B7A3C74D2A25 /* 📦 Copy Pods Resources */ = {
+		77CE45B7F514B7A3C74D2A25 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,14 +636,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7926247EC755EFADBCDF36D1 /* 📦 Embed Pods Frameworks */ = {
+		7926247EC755EFADBCDF36D1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,14 +651,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C570C8AF0B27AEC063010543 /* 📦 Copy Pods Resources */ = {
+		C570C8AF0B27AEC063010543 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,14 +666,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD0F9D533D8821F6A439E984 /* 📦 Copy Pods Resources */ = {
+		CEC45CC57F91378B3A0B8CB9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD0F9D533D8821F6A439E984 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,34 +696,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E27D31FBBF9712A997C535C9 /* 📦 Check Pods Manifest.lock */ = {
+		E27D31FBBF9712A997C535C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FBFEDF1F3DF468A4BFF1FD87 /* 📦 Check Pods Manifest.lock */ = {
+		FBFEDF1F3DF468A4BFF1FD87 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -729,6 +754,7 @@
 				963C6DA11D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
+				3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
@@ -764,6 +790,7 @@
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
 				963C6D9E1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift in Sources */,
+				3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */,
 				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
 				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
 				963C6DBD1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift in Sources */,
@@ -840,10 +867,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				MOMC_NO_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -880,8 +910,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				MOMC_NO_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -903,6 +936,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -922,6 +956,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.melmel.mel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -935,6 +970,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Melmel.app/Melmel";
 			};
 			name = Debug;
@@ -948,6 +984,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Melmel.app/Melmel";
 			};
 			name = Release;
@@ -960,6 +997,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Melmel;
 			};
 			name = Debug;
@@ -972,6 +1010,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Melmel;
 			};
 			name = Release;

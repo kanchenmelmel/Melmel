@@ -26,21 +26,21 @@ class ShowCommentTableViewController: UITableViewController {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        navigationController?.navigationBarHidden = false
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = true
         
-        let activityIndicatorView = CustomActivityIndicatorView(frame: CGRectMake(0, 0, 100, 80))
+        let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
         activityIndicatorView.center = self.tableView.center
         self.tableView.addSubview(activityIndicatorView)
         let postUpdateUtility = PostsUpdateUtility()
         postUpdateUtility.getPostComments(self.postid!) {(comments) in
             self.comments = comments
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
                 
                 activityIndicatorView.stopAnimating()
-                activityIndicatorView.willMoveToSuperview(self.tableView)
+                activityIndicatorView.willMove(toSuperview: self.tableView)
             })
         }
         
@@ -55,29 +55,29 @@ class ShowCommentTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.comments.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("showcommentIdentifier", forIndexPath: indexPath) as! CommentTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "showcommentIdentifier", for: indexPath) as! CommentTableViewCell
 
         
-        let comment = self.comments[indexPath.row]
+        let comment = self.comments[(indexPath as NSIndexPath).row]
         cell.nameLabel.text = comment.autherName
         let dateFormatter = DateFormatter()
         cell.dateLabel.text = dateFormatter.formatDateToDateStringForDisplay(comment.date!)
         cell.contentLabel.text = comment.content
         
         let gravatarURL = comment.avatar
-        let imageData = NSData(contentsOfURL:NSURL(string:gravatarURL!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        let imageData = try? Data(contentsOf: URL(string:gravatarURL!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
         self.featuredImage = UIImage(data: imageData!)
         cell.avatarImage.image = self.featuredImage
 
@@ -85,9 +85,9 @@ class ShowCommentTableViewController: UITableViewController {
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "commentSegue" {
-            let DC = segue.destinationViewController as! CommentViewController
+            let DC = segue.destination as! CommentViewController
             
             DC.postid = self.postid!
             

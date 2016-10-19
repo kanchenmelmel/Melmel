@@ -11,7 +11,7 @@ import UIKit
 //this class uses page view controller to show user intro info when they first use the app
 class IntroductionPageViewCtrl: UIPageViewController {
     
-    private(set) lazy var orderedViewControllers:[UIViewController] = {
+    fileprivate(set) lazy var orderedViewControllers:[UIViewController] = {
         return [self.newViewController("firstIntroductionViewCtrl"),self.newViewController("secondIntroductionViewCtrl"),self.newViewController("thirdIntroductionViewCtrl")]
     }()
     
@@ -21,14 +21,14 @@ class IntroductionPageViewCtrl: UIPageViewController {
         
         
         if let firstViewCtrl = orderedViewControllers.first {
-            setViewControllers([firstViewCtrl], direction: .Forward, animated: true, completion: nil)
+            setViewControllers([firstViewCtrl], direction: .forward, animated: true, completion: nil)
         }
     }
     
     
     
-    private func newViewController(viewControllerIdentifier:String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIdentifier)
+    fileprivate func newViewController(_ viewControllerIdentifier:String) -> UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewControllerIdentifier)
     }
     
 
@@ -36,9 +36,9 @@ class IntroductionPageViewCtrl: UIPageViewController {
 
 extension IntroductionPageViewCtrl:UIPageViewControllerDataSource {
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
         
@@ -55,8 +55,8 @@ extension IntroductionPageViewCtrl:UIPageViewControllerDataSource {
         return orderedViewControllers[previousIndex]
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
         
@@ -76,12 +76,12 @@ extension IntroductionPageViewCtrl:UIPageViewControllerDataSource {
     
     
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return orderedViewControllers.count
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        guard let firstViewCtrl = viewControllers?.first, firstViewCtrlIndex = orderedViewControllers.indexOf(firstViewCtrl) else {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard let firstViewCtrl = viewControllers?.first, let firstViewCtrlIndex = orderedViewControllers.index(of: firstViewCtrl) else {
             return 0
         }
         

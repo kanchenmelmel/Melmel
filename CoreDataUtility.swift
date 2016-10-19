@@ -15,17 +15,17 @@ enum EntityType:String {
 }
 
 class CoreDataUtility {
-    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-    func getEarliestDate(entityType:EntityType) -> NSDate?{
-        let request = NSFetchRequest()
+    func getEarliestDate(_ entityType:EntityType) -> Date?{
+        let request = NSFetchRequest<NSFetchRequestResult>()
 //        var entityName = ""
 //        switch entityType {
 //        case .Post:entityName = "Post"
 //        case .Discount:entityName = "Discount"
 //        }
-        request.entity = NSEntityDescription.entityForName(entityType.rawValue, inManagedObjectContext: managedObjectContext)
-        request.resultType = .DictionaryResultType
+        request.entity = NSEntityDescription.entity(forEntityName: entityType.rawValue, in: managedObjectContext)
+        request.resultType = .dictionaryResultType
         
         
         // Set up expression
@@ -35,17 +35,17 @@ class CoreDataUtility {
         let earliestExpressionDescription = NSExpressionDescription()
         earliestExpressionDescription.name = "earliestDate"
         earliestExpressionDescription.expression = earliestExpression
-        earliestExpressionDescription.expressionResultType = .DateAttributeType
+        earliestExpressionDescription.expressionResultType = .dateAttributeType
         
         //set up fetch Request
         
         request.propertiesToFetch = [earliestExpressionDescription]
         do {
-            let fetchResults = try managedObjectContext.executeFetchRequest(request)
+            let fetchResults = try managedObjectContext.fetch(request)
             
             
-            if fetchResults[0].valueForKey("earliestDate") != nil {
-                let earliestDate = fetchResults[0].valueForKey("earliestDate") as! NSDate
+            if (fetchResults[0] as AnyObject).value(forKey: "earliestDate") != nil {
+                let earliestDate = (fetchResults[0] as AnyObject).value(forKey: "earliestDate") as! Date
                 return earliestDate
             }
             
@@ -56,22 +56,22 @@ class CoreDataUtility {
         
     }
     
-    func checkIdExist(id:Int,entityType:EntityType) -> Bool {
-        let request = NSFetchRequest()
-        request.entity = NSEntityDescription.entityForName(entityType.rawValue, inManagedObjectContext: managedObjectContext)
+    func checkIdExist(_ id:Int,entityType:EntityType) -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.entity = NSEntityDescription.entity(forEntityName: entityType.rawValue, in: managedObjectContext)
         //request.resultType = .CountResultType
         
         // Set up predicate
         let predicate = NSPredicate(format: "id = %@", "\(id)")
         request.predicate = predicate
-
-        let count = managedObjectContext.countForFetchRequest(request, error: nil)
-
         
-        if count != 0 {
-            print(true)
-            return true
-        }
+        do {
+            let count = try managedObjectContext.count(for: request)
+            if count != 0 {
+                print(true)
+                return true
+            }
+        } catch {}
         print(false)
         return false
         

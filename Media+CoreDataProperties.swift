@@ -15,13 +15,13 @@ import CoreData
 extension Media {
 
     @NSManaged var author: NSNumber?
-    @NSManaged var date: NSDate?
-    @NSManaged var date_gmt: NSDate?
+    @NSManaged var date: Date?
+    @NSManaged var date_gmt: Date?
     @NSManaged var downloaded: NSNumber?
     @NSManaged var id: NSNumber?
     @NSManaged var link: String?
-    @NSManaged var modified: NSDate?
-    @NSManaged var modified_gmt: NSDate?
+    @NSManaged var modified: Date?
+    @NSManaged var modified_gmt: Date?
     @NSManaged var password: String?
     @NSManaged var source_url: String?
     @NSManaged var title: String?

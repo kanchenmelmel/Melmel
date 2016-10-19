@@ -11,8 +11,8 @@ import UIKit
 class CategoryFilterPresentationCtrl: UIPresentationController,UIAdaptivePresentationControllerDelegate {
     var chromeView = UIView()
     
-    override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
-        super.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
+    override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
+        super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         chromeView.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
         chromeView.alpha = 0.0
         
@@ -20,31 +20,31 @@ class CategoryFilterPresentationCtrl: UIPresentationController,UIAdaptivePresent
         chromeView.addGestureRecognizer(tap)
     }
     
-    func chromeViewTaped(gesture:UIGestureRecognizer) {
-        if (gesture.state == UIGestureRecognizerState.Ended) {
-            presentingViewController.dismissViewControllerAnimated(true, completion: nil)
+    func chromeViewTaped(_ gesture:UIGestureRecognizer) {
+        if (gesture.state == UIGestureRecognizerState.ended) {
+            presentingViewController.dismiss(animated: true, completion: nil)
         }
     }
     
-    override func frameOfPresentedViewInContainerView() -> CGRect {
-        var presentedViewFrame = CGRectZero
+    override var frameOfPresentedViewInContainerView : CGRect {
+        var presentedViewFrame = CGRect.zero
         let containerBounds = containerView?.bounds
-        presentedViewFrame.size = sizeForChildContentContainer(presentedViewController, withParentContainerSize: containerBounds!.size)
+        presentedViewFrame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds!.size)
         presentedViewFrame.origin.x = 0
         return presentedViewFrame
     }
     
-    override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSizeMake(parentSize.width, 113)
+    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+        return CGSize(width: parentSize.width, height: 113)
     }
     
     override func presentationTransitionWillBegin() {
         chromeView.frame = (self.containerView?.bounds)!
         chromeView.alpha = 0.0
-        chromeView.insertSubview(chromeView, atIndex: 0)
-        let coordinator = presentedViewController.transitionCoordinator()
+        chromeView.insertSubview(chromeView, at: 0)
+        let coordinator = presentedViewController.transitionCoordinator
         if coordinator != nil {
-            coordinator!.animateAlongsideTransition({ (context:UIViewControllerTransitionCoordinatorContext) in
+            coordinator!.animate(alongsideTransition: { (context:UIViewControllerTransitionCoordinatorContext) in
                 self.chromeView.alpha = 1.0
                 }, completion: nil)
         } else{
@@ -53,9 +53,9 @@ class CategoryFilterPresentationCtrl: UIPresentationController,UIAdaptivePresent
     }
     
     override func dismissalTransitionWillBegin() {
-        let coordinator = presentedViewController.transitionCoordinator()
+        let coordinator = presentedViewController.transitionCoordinator
         if coordinator != nil {
-            coordinator!.animateAlongsideTransition({ (context:UIViewControllerTransitionCoordinatorContext) in
+            coordinator!.animate(alongsideTransition: { (context:UIViewControllerTransitionCoordinatorContext) in
                 self.chromeView.alpha = 0.0
                 }, completion: nil)
         } else {
@@ -66,39 +66,39 @@ class CategoryFilterPresentationCtrl: UIPresentationController,UIAdaptivePresent
     
     override func containerViewWillLayoutSubviews() {
         chromeView.frame = (containerView?.frame)!
-        presentedView()?.frame = frameOfPresentedViewInContainerView()
+        presentedView?.frame = frameOfPresentedViewInContainerView
     }
     
-    override func shouldPresentInFullscreen() -> Bool {
+    override var shouldPresentInFullscreen : Bool {
         return true
     }
     
-    override func adaptivePresentationStyle() -> UIModalPresentationStyle {
-        return .FullScreen
+    override var adaptivePresentationStyle : UIModalPresentationStyle {
+        return .fullScreen
     }
     
 
     class ExampleAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
         var isPresentation = false
-        func transitionDuration(transitionContext:UIViewControllerContextTransitioning?) -> NSTimeInterval {
+        func transitionDuration(using transitionContext:UIViewControllerContextTransitioning?) -> TimeInterval {
             return 0.5
         }
         
-        func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+        func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             let fromView = fromVC?.view
             let toView = toVC?.view
-            let containerView = transitionContext.containerView()
+            let containerView = transitionContext.containerView
             
             if isPresentation {
-                containerView!.addSubview(toView!)
+                containerView.addSubview(toView!)
             }
             
             let animatingVC = isPresentation ? toVC : fromVC
             let animatingView = animatingVC?.view
             
-            let finalFrameForVC = transitionContext.finalFrameForViewController(animatingVC!)
+            let finalFrameForVC = transitionContext.finalFrame(for: animatingVC!)
             var initialFrameForVC = finalFrameForVC
             initialFrameForVC.origin.x += initialFrameForVC.size.width;
             
@@ -107,7 +107,7 @@ class CategoryFilterPresentationCtrl: UIPresentationController,UIAdaptivePresent
             
             animatingView?.frame = initialFrame
             
-            UIView.animateWithDuration(transitionDuration(transitionContext), delay:0, usingSpringWithDamping:300.0, initialSpringVelocity:5.0, options:UIViewAnimationOptions.AllowUserInteraction, animations:{
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay:0, usingSpringWithDamping:300.0, initialSpringVelocity:5.0, options:UIViewAnimationOptions.allowUserInteraction, animations:{
                 animatingView?.frame = finalFrame
                 }, completion:{ (value: Bool) in
                     if !self.isPresentation {

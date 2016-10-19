@@ -9,17 +9,18 @@
 import UIKit
 import MapKit
 protocol DiscountAnnotationViewDelegate{
-    func tapAnnotation(discount:Discount)
+    func tapAnnotation(_ discount:Discount)
     func removeDiscountDetail()
-    func reCenterMap(discount:Discount)
+    func reCenterMap(_ discount:Discount)
 }
 
 class DiscountAnnotationView: MKAnnotationView {
     var delegate:DiscountAnnotationViewDelegate!
-    
+    /*
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+ */
     init(annotation: MKAnnotation?, reuseIdentifier: String?, delegate:DiscountAnnotationViewDelegate?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.delegate = delegate
@@ -41,7 +42,7 @@ class DiscountAnnotationView: MKAnnotationView {
 //        return uiView
 //    }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
             let disocuntAnnotation = self.annotation as! DiscountAnnotation

@@ -11,15 +11,15 @@ import UIKit
 
 
 class CustomSearchBar: UISearchBar {
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        if !self.pointInside(point, withEvent: event) {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if !self.point(inside: point, with: event) {
             print("test")
             self.resignFirstResponder()
             return nil
         } else {
             for subview in self.subviews {
-                let convertedPoint = subview.convertPoint(point, fromView: self)
-                let hitTestView = subview.hitTest(convertedPoint, withEvent: event)
+                let convertedPoint = subview.convert(point, from: self)
+                let hitTestView = subview.hitTest(convertedPoint, with: event)
                 if hitTestView != nil {
                     return hitTestView
                 }

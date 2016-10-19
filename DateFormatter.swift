@@ -11,33 +11,33 @@ import Foundation
 //this class is used to transform the date into different date format.
 class DateFormatter {
     
-    func formatDateStringToMelTime(dateString:String) -> NSDate {
+    func formatDateStringToMelTime(_ dateString:String) -> Date {
         
-        let RFC3339DateFormatter = NSDateFormatter()
-        RFC3339DateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        let RFC3339DateFormatter = Foundation.DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
         RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        let date = RFC3339DateFormatter.dateFromString(dateString+"+10:00")
+        let date = RFC3339DateFormatter.date(from: dateString+"+10:00")
         return date!
     }
     
-    func formatDateToDateString(date:NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
+    func formatDateToDateString(_ date:Date) -> String {
+        let dateFormatter = Foundation.DateFormatter()
         
-        dateFormatter.timeZone=NSTimeZone(name: "UTC")
+        dateFormatter.timeZone=TimeZone(identifier: "UTC")
         dateFormatter.dateFormat="yyyy-MM-dd'T'HH:mm:ss"
-        let dateString = dateFormatter.stringFromDate(date)
+        let dateString = dateFormatter.string(from: date)
         
         return dateString
     }
     
-    func formatDateToDateStringForDisplay(date:NSDate)->String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        return dateFormatter.stringFromDate(date).uppercaseString
+    func formatDateToDateStringForDisplay(_ date:Date)->String {
+        let dateFormatter = Foundation.DateFormatter()
+        dateFormatter.dateStyle = .medium
+        return dateFormatter.string(from: date).uppercased()
     }
     
-    func calculateDifferenceBetweenCurrentTimeInString(date:NSDate) ->String {
-        let calendar = NSCalendar.currentCalendar()
+    func calculateDifferenceBetweenCurrentTimeInString(_ date:Date) ->String {
+        let calendar = Calendar.current
         if calendar.isDateInToday(date){
             
         }

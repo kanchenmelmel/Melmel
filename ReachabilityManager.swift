@@ -23,35 +23,28 @@ class ReachabilityManager {
 //    var unreachableCallback:() -> Void
     
     init(){
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            return
-        }
+        
+        reachability = Reachability()
         
        // NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: reachabilityChangedNotification, object: reachability)
     }
     
     func isReachable() -> Bool {
-        return (reachability?.isReachable())!
+        return (reachability?.isReachable)!
     }
     
     func isReachableViaWiFi() -> Bool {
-        return (reachability?.isReachableViaWiFi())!
+        return (reachability?.isReachableViaWiFi)!
     }
     
     func isReachableViaWWAN() -> Bool {
-        return (reachability?.isReachableViaWWAN())!
+        return (reachability?.isReachableViaWWAN)!
     }
     
-    func setupReachability(hostname hostname:String?, useClosure:Bool) {
-        do {
-            let reachability = try hostname == nil ? Reachability.reachabilityForInternetConnection() : Reachability(hostname: hostname!)
-            self.reachability = reachability
-        } catch ReachabilityError.FailedToCreateWithAddress(let address) {
-            print("Unable to create\nReachability with address:\n\(address)")
-            return
-        } catch {}
+    func setupReachability(hostname:String?, useClosure:Bool) {
+        
+        let reachability = hostname == nil ? Reachability() : Reachability(hostname: hostname!)
+        self.reachability = reachability
         
         if useClosure {
             reachability?.whenReachable = {(reachability) in
@@ -61,13 +54,13 @@ class ReachabilityManager {
                 // Do something when unReachable
             }
         } else {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: reachabilityChangedNotification, object: reachability)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: NSNotification.Name(rawValue: reachabilityChangedNotification), object: reachability)
         }
     }
     
-    @objc func reachabilityChanged(note:NSNotification) {
+    @objc func reachabilityChanged(_ note:Notification) {
         let reachability = note.object as! Reachability
-        if reachability.isReachable(){
+        if reachability.isReachable{
 //            reachableCallback()
         } else {
 //            unreachableCallback()

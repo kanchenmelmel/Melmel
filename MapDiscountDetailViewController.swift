@@ -33,7 +33,7 @@ class MapDiscountDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         setupView()
     }
     
@@ -41,7 +41,7 @@ class MapDiscountDetailViewController: UIViewController {
 //        super.init(nibName: nil, bundle: nil)
 //    }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -62,8 +62,8 @@ class MapDiscountDetailViewController: UIViewController {
     func setupView(){
         self.view.layer.shadowOpacity = 1.0
         self.view.layer.shadowRadius = 13.0
-        self.view.layer.shadowOffset = CGSizeMake(0.0, -2.0)
-        self.view.layer.shadowColor = viewTintColor?.CGColor
+        self.view.layer.shadowOffset = CGSize(width: 0.0, height: -2.0)
+        self.view.layer.shadowColor = viewTintColor?.cgColor
         //self.view.backgroundColor = UIColor(colorLiteralRed: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         self.detailButton.backgroundColor = viewTintColor
     }

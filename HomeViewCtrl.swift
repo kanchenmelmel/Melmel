@@ -15,11 +15,11 @@ class HomeViewCtrl: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func discountButton(sender: AnyObject) {
+    @IBAction func discountButton(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 1
     }
 
-    @IBAction func postButton(sender: AnyObject) {
+    @IBAction func postButton(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 0
     }
 }

@@ -16,12 +16,12 @@ extension Post {
 
     @NSManaged var author: NSNumber?
     @NSManaged var content: String?
-    @NSManaged var date: NSDate?
-    @NSManaged var date_gmt: NSDate?
+    @NSManaged var date: Date?
+    @NSManaged var date_gmt: Date?
     @NSManaged var id: NSNumber?
     @NSManaged var link: String?
-    @NSManaged var modified: NSDate?
-    @NSManaged var modified_gmt: NSDate?
+    @NSManaged var modified: Date?
+    @NSManaged var modified_gmt: Date?
     @NSManaged var password: String?
     @NSManaged var title: String?
     @NSManaged var type: String?
