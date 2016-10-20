@@ -460,12 +460,24 @@
                         <segue destination="jiC-Bn-jdU" kind="relationship" relationship="viewControllers" id="ThA-8J-tCh"/>
                         <segue destination="p7g-8r-WGk" kind="relationship" relationship="viewControllers" id="Ykb-XS-siL"/>
                         <segue destination="XJy-MZ-01Z" kind="relationship" relationship="viewControllers" id="iqt-gh-zKa"/>
-                        <segue destination="jJr-k1-8Qy" kind="relationship" relationship="viewControllers" id="pQr-DE-OVI"/>
+                        <segue destination="5mo-5L-eEI" kind="relationship" relationship="viewControllers" id="qXs-OR-aSC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1405" y="-301"/>
+        </scene>
+        <!--SettingsNC-->
+        <scene sceneID="IbH-mV-PR4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingsTab" referencedIdentifier="SettingsNC" id="5mo-5L-eEI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="setting" selectedImage="settingHighlighted" id="mT3-we-7LV">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jvm-so-Ol8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-306" y="-542"/>
         </scene>
         <!--Search-->
         <scene sceneID="M6v-Vp-EzJ">
@@ -639,7 +651,9 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="64w-fc-QMg"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="64w-fc-QMg">
+                                <frame key="frameInset" width="1000" height="1000"/>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-RG-9MS">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="jTm-vf-aj4"/>
@@ -972,29 +986,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4p-AC-Ron" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2571" y="431"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="iK4-L7-QWZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jJr-k1-8Qy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="setting" selectedImage="settingHighlighted" id="wxg-UB-g6w">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6cq-uc-zYT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="793-ck-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1607" y="479"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="opF-A1-mTX">
