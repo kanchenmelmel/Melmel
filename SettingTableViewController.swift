@@ -9,6 +9,13 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
+    
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        self.clearsSelectionOnViewWillAppear = true
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .default
     }

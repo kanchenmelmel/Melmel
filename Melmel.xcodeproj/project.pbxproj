@@ -76,6 +76,7 @@
 		96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB14ED1CE46047006B5DD1 /* Media.swift */; };
 		96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF58191D06A42400DD4D53 /* GlobalVariables.swift */; };
 		96CFE48B1DB86208002090B2 /* HireReviewerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFE48A1DB86208002090B2 /* HireReviewerTableViewController.swift */; };
+		96CFE48D1DB87041002090B2 /* BusinessContactFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFE48C1DB87041002090B2 /* BusinessContactFormTableViewController.swift */; };
 		96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */; };
 		96E3460D1DB719B900DABB7F /* SettingsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96E3460C1DB719B900DABB7F /* SettingsTab.storyboard */; };
 		96E346111DB7439900DABB7F /* ContactFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E346101DB7439900DABB7F /* ContactFormTableViewController.swift */; };
@@ -183,6 +184,7 @@
 		96CB14ED1CE46047006B5DD1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		96CF58191D06A42400DD4D53 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		96CFE48A1DB86208002090B2 /* HireReviewerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireReviewerTableViewController.swift; sourceTree = "<group>"; };
+		96CFE48C1DB87041002090B2 /* BusinessContactFormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessContactFormTableViewController.swift; sourceTree = "<group>"; };
 		96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		96E3460C1DB719B900DABB7F /* SettingsTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsTab.storyboard; sourceTree = "<group>"; };
 		96E346101DB7439900DABB7F /* ContactFormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormTableViewController.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				96E346101DB7439900DABB7F /* ContactFormTableViewController.swift */,
 				96E346121DB84FC400DABB7F /* ContactUsTableViewController.swift */,
 				96CFE48A1DB86208002090B2 /* HireReviewerTableViewController.swift */,
+				96CFE48C1DB87041002090B2 /* BusinessContactFormTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */,
 				96B162231D64A4E000AA4849 /* SearchPostCell.swift in Sources */,
 				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
+				96CFE48D1DB87041002090B2 /* BusinessContactFormTableViewController.swift in Sources */,
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96CFE48B1DB86208002090B2 /* HireReviewerTableViewController.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
