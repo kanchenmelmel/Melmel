@@ -80,6 +80,7 @@
 		96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */; };
 		96E3460D1DB719B900DABB7F /* SettingsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96E3460C1DB719B900DABB7F /* SettingsTab.storyboard */; };
 		96E346111DB7439900DABB7F /* ContactFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E346101DB7439900DABB7F /* ContactFormTableViewController.swift */; };
+		96E346131DB84FC400DABB7F /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E346121DB84FC400DABB7F /* ContactUsTableViewController.swift */; };
 		96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */; };
 		96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */; };
 		96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */; };
@@ -187,6 +188,7 @@
 		96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		96E3460C1DB719B900DABB7F /* SettingsTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsTab.storyboard; sourceTree = "<group>"; };
 		96E346101DB7439900DABB7F /* ContactFormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormTableViewController.swift; sourceTree = "<group>"; };
+		96E346121DB84FC400DABB7F /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewController.swift; sourceTree = "<group>"; };
 		96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewController.swift; path = Melmel/MelGuideTableViewController.swift; sourceTree = "<group>"; };
 		96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDiscountDetailViewController.swift; sourceTree = "<group>"; };
 		96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				96E346101DB7439900DABB7F /* ContactFormTableViewController.swift */,
+				96E346121DB84FC400DABB7F /* ContactUsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
 				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
 				4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */,
+				96E346131DB84FC400DABB7F /* ContactUsTableViewController.swift in Sources */,
 				963289E71D4A11FF00B62040 /* Discount.swift in Sources */,
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
 				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,

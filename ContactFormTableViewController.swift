@@ -10,6 +10,8 @@ import UIKit
 
 let textViewTextPlaceholder = "请写下你想留下的信息……"
 
+let ReceiverEmailAddress = "patrickgao1990@gmail.com"
+
 class ContactFormTableViewController: UITableViewController,UITextViewDelegate,UITextFieldDelegate {
 
     override func viewDidLoad() {
@@ -33,6 +35,7 @@ class ContactFormTableViewController: UITableViewController,UITextViewDelegate,U
             textView.text = ""
         }
     }
+    
 
 
     /*

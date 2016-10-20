@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Contact Us Table View Controller-->
         <scene sceneID="4TN-YC-uay">
             <objects>
-                <tableViewController id="WD6-9J-xaF" sceneMemberID="viewController">
+                <tableViewController id="WD6-9J-xaF" customClass="ContactUsTableViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pkX-g0-paJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,75 +125,17 @@
                             <outlet property="delegate" destination="WD6-9J-xaF" id="5Mn-L1-gLl"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="contentTextView" destination="bIg-db-wta" id="fE7-0f-KXR"/>
+                        <outlet property="emailTextField" destination="Pdl-me-Gup" id="2QO-te-2JV"/>
+                        <outlet property="mobileTextField" destination="2UX-Hb-8Ey" id="i9b-Fg-FWO"/>
+                        <outlet property="nameTextField" destination="r5B-1B-N2A" id="kYH-Oq-F0b"/>
+                        <outlet property="sendMessageButton" destination="tGv-Rv-yfP" id="7Th-Dv-H9G"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYo-UT-v11" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2114.4000000000001" y="1626.8365817091455"/>
-        </scene>
-        <!--Contact Us-->
-        <scene sceneID="v96-eh-fHO">
-            <objects>
-                <viewController id="d8N-hk-Q6t" userLabel="Contact Us" customClass="ContactUsViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Tp-Um-dib"/>
-                        <viewControllerLayoutGuide type="bottom" id="n1J-lt-4U0"/>
-                    </layoutGuides>
-                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="yo5-wp-sJs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="姓名 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awC-nb-8zx">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="邮箱 Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ymw-p8-LkA">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机 Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-oo-L66">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="任何内容，问题，要求，请您在此留言，谢谢。Please leave a message about youe project or request, we will back to you shortly." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pr7-2D-Wed">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="gdK-A0-o78"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="pr7-2D-Wed" firstAttribute="top" secondItem="ivD-oo-L66" secondAttribute="bottom" constant="16" id="8us-T8-9FA"/>
-                            <constraint firstItem="awC-nb-8zx" firstAttribute="top" secondItem="5Tp-Um-dib" secondAttribute="bottom" constant="16" id="DAI-5O-Xnr"/>
-                            <constraint firstItem="ivD-oo-L66" firstAttribute="leading" secondItem="yo5-wp-sJs" secondAttribute="leadingMargin" id="Giu-K5-bcV"/>
-                            <constraint firstItem="ymw-p8-LkA" firstAttribute="leading" secondItem="yo5-wp-sJs" secondAttribute="leadingMargin" id="Myg-WY-a99"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ymw-p8-LkA" secondAttribute="trailing" id="Nf4-eF-HuR"/>
-                            <constraint firstItem="ivD-oo-L66" firstAttribute="top" secondItem="ymw-p8-LkA" secondAttribute="bottom" constant="16" id="V53-dA-Fff"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ivD-oo-L66" secondAttribute="trailing" id="aTb-OZ-YAg"/>
-                            <constraint firstItem="pr7-2D-Wed" firstAttribute="leading" secondItem="yo5-wp-sJs" secondAttribute="leadingMargin" id="gz1-gl-TuG"/>
-                            <constraint firstItem="ymw-p8-LkA" firstAttribute="top" secondItem="awC-nb-8zx" secondAttribute="bottom" constant="16" id="hQ5-5x-KSn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pr7-2D-Wed" secondAttribute="trailing" id="olo-kv-PlU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="awC-nb-8zx" secondAttribute="trailing" id="t2O-4R-SJR"/>
-                            <constraint firstItem="awC-nb-8zx" firstAttribute="leading" secondItem="yo5-wp-sJs" secondAttribute="leadingMargin" id="x0V-bD-I2y"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="联系我们" id="MVJ-uE-MtM"/>
-                    <connections>
-                        <outlet property="contentTextView" destination="pr7-2D-Wed" id="sJY-bE-Flh"/>
-                        <outlet property="emailTextField" destination="ymw-p8-LkA" id="AXN-40-1L3"/>
-                        <outlet property="mobileTextField" destination="ivD-oo-L66" id="uEe-yQ-q67"/>
-                        <outlet property="nameTextField" destination="awC-nb-8zx" id="xdl-ez-Pc5"/>
-                        <outlet property="sendMessageButton" destination="tGv-Rv-yfP" id="KfP-k0-FeQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ych-lu-ZSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1486" y="1660"/>
+            <point key="canvasLocation" x="-1308" y="1191"/>
         </scene>
         <!--Hire Evaluator-->
         <scene sceneID="asT-GF-WNk">
@@ -335,9 +277,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="d8N-hk-Q6t" kind="show" id="nQj-Zn-bIz">
-                                                <nil key="action"/>
-                                            </segue>
+                                            <segue destination="WD6-9J-xaF" kind="show" id="wxb-mc-Tjt"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="v2t-kT-tYC">
