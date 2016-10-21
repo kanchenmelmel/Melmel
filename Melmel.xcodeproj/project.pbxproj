@@ -1,1073 +1,3258 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
-		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
-		3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */; };
-		3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */; };
-		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
-		4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D040B381D5757EA0011BF4A /* FilterViewController.swift */; };
-		4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D040B391D5757EA0011BF4A /* FilterViewController.xib */; };
-		4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */; };
-		4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */; };
-		4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */; };
-		4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DA5BB1D0304120045B73C /* Alert.swift */; };
-		4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644EF1CF96B0500E84028 /* CommentViewController.swift */; };
-		4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */; };
-		4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */; };
-		4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */; };
-		4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */; };
-		4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */; };
-		4DE3F3C01D16E81900D9D5A2 /* DiscountFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */; };
-		4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */; };
-		4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */; };
-		96089E181D6699CE0036141F /* IntroductionPageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */; };
-		961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961633C91CE2B93400628B74 /* DateFormatter.swift */; };
-		961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */; };
-		961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */; };
-		962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962124971CE03E8000DB4A37 /* FileDownloader.swift */; };
-		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
-		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
-		962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1F7B1D487880006D2EA8 /* Comment.swift */; };
-		963289E71D4A11FF00B62040 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963289E61D4A11FF00B62040 /* Discount.swift */; };
-		9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */; };
-		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
-		963C6D9E1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6D9D1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift */; };
-		963C6DA11D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DA01D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift */; };
-		963C6DB81D6B77B300B31B45 /* DiscountCategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DB51D6B77B300B31B45 /* DiscountCategoryEntity.swift */; };
-		963C6DBD1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DBB1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift */; };
-		963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */; };
-		964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */; };
-		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
-		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
-		964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C891CA4CF7B00C69B71 /* Assets.xcassets */; };
-		964F4C981CA4CF7B00C69B71 /* MelmelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */; };
-		964F4CA31CA4CF7B00C69B71 /* MelmelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */; };
-		965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */; };
-		965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */; };
-		965AEF7A1CE9529700D2BB0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965AEF791CE9529700D2BB0A /* MapKit.framework */; };
-		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
-		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
-		965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF811CE986EC00D2BB0A /* LOGO-retina.png */; };
-		96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */; };
-		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
-		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
-		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
-		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
-		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
-		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
-		96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */; };
-		96B1621F1D63DD5600AA4849 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1621E1D63DD5600AA4849 /* AnimationEngine.swift */; };
-		96B162211D64897800AA4849 /* CustomSearchBar+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */; };
-		96B162231D64A4E000AA4849 /* SearchPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162221D64A4E000AA4849 /* SearchPostCell.swift */; };
-		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
-		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
-		96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */; };
-		96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */; };
-		96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */; };
-		96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */; };
-		96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */; };
-		96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8E9011D35DCEF0016E5AF /* DateLabel.swift */; };
-		96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */; };
-		96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CB14ED1CE46047006B5DD1 /* Media.swift */; };
-		96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF58191D06A42400DD4D53 /* GlobalVariables.swift */; };
-		96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */; };
-		96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */; };
-		96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */; };
-		96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */; };
-		96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96FC174D1CAE2CA5002F8817 /* Melmel.xcdatamodeld */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		964F4C941CA4CF7B00C69B71 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 964F4C751CA4CF7B00C69B71 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 964F4C7C1CA4CF7B00C69B71;
-			remoteInfo = Melmel;
-		};
-		964F4C9F1CA4CF7B00C69B71 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 964F4C751CA4CF7B00C69B71 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 964F4C7C1CA4CF7B00C69B71;
-			remoteInfo = Melmel;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
-		3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireEvaluatorViewController.swift; sourceTree = "<group>"; };
-		4D040B381D5757EA0011BF4A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		4D040B391D5757EA0011BF4A /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
-		4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputSearchViewController.swift; path = Melmel/InputSearchViewController.swift; sourceTree = "<group>"; };
-		4D4DA5BB1D0304120045B73C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		4D8644EF1CF96B0500E84028 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
-		4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowCommentTableViewController.swift; path = Melmel/ShowCommentTableViewController.swift; sourceTree = "<group>"; };
-		4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = Melmel/CommentTableViewCell.swift; sourceTree = "<group>"; };
-		4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterTableViewController.swift; path = Melmel/FilterTableViewController.swift; sourceTree = "<group>"; };
-		4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCategory.swift; sourceTree = "<group>"; };
-		4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
-		4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountFilter.swift; sourceTree = "<group>"; };
-		4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryTableViewCell.swift; path = Melmel/CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
-		55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Melmel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6683078205A966F683CB90C0 /* Pods-MelmelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests.release.xcconfig"; sourceTree = "<group>"; };
-		68468148F44BB3530428F816 /* Pods-Melmel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Melmel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Melmel/Pods-Melmel.release.xcconfig"; sourceTree = "<group>"; };
-		79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MelmelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AB088A1E1BE301270605930 /* Pods-MelmelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests.debug.xcconfig"; sourceTree = "<group>"; };
-		96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewCtrl.swift; sourceTree = "<group>"; };
-		961633C91CE2B93400628B74 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewController.swift; sourceTree = "<group>"; };
-		961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewCell.swift; sourceTree = "<group>"; };
-		962124971CE03E8000DB4A37 /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloader.swift; path = Melmel/FileDownloader.swift; sourceTree = "<group>"; };
-		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
-		962A1F7B1D487880006D2EA8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		963289E61D4A11FF00B62040 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
-		9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
-		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
-		963C6D9D1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFilterPresentationCtrl.swift; sourceTree = "<group>"; };
-		963C6DA01D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTransitioningDelegate.swift; sourceTree = "<group>"; };
-		963C6DB51D6B77B300B31B45 /* DiscountCategoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCategoryEntity.swift; sourceTree = "<group>"; };
-		963C6DBB1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscountCategoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
-		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		964F4C891CA4CF7B00C69B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		964F4C8E1CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		964F4C931CA4CF7B00C69B71 /* MelmelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelmelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelmelTests.swift; sourceTree = "<group>"; };
-		964F4C991CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		964F4C9E1CA4CF7B00C69B71 /* MelmelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelmelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelmelUITests.swift; sourceTree = "<group>"; };
-		964F4CA41CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapDiscountDetailView.xib; sourceTree = "<group>"; };
-		965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotation.swift; sourceTree = "<group>"; };
-		965AEF791CE9529700D2BB0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
-		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
-		965AEF811CE986EC00D2BB0A /* LOGO-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-retina.png"; sourceTree = "<group>"; };
-		96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCatagoryRecognizer.swift; sourceTree = "<group>"; };
-		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
-		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
-		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
-		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
-		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
-		96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		96B1621E1D63DD5600AA4849 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
-		96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomSearchBar+Designable.swift"; sourceTree = "<group>"; };
-		96B162221D64A4E000AA4849 /* SearchPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostCell.swift; sourceTree = "<group>"; };
-		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotationView.swift; sourceTree = "<group>"; };
-		96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrlExtension.swift; sourceTree = "<group>"; };
-		96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
-		96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "woolworths-fresh-produce-section-instore.jpg"; path = "Melmel/woolworths-fresh-produce-section-instore.jpg"; sourceTree = "<group>"; };
-		96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewCell.swift; path = Melmel/MelGuideTableViewCell.swift; sourceTree = "<group>"; };
-		96C8E9011D35DCEF0016E5AF /* DateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
-		96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		96CB14ED1CE46047006B5DD1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		96CF58191D06A42400DD4D53 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
-		96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MelGuideTableViewController.swift; path = Melmel/MelGuideTableViewController.swift; sourceTree = "<group>"; };
-		96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDiscountDetailViewController.swift; sourceTree = "<group>"; };
-		96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		96FC174E1CAE2CA5002F8817 /* Melmel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Melmel.xcdatamodel; sourceTree = "<group>"; };
-		9B851BC0414D593B74824256 /* Pods-Melmel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Melmel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Melmel/Pods-Melmel.debug.xcconfig"; sourceTree = "<group>"; };
-		B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MelmelUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		964F4C7A1CA4CF7B00C69B71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				965AEF7A1CE9529700D2BB0A /* MapKit.framework in Frameworks */,
-				40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		964F4C901CA4CF7B00C69B71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		964F4C9B1CA4CF7B00C69B71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		35809C2E0612454D890EB5EA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */,
-				79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */,
-				B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		963C6D9F1D6B189300B31B45 /* PresentationController */ = {
-			isa = PBXGroup;
-			children = (
-				963C6DA01D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift */,
-			);
-			name = PresentationController;
-			sourceTree = "<group>";
-		};
-		964F4C741CA4CF7B00C69B71 = {
-			isa = PBXGroup;
-			children = (
-				965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */,
-				965AEF791CE9529700D2BB0A /* MapKit.framework */,
-				967E73C11CD72D0100A63BFB /* Utilities */,
-				96FC17501CAE387B002F8817 /* Model */,
-				96BF58131CAA4B77006D6CB6 /* View */,
-				96BF58101CAA4A02006D6CB6 /* Controller */,
-				96BF580D1CAA4589006D6CB6 /* Assets */,
-				964F4C7F1CA4CF7B00C69B71 /* Melmel */,
-				964F4C961CA4CF7B00C69B71 /* MelmelTests */,
-				964F4CA11CA4CF7B00C69B71 /* MelmelUITests */,
-				964F4C7E1CA4CF7B00C69B71 /* Products */,
-				EE5EFF21ADD9A9BD0CE5A21D /* Pods */,
-				35809C2E0612454D890EB5EA /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		964F4C7E1CA4CF7B00C69B71 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				964F4C7D1CA4CF7B00C69B71 /* Melmel.app */,
-				964F4C931CA4CF7B00C69B71 /* MelmelTests.xctest */,
-				964F4C9E1CA4CF7B00C69B71 /* MelmelUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		964F4C7F1CA4CF7B00C69B71 /* Melmel */ = {
-			isa = PBXGroup;
-			children = (
-				964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */,
-				96FC174D1CAE2CA5002F8817 /* Melmel.xcdatamodeld */,
-				967FFEA71D07E16900599E30 /* Main.storyboard */,
-				964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */,
-				964F4C891CA4CF7B00C69B71 /* Assets.xcassets */,
-				964F4C8E1CA4CF7B00C69B71 /* Info.plist */,
-				96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */,
-			);
-			path = Melmel;
-			sourceTree = "<group>";
-		};
-		964F4C961CA4CF7B00C69B71 /* MelmelTests */ = {
-			isa = PBXGroup;
-			children = (
-				964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */,
-				964F4C991CA4CF7B00C69B71 /* Info.plist */,
-			);
-			path = MelmelTests;
-			sourceTree = "<group>";
-		};
-		964F4CA11CA4CF7B00C69B71 /* MelmelUITests */ = {
-			isa = PBXGroup;
-			children = (
-				964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */,
-				964F4CA41CA4CF7B00C69B71 /* Info.plist */,
-			);
-			path = MelmelUITests;
-			sourceTree = "<group>";
-		};
-		967E73C11CD72D0100A63BFB /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				96B1621D1D63DD3A00AA4849 /* Animation Engine */,
-				967E73C21CD72D1800A63BFB /* APIHelper.swift */,
-				966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */,
-				962124971CE03E8000DB4A37 /* FileDownloader.swift */,
-				961633C91CE2B93400628B74 /* DateFormatter.swift */,
-				96BE5A091CEFED6200C6BC3D /* PhotoOperations.swift */,
-				963C1E301CF6A46000089E39 /* CoreDataUtility.swift */,
-				96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */,
-				9628C36F1CFD4A5A00666F69 /* Reachability.swift */,
-				96CF58191D06A42400DD4D53 /* GlobalVariables.swift */,
-				96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */,
-			);
-			name = Utilities;
-			sourceTree = "<group>";
-		};
-		968041A11D61FA740040ED91 /* Comment */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Comment;
-			sourceTree = "<group>";
-		};
-		96B1621D1D63DD3A00AA4849 /* Animation Engine */ = {
-			isa = PBXGroup;
-			children = (
-				96B1621E1D63DD5600AA4849 /* AnimationEngine.swift */,
-			);
-			name = "Animation Engine";
-			sourceTree = "<group>";
-		};
-		96BDC6F71D57764200A75B71 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */,
-				965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */,
-				96F3A68A1D4F724E008C7669 /* MapDiscountDetailViewController.swift */,
-			);
-			name = Map;
-			sourceTree = "<group>";
-		};
-		96BDC6F81D57765E00A75B71 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */,
-			);
-			name = Map;
-			sourceTree = "<group>";
-		};
-		96BF580D1CAA4589006D6CB6 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				965AEF811CE986EC00D2BB0A /* LOGO-retina.png */,
-				96BF580E1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg */,
-			);
-			name = Assets;
-			sourceTree = "<group>";
-		};
-		96BF58101CAA4A02006D6CB6 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				963C6D9F1D6B189300B31B45 /* PresentationController */,
-				96BDC6F71D57764200A75B71 /* Map */,
-				4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */,
-				4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */,
-				4D8644F11CF9832F00E84028 /* ShowCommentTableViewController.swift */,
-				4D040B381D5757EA0011BF4A /* FilterViewController.swift */,
-				4DE3F3C71D180B5800D9D5A2 /* CategoryTableViewController.swift */,
-				4D8644EF1CF96B0500E84028 /* CommentViewController.swift */,
-				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
-				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
-				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
-				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
-				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
-				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
-				96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */,
-				963C6D9D1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift */,
-				96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */,
-				3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */,
-				3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		96BF58131CAA4B77006D6CB6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				968041A11D61FA740040ED91 /* Comment */,
-				96BDC6F81D57765E00A75B71 /* Map */,
-				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
-				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
-				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
-				4D4DA5BB1D0304120045B73C /* Alert.swift */,
-				96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */,
-				4DE3F3BD1D16E58F00D9D5A2 /* FilterTableViewCell.swift */,
-				96BF58111CAA4B72006D6CB6 /* MelGuideTableViewCell.swift */,
-				4D8644F31CF983F100E84028 /* CommentTableViewCell.swift */,
-				967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */,
-				4D0AB22B1D0BE67B0014CA48 /* SearchTableViewCell.swift */,
-				4DE3F3C11D18003700D9D5A2 /* CategoryTableViewCell.swift */,
-				9628EA3C1D348B74009D2335 /* CellMaskView.swift */,
-				96C8E9011D35DCEF0016E5AF /* DateLabel.swift */,
-				964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */,
-				96B162221D64A4E000AA4849 /* SearchPostCell.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		96FC17501CAE387B002F8817 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */,
-				963C6DBB1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift */,
-				963C6DB51D6B77B300B31B45 /* DiscountCategoryEntity.swift */,
-				963289E61D4A11FF00B62040 /* Discount.swift */,
-				96F56B471CF049A2009E2F0B /* Post+CoreDataProperties.swift */,
-				965488401CEAB5F30009AF14 /* DiscountAnnotation.swift */,
-				96CB14EC1CE46047006B5DD1 /* Media+CoreDataProperties.swift */,
-				96CB14ED1CE46047006B5DD1 /* Media.swift */,
-				96BAECF61CE21410008B3B70 /* Post.swift */,
-				4DE3F3BB1D16E4AE00D9D5A2 /* DiscountCategory.swift */,
-				4DE3F3BF1D16E81900D9D5A2 /* DiscountFilter.swift */,
-				962A1F7B1D487880006D2EA8 /* Comment.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		EE5EFF21ADD9A9BD0CE5A21D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9B851BC0414D593B74824256 /* Pods-Melmel.debug.xcconfig */,
-				68468148F44BB3530428F816 /* Pods-Melmel.release.xcconfig */,
-				7AB088A1E1BE301270605930 /* Pods-MelmelTests.debug.xcconfig */,
-				6683078205A966F683CB90C0 /* Pods-MelmelTests.release.xcconfig */,
-				07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */,
-				36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		964F4C7C1CA4CF7B00C69B71 /* Melmel */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 964F4CA71CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "Melmel" */;
-			buildPhases = (
-				FBFEDF1F3DF468A4BFF1FD87 /* [CP] Check Pods Manifest.lock */,
-				964F4C791CA4CF7B00C69B71 /* Sources */,
-				964F4C7A1CA4CF7B00C69B71 /* Frameworks */,
-				964F4C7B1CA4CF7B00C69B71 /* Resources */,
-				7926247EC755EFADBCDF36D1 /* [CP] Embed Pods Frameworks */,
-				DD0F9D533D8821F6A439E984 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Melmel;
-			productName = Melmel;
-			productReference = 964F4C7D1CA4CF7B00C69B71 /* Melmel.app */;
-			productType = "com.apple.product-type.application";
-		};
-		964F4C921CA4CF7B00C69B71 /* MelmelTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 964F4CAA1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelTests" */;
-			buildPhases = (
-				E27D31FBBF9712A997C535C9 /* [CP] Check Pods Manifest.lock */,
-				964F4C8F1CA4CF7B00C69B71 /* Sources */,
-				964F4C901CA4CF7B00C69B71 /* Frameworks */,
-				964F4C911CA4CF7B00C69B71 /* Resources */,
-				4E41EBCFF5F7363D0CCE5DAE /* [CP] Embed Pods Frameworks */,
-				C570C8AF0B27AEC063010543 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				964F4C951CA4CF7B00C69B71 /* PBXTargetDependency */,
-			);
-			name = MelmelTests;
-			productName = MelmelTests;
-			productReference = 964F4C931CA4CF7B00C69B71 /* MelmelTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		964F4C9D1CA4CF7B00C69B71 /* MelmelUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 964F4CAD1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelUITests" */;
-			buildPhases = (
-				746DD8B400B2DE13288E2DB3 /* [CP] Check Pods Manifest.lock */,
-				964F4C9A1CA4CF7B00C69B71 /* Sources */,
-				964F4C9B1CA4CF7B00C69B71 /* Frameworks */,
-				964F4C9C1CA4CF7B00C69B71 /* Resources */,
-				77CE45B7F514B7A3C74D2A25 /* [CP] Copy Pods Resources */,
-				CEC45CC57F91378B3A0B8CB9 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				964F4CA01CA4CF7B00C69B71 /* PBXTargetDependency */,
-			);
-			name = MelmelUITests;
-			productName = MelmelUITests;
-			productReference = 964F4C9E1CA4CF7B00C69B71 /* MelmelUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		964F4C751CA4CF7B00C69B71 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = Melmel;
-				TargetAttributes = {
-					964F4C7C1CA4CF7B00C69B71 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = SSKL6SFPT2;
-						LastSwiftMigration = 0800;
-						SystemCapabilities = {
-							com.apple.Maps.iOS = {
-								enabled = 1;
-							};
-						};
-					};
-					964F4C921CA4CF7B00C69B71 = {
-						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
-						TestTargetID = 964F4C7C1CA4CF7B00C69B71;
-					};
-					964F4C9D1CA4CF7B00C69B71 = {
-						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
-						TestTargetID = 964F4C7C1CA4CF7B00C69B71;
-					};
-				};
-			};
-			buildConfigurationList = 964F4C781CA4CF7B00C69B71 /* Build configuration list for PBXProject "Melmel" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 964F4C741CA4CF7B00C69B71;
-			productRefGroup = 964F4C7E1CA4CF7B00C69B71 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				964F4C7C1CA4CF7B00C69B71 /* Melmel */,
-				964F4C921CA4CF7B00C69B71 /* MelmelTests */,
-				964F4C9D1CA4CF7B00C69B71 /* MelmelUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		964F4C7B1CA4CF7B00C69B71 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */,
-				965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */,
-				96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */,
-				967FFEA81D07E16900599E30 /* Main.storyboard in Resources */,
-				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
-				965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */,
-				4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */,
-				965204891D4C5F6E001BC2A5 /* MapDiscountDetailView.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		964F4C911CA4CF7B00C69B71 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		964F4C9C1CA4CF7B00C69B71 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4E41EBCFF5F7363D0CCE5DAE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		746DD8B400B2DE13288E2DB3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		77CE45B7F514B7A3C74D2A25 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7926247EC755EFADBCDF36D1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C570C8AF0B27AEC063010543 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CEC45CC57F91378B3A0B8CB9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DD0F9D533D8821F6A439E984 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E27D31FBBF9712A997C535C9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FBFEDF1F3DF468A4BFF1FD87 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		964F4C791CA4CF7B00C69B71 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4DE3F3C01D16E81900D9D5A2 /* DiscountFilter.swift in Sources */,
-				4D8644F01CF96B0500E84028 /* CommentViewController.swift in Sources */,
-				9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */,
-				966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */,
-				96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */,
-				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
-				96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */,
-				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
-				96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */,
-				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
-				964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */,
-				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,
-				964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */,
-				96089E181D6699CE0036141F /* IntroductionPageViewCtrl.swift in Sources */,
-				4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */,
-				96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */,
-				96B162211D64897800AA4849 /* CustomSearchBar+Designable.swift in Sources */,
-				4DE3F3C21D18003700D9D5A2 /* CategoryTableViewCell.swift in Sources */,
-				963C6DA11D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift in Sources */,
-				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
-				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
-				3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */,
-				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
-				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
-				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
-				962124981CE03E8000DB4A37 /* FileDownloader.swift in Sources */,
-				963C6DB81D6B77B300B31B45 /* DiscountCategoryEntity.swift in Sources */,
-				4D0AB22C1D0BE67B0014CA48 /* SearchTableViewCell.swift in Sources */,
-				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
-				4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */,
-				96B1621F1D63DD5600AA4849 /* AnimationEngine.swift in Sources */,
-				4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */,
-				963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */,
-				4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */,
-				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
-				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
-				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
-				96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */,
-				96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */,
-				4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */,
-				4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */,
-				96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */,
-				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,
-				962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */,
-				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
-				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
-				4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */,
-				963289E71D4A11FF00B62040 /* Discount.swift in Sources */,
-				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,
-				4D4DA5BC1D0304120045B73C /* Alert.swift in Sources */,
-				9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */,
-				96CF581A1D06A42400DD4D53 /* GlobalVariables.swift in Sources */,
-				96B162231D64A4E000AA4849 /* SearchPostCell.swift in Sources */,
-				96F56B481CF049A2009E2F0B /* Post+CoreDataProperties.swift in Sources */,
-				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
-				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
-				963C6D9E1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift in Sources */,
-				3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */,
-				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
-				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
-				963C6DBD1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		964F4C8F1CA4CF7B00C69B71 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				964F4C981CA4CF7B00C69B71 /* MelmelTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		964F4C9A1CA4CF7B00C69B71 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				964F4CA31CA4CF7B00C69B71 /* MelmelUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		964F4C951CA4CF7B00C69B71 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 964F4C7C1CA4CF7B00C69B71 /* Melmel */;
-			targetProxy = 964F4C941CA4CF7B00C69B71 /* PBXContainerItemProxy */;
-		};
-		964F4CA01CA4CF7B00C69B71 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 964F4C7C1CA4CF7B00C69B71 /* Melmel */;
-			targetProxy = 964F4C9F1CA4CF7B00C69B71 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		964F4CA51CA4CF7B00C69B71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
-				MOMC_NO_WARNINGS = YES;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		964F4CA61CA4CF7B00C69B71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
-				MOMC_NO_WARNINGS = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		964F4CA81CA4CF7B00C69B71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B851BC0414D593B74824256 /* Pods-Melmel.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.melmel.mel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		964F4CA91CA4CF7B00C69B71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68468148F44BB3530428F816 /* Pods-Melmel.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Melmel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.melmel.mel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		964F4CAB1CA4CF7B00C69B71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AB088A1E1BE301270605930 /* Pods-MelmelTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MelmelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Melmel.app/Melmel";
-			};
-			name = Debug;
-		};
-		964F4CAC1CA4CF7B00C69B71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6683078205A966F683CB90C0 /* Pods-MelmelTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MelmelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Melmel.app/Melmel";
-			};
-			name = Release;
-		};
-		964F4CAE1CA4CF7B00C69B71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = MelmelUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Melmel;
-			};
-			name = Debug;
-		};
-		964F4CAF1CA4CF7B00C69B71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = MelmelUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Melmel.MelmelUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Melmel;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		964F4C781CA4CF7B00C69B71 /* Build configuration list for PBXProject "Melmel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				964F4CA51CA4CF7B00C69B71 /* Debug */,
-				964F4CA61CA4CF7B00C69B71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		964F4CA71CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "Melmel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				964F4CA81CA4CF7B00C69B71 /* Debug */,
-				964F4CA91CA4CF7B00C69B71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		964F4CAA1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				964F4CAB1CA4CF7B00C69B71 /* Debug */,
-				964F4CAC1CA4CF7B00C69B71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		964F4CAD1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				964F4CAE1CA4CF7B00C69B71 /* Debug */,
-				964F4CAF1CA4CF7B00C69B71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		96FC174D1CAE2CA5002F8817 /* Melmel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				96FC174E1CAE2CA5002F8817 /* Melmel.xcdatamodel */,
-			);
-			currentVersion = 96FC174E1CAE2CA5002F8817 /* Melmel.xcdatamodel */;
-			path = Melmel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = 964F4C751CA4CF7B00C69B71 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>04809AB6E7B2AB2592B57B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79FD1A18FB47E12DA17C3FDE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>07A6D86476507E5041D41159</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-MelmelUITests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>126DAC752186C7E3A0A53D52</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B0BD2018640CE223AF7BDC05</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>27B3083D255B84855A914CD6</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>35809C2E0612454D890EB5EA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>55961B6D32D1AB0562AECA77</string>
+				<string>79FD1A18FB47E12DA17C3FDE</string>
+				<string>B0BD2018640CE223AF7BDC05</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>36784C100FA870E1B9EDF299</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-MelmelUITests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4BC7261D994F5E001F3A75</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ContactUsViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4BC7271D994F5E001F3A75</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4BC7261D994F5E001F3A75</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D5B0AE2AD04FA1166838D87</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>3DC998FD1DA1E3D5009ECFA3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HireEvaluatorViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DC998FE1DA1E3D5009ECFA3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3DC998FD1DA1E3D5009ECFA3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>40F52D14F646CCA275FC8AB3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>55961B6D32D1AB0562AECA77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D040B381D5757EA0011BF4A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FilterViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D040B391D5757EA0011BF4A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>FilterViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D040B3A1D5757EA0011BF4A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D040B381D5757EA0011BF4A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D040B3B1D5757EA0011BF4A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D040B391D5757EA0011BF4A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D0AB2291D0BE5DD0014CA48</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SearchTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D0AB22A1D0BE5DD0014CA48</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D0AB2291D0BE5DD0014CA48</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D0AB22B1D0BE67B0014CA48</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SearchTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>4D0AB22C1D0BE67B0014CA48</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D0AB22B1D0BE67B0014CA48</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D0AB22D1D0BE91F0014CA48</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>InputSearchViewController.swift</string>
+			<key>path</key>
+			<string>Melmel/InputSearchViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D0AB22E1D0BE91F0014CA48</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D0AB22D1D0BE91F0014CA48</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D4DA5BB1D0304120045B73C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Alert.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D4DA5BC1D0304120045B73C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D4DA5BB1D0304120045B73C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D8644EF1CF96B0500E84028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CommentViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D8644F01CF96B0500E84028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D8644EF1CF96B0500E84028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D8644F11CF9832F00E84028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ShowCommentTableViewController.swift</string>
+			<key>path</key>
+			<string>Melmel/ShowCommentTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D8644F21CF9832F00E84028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D8644F11CF9832F00E84028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4D8644F31CF983F100E84028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>CommentTableViewCell.swift</string>
+			<key>path</key>
+			<string>Melmel/CommentTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D8644F41CF983F100E84028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D8644F31CF983F100E84028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4DE3F3B91D16E2EF00D9D5A2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>FilterTableViewController.swift</string>
+			<key>path</key>
+			<string>Melmel/FilterTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4DE3F3BA1D16E2EF00D9D5A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4DE3F3B91D16E2EF00D9D5A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4DE3F3BB1D16E4AE00D9D5A2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountCategory.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4DE3F3BC1D16E4AE00D9D5A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4DE3F3BB1D16E4AE00D9D5A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4DE3F3BD1D16E58F00D9D5A2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FilterTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4DE3F3BE1D16E58F00D9D5A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4DE3F3BD1D16E58F00D9D5A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4DE3F3BF1D16E81900D9D5A2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountFilter.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4DE3F3C01D16E81900D9D5A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4DE3F3BF1D16E81900D9D5A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4DE3F3C11D18003700D9D5A2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>CategoryTableViewCell.swift</string>
+			<key>path</key>
+			<string>Melmel/CategoryTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4DE3F3C21D18003700D9D5A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4DE3F3C11D18003700D9D5A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4DE3F3C71D180B5800D9D5A2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CategoryTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4DE3F3C81D180B5800D9D5A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4DE3F3C71D180B5800D9D5A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4E41EBCFF5F7363D0CCE5DAE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>55961B6D32D1AB0562AECA77</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Melmel.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6683078205A966F683CB90C0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-MelmelTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>68468148F44BB3530428F816</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Melmel.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Melmel/Pods-Melmel.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>70133D6BB3123AEBEBCCB15A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>746DD8B400B2DE13288E2DB3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [ $? != 0 ] ; then
+    # print error to STDERR
+    echo "error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation." &gt;&amp;2
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>77CE45B7F514B7A3C74D2A25</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>7926247EC755EFADBCDF36D1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>79FD1A18FB47E12DA17C3FDE</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_MelmelTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>7AB088A1E1BE301270605930</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-MelmelTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96089E171D6699CE0036141F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>IntroductionPageViewCtrl.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96089E181D6699CE0036141F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96089E171D6699CE0036141F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>961633C91CE2B93400628B74</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DateFormatter.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>961633CA1CE2B93400628B74</key>
+		<dict>
+			<key>fileRef</key>
+			<string>961633C91CE2B93400628B74</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>961A87491CF2A41D00206D0F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>961A874A1CF2A41D00206D0F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>961A87491CF2A41D00206D0F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>961A874B1CF2A42F00206D0F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>961A874C1CF2A42F00206D0F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>961A874B1CF2A42F00206D0F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>962124971CE03E8000DB4A37</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>FileDownloader.swift</string>
+			<key>path</key>
+			<string>Melmel/FileDownloader.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>962124981CE03E8000DB4A37</key>
+		<dict>
+			<key>fileRef</key>
+			<string>962124971CE03E8000DB4A37</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9628C36F1CFD4A5A00666F69</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Reachability.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9628C3701CFD4A5A00666F69</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9628C36F1CFD4A5A00666F69</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9628EA3C1D348B74009D2335</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CellMaskView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9628EA3D1D348B74009D2335</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9628EA3C1D348B74009D2335</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>962A1F7B1D487880006D2EA8</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Comment.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>962A1F7C1D487880006D2EA8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>962A1F7B1D487880006D2EA8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>963289E61D4A11FF00B62040</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Discount.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963289E71D4A11FF00B62040</key>
+		<dict>
+			<key>fileRef</key>
+			<string>963289E61D4A11FF00B62040</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9634583A1D543B3F0079C0FE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ActivityIndicatorViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9634583B1D543B3F0079C0FE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9634583A1D543B3F0079C0FE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>963C1E301CF6A46000089E39</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CoreDataUtility.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963C1E311CF6A46000089E39</key>
+		<dict>
+			<key>fileRef</key>
+			<string>963C1E301CF6A46000089E39</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>963C6D9D1D6AFADC00B31B45</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CategoryFilterPresentationCtrl.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963C6D9E1D6AFADC00B31B45</key>
+		<dict>
+			<key>fileRef</key>
+			<string>963C6D9D1D6AFADC00B31B45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>963C6D9F1D6B189300B31B45</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>963C6DA01D6B1AC700B31B45</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>PresentationController</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963C6DA01D6B1AC700B31B45</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ExampleTransitioningDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963C6DA11D6B1AC700B31B45</key>
+		<dict>
+			<key>fileRef</key>
+			<string>963C6DA01D6B1AC700B31B45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>963C6DB51D6B77B300B31B45</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountCategoryEntity.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963C6DB81D6B77B300B31B45</key>
+		<dict>
+			<key>fileRef</key>
+			<string>963C6DB51D6B77B300B31B45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>963C6DBB1D6B78E600B31B45</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountCategoryEntity+CoreDataProperties.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963C6DBD1D6B78E600B31B45</key>
+		<dict>
+			<key>fileRef</key>
+			<string>963C6DBB1D6B78E600B31B45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>963C6DBE1D6B7C8C00B31B45</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Discount+CoreDataProperties.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>963C6DBF1D6B7C8C00B31B45</key>
+		<dict>
+			<key>fileRef</key>
+			<string>963C6DBE1D6B7C8C00B31B45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>964BA0901D62992F0061B1A3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CustomActivityIndicatorView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964BA0911D62992F0061B1A3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>964BA0901D62992F0061B1A3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>964F4C741CA4CF7B00C69B71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>965AEF7F1CE959D800D2BB0A</string>
+				<string>965AEF791CE9529700D2BB0A</string>
+				<string>967E73C11CD72D0100A63BFB</string>
+				<string>96FC17501CAE387B002F8817</string>
+				<string>96BF58131CAA4B77006D6CB6</string>
+				<string>96BF58101CAA4A02006D6CB6</string>
+				<string>96BF580D1CAA4589006D6CB6</string>
+				<string>964F4C7F1CA4CF7B00C69B71</string>
+				<string>964F4C961CA4CF7B00C69B71</string>
+				<string>964F4CA11CA4CF7B00C69B71</string>
+				<string>964F4C7E1CA4CF7B00C69B71</string>
+				<string>EE5EFF21ADD9A9BD0CE5A21D</string>
+				<string>35809C2E0612454D890EB5EA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C751CA4CF7B00C69B71</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Melmel</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>964F4C7C1CA4CF7B00C69B71</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>SSKL6SFPT2</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+						<key>SystemCapabilities</key>
+						<dict>
+							<key>com.apple.Maps.iOS</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>964F4C921CA4CF7B00C69B71</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+						<key>TestTargetID</key>
+						<string>964F4C7C1CA4CF7B00C69B71</string>
+					</dict>
+					<key>964F4C9D1CA4CF7B00C69B71</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+						<key>TestTargetID</key>
+						<string>964F4C7C1CA4CF7B00C69B71</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>964F4C781CA4CF7B00C69B71</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>964F4C741CA4CF7B00C69B71</string>
+			<key>productRefGroup</key>
+			<string>964F4C7E1CA4CF7B00C69B71</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>964F4C7C1CA4CF7B00C69B71</string>
+				<string>964F4C921CA4CF7B00C69B71</string>
+				<string>964F4C9D1CA4CF7B00C69B71</string>
+			</array>
+		</dict>
+		<key>964F4C781CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>964F4CA51CA4CF7B00C69B71</string>
+				<string>964F4CA61CA4CF7B00C69B71</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>964F4C791CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4DE3F3C01D16E81900D9D5A2</string>
+				<string>4D8644F01CF96B0500E84028</string>
+				<string>9628EA3D1D348B74009D2335</string>
+				<string>966E8B321CDF603D004C4260</string>
+				<string>96B1CC631CFC790B00B32E6E</string>
+				<string>965488411CEAB5F30009AF14</string>
+				<string>96F3A68B1D4F724E008C7669</string>
+				<string>965AEF7E1CE955B200D2BB0A</string>
+				<string>96D777FC1D6D70540034B4A7</string>
+				<string>96BAECFA1CE21410008B3B70</string>
+				<string>964BA0911D62992F0061B1A3</string>
+				<string>96CB14EF1CE46047006B5DD1</string>
+				<string>964F4C851CA4CF7B00C69B71</string>
+				<string>96089E181D6699CE0036141F</string>
+				<string>4D8644F21CF9832F00E84028</string>
+				<string>96BDC6F41D57605900A75B71</string>
+				<string>96B162211D64897800AA4849</string>
+				<string>4DE3F3C21D18003700D9D5A2</string>
+				<string>963C6DA11D6B1AC700B31B45</string>
+				<string>961A874A1CF2A41D00206D0F</string>
+				<string>4D8644F41CF983F100E84028</string>
+				<string>3D4BC7271D994F5E001F3A75</string>
+				<string>96BF58121CAA4B72006D6CB6</string>
+				<string>4D0AB22E1D0BE91F0014CA48</string>
+				<string>9628C3701CFD4A5A00666F69</string>
+				<string>962124981CE03E8000DB4A37</string>
+				<string>963C6DB81D6B77B300B31B45</string>
+				<string>4D0AB22C1D0BE67B0014CA48</string>
+				<string>967382071CF56C6C001F9F9C</string>
+				<string>4D040B3A1D5757EA0011BF4A</string>
+				<string>96B1621F1D63DD5600AA4849</string>
+				<string>4DE3F3BA1D16E2EF00D9D5A2</string>
+				<string>963C6DBF1D6B7C8C00B31B45</string>
+				<string>4DE3F3BE1D16E58F00D9D5A2</string>
+				<string>967E73C31CD72D1800A63BFB</string>
+				<string>967FFEAC1D07E36E00599E30</string>
+				<string>961A874C1CF2A42F00206D0F</string>
+				<string>96C8E9021D35DCEF0016E5AF</string>
+				<string>96643A5E1D51BCCA005C03B0</string>
+				<string>4DE3F3BC1D16E4AE00D9D5A2</string>
+				<string>4DE3F3C81D180B5800D9D5A2</string>
+				<string>96BDC6F61D576F7500A75B71</string>
+				<string>963C1E311CF6A46000089E39</string>
+				<string>962A1F7C1D487880006D2EA8</string>
+				<string>964F4C811CA4CF7B00C69B71</string>
+				<string>966E8B341CDF6C8D004C4260</string>
+				<string>4D0AB22A1D0BE5DD0014CA48</string>
+				<string>963289E71D4A11FF00B62040</string>
+				<string>96CB14EE1CE46047006B5DD1</string>
+				<string>4D4DA5BC1D0304120045B73C</string>
+				<string>9634583B1D543B3F0079C0FE</string>
+				<string>96CF581A1D06A42400DD4D53</string>
+				<string>96B162231D64A4E000AA4849</string>
+				<string>96F56B481CF049A2009E2F0B</string>
+				<string>961633CA1CE2B93400628B74</string>
+				<string>96E988191CAB6141005E9E68</string>
+				<string>963C6D9E1D6AFADC00B31B45</string>
+				<string>3DC998FE1DA1E3D5009ECFA3</string>
+				<string>96BE5A0A1CEFED6200C6BC3D</string>
+				<string>96FC174F1CAE2CA5002F8817</string>
+				<string>963C6DBD1D6B78E600B31B45</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C7A1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>965AEF7A1CE9529700D2BB0A</string>
+				<string>40F52D14F646CCA275FC8AB3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C7B1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>964F4C8A1CA4CF7B00C69B71</string>
+				<string>965AEF801CE959D800D2BB0A</string>
+				<string>96B1621C1D6328D600AA4849</string>
+				<string>967FFEA81D07E16900599E30</string>
+				<string>96BF580F1CAA46D0006D6CB6</string>
+				<string>965AEF821CE986ED00D2BB0A</string>
+				<string>4D040B3B1D5757EA0011BF4A</string>
+				<string>965204891D4C5F6E001BC2A5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C7C1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>964F4CA71CA4CF7B00C69B71</string>
+			<key>buildPhases</key>
+			<array>
+				<string>EBBE4052A0B554B0AC6C652F</string>
+				<string>FBFEDF1F3DF468A4BFF1FD87</string>
+				<string>964F4C791CA4CF7B00C69B71</string>
+				<string>964F4C7A1CA4CF7B00C69B71</string>
+				<string>964F4C7B1CA4CF7B00C69B71</string>
+				<string>7926247EC755EFADBCDF36D1</string>
+				<string>DD0F9D533D8821F6A439E984</string>
+				<string>BD0310B2707BA5C566E1C984</string>
+				<string>DC55BFE6493B002D7DB0C732</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Melmel</string>
+			<key>productName</key>
+			<string>Melmel</string>
+			<key>productReference</key>
+			<string>964F4C7D1CA4CF7B00C69B71</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>964F4C7D1CA4CF7B00C69B71</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Melmel.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>964F4C7E1CA4CF7B00C69B71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>964F4C7D1CA4CF7B00C69B71</string>
+				<string>964F4C931CA4CF7B00C69B71</string>
+				<string>964F4C9E1CA4CF7B00C69B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C7F1CA4CF7B00C69B71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>964F4C801CA4CF7B00C69B71</string>
+				<string>96FC174D1CAE2CA5002F8817</string>
+				<string>967FFEA71D07E16900599E30</string>
+				<string>964F4C841CA4CF7B00C69B71</string>
+				<string>964F4C891CA4CF7B00C69B71</string>
+				<string>964F4C8E1CA4CF7B00C69B71</string>
+				<string>96B1621B1D6328D600AA4849</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Melmel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C801CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C811CA4CF7B00C69B71</key>
+		<dict>
+			<key>fileRef</key>
+			<string>964F4C801CA4CF7B00C69B71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>964F4C841CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SecondViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C851CA4CF7B00C69B71</key>
+		<dict>
+			<key>fileRef</key>
+			<string>964F4C841CA4CF7B00C69B71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>964F4C891CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C8A1CA4CF7B00C69B71</key>
+		<dict>
+			<key>fileRef</key>
+			<string>964F4C891CA4CF7B00C69B71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>964F4C8E1CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C8F1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>964F4C981CA4CF7B00C69B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C901CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>04809AB6E7B2AB2592B57B83</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C911CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C921CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>964F4CAA1CA4CF7B00C69B71</string>
+			<key>buildPhases</key>
+			<array>
+				<string>3D5B0AE2AD04FA1166838D87</string>
+				<string>E27D31FBBF9712A997C535C9</string>
+				<string>964F4C8F1CA4CF7B00C69B71</string>
+				<string>964F4C901CA4CF7B00C69B71</string>
+				<string>964F4C911CA4CF7B00C69B71</string>
+				<string>4E41EBCFF5F7363D0CCE5DAE</string>
+				<string>C570C8AF0B27AEC063010543</string>
+				<string>E588DC2E966E4FE8A45598E8</string>
+				<string>27B3083D255B84855A914CD6</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>964F4C951CA4CF7B00C69B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>MelmelTests</string>
+			<key>productName</key>
+			<string>MelmelTests</string>
+			<key>productReference</key>
+			<string>964F4C931CA4CF7B00C69B71</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>964F4C931CA4CF7B00C69B71</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>MelmelTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>964F4C941CA4CF7B00C69B71</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>964F4C751CA4CF7B00C69B71</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>964F4C7C1CA4CF7B00C69B71</string>
+			<key>remoteInfo</key>
+			<string>Melmel</string>
+		</dict>
+		<key>964F4C951CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>964F4C7C1CA4CF7B00C69B71</string>
+			<key>targetProxy</key>
+			<string>964F4C941CA4CF7B00C69B71</string>
+		</dict>
+		<key>964F4C961CA4CF7B00C69B71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>964F4C971CA4CF7B00C69B71</string>
+				<string>964F4C991CA4CF7B00C69B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>MelmelTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C971CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MelmelTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C981CA4CF7B00C69B71</key>
+		<dict>
+			<key>fileRef</key>
+			<string>964F4C971CA4CF7B00C69B71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>964F4C991CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4C9A1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>964F4CA31CA4CF7B00C69B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C9B1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>126DAC752186C7E3A0A53D52</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C9C1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>964F4C9D1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>964F4CAD1CA4CF7B00C69B71</string>
+			<key>buildPhases</key>
+			<array>
+				<string>E0122CAD288B30B4F3ABD1D4</string>
+				<string>746DD8B400B2DE13288E2DB3</string>
+				<string>964F4C9A1CA4CF7B00C69B71</string>
+				<string>964F4C9B1CA4CF7B00C69B71</string>
+				<string>964F4C9C1CA4CF7B00C69B71</string>
+				<string>77CE45B7F514B7A3C74D2A25</string>
+				<string>CEC45CC57F91378B3A0B8CB9</string>
+				<string>70133D6BB3123AEBEBCCB15A</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>964F4CA01CA4CF7B00C69B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>MelmelUITests</string>
+			<key>productName</key>
+			<string>MelmelUITests</string>
+			<key>productReference</key>
+			<string>964F4C9E1CA4CF7B00C69B71</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>964F4C9E1CA4CF7B00C69B71</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>MelmelUITests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>964F4C9F1CA4CF7B00C69B71</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>964F4C751CA4CF7B00C69B71</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>964F4C7C1CA4CF7B00C69B71</string>
+			<key>remoteInfo</key>
+			<string>Melmel</string>
+		</dict>
+		<key>964F4CA01CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>964F4C7C1CA4CF7B00C69B71</string>
+			<key>targetProxy</key>
+			<string>964F4C9F1CA4CF7B00C69B71</string>
+		</dict>
+		<key>964F4CA11CA4CF7B00C69B71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>964F4CA21CA4CF7B00C69B71</string>
+				<string>964F4CA41CA4CF7B00C69B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>MelmelUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4CA21CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MelmelUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4CA31CA4CF7B00C69B71</key>
+		<dict>
+			<key>fileRef</key>
+			<string>964F4CA21CA4CF7B00C69B71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>964F4CA41CA4CF7B00C69B71</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>964F4CA51CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS</key>
+				<string>YES</string>
+				<key>MOMC_NO_WARNINGS</key>
+				<string>YES</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>964F4CA61CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS</key>
+				<string>YES</string>
+				<key>MOMC_NO_WARNINGS</key>
+				<string>YES</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>964F4CA71CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>964F4CA81CA4CF7B00C69B71</string>
+				<string>964F4CA91CA4CF7B00C69B71</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>964F4CA81CA4CF7B00C69B71</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9B851BC0414D593B74824256</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Melmel/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>au.com.melmel.mel</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>964F4CA91CA4CF7B00C69B71</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>68468148F44BB3530428F816</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Melmel/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>au.com.melmel.mel</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>964F4CAA1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>964F4CAB1CA4CF7B00C69B71</string>
+				<string>964F4CAC1CA4CF7B00C69B71</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>964F4CAB1CA4CF7B00C69B71</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7AB088A1E1BE301270605930</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MelmelTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Melmel.MelmelTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Melmel.app/Melmel</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>964F4CAC1CA4CF7B00C69B71</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>6683078205A966F683CB90C0</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MelmelTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Melmel.MelmelTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Melmel.app/Melmel</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>964F4CAD1CA4CF7B00C69B71</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>964F4CAE1CA4CF7B00C69B71</string>
+				<string>964F4CAF1CA4CF7B00C69B71</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>964F4CAE1CA4CF7B00C69B71</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>07A6D86476507E5041D41159</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>MelmelUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Melmel.MelmelUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Melmel</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>964F4CAF1CA4CF7B00C69B71</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>36784C100FA870E1B9EDF299</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>MelmelUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Melmel.MelmelUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Melmel</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>965204881D4C5F6E001BC2A5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>MapDiscountDetailView.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>965204891D4C5F6E001BC2A5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>965204881D4C5F6E001BC2A5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>965488401CEAB5F30009AF14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountAnnotation.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>965488411CEAB5F30009AF14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>965488401CEAB5F30009AF14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>965AEF791CE9529700D2BB0A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>MapKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/MapKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>965AEF7A1CE9529700D2BB0A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>965AEF791CE9529700D2BB0A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>965AEF7D1CE955B200D2BB0A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MapViewCtrl.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>965AEF7E1CE955B200D2BB0A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>965AEF7D1CE955B200D2BB0A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>965AEF7F1CE959D800D2BB0A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xml</string>
+			<key>path</key>
+			<string>melmelLocation.gpx</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>965AEF801CE959D800D2BB0A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>965AEF7F1CE959D800D2BB0A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>965AEF811CE986EC00D2BB0A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>LOGO-retina.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>965AEF821CE986ED00D2BB0A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>965AEF811CE986EC00D2BB0A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96643A5D1D51BCCA005C03B0</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountCatagoryRecognizer.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96643A5E1D51BCCA005C03B0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96643A5D1D51BCCA005C03B0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>966E8B311CDF603D004C4260</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>PostsUpdateUtility.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>966E8B321CDF603D004C4260</key>
+		<dict>
+			<key>fileRef</key>
+			<string>966E8B311CDF603D004C4260</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>966E8B331CDF6C8D004C4260</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>PostWebViewController.swift</string>
+			<key>path</key>
+			<string>Melmel/PostWebViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>966E8B341CDF6C8D004C4260</key>
+		<dict>
+			<key>fileRef</key>
+			<string>966E8B331CDF6C8D004C4260</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>967382061CF56C6C001F9F9C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CustomNavigationItem.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>967382071CF56C6C001F9F9C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>967382061CF56C6C001F9F9C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>967E73C11CD72D0100A63BFB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>96B1621D1D63DD3A00AA4849</string>
+				<string>967E73C21CD72D1800A63BFB</string>
+				<string>966E8B311CDF603D004C4260</string>
+				<string>962124971CE03E8000DB4A37</string>
+				<string>961633C91CE2B93400628B74</string>
+				<string>96BE5A091CEFED6200C6BC3D</string>
+				<string>963C1E301CF6A46000089E39</string>
+				<string>96B1CC621CFC790B00B32E6E</string>
+				<string>9628C36F1CFD4A5A00666F69</string>
+				<string>96CF58191D06A42400DD4D53</string>
+				<string>96643A5D1D51BCCA005C03B0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Utilities</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>967E73C21CD72D1800A63BFB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>APIHelper.swift</string>
+			<key>path</key>
+			<string>Melmel/APIHelper.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>967E73C31CD72D1800A63BFB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>967E73C21CD72D1800A63BFB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>967FFEA71D07E16900599E30</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>967FFEA81D07E16900599E30</key>
+		<dict>
+			<key>fileRef</key>
+			<string>967FFEA71D07E16900599E30</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>967FFEAB1D07E36E00599E30</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HomeViewCtrl.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>967FFEAC1D07E36E00599E30</key>
+		<dict>
+			<key>fileRef</key>
+			<string>967FFEAB1D07E36E00599E30</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>968041A11D61FA740040ED91</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Comment</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B1621B1D6328D600AA4849</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Launch Screen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B1621C1D6328D600AA4849</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96B1621B1D6328D600AA4849</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96B1621D1D63DD3A00AA4849</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>96B1621E1D63DD5600AA4849</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Animation Engine</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B1621E1D63DD5600AA4849</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AnimationEngine.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B1621F1D63DD5600AA4849</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96B1621E1D63DD5600AA4849</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96B162201D64897800AA4849</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CustomSearchBar+Designable.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B162211D64897800AA4849</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96B162201D64897800AA4849</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96B162221D64A4E000AA4849</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SearchPostCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B162231D64A4E000AA4849</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96B162221D64A4E000AA4849</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96B1CC621CFC790B00B32E6E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ReachabilityManager.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B1CC631CFC790B00B32E6E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96B1CC621CFC790B00B32E6E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BAECF61CE21410008B3B70</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Post.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BAECFA1CE21410008B3B70</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96BAECF61CE21410008B3B70</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BDC6F31D57605900A75B71</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiscountAnnotationView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BDC6F41D57605900A75B71</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96BDC6F31D57605900A75B71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BDC6F51D576F7500A75B71</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MapViewCtrlExtension.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BDC6F61D576F7500A75B71</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96BDC6F51D576F7500A75B71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BDC6F71D57764200A75B71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>96BDC6F51D576F7500A75B71</string>
+				<string>965AEF7D1CE955B200D2BB0A</string>
+				<string>96F3A68A1D4F724E008C7669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Map</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BDC6F81D57765E00A75B71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>96BDC6F31D57605900A75B71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Map</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BE5A091CEFED6200C6BC3D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>PhotoOperations.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BE5A0A1CEFED6200C6BC3D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96BE5A091CEFED6200C6BC3D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BF580D1CAA4589006D6CB6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>965AEF811CE986EC00D2BB0A</string>
+				<string>96BF580E1CAA46D0006D6CB6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Assets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BF580E1CAA46D0006D6CB6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>name</key>
+			<string>woolworths-fresh-produce-section-instore.jpg</string>
+			<key>path</key>
+			<string>Melmel/woolworths-fresh-produce-section-instore.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BF580F1CAA46D0006D6CB6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96BF580E1CAA46D0006D6CB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BF58101CAA4A02006D6CB6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>963C6D9F1D6B189300B31B45</string>
+				<string>96BDC6F71D57764200A75B71</string>
+				<string>4D0AB22D1D0BE91F0014CA48</string>
+				<string>4D0AB2291D0BE5DD0014CA48</string>
+				<string>4D8644F11CF9832F00E84028</string>
+				<string>4D040B381D5757EA0011BF4A</string>
+				<string>4DE3F3C71D180B5800D9D5A2</string>
+				<string>4D8644EF1CF96B0500E84028</string>
+				<string>96E988181CAB6141005E9E68</string>
+				<string>961A87491CF2A41D00206D0F</string>
+				<string>966E8B331CDF6C8D004C4260</string>
+				<string>967FFEAB1D07E36E00599E30</string>
+				<string>4DE3F3B91D16E2EF00D9D5A2</string>
+				<string>9634583A1D543B3F0079C0FE</string>
+				<string>96089E171D6699CE0036141F</string>
+				<string>963C6D9D1D6AFADC00B31B45</string>
+				<string>96D777FB1D6D70540034B4A7</string>
+				<string>3D4BC7261D994F5E001F3A75</string>
+				<string>3DC998FD1DA1E3D5009ECFA3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Controller</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BF58111CAA4B72006D6CB6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>MelGuideTableViewCell.swift</string>
+			<key>path</key>
+			<string>Melmel/MelGuideTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96BF58121CAA4B72006D6CB6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96BF58111CAA4B72006D6CB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BF58131CAA4B77006D6CB6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>968041A11D61FA740040ED91</string>
+				<string>96BDC6F81D57765E00A75B71</string>
+				<string>965204881D4C5F6E001BC2A5</string>
+				<string>4D040B391D5757EA0011BF4A</string>
+				<string>961A874B1CF2A42F00206D0F</string>
+				<string>4D4DA5BB1D0304120045B73C</string>
+				<string>96B162201D64897800AA4849</string>
+				<string>4DE3F3BD1D16E58F00D9D5A2</string>
+				<string>96BF58111CAA4B72006D6CB6</string>
+				<string>4D8644F31CF983F100E84028</string>
+				<string>967382061CF56C6C001F9F9C</string>
+				<string>4D0AB22B1D0BE67B0014CA48</string>
+				<string>4DE3F3C11D18003700D9D5A2</string>
+				<string>9628EA3C1D348B74009D2335</string>
+				<string>96C8E9011D35DCEF0016E5AF</string>
+				<string>964BA0901D62992F0061B1A3</string>
+				<string>96B162221D64A4E000AA4849</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>View</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96C8E9011D35DCEF0016E5AF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DateLabel.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96C8E9021D35DCEF0016E5AF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96C8E9011D35DCEF0016E5AF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96CB14EC1CE46047006B5DD1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Media+CoreDataProperties.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96CB14ED1CE46047006B5DD1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Media.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96CB14EE1CE46047006B5DD1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96CB14EC1CE46047006B5DD1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96CB14EF1CE46047006B5DD1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96CB14ED1CE46047006B5DD1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96CF58191D06A42400DD4D53</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>GlobalVariables.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96CF581A1D06A42400DD4D53</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96CF58191D06A42400DD4D53</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96D777FB1D6D70540034B4A7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SettingTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96D777FC1D6D70540034B4A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96D777FB1D6D70540034B4A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96E988181CAB6141005E9E68</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>MelGuideTableViewController.swift</string>
+			<key>path</key>
+			<string>Melmel/MelGuideTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96E988191CAB6141005E9E68</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96E988181CAB6141005E9E68</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96F3A68A1D4F724E008C7669</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MapDiscountDetailViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96F3A68B1D4F724E008C7669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96F3A68A1D4F724E008C7669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96F56B471CF049A2009E2F0B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Post+CoreDataProperties.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96F56B481CF049A2009E2F0B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96F56B471CF049A2009E2F0B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96FC174D1CAE2CA5002F8817</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>96FC174E1CAE2CA5002F8817</string>
+			</array>
+			<key>currentVersion</key>
+			<string>96FC174E1CAE2CA5002F8817</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>path</key>
+			<string>Melmel.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>96FC174E1CAE2CA5002F8817</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Melmel.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96FC174F1CAE2CA5002F8817</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96FC174D1CAE2CA5002F8817</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96FC17501CAE387B002F8817</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>963C6DBE1D6B7C8C00B31B45</string>
+				<string>963C6DBB1D6B78E600B31B45</string>
+				<string>963C6DB51D6B77B300B31B45</string>
+				<string>963289E61D4A11FF00B62040</string>
+				<string>96F56B471CF049A2009E2F0B</string>
+				<string>965488401CEAB5F30009AF14</string>
+				<string>96CB14EC1CE46047006B5DD1</string>
+				<string>96CB14ED1CE46047006B5DD1</string>
+				<string>96BAECF61CE21410008B3B70</string>
+				<string>4DE3F3BB1D16E4AE00D9D5A2</string>
+				<string>4DE3F3BF1D16E81900D9D5A2</string>
+				<string>962A1F7B1D487880006D2EA8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Model</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9B851BC0414D593B74824256</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Melmel.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Melmel/Pods-Melmel.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B0BD2018640CE223AF7BDC05</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_MelmelUITests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>BD0310B2707BA5C566E1C984</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>C570C8AF0B27AEC063010543</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>CEC45CC57F91378B3A0B8CB9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>DC55BFE6493B002D7DB0C732</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>DD0F9D533D8821F6A439E984</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>E0122CAD288B30B4F3ABD1D4</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>E27D31FBBF9712A997C535C9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [ $? != 0 ] ; then
+    # print error to STDERR
+    echo "error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation." &gt;&amp;2
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>E588DC2E966E4FE8A45598E8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>EBBE4052A0B554B0AC6C652F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>EE5EFF21ADD9A9BD0CE5A21D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9B851BC0414D593B74824256</string>
+				<string>68468148F44BB3530428F816</string>
+				<string>7AB088A1E1BE301270605930</string>
+				<string>6683078205A966F683CB90C0</string>
+				<string>07A6D86476507E5041D41159</string>
+				<string>36784C100FA870E1B9EDF299</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBFEDF1F3DF468A4BFF1FD87</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [ $? != 0 ] ; then
+    # print error to STDERR
+    echo "error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation." &gt;&amp;2
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>964F4C751CA4CF7B00C69B71</string>
+</dict>
+</plist>

@@ -4,12 +4,16 @@ PODS:
   - MelMobile (0.1.1):
     - Alamofire (~> 4.0)
   - pop (1.0.9)
+  - SwiftMessages (3.0.2)
+  - XLForm (3.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - FBAnnotationClusteringSwift (from `https://github.com/ribl/FBAnnotationClusteringSwift.git`)
   - MelMobile (from `https://github.com/wenyuzhao/MelMobile.git`)
   - pop (from `https://github.com/facebook/pop.git`)
+  - SwiftMessages
+  - XLForm (~> 3.0)
 
 EXTERNAL SOURCES:
   FBAnnotationClusteringSwift:
@@ -35,7 +39,9 @@ SPEC CHECKSUMS:
   FBAnnotationClusteringSwift: 7ef2c863c806942a1c03add72cde1e9c1872534d
   MelMobile: b4232b5a0a4afdaed3487b4553f160df24afa268
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SwiftMessages: 3523c331c6b7b66e6f23a970ced259065ba31f9c
+  XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: 5ccb2851e64a3b3f5a0cec39690d6e8c4a7f36ab
+PODFILE CHECKSUM: 2da5a2964010f7bc17dd937854030d3d018efe80
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.0
