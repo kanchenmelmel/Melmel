@@ -44,6 +44,7 @@
 		963C6DBD1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DBB1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift */; };
 		963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */; };
 		964AE5BE1DB9B938008F5DB5 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */; };
+		964AE5C01DB9CEC9008F5DB5 /* HireReviewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */; };
 		964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
@@ -144,6 +145,7 @@
 		963C6DBB1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscountCategoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireReviewerViewController.swift; sourceTree = "<group>"; };
 		964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */,
+				964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */,
 			);
 			name = ContactForms;
 			sourceTree = "<group>";
@@ -933,6 +936,7 @@
 				3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */,
 				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
 				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
+				964AE5C01DB9CEC9008F5DB5 /* HireReviewerViewController.swift in Sources */,
 				963C6DBD1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

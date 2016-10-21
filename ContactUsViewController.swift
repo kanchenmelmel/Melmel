@@ -26,32 +26,37 @@ class ContactUsViewController: XLFormViewController {
         let form = XLFormDescriptor(title: "联系我们")
         
         
-        let section = XLFormSectionDescriptor.formSection()
+        var section = XLFormSectionDescriptor.formSection()
         
         form.addFormSection(section)
         
         
         var row:XLFormRowDescriptor!
-        row = XLFormRowDescriptor(tag: "姓名", rowType: XLFormRowDescriptorTypeText)
+        row = XLFormRowDescriptor(tag: "姓名", rowType: XLFormRowDescriptorTypeText,title:"姓名")
         row.cellConfigAtConfigure.setObject("姓名", forKey: "textField.placeholder" as NSCopying)
         
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "邮箱", rowType: XLFormRowDescriptorTypeEmail)
+        row = XLFormRowDescriptor(tag: "邮箱", rowType: XLFormRowDescriptorTypeEmail,title:"邮箱")
         row.cellConfigAtConfigure.setObject("邮箱", forKey: "textField.placeholder" as NSCopying)
         
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "手机", rowType: XLFormRowDescriptorTypePhone)
+        row = XLFormRowDescriptor(tag: "手机", rowType: XLFormRowDescriptorTypePhone,title:"手机")
         row.cellConfigAtConfigure.setObject("手机", forKey: "textField.placeholder" as NSCopying)
         
         section.addFormRow(row)
         
+        
+        
+        section = XLFormSectionDescriptor.formSection()
+        form.addFormSection(section)
         row = XLFormRowDescriptor(tag: "留言", rowType: XLFormRowDescriptorTypeTextView)
         row.cellConfigAtConfigure.setObject("留言", forKey: "textView.placeholder" as NSCopying)
         
         section.addFormRow(row)
-        
+       
+        self.form = form
     }
 
 }
