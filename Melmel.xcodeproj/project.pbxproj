@@ -45,6 +45,7 @@
 		963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */; };
 		964AE5BE1DB9B938008F5DB5 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */; };
 		964AE5C01DB9CEC9008F5DB5 /* HireReviewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */; };
+		964AE5C21DB9DD04008F5DB5 /* XLFormExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */; };
 		964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
@@ -146,6 +147,7 @@
 		963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireReviewerViewController.swift; sourceTree = "<group>"; };
+		964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLFormExtension.swift; sourceTree = "<group>"; };
 		964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */,
 				964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */,
+				964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */,
 			);
 			name = ContactForms;
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
 				4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */,
 				96B1621F1D63DD5600AA4849 /* AnimationEngine.swift in Sources */,
+				964AE5C21DB9DD04008F5DB5 /* XLFormExtension.swift in Sources */,
 				4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */,
 				963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */,
 				4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */,

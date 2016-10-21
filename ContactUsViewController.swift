@@ -32,17 +32,17 @@ class ContactUsViewController: XLFormViewController {
         
         
         var row:XLFormRowDescriptor!
-        row = XLFormRowDescriptor(tag: "姓名", rowType: XLFormRowDescriptorTypeText,title:"姓名")
+        row = XLFormRowDescriptor(tag: "name", rowType: XLFormRowDescriptorTypeText,title:"姓名")
         row.cellConfigAtConfigure.setObject("姓名", forKey: "textField.placeholder" as NSCopying)
         
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "邮箱", rowType: XLFormRowDescriptorTypeEmail,title:"邮箱")
+        row = XLFormRowDescriptor(tag: "email", rowType: XLFormRowDescriptorTypeEmail,title:"邮箱")
         row.cellConfigAtConfigure.setObject("邮箱", forKey: "textField.placeholder" as NSCopying)
         
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "手机", rowType: XLFormRowDescriptorTypePhone,title:"手机")
+        row = XLFormRowDescriptor(tag: "mobile", rowType: XLFormRowDescriptorTypePhone,title:"手机")
         row.cellConfigAtConfigure.setObject("手机", forKey: "textField.placeholder" as NSCopying)
         
         section.addFormRow(row)
@@ -51,12 +51,26 @@ class ContactUsViewController: XLFormViewController {
         
         section = XLFormSectionDescriptor.formSection()
         form.addFormSection(section)
-        row = XLFormRowDescriptor(tag: "留言", rowType: XLFormRowDescriptorTypeTextView)
+        row = XLFormRowDescriptor(tag: "message", rowType: XLFormRowDescriptorTypeTextView)
         row.cellConfigAtConfigure.setObject("留言", forKey: "textView.placeholder" as NSCopying)
         
         section.addFormRow(row)
        
         self.form = form
+    }
+    @IBAction func submitButtonClicked(_ sender: AnyObject) {
+        sendValues()
+    }
+    
+    
+    func sendValues() {
+        var values = [(String,String)]()
+        values.append(("姓名",self.formValues()["name"] as! String))
+        values.append(("邮箱",self.formValues()["email"] as! String))
+        values.append(("电话",self.formValues()["mobile"] as! String))
+        values.append(("留言",self.formValues()["message"] as! String))
+        
+        self.sendXLFormValuesAsEmail(title: "联系我们", values: values)
     }
 
 }
