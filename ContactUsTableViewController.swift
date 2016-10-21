@@ -20,6 +20,8 @@ class ContactUsTableViewController: ContactFormTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sendMessageButton.addTarget(self, action: #selector(self.sendMessageButtonPressed), for: .touchUpInside)
+        self.contentTextView.delegate = self
+        self.contentTextView.text = textViewTextPlaceholder
     }
     
     func validate() -> Bool {
@@ -62,8 +64,9 @@ class ContactUsTableViewController: ContactFormTableViewController {
             title: "Melmel用户留言 (Melmel iOS客户端<联系我们>)",
             content: "姓名：\(name)\n邮箱：\(_email)\n手机：\(mobile)\n\n反馈：\n\n\(content)"
         )
-        
+        self.present(sendingAlert, animated: true, completion: nil)
         EmailEjector.eject(email: email) { _ in
+            self.sendingAlert.dismiss(animated: true, completion: nil)
             self.showDialog("success")
         }
     }

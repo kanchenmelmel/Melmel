@@ -13,6 +13,8 @@ let textViewTextPlaceholder = "请写下你想留下的信息……"
 let ReceiverEmailAddress = "patrickgao1990@gmail.com"
 
 class ContactFormTableViewController: UITableViewController,UITextViewDelegate,UITextFieldDelegate {
+    
+    let sendingAlert = UIAlertController(title: "发送中", message: nil, preferredStyle: .alert)
 
     override func viewDidLoad() {
         super.viewDidLoad()

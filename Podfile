@@ -10,6 +10,7 @@ target 'Melmel' do
   pod 'pop', :git => 'https://github.com/facebook/pop.git'
   pod 'Alamofire', '~> 4.0'
   pod 'MelMobile', :git => 'https://github.com/wenyuzhao/MelMobile.git'
+  pod 'SwiftyButton/CustomContent'
 
   target 'MelmelTests' do
     inherit! :search_paths

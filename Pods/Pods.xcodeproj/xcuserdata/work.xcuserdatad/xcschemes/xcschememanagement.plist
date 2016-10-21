@@ -6,73 +6,63 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FBAnnotationClusteringSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>MelMobile.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Melmel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-MelmelTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-MelmelUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
+		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08804F9A46AE4B965D7679F096AD0A09</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3E1C6AF8615F55E2FB4F17DFA1C0CE64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>423C10F04A172BB11C7A3702F8F09B90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>525AF55D84927D710E909ACD099ECFD1</key>
+		<key>49E90A16974C87B4F750209AC4197DBB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62C7C9A9FC072573EE8E5F3ECAE4B466</key>
+		<key>525AF55D84927D710E909ACD099ECFD1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,17 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B0A8E3212F719517D78BDCF9EC744FC</key>
+		<key>D129562A98C3BF988D6937C7951E2F03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CEC070E2FE1BF339F6C4F516D4F62724</key>
+		<key>F593F88B237DE9FD73AD60F95BDBF256</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D37B97A2DA07922BCF2E8C06AA6811BF</key>
+		<key>F73A53D74525FC146B83594DDA202D2F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

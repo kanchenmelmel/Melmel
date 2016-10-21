@@ -87,11 +87,15 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FBAnnotationClusteringSwift/FBAnnotationClusteringSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MelMobile/MelMobile.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PureLayout/PureLayout.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyButton/SwiftyButton.framework"
   install_framework "$BUILT_PRODUCTS_DIR/pop/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FBAnnotationClusteringSwift/FBAnnotationClusteringSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MelMobile/MelMobile.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PureLayout/PureLayout.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyButton/SwiftyButton.framework"
   install_framework "$BUILT_PRODUCTS_DIR/pop/pop.framework"
 fi

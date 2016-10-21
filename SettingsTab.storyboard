@@ -636,7 +636,7 @@
                         <outlet property="contactTextField" destination="Bn6-dn-Uyd" id="KRx-hP-ypp"/>
                         <outlet property="discountTypePickerView" destination="N9M-e3-nV8" id="tsC-UR-xlz"/>
                         <outlet property="messageTextView" destination="UgQ-YV-Brc" id="aiF-zd-Vt6"/>
-                        <outlet property="sendMessageButton" destination="6io-IM-bkE" id="tDU-11-9dz"/>
+                        <outlet property="sendMessageButton" destination="w5n-BT-IOv" id="kIA-51-4eA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEF-va-0mi" userLabel="First Responder" sceneMemberID="firstResponder"/>

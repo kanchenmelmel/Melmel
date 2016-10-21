@@ -23,13 +23,14 @@ class BusinessContactFormTableViewController: ContactFormTableViewController{
     
     @IBOutlet weak var messageTextView: UITextView!
     
-    @IBOutlet weak var sendMessageButton: UITableViewSection!
+    @IBOutlet weak var sendMessageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         discountTypePickerView.delegate = self
+        sendMessageButton.addTarget(self, action: #selector(self.sendMessageButtonPressed), for: .touchUpInside)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,18 +40,14 @@ class BusinessContactFormTableViewController: ContactFormTableViewController{
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        sendMessageButton.addTarget(self, action: #selector(self.sendMessageButtonPressed), for: .touchUpInside)
-    }
     
-    func validate() -> Bool {
-        return self.nameTextField.text!.match("^.+$") &&
-            self.emailTextField.text!.match("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}") &&
-            self.mobileTextField.text!.match("^0[0-8]\\d{8}$") &&
-            self.wechatTextField.text!.match("^.+$") &&
-            self.selfIntroTextField.text!.match("^.+$")
-    }
+//    func validate() -> Bool {
+//        return self.nameTextField.text!.match("^.+$") &&
+//            self.emailTextField.text!.match("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}") &&
+//            self.mobileTextField.text!.match("^0[0-8]\\d{8}$") &&
+//            self.wechatTextField.text!.match("^.+$") &&
+//            self.selfIntroTextField.text!.match("^.+$")
+//    }
     
     func showDialog(_ status: String) {
         var alert: UIAlertController
@@ -69,22 +66,33 @@ class BusinessContactFormTableViewController: ContactFormTableViewController{
     
     func sendMessageButtonPressed() {
         
-        if !validate() {
-            showDialog("invalid")
-            return
+//        if !validate() {
+//            showDialog("invalid")
+//            return
+//        }
+        
+//        let name = self.nameTextField.text!
+//        let _email = self.emailTextField.text!
+//        let mobile = self.mobileTextField.text!
+//        let wechat = self.wechatTextField.text!
+//        let content = self.selfIntroTextField.text!
+        let businessName = self.businessNameTextField.text!
+        let address = self.addressTextField.text!
+        let contactPerson = self.contactTextField.text!
+        let contactNumber = self.contactTextField.text!
+        var discountOption = ""
+        switch self.discountTypePickerView.selectedRow(inComponent: 0) {
+        case 0: discountOption = "10% Off"
+        case 1: discountOption = "20% Off"
+        case 2: discountOption = "其他"
+        default: break
         }
-        
-        let name = self.nameTextField.text!
-        let _email = self.emailTextField.text!
-        let mobile = self.mobileTextField.text!
-        let wechat = self.wechatTextField.text!
-        let content = self.selfIntroTextField.text!
-        
+        let message = messageTextView.text!
         let email = Email(
             from: "Melmel iOS <hire-evaluator-ios.noreply@melmel.com.au>",
             to: "Melmel Consulting <\(ReceiverEmailAddress)>",
             title: "Melmel测评员申请 (Melmel iOS客户端<招募测评员>)",
-            content: "姓名：\(name)\n邮箱：\(_email)\n手机：\(mobile)\n微信：\(wechat)\n\n自我介绍：\n\n\(content)"
+            content: "商家名称：\(businessName)\n地址：\(address)\n联系人：\(contactPerson)\n联系方式：\(contactNumber)\n优惠：\(discountOption)\n\n商家留言：\n\n\(message)"
         )
         
         EmailEjector.eject(email: email) { _ in
