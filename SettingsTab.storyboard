@@ -455,6 +455,7 @@
         </scene>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <!--我是商家-->
         <scene sceneID="E4r-u8-LhM">
             <objects>
@@ -622,10 +623,6 @@
             </objects>
             <point key="canvasLocation" x="1128.8" y="1871.5142428785609"/>
         </scene>
-=======
->>>>>>> parent of 8c1d2a7... BusinessContactFormTVC
-=======
->>>>>>> parent of 8c1d2a7... BusinessContactFormTVC
     </scenes>
     <resources>
         <image name="Logo" width="170" height="56"/>
