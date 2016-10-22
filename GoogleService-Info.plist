@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>526282711132-qek4b53i1e8rn0hcjhodqv3td7mqjirn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.526282711132-qek4b53i1e8rn0hcjhodqv3td7mqjirn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBKQ8T7icv-mZA07q-TrWy_lEhOZhD-eqo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>526282711132</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>au.com.melmel.mel</string>
+	<key>PROJECT_ID</key>
+	<string>melmelapp-e4fec</string>
+	<key>STORAGE_BUCKET</key>
+	<string>melmelapp-e4fec.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:526282711132:ios:fee578a13e20d1aa</string>
+	<key>DATABASE_URL</key>
+	<string>https://melmelapp-e4fec.firebaseio.com</string>
+</dict>
+</plist>

@@ -11,8 +11,15 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 
 class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
+    
+    
+    
+    
     
     var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
@@ -35,6 +42,8 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
     
     override func viewDidLoad() {
+        
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
         super.viewDidLoad()
         
         //UINavigationBar.appearance().tintColor = UIColor.whiteColor()

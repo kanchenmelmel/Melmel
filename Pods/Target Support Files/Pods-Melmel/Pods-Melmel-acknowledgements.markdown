@@ -47,6 +47,42 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Firebase
+
+Copyright 2016 Google
+
+## FirebaseAnalytics
+
+Copyright 2016 Google
+
+## FirebaseCore
+
+Copyright 2016 Google
+
+## FirebaseInstanceID
+
+Copyright 2016 Google
+
+## FirebaseMessaging
+
+Copyright 2016 Google
+
+## GoogleIPhoneUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleInterchangeUtilities
+
+Copyright 2016 Google
+
+## GoogleSymbolUtilities
+
+Copyright 2016 Google
+
+## GoogleUtilities
+
+Copyright 2016 Google
+
 ## MelMobile
 
 Copyright (c) 2016 william <wenyuzhaox@gmail.com>

@@ -12,6 +12,8 @@ target 'Melmel' do
   pod 'MelMobile', :git => 'https://github.com/wenyuzhao/MelMobile.git'
   pod 'SwiftMessages'
   pod 'XLForm', '~> 3.0'
+  pod 'Firebase'
+  pod 'Firebase/Messaging'
 
   target 'MelmelTests' do
     inherit! :search_paths

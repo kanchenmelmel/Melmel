@@ -34,6 +34,7 @@
 		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
 		962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1F7B1D487880006D2EA8 /* Comment.swift */; };
 		962EC7921DBB19DE00B00FE2 /* BusinessForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */; };
+		962EC7971DBB83D900B00FE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962EC7961DBB83D900B00FE2 /* GoogleService-Info.plist */; };
 		963289E71D4A11FF00B62040 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963289E61D4A11FF00B62040 /* Discount.swift */; };
 		9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
@@ -63,7 +64,6 @@
 		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
 		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
-		967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */; };
 		96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */; };
 		96B1621F1D63DD5600AA4849 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1621E1D63DD5600AA4849 /* AnimationEngine.swift */; };
 		96B162211D64897800AA4849 /* CustomSearchBar+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */; };
@@ -135,6 +135,8 @@
 		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
 		962A1F7B1D487880006D2EA8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessForm.swift; sourceTree = "<group>"; };
+		962EC7951DBB793000B00FE2 /* Melmel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Melmel.entitlements; sourceTree = "<group>"; };
+		962EC7961DBB83D900B00FE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		963289E61D4A11FF00B62040 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
@@ -170,7 +172,6 @@
 		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
 		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
 		96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		96B1621E1D63DD5600AA4849 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
 		96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomSearchBar+Designable.swift"; sourceTree = "<group>"; };
@@ -285,8 +286,10 @@
 		964F4C7F1CA4CF7B00C69B71 /* Melmel */ = {
 			isa = PBXGroup;
 			children = (
+				962EC7951DBB793000B00FE2 /* Melmel.entitlements */,
 				964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */,
 				96FC174D1CAE2CA5002F8817 /* Melmel.xcdatamodeld */,
+				962EC7961DBB83D900B00FE2 /* GoogleService-Info.plist */,
 				967FFEA71D07E16900599E30 /* Main.storyboard */,
 				964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */,
 				964F4C891CA4CF7B00C69B71 /* Assets.xcassets */,
@@ -389,7 +392,6 @@
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
 				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
-				967FFEAB1D07E36E00599E30 /* HomeViewCtrl.swift */,
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
 				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
 				96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */,
@@ -546,6 +548,9 @@
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					964F4C921CA4CF7B00C69B71 = {
@@ -587,6 +592,7 @@
 			files = (
 				964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */,
 				965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */,
+				962EC7971DBB83D900B00FE2 /* GoogleService-Info.plist in Resources */,
 				96B1621C1D6328D600AA4849 /* Launch Screen.storyboard in Resources */,
 				967FFEA81D07E16900599E30 /* Main.storyboard in Resources */,
 				96BF580F1CAA46D0006D6CB6 /* woolworths-fresh-produce-section-instore.jpg in Resources */,
@@ -911,7 +917,6 @@
 				963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */,
 				4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */,
 				967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */,
-				967FFEAC1D07E36E00599E30 /* HomeViewCtrl.swift in Sources */,
 				961A874C1CF2A42F00206D0F /* DiscountTableViewCell.swift in Sources */,
 				96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */,
 				96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */,
@@ -1071,6 +1076,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Melmel/Melmel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
@@ -1092,6 +1098,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Melmel/Melmel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melmel/Info.plist;
