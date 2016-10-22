@@ -59,6 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = rootCtrl
         }
         
+        // Configure Firebase Messaging
+        if #available(iOS 8.0, *) {
+            let settings:UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        } else {
+            let types: UIRemoteNotificationType = [.alert,.badge,.sound]
+            application.registerForRemoteNotifications(matching: types)
+            
+            
+        }
+        
+        FIRApp.configure()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
+        
         
         return true
     }
@@ -73,6 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        FIRMessaging.messaging().disconnect()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -149,9 +166,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
-    func tokenRefresh
-    
+    func tokenRefreshNotification(notification:NSNotification){
+        
+        let refreshedToken = FIRInstanceID.instanceID().token()!
+        print("InstanceId token:\(refreshedToken)")
+        connectToFirebaseMessaging()
+    }
     
     func connectToFirebaseMessaging() {
         
