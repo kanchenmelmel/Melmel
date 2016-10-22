@@ -9,28 +9,76 @@
 import UIKit
 import XLForm
 
-class HireReviewerViewController: UIViewController {
+class HireReviewerViewController: XLFormViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.initializeForm()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.initializeForm()
     }
-    */
+    
+    func initializeForm() {
+        let form = XLFormDescriptor(title: "招募测评员")
+        
+        
+        var section = XLFormSectionDescriptor.formSection()
+        
+        form.addFormSection(section)
+        
+        
+        var row:XLFormRowDescriptor!
+        row = XLFormRowDescriptor(tag: "name", rowType: XLFormRowDescriptorTypeText,title:"姓名")
+        row.cellConfigAtConfigure.setObject("姓名", forKey: "textField.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        row = XLFormRowDescriptor(tag: "email", rowType: XLFormRowDescriptorTypeEmail,title:"邮箱")
+        row.cellConfigAtConfigure.setObject("邮箱", forKey: "textField.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        row = XLFormRowDescriptor(tag: "mobile", rowType: XLFormRowDescriptorTypePhone,title:"手机")
+        row.cellConfigAtConfigure.setObject("手机", forKey: "textField.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        
+        row = XLFormRowDescriptor(tag: "wechat", rowType: XLFormRowDescriptorTypeText,title:"微信")
+        row.cellConfigAtConfigure.setObject("微信", forKey: "textField.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        
+        
+        section = XLFormSectionDescriptor.formSection()
+        form.addFormSection(section)
+        row = XLFormRowDescriptor(tag: "message", rowType: XLFormRowDescriptorTypeTextView)
+        row.cellConfigAtConfigure.setObject("留言", forKey: "textView.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        self.form = form
+    }
 
+    @IBAction func submitButtonClick(_ sender: AnyObject) {
+        sendValues()
+    }
+    
+    
+    /// Construct the form values and end it to email address via sendXLFormValuesAsEmail method
+    func sendValues() {
+        var values = [(String,String)]()
+        values.append(("姓名",self.formValues()["name"] as! String))
+        values.append(("邮箱",self.formValues()["email"] as! String))
+        values.append(("电话",self.formValues()["mobile"] as! String))
+        values.append(("微信",self.formValues()["wechat"] as! String))
+        values.append(("留言",self.formValues()["message"] as! String))
+        
+        self.sendXLFormValuesAsEmail(title: "招募测评员", values: values)
+    }
 }

@@ -63,6 +63,7 @@ class ContactUsViewController: XLFormViewController {
     }
     
     
+    /// Construct the form values and end it to email address via sendXLFormValuesAsEmail method
     func sendValues() {
         var values = [(String,String)]()
         values.append(("姓名",self.formValues()["name"] as! String))

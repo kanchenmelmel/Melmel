@@ -920,23 +920,30 @@
             </objects>
             <point key="canvasLocation" x="3805" y="1975"/>
         </scene>
-        <!--View Controller-->
+        <!--招募评测员-->
         <scene sceneID="jAY-RP-FGG">
             <objects>
-                <viewController id="m2j-M7-tp7" sceneMemberID="viewController">
+                <viewController id="m2j-M7-tp7" customClass="HireReviewerViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vEI-Tl-9tm"/>
                         <viewControllerLayoutGuide type="bottom" id="fhw-Zu-5xF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="efr-Wq-HBh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="招募评测员" id="894-Pl-Xhj">
+                        <barButtonItem key="rightBarButtonItem" title="提交" id="Jit-9E-HwH">
+                            <connections>
+                                <action selector="submitButtonClick:" destination="m2j-M7-tp7" id="OJe-Up-ezE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ga-01-QBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-642" y="1931"/>
+            <point key="canvasLocation" x="-1158" y="2606"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TvS-lI-EcR">
@@ -1040,86 +1047,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhz-7z-JWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1998" y="1471"/>
-        </scene>
-        <!--Hire Evaluator-->
-        <scene sceneID="ZGd-Pi-mfN">
-            <objects>
-                <viewController title="招募测评员" id="rAd-FO-sbA" userLabel="Hire Evaluator" customClass="HireEvaluatorViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qLN-zE-BhS"/>
-                        <viewControllerLayoutGuide type="bottom" id="tZ4-Xt-81i"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Neq-LB-dAd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ccq-Nl-00m">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2G-RC-vML">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="微信" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dcE-lt-wIJ">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="自我介绍" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H7L-wV-Dui">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="PTo-XN-hlh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jai-fC-UaJ">
-                                <state key="normal" title="马上申请测评"/>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ay-4Q-WOr">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="H7L-wV-Dui" firstAttribute="top" secondItem="dcE-lt-wIJ" secondAttribute="bottom" constant="8" id="0yl-Go-6cT"/>
-                            <constraint firstItem="7ay-4Q-WOr" firstAttribute="top" secondItem="Ccq-Nl-00m" secondAttribute="bottom" constant="8" id="HkT-Bz-Emb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="c2G-RC-vML" secondAttribute="trailing" id="MX4-TU-M7f"/>
-                            <constraint firstItem="c2G-RC-vML" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="NP3-Oq-HUh"/>
-                            <constraint firstItem="Jai-fC-UaJ" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="Oy1-A2-gG2"/>
-                            <constraint firstItem="Ccq-Nl-00m" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="Pea-5P-MxD"/>
-                            <constraint firstItem="H7L-wV-Dui" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="VJX-RM-Mlt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dcE-lt-wIJ" secondAttribute="trailing" id="Xf3-E3-Y99"/>
-                            <constraint firstItem="dcE-lt-wIJ" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="Y7b-Dw-lNr"/>
-                            <constraint firstItem="Ccq-Nl-00m" firstAttribute="trailing" secondItem="Neq-LB-dAd" secondAttribute="trailingMargin" id="Zjs-cT-yaL"/>
-                            <constraint firstItem="Jai-fC-UaJ" firstAttribute="top" secondItem="H7L-wV-Dui" secondAttribute="bottom" constant="8" id="dh3-Fe-BTL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="H7L-wV-Dui" secondAttribute="trailing" id="dmy-Wa-rU6"/>
-                            <constraint firstItem="c2G-RC-vML" firstAttribute="top" secondItem="7ay-4Q-WOr" secondAttribute="bottom" constant="8" id="nd3-od-vIt"/>
-                            <constraint firstItem="7ay-4Q-WOr" firstAttribute="leading" secondItem="Neq-LB-dAd" secondAttribute="leadingMargin" id="pCl-jK-JQb"/>
-                            <constraint firstItem="dcE-lt-wIJ" firstAttribute="top" secondItem="c2G-RC-vML" secondAttribute="bottom" constant="8" id="pzC-jk-5zy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7ay-4Q-WOr" secondAttribute="trailing" id="qH5-6u-sn0"/>
-                            <constraint firstItem="Ccq-Nl-00m" firstAttribute="top" secondItem="qLN-zE-BhS" secondAttribute="bottom" constant="8" id="yxn-Cc-ok8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="招募测评员" id="b6q-0Q-HUe"/>
-                    <connections>
-                        <outlet property="emailTextField" destination="7ay-4Q-WOr" id="I3Q-9h-0O4"/>
-                        <outlet property="mobileTextField" destination="c2G-RC-vML" id="ohS-ho-9oJ"/>
-                        <outlet property="nameTextField" destination="Ccq-Nl-00m" id="tNN-Vx-3h4"/>
-                        <outlet property="selfIntroTextField" destination="H7L-wV-Dui" id="Bes-0G-4NI"/>
-                        <outlet property="sendMessageButton" destination="Jai-fC-UaJ" id="NvO-8h-838"/>
-                        <outlet property="wechatTextField" destination="dcE-lt-wIJ" id="4va-L1-GaF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u1s-Og-MPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1406" y="2429"/>
+            <point key="canvasLocation" x="-2022" y="1818"/>
         </scene>
         <!--设置-->
         <scene sceneID="3yw-1D-Ja2">
@@ -1203,7 +1131,30 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="rAd-FO-sbA" kind="show" id="JQZ-tf-cDc"/>
+                                            <segue destination="m2j-M7-tp7" kind="show" id="gqc-gv-IYr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="b2r-TA-upy">
+                                        <rect key="frame" x="0.0" y="267" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2r-TA-upy" id="3QO-T3-0Rm">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是商家" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ii7-Pe-uHd">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ii7-Pe-uHd" firstAttribute="leading" secondItem="3QO-T3-0Rm" secondAttribute="leadingMargin" constant="30" id="8xF-81-TJq"/>
+                                                <constraint firstItem="Ii7-Pe-uHd" firstAttribute="centerY" secondItem="3QO-T3-0Rm" secondAttribute="centerY" id="jGq-a3-LKL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="HVK-k7-SQa" kind="show" id="GfG-Ps-TQ6"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1279,6 +1230,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nc1-2j-SwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3261" y="1287"/>
+        </scene>
+        <!--我是商家-->
+        <scene sceneID="XHs-8f-dL4">
+            <objects>
+                <viewController id="HVK-k7-SQa" customClass="BusinessFormViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dlX-3c-nq4"/>
+                        <viewControllerLayoutGuide type="bottom" id="e7Z-6C-flt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M4h-Wk-BbE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我是商家" id="alY-Kw-IhC">
+                        <barButtonItem key="rightBarButtonItem" title="提交" id="S9n-Wt-lr1">
+                            <connections>
+                                <action selector="submitButtonClick:" destination="HVK-k7-SQa" id="mtB-vS-UFp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3MV-Gq-hd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-638" y="1946"/>
         </scene>
     </scenes>
     <resources>

@@ -11,6 +11,10 @@ import MelMobile
 
 extension XLFormViewController {
     
+    /// Extension Methods for sending a form to the email address
+    ///
+    /// - parameter title:  the name of the form
+    /// - parameter values: field name and the value of the field
     func sendXLFormValuesAsEmail(title:String,values:[(String,String)]){
         var contentString = ""
         

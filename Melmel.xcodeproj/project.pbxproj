@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
 		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
-		3D4BC7271D994F5E001F3A75 /* _ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BC7261D994F5E001F3A75 /* _ContactUsViewController.swift */; };
-		3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */; };
 		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
 		4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D040B381D5757EA0011BF4A /* FilterViewController.swift */; };
 		4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D040B391D5757EA0011BF4A /* FilterViewController.xib */; };
@@ -35,6 +33,7 @@
 		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
 		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
 		962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1F7B1D487880006D2EA8 /* Comment.swift */; };
+		962EC7921DBB19DE00B00FE2 /* BusinessForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */; };
 		963289E71D4A11FF00B62040 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963289E61D4A11FF00B62040 /* Discount.swift */; };
 		9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
@@ -107,8 +106,6 @@
 /* Begin PBXFileReference section */
 		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3D4BC7261D994F5E001F3A75 /* _ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ContactUsViewController.swift; sourceTree = "<group>"; };
-		3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireEvaluatorViewController.swift; sourceTree = "<group>"; };
 		4D040B381D5757EA0011BF4A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		4D040B391D5757EA0011BF4A /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +134,7 @@
 		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
 		962A1F7B1D487880006D2EA8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessForm.swift; sourceTree = "<group>"; };
 		963289E61D4A11FF00B62040 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
@@ -250,6 +248,7 @@
 				964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */,
 				964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */,
 				964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */,
+				962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */,
 			);
 			name = ContactForms;
 			sourceTree = "<group>";
@@ -396,8 +395,6 @@
 				96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */,
 				963C6D9D1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift */,
 				96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */,
-				3D4BC7261D994F5E001F3A75 /* _ContactUsViewController.swift */,
-				3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -886,6 +883,7 @@
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
 				96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
+				962EC7921DBB19DE00B00FE2 /* BusinessForm.swift in Sources */,
 				96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */,
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
 				964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */,
@@ -899,7 +897,6 @@
 				963C6DA11D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
-				3D4BC7271D994F5E001F3A75 /* _ContactUsViewController.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
@@ -937,7 +934,6 @@
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
 				963C6D9E1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift in Sources */,
-				3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */,
 				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
 				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
 				964AE5C01DB9CEC9008F5DB5 /* HireReviewerViewController.swift in Sources */,
