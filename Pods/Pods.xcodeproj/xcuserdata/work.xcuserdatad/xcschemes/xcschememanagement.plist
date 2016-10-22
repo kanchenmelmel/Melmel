@@ -6,48 +6,63 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FBAnnotationClusteringSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
+		</dict>
+		<key>MelMobile.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Melmel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-MelmelTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-MelmelUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
+		</dict>
+		<key>SwiftMessages-SwiftMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>XLForm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08804F9A46AE4B965D7679F096AD0A09</key>
+		<key>148F8EC50D324D5EF92735CB114AD0B0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22F839EBE82D9ADE303A3A857CD3F17B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,22 +77,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>751C6A29CAED538C5AEAB96D722417A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B0A8E3212F719517D78BDCF9EC744FC</key>
+		<key>83438573ADEDD491CBFA67B882F0C723</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CEC070E2FE1BF339F6C4F516D4F62724</key>
+		<key>89C1D030F9706361C5A8A57037A648E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D37B97A2DA07922BCF2E8C06AA6811BF</key>
+		<key>A76DC0F05551DF07F9107594F77C9BA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

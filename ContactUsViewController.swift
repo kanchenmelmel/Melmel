@@ -1,71 +1,77 @@
 //
-//  ContactUsViewController.swift
+//  ViewController.swift
 //  Melmel
 //
-//  Created by Wenyu Zhao on 26/9/16.
+//  Created by Work on 21/10/16.
 //  Copyright © 2016 Melmel. All rights reserved.
 //
 
 import UIKit
-import MelMobile
+import XLForm
 
-class ContactUsViewController: UIViewController {
-
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var mobileTextField: UITextField!
-    @IBOutlet weak var contentTextView: UITextView!
-    @IBOutlet weak var sendMessageButton: UIButton!
+class ContactUsViewController: XLFormViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        sendMessageButton.addTarget(self, action: #selector(self.sendMessageButtonPressed), for: .touchUpInside)
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.initializeForm()
     }
     
-    func validate() -> Bool {
-        return self.nameTextField.text!.match("^.+$") &&
-            self.emailTextField.text!.match("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}") &&
-            self.mobileTextField.text!.match("^0[0-8]\\d{8}$") &&
-            self.contentTextView.text!.match("^.+$")
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.initializeForm()
     }
     
-    func showDialog(_ status: String) {
-        var alert: UIAlertController
-        if status == "success" {
-            alert = UIAlertController(title: "发送成功", message: "您的反馈已收到", preferredStyle: .alert)
-        } else if status == "invalid" {
-            alert = UIAlertController(title: "发送失败", message: "您填写的信息有误", preferredStyle: .alert)
-        } else {
-            alert = UIAlertController(title: "发送失败", message: "网络错误", preferredStyle: .alert)
-        }
-        alert.addAction(UIAlertAction(title: "确认", style: UIAlertActionStyle.default) { _ in
-            print("done")
-        })
-        self.present(alert, animated: true, completion: nil)
+    func initializeForm() {
+        let form = XLFormDescriptor(title: "联系我们")
+        
+        
+        var section = XLFormSectionDescriptor.formSection()
+        
+        form.addFormSection(section)
+        
+        
+        var row:XLFormRowDescriptor!
+        row = XLFormRowDescriptor(tag: "name", rowType: XLFormRowDescriptorTypeText,title:"姓名")
+        row.cellConfigAtConfigure.setObject("姓名", forKey: "textField.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        row = XLFormRowDescriptor(tag: "email", rowType: XLFormRowDescriptorTypeEmail,title:"邮箱")
+        row.cellConfigAtConfigure.setObject("邮箱", forKey: "textField.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        row = XLFormRowDescriptor(tag: "mobile", rowType: XLFormRowDescriptorTypePhone,title:"手机")
+        row.cellConfigAtConfigure.setObject("手机", forKey: "textField.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+        
+        
+        
+        section = XLFormSectionDescriptor.formSection()
+        form.addFormSection(section)
+        row = XLFormRowDescriptor(tag: "message", rowType: XLFormRowDescriptorTypeTextView)
+        row.cellConfigAtConfigure.setObject("留言", forKey: "textView.placeholder" as NSCopying)
+        
+        section.addFormRow(row)
+       
+        self.form = form
+    }
+    @IBAction func submitButtonClicked(_ sender: AnyObject) {
+        sendValues()
     }
     
-    func sendMessageButtonPressed() {
+    
+    /// Construct the form values and end it to email address via sendXLFormValuesAsEmail method
+    func sendValues() {
+        var values = [(String,String)]()
+        values.append(("姓名",self.formValues()["name"] as! String))
+        values.append(("邮箱",self.formValues()["email"] as! String))
+        values.append(("电话",self.formValues()["mobile"] as! String))
+        values.append(("留言",self.formValues()["message"] as! String))
         
-        if !validate() {
-            showDialog("invalid")
-            return
-        }
-        
-        let name = self.nameTextField.text!
-        let _email = self.emailTextField.text!
-        let mobile = self.mobileTextField.text!
-        let content = self.contentTextView.text!
-        
-        let email = Email(
-            from: "Melmel iOS <contact-us-ios.noreply@melmel.com.au>",
-            to: "Melmel Consulting <wenyuzhaox@gmail.com>", // TODO: Replace email address with: pte@ail.vic.edu.au
-            title: "Melmel用户留言 (Melmel iOS客户端<联系我们>)",
-            content: "姓名：\(name)\n邮箱：\(_email)\n手机：\(mobile)\n\n反馈：\n\n\(content)"
-        )
-        
-        EmailEjector.eject(email: email) { _ in
-            self.showDialog("success")
-        }
+        self.sendXLFormValuesAsEmail(title: "联系我们", values: values)
     }
 
 }

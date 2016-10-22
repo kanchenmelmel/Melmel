@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		04809AB6E7B2AB2592B57B83 /* Pods_MelmelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD1A18FB47E12DA17C3FDE /* Pods_MelmelTests.framework */; };
 		126DAC752186C7E3A0A53D52 /* Pods_MelmelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD2018640CE223AF7BDC05 /* Pods_MelmelUITests.framework */; };
-		3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */; };
-		3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */; };
 		40F52D14F646CCA275FC8AB3 /* Pods_Melmel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55961B6D32D1AB0562AECA77 /* Pods_Melmel.framework */; };
 		4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D040B381D5757EA0011BF4A /* FilterViewController.swift */; };
 		4D040B3B1D5757EA0011BF4A /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D040B391D5757EA0011BF4A /* FilterViewController.xib */; };
@@ -35,6 +33,7 @@
 		9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628C36F1CFD4A5A00666F69 /* Reachability.swift */; };
 		9628EA3D1D348B74009D2335 /* CellMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9628EA3C1D348B74009D2335 /* CellMaskView.swift */; };
 		962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1F7B1D487880006D2EA8 /* Comment.swift */; };
+		962EC7921DBB19DE00B00FE2 /* BusinessForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */; };
 		963289E71D4A11FF00B62040 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963289E61D4A11FF00B62040 /* Discount.swift */; };
 		9634583B1D543B3F0079C0FE /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */; };
 		963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C1E301CF6A46000089E39 /* CoreDataUtility.swift */; };
@@ -43,6 +42,9 @@
 		963C6DB81D6B77B300B31B45 /* DiscountCategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DB51D6B77B300B31B45 /* DiscountCategoryEntity.swift */; };
 		963C6DBD1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DBB1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift */; };
 		963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */; };
+		964AE5BE1DB9B938008F5DB5 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */; };
+		964AE5C01DB9CEC9008F5DB5 /* HireReviewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */; };
+		964AE5C21DB9DD04008F5DB5 /* XLFormExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */; };
 		964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
 		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
@@ -104,8 +106,6 @@
 /* Begin PBXFileReference section */
 		07A6D86476507E5041D41159 /* Pods-MelmelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36784C100FA870E1B9EDF299 /* Pods-MelmelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelmelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
-		3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireEvaluatorViewController.swift; sourceTree = "<group>"; };
 		4D040B381D5757EA0011BF4A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		4D040B391D5757EA0011BF4A /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		4D0AB2291D0BE5DD0014CA48 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 		9628C36F1CFD4A5A00666F69 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9628EA3C1D348B74009D2335 /* CellMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaskView.swift; sourceTree = "<group>"; };
 		962A1F7B1D487880006D2EA8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessForm.swift; sourceTree = "<group>"; };
 		963289E61D4A11FF00B62040 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		963C1E301CF6A46000089E39 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
@@ -142,6 +143,9 @@
 		963C6DB51D6B77B300B31B45 /* DiscountCategoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCategoryEntity.swift; sourceTree = "<group>"; };
 		963C6DBB1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscountCategoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		963C6DBE1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireReviewerViewController.swift; sourceTree = "<group>"; };
+		964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLFormExtension.swift; sourceTree = "<group>"; };
 		964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +240,17 @@
 				963C6DA01D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift */,
 			);
 			name = PresentationController;
+			sourceTree = "<group>";
+		};
+		964AE5BC1DB9B918008F5DB5 /* ContactForms */ = {
+			isa = PBXGroup;
+			children = (
+				964AE5BD1DB9B938008F5DB5 /* ContactUsViewController.swift */,
+				964AE5BF1DB9CEC9008F5DB5 /* HireReviewerViewController.swift */,
+				964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */,
+				962EC7911DBB19DE00B00FE2 /* BusinessForm.swift */,
+			);
+			name = ContactForms;
 			sourceTree = "<group>";
 		};
 		964F4C741CA4CF7B00C69B71 = {
@@ -362,6 +377,7 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				964AE5BC1DB9B918008F5DB5 /* ContactForms */,
 				963C6D9F1D6B189300B31B45 /* PresentationController */,
 				96BDC6F71D57764200A75B71 /* Map */,
 				4D0AB22D1D0BE91F0014CA48 /* InputSearchViewController.swift */,
@@ -379,8 +395,6 @@
 				96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */,
 				963C6D9D1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift */,
 				96D777FB1D6D70540034B4A7 /* SettingTableViewController.swift */,
-				3D4BC7261D994F5E001F3A75 /* ContactUsViewController.swift */,
-				3DC998FD1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -448,12 +462,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 964F4CA71CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "Melmel" */;
 			buildPhases = (
+				EBBE4052A0B554B0AC6C652F /* 📦 Check Pods Manifest.lock */,
 				FBFEDF1F3DF468A4BFF1FD87 /* [CP] Check Pods Manifest.lock */,
 				964F4C791CA4CF7B00C69B71 /* Sources */,
 				964F4C7A1CA4CF7B00C69B71 /* Frameworks */,
 				964F4C7B1CA4CF7B00C69B71 /* Resources */,
 				7926247EC755EFADBCDF36D1 /* [CP] Embed Pods Frameworks */,
 				DD0F9D533D8821F6A439E984 /* [CP] Copy Pods Resources */,
+				BD0310B2707BA5C566E1C984 /* 📦 Embed Pods Frameworks */,
+				DC55BFE6493B002D7DB0C732 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -468,12 +485,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 964F4CAA1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelTests" */;
 			buildPhases = (
+				3D5B0AE2AD04FA1166838D87 /* 📦 Check Pods Manifest.lock */,
 				E27D31FBBF9712A997C535C9 /* [CP] Check Pods Manifest.lock */,
 				964F4C8F1CA4CF7B00C69B71 /* Sources */,
 				964F4C901CA4CF7B00C69B71 /* Frameworks */,
 				964F4C911CA4CF7B00C69B71 /* Resources */,
 				4E41EBCFF5F7363D0CCE5DAE /* [CP] Embed Pods Frameworks */,
 				C570C8AF0B27AEC063010543 /* [CP] Copy Pods Resources */,
+				E588DC2E966E4FE8A45598E8 /* 📦 Embed Pods Frameworks */,
+				27B3083D255B84855A914CD6 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -489,12 +509,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 964F4CAD1CA4CF7B00C69B71 /* Build configuration list for PBXNativeTarget "MelmelUITests" */;
 			buildPhases = (
+				E0122CAD288B30B4F3ABD1D4 /* 📦 Check Pods Manifest.lock */,
 				746DD8B400B2DE13288E2DB3 /* [CP] Check Pods Manifest.lock */,
 				964F4C9A1CA4CF7B00C69B71 /* Sources */,
 				964F4C9B1CA4CF7B00C69B71 /* Frameworks */,
 				964F4C9C1CA4CF7B00C69B71 /* Resources */,
 				77CE45B7F514B7A3C74D2A25 /* [CP] Copy Pods Resources */,
 				CEC45CC57F91378B3A0B8CB9 /* [CP] Embed Pods Frameworks */,
+				70133D6BB3123AEBEBCCB15A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -591,6 +613,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		27B3083D255B84855A914CD6 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D5B0AE2AD04FA1166838D87 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		4E41EBCFF5F7363D0CCE5DAE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -604,6 +656,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70133D6BB3123AEBEBCCB15A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		746DD8B400B2DE13288E2DB3 /* [CP] Check Pods Manifest.lock */ = {
@@ -651,6 +718,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BD0310B2707BA5C566E1C984 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C570C8AF0B27AEC063010543 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -681,6 +763,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelUITests/Pods-MelmelUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DC55BFE6493B002D7DB0C732 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DD0F9D533D8821F6A439E984 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -696,6 +793,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Melmel/Pods-Melmel-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E0122CAD288B30B4F3ABD1D4 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		E27D31FBBF9712A997C535C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -709,6 +821,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E588DC2E966E4FE8A45598E8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MelmelTests/Pods-MelmelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBBE4052A0B554B0AC6C652F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FBFEDF1F3DF468A4BFF1FD87 /* [CP] Check Pods Manifest.lock */ = {
@@ -741,6 +883,7 @@
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
 				96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
+				962EC7921DBB19DE00B00FE2 /* BusinessForm.swift in Sources */,
 				96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */,
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
 				964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */,
@@ -754,7 +897,6 @@
 				963C6DA11D6B1AC700B31B45 /* ExampleTransitioningDelegate.swift in Sources */,
 				961A874A1CF2A41D00206D0F /* DiscountTableViewController.swift in Sources */,
 				4D8644F41CF983F100E84028 /* CommentTableViewCell.swift in Sources */,
-				3D4BC7271D994F5E001F3A75 /* ContactUsViewController.swift in Sources */,
 				96BF58121CAA4B72006D6CB6 /* MelGuideTableViewCell.swift in Sources */,
 				4D0AB22E1D0BE91F0014CA48 /* InputSearchViewController.swift in Sources */,
 				9628C3701CFD4A5A00666F69 /* Reachability.swift in Sources */,
@@ -764,6 +906,7 @@
 				967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */,
 				4D040B3A1D5757EA0011BF4A /* FilterViewController.swift in Sources */,
 				96B1621F1D63DD5600AA4849 /* AnimationEngine.swift in Sources */,
+				964AE5C21DB9DD04008F5DB5 /* XLFormExtension.swift in Sources */,
 				4DE3F3BA1D16E2EF00D9D5A2 /* FilterTableViewController.swift in Sources */,
 				963C6DBF1D6B7C8C00B31B45 /* Discount+CoreDataProperties.swift in Sources */,
 				4DE3F3BE1D16E58F00D9D5A2 /* FilterTableViewCell.swift in Sources */,
@@ -773,6 +916,7 @@
 				96C8E9021D35DCEF0016E5AF /* DateLabel.swift in Sources */,
 				96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */,
 				4DE3F3BC1D16E4AE00D9D5A2 /* DiscountCategory.swift in Sources */,
+				964AE5BE1DB9B938008F5DB5 /* ContactUsViewController.swift in Sources */,
 				4DE3F3C81D180B5800D9D5A2 /* CategoryTableViewController.swift in Sources */,
 				96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */,
 				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,
@@ -790,9 +934,9 @@
 				961633CA1CE2B93400628B74 /* DateFormatter.swift in Sources */,
 				96E988191CAB6141005E9E68 /* MelGuideTableViewController.swift in Sources */,
 				963C6D9E1D6AFADC00B31B45 /* CategoryFilterPresentationCtrl.swift in Sources */,
-				3DC998FE1DA1E3D5009ECFA3 /* HireEvaluatorViewController.swift in Sources */,
 				96BE5A0A1CEFED6200C6BC3D /* PhotoOperations.swift in Sources */,
 				96FC174F1CAE2CA5002F8817 /* Melmel.xcdatamodeld in Sources */,
+				964AE5C01DB9CEC9008F5DB5 /* HireReviewerViewController.swift in Sources */,
 				963C6DBD1D6B78E600B31B45 /* DiscountCategoryEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
