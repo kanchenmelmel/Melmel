@@ -168,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func tokenRefreshNotification(notification:NSNotification){
         
-        let refreshedToken = FIRInstanceID.instanceID().token()!
+        let refreshedToken = FIRInstanceID.instanceID().token()
         print("InstanceId token:\(refreshedToken)")
         connectToFirebaseMessaging()
     }
