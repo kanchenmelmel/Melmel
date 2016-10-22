@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import CoreLocation
+import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -144,6 +146,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
+            }
+        }
+    }
+    
+    func tokenRefresh
+    
+    
+    func connectToFirebaseMessaging() {
+        
+        FIRMessaging.messaging().connect { (error) in
+            if error != nil {
+                print("Unable to connect \(error)")
+            } else {
+                print("Connected to Firebase Messaging")
             }
         }
     }
