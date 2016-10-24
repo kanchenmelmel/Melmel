@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Melmel/AppDelegate.swift"
-            timestampString = "498979359.896401"
+            timestampString = "498979739.664607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "AppDelegate"
             landmarkType = "4">
          </BreakpointContent>
