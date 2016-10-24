@@ -48,7 +48,6 @@
 		964AE5C21DB9DD04008F5DB5 /* XLFormExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AE5C11DB9DD04008F5DB5 /* XLFormExtension.swift */; };
 		964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */; };
 		964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */; };
-		964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */; };
 		964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F4C891CA4CF7B00C69B71 /* Assets.xcassets */; };
 		964F4C981CA4CF7B00C69B71 /* MelmelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4C971CA4CF7B00C69B71 /* MelmelTests.swift */; };
 		964F4CA31CA4CF7B00C69B71 /* MelmelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F4CA21CA4CF7B00C69B71 /* MelmelUITests.swift */; };
@@ -151,7 +150,6 @@
 		964BA0901D62992F0061B1A3 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		964F4C7D1CA4CF7B00C69B71 /* Melmel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melmel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964F4C801CA4CF7B00C69B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		964F4C891CA4CF7B00C69B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		964F4C8E1CA4CF7B00C69B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		964F4C931CA4CF7B00C69B71 /* MelmelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelmelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,7 +289,6 @@
 				96FC174D1CAE2CA5002F8817 /* Melmel.xcdatamodeld */,
 				962EC7961DBB83D900B00FE2 /* GoogleService-Info.plist */,
 				967FFEA71D07E16900599E30 /* Main.storyboard */,
-				964F4C841CA4CF7B00C69B71 /* SecondViewController.swift */,
 				964F4C891CA4CF7B00C69B71 /* Assets.xcassets */,
 				964F4C8E1CA4CF7B00C69B71 /* Info.plist */,
 				96B1621B1D6328D600AA4849 /* Launch Screen.storyboard */,
@@ -894,7 +891,6 @@
 				96BAECFA1CE21410008B3B70 /* Post.swift in Sources */,
 				964BA0911D62992F0061B1A3 /* CustomActivityIndicatorView.swift in Sources */,
 				96CB14EF1CE46047006B5DD1 /* Media.swift in Sources */,
-				964F4C851CA4CF7B00C69B71 /* SecondViewController.swift in Sources */,
 				96089E181D6699CE0036141F /* IntroductionPageViewCtrl.swift in Sources */,
 				4D8644F21CF9832F00E84028 /* ShowCommentTableViewController.swift in Sources */,
 				96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */,

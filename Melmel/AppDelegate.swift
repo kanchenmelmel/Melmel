@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import UserNotifications
 import CoreData
 import CoreLocation
 import Firebase
 import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate  {
+    enum RemoteNotificationLinkType:String{
+        case Post = "post"
+        case Discount = "discount"
+    }
 
     var window: UIWindow?
     var locationManager:CLLocationManager?
@@ -60,19 +65,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Configure Firebase Messaging
-        if #available(iOS 8.0, *) {
-            let settings:UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
+        FIRApp.configure()
+        
+        
+        // New version of configuring remote notification on iOS 10.0
+        if #available(iOS 10.0, *) {
+            let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_,_ in })
+            
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            // For iOS 10 data message (sent via FCM)
+            FIRMessaging.messaging().remoteMessageDelegate = self
+            
         } else {
-            let types: UIRemoteNotificationType = [.alert,.badge,.sound]
-            application.registerForRemoteNotifications(matching: types)
-            
-            
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
         }
         
-        FIRApp.configure()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.tokenRefreshNotification),
+                                               name: .firInstanceIDTokenRefresh,
+                                               object: nil)
+        
+        
+        
+        // Old version for configuring remote notification
+        
+//        let settings: UIUserNotificationSettings =
+//                            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+//                        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
         
         
         return true
@@ -94,6 +121,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        
+        // Set application icon badge number to zero
+        application.applicationIconBadgeNumber = 0
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -184,7 +214,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        //print(userInfo["url"])
+        if let linkType = userInfo["type"] {
+            let linkTypeString = linkType as! String
+            
+            let tabNavCtrl = window?.rootViewController as? UITabBarController
+            
+            if linkTypeString == "post" {
+                tabNavCtrl?.selectedIndex = 0
+                let tabNavCtrlNavCtrl = tabNavCtrl?.viewControllers?[0] as! UINavigationController
+                let NavRootVC = tabNavCtrlNavCtrl.viewControllers[0] as! MelGuideTableViewController
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! PostWebViewController
+                webVC.webRequestURLString = userInfo["url"] as? String
+                NavRootVC.navigationController?.present(webVC, animated: true, completion: nil)
+                
+            } else if linkTypeString == "discount" {
+                tabNavCtrl?.selectedIndex = 1
+                let tabNavCtrlNavCtrl = tabNavCtrl?.viewControllers?[0] as! UINavigationController
+                let NavRootVC = tabNavCtrlNavCtrl.viewControllers[0] as! DiscountTableViewController
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! PostWebViewController
+                webVC.webRequestURLString = userInfo["url"] as? String
+                NavRootVC.present(webVC, animated: true, completion: nil)
+            }
+            
+            
+            
+            print(linkTypeString)
+            
+        }
+    }
 
+}
+
+extension AppDelegate:FIRMessagingDelegate{
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+        print("%@", remoteMessage.appData)
+    }
 }
 
