@@ -231,16 +231,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! PostWebViewController
                 webVC.webRequestURLString = userInfo["url"] as? String
-                NavRootVC.navigationController?.present(webVC, animated: true, completion: nil)
+                NavRootVC.navigationController?.pushViewController(webVC, animated: true)
                 
             } else if linkTypeString == "discount" {
                 tabNavCtrl?.selectedIndex = 1
-                let tabNavCtrlNavCtrl = tabNavCtrl?.viewControllers?[0] as! UINavigationController
+                let tabNavCtrlNavCtrl = tabNavCtrl?.viewControllers?[1] as! UINavigationController
                 let NavRootVC = tabNavCtrlNavCtrl.viewControllers[0] as! DiscountTableViewController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! PostWebViewController
                 webVC.webRequestURLString = userInfo["url"] as? String
-                NavRootVC.present(webVC, animated: true, completion: nil)
+                webVC.navigationItem.setRightBarButton(nil, animated: true)
+                NavRootVC.navigationController?.pushViewController(webVC, animated: true)
             }
             
             
