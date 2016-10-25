@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import FBAnnotationClusteringSwift
+import Presentr
 
 
 enum AnnotationPinImg: String {
@@ -55,6 +56,34 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     var blankView = UIView()
     
     var searchBlankView = UIView()
+    
+    
+    // Presenter View
+    let discountDetailPresenter:Presentr = {
+        let width = ModalSize.full
+        let height = ModalSize.custom(size: 80.5)
+        let screenHeight = UIScreen.main.bounds.height
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:screenHeight-80.5-44))
+        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+        presenter.transitionType = TransitionType.coverVertical
+        presenter.backgroundOpacity = 0
+        presenter.roundCorners = false
+        
+        return presenter
+    }()
+    
+    let filterPresenter:Presentr = {
+        let width = ModalSize.full
+        let height = ModalSize.custom(size: 113.0)
+//        let screenHeight = UIScreen.main.bounds.height
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:64))
+        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+        presenter.transitionType = TransitionType.coverVerticalFromTop
+        presenter.backgroundOpacity = 0.5
+        presenter.roundCorners = false
+        
+        return presenter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -276,14 +305,15 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         //        self.addChildViewController(categoryPopoverCtrl)
         //        self.view.addSubview(categoryPopoverCtrl.view)
         //        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
-        self.blankView.isHidden = false
-        categoryPopoverCtrl.modalPresentationStyle = .popover
-        let popover = categoryPopoverCtrl.popoverPresentationController!
-        categoryPopoverCtrl.preferredContentSize = CGSize(width: 400, height: 113.0)
-        popover.barButtonItem = sender
-        popover.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
-        popover.delegate = self
-        present(categoryPopoverCtrl, animated: true, completion: nil)
+//        self.blankView.isHidden = false
+//        categoryPopoverCtrl.modalPresentationStyle = .popover
+//        let popover = categoryPopoverCtrl.popoverPresentationController!
+//        categoryPopoverCtrl.preferredContentSize = CGSize(width: 400, height: 113.0)
+//        popover.barButtonItem = sender
+//        popover.popoverLayoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
+//        popover.delegate = self
+//        present(categoryPopoverCtrl, animated: true, completion: nil)
+        customPresentViewController(filterPresenter, viewController: categoryPopoverCtrl, animated: true, completion: nil)
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
@@ -352,19 +382,20 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     func addDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController){
         
-        discountDetailViewController.showed = true
-        AnimationEngine.addEaseInFromBottomAnimationToView(discountDetailViewController.view)
-        discountDetailViewController.modalTransitionStyle = .coverVertical
-        self.addChildViewController(discountDetailViewController)
-        var viewRect:CGRect!
-        
-        
-        
-        viewRect = CGRect(x: 0.0, y: self.mapView.frame.height-80.5, width: self.mapView.frame.width, height: 80.5)
-        discountDetailViewController.view.frame = viewRect
-        
-        self.view.addSubview(discountDetailViewController.view)
-        discountDetailViewController.didMove(toParentViewController: self)
+//        discountDetailViewController.showed = true
+//        AnimationEngine.addEaseInFromBottomAnimationToView(discountDetailViewController.view)
+//        discountDetailViewController.modalTransitionStyle = .coverVertical
+//        self.addChildViewController(discountDetailViewController)
+//        var viewRect:CGRect!
+//        
+//        
+//        
+//        viewRect = CGRect(x: 0.0, y: self.mapView.frame.height-80.5, width: self.mapView.frame.width, height: 80.5)
+//        discountDetailViewController.view.frame = viewRect
+//        
+//        self.view.addSubview(discountDetailViewController.view)
+//        discountDetailViewController.didMove(toParentViewController: self)
+        customPresentViewController(discountDetailPresenter, viewController: discountDetailViewController, animated: true, completion: nil)
         
     }
     
