@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
-  - FBAnnotationClusteringSwift (1.0.4)
+  - FBAnnotationClusteringSwift (2.0)
   - Firebase (3.7.1):
     - Firebase/Core (= 3.7.1)
   - Firebase/Core (3.7.1):
@@ -34,7 +34,7 @@ PODS:
     - GoogleSymbolUtilities (~> 1.1)
   - MelMobile (0.1.1):
     - Alamofire (~> 4.0)
-  - pop (1.0.9)
+  - Presentr (1.0.2)
   - SwiftMessages (3.0.2)
   - XLForm (3.2.0)
 
@@ -44,7 +44,7 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Messaging
   - MelMobile (from `https://github.com/wenyuzhao/MelMobile.git`)
-  - pop (from `https://github.com/facebook/pop.git`)
+  - Presentr
   - SwiftMessages
   - XLForm (~> 3.0)
 
@@ -53,23 +53,18 @@ EXTERNAL SOURCES:
     :git: https://github.com/ribl/FBAnnotationClusteringSwift.git
   MelMobile:
     :git: https://github.com/wenyuzhao/MelMobile.git
-  pop:
-    :git: https://github.com/facebook/pop.git
 
 CHECKOUT OPTIONS:
   FBAnnotationClusteringSwift:
-    :commit: ce7e1c9b4e60f7f9cef38d8453736086dd85abf6
+    :commit: cc3b6524156f8e0d8653688423fba2fdf0944bc8
     :git: https://github.com/ribl/FBAnnotationClusteringSwift.git
   MelMobile:
     :commit: 4779e94940349bdde16e795f047b1c540a073426
     :git: https://github.com/wenyuzhao/MelMobile.git
-  pop:
-    :commit: 92b2c5b7bcad64f7507da34f921492c71ff1d330
-    :git: https://github.com/facebook/pop.git
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  FBAnnotationClusteringSwift: 7ef2c863c806942a1c03add72cde1e9c1872534d
+  FBAnnotationClusteringSwift: 0698ddcee46d1c28f14336909b2b0af4906b213f
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
@@ -80,10 +75,10 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   MelMobile: b4232b5a0a4afdaed3487b4553f160df24afa268
-  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  Presentr: 10a415de79efeac4dc82d006580ddd90fcaa157d
   SwiftMessages: 3523c331c6b7b66e6f23a970ced259065ba31f9c
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: 608893549b7001c52b794e298b0d49f36856053d
+PODFILE CHECKSUM: 7e4e0fcfd172d4c03013e9d30435792c2e20b36e
 
 COCOAPODS: 1.0.0
