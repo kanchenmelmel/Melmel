@@ -25,7 +25,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     
     let discountDetailViewController = MapDiscountDetailViewController()
-//    let exampleTransitionDelegate = Example
+    //    let exampleTransitionDelegate = Example
     
     
     let catVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "testid") as? CategoryTableViewController
@@ -34,6 +34,8 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    let configuration = FBAnnotationClusterViewConfiguration.default()
     
     var categoryInt = ""
     var filtered = false
@@ -74,20 +76,20 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         searchTextField.attributedPlaceholder = NSAttributedString(string: "例如：韩餐，日餐", attributes: [NSForegroundColorAttributeName:color])
         
         
-//        
-//        let melmelAnnotation = MKPointAnnotation()
-//        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
-//        melmelAnnotation.title = "Melmel"
-//        melmelAnnotation.subtitle = "416/566 St. Kilda Road, St. Kilda, VIC, 3004"
-//        mapView.addAnnotation(melmelAnnotation)
+        //
+        //        let melmelAnnotation = MKPointAnnotation()
+        //        melmelAnnotation.coordinate = CLLocation(latitude: -37.846904, longitude: 144.978653).coordinate
+        //        melmelAnnotation.title = "Melmel"
+        //        melmelAnnotation.subtitle = "416/566 St. Kilda Road, St. Kilda, VIC, 3004"
+        //        mapView.addAnnotation(melmelAnnotation)
         locationAuthStatus()
         // load discounts from core data
         //loadDiscountFromCoreData()
         
         
-//        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
-//        discountDetailView.center = CGPoint(x: 0.0, y: 0.0)
-//        self.mapView.addSubview(discountDetailView)
+        //        discountDetailView = NSBundle.mainBundle().loadNibNamed("MapDiscountDetailView", owner: self, options: nil)[0] as? MapDiscountDetailView
+        //        discountDetailView.center = CGPoint(x: 0.0, y: 0.0)
+        //        self.mapView.addSubview(discountDetailView)
         
         //addDiscountDetailViewController()
         loadAllDiscount()
@@ -95,7 +97,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        
         self.navigationController?.hidesBarsOnSwipe = false
         UIApplication.shared.statusBarStyle = .default
     }
@@ -153,29 +155,41 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        OperationQueue().addOperation { 
+        
+        DispatchQueue.global(qos: .userInitiated).async {
             let mapBoundsWidth = Double(self.mapView.bounds.size.width)
             let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
             let scale:Double = mapBoundsWidth / mapRectWidth
-            let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+            let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.mapView.visibleMapRect, zoomScale: scale)
             print(annotationArray)
-            self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
+            DispatchQueue.main.async {
+                self.clusteringManager.display(annotations: annotationArray, onMapView:self.mapView)
+            }
+            
         }
+        //        OperationQueue().addOperation {
+        //            let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+        //            let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
+        //            let scale:Double = mapBoundsWidth / mapRectWidth
+        //            let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.mapView.visibleMapRect, zoomScale: scale)
+        //            print(annotationArray)
+        //            self.clusteringManager.display(annotations: annotationArray, onMapView:self.mapView)
+        //        }
     }
-
+    
     
     
     /*  Configure annotation view */
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var reuseId = ""
-        if annotation.isKind(of: FBAnnotationCluster.self){
+        if annotation is FBAnnotationCluster{
             reuseId = "Cluster"
             var clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
-            clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
+            clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, configuration: self.configuration)
             return clusterView
-        }else if annotation.isKind(of: MKUserLocation.self) {
+        }else if annotation is MKUserLocation {
             return nil
-        } else if annotation.isKind(of: DiscountAnnotation.self){
+        } else if annotation is DiscountAnnotation{
             let discountAnnotation = annotation as! DiscountAnnotation
             let annotationView = DiscountAnnotationView(annotation: annotation, reuseIdentifier: nil,delegate: self)
             var annotationViewImgFilename = ""
@@ -210,7 +224,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             annotationView.canShowCallout = false
             return annotationView
         }
-
+        
     }
     
     /*  Configure tapped behavior */
@@ -235,7 +249,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
         postUpdateUtility.updateDiscounts {
             
-            DispatchQueue.main.async(execute: { 
+            DispatchQueue.main.async(execute: {
                 self.locationAuthStatus()
                 // load discounts from core data
                 self.loadDiscountFromCoreData()
@@ -258,10 +272,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     
     @IBAction func showCategoryPopover(_ sender: UIBarButtonItem) {
         
-//
-//        self.addChildViewController(categoryPopoverCtrl)
-//        self.view.addSubview(categoryPopoverCtrl.view)
-//        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
+        //
+        //        self.addChildViewController(categoryPopoverCtrl)
+        //        self.view.addSubview(categoryPopoverCtrl.view)
+        //        self.presentViewController(categoryPopoverCtrl, animated: true, completion: nil)
         self.blankView.isHidden = false
         categoryPopoverCtrl.modalPresentationStyle = .popover
         let popover = categoryPopoverCtrl.popoverPresentationController!
@@ -332,7 +346,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         }
         
         
-        self.clusteringManager.addAnnotations(annotations)
+        self.clusteringManager.add(annotations: annotations)
         //self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
     }
     
@@ -345,7 +359,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         var viewRect:CGRect!
         
         
-
+        
         viewRect = CGRect(x: 0.0, y: self.mapView.frame.height-80.5, width: self.mapView.frame.width, height: 80.5)
         discountDetailViewController.view.frame = viewRect
         
@@ -386,11 +400,11 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     }
     
     
-
+    
 }
 
 
-/* 
+/*
  Implementation of FilterViewControllerDelegate
  */
 extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {

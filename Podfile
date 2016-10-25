@@ -6,8 +6,8 @@ target 'Melmel' do
   use_frameworks!
 
   # Pods for Melmel
-  pod 'FBAnnotationClusteringSwift', :git => 'https://github.com/ribl/FBAnnotationClusteringSwift.git'
-  pod 'pop', :git => 'https://github.com/facebook/pop.git'
+pod 'FBAnnotationClusteringSwift', :git => 'https://github.com/ribl/FBAnnotationClusteringSwift.git'
+pod 'Presentr'
   pod 'Alamofire', '~> 4.0'
   pod 'MelMobile', :git => 'https://github.com/wenyuzhao/MelMobile.git'
   pod 'SwiftMessages'
