@@ -309,11 +309,11 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         self.blankView.isHidden = true
     }
     
-    // Implement Popover Ctrl Delegate
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
+//    // Implement Popover Ctrl Delegate
+//    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+//        return .none
+//    }
+//    
     
     // Prepare Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -388,13 +388,13 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
     }
     
-    func removeDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController) {
-        AnimationEngine.addEaseOutToBottomAnimationToView(discountDetailViewController.view)
-        discountDetailViewController.showed = false
-        discountDetailViewController.willMove(toParentViewController: nil)
-        discountDetailViewController.view.removeFromSuperview()
-        discountDetailViewController.removeFromParentViewController()
-    }
+//    func removeDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController) {
+//        AnimationEngine.addEaseOutToBottomAnimationToView(discountDetailViewController.view)
+//        discountDetailViewController.showed = false
+//        discountDetailViewController.willMove(toParentViewController: nil)
+//        discountDetailViewController.view.removeFromSuperview()
+//        discountDetailViewController.removeFromParentViewController()
+//    }
     
     func loadAllDiscount(){
         let postUpdateUtility = PostsUpdateUtility()
