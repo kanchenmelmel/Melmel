@@ -168,9 +168,10 @@ class SearchDiscountImageDownloader:Operation {
             return
         }
         
-        let imageData = try? Data(contentsOf: URL(string:discount.featured_image_url!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
-        
-        
+    
+        let imageData = try? Data(contentsOf: URL(string:discount.featured_image_url!.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)!)
+
+
         
         if imageData?.count != 0 {
             self.discount.featuredImage = UIImage(data: imageData!)
