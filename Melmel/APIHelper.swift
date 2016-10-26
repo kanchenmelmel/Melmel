@@ -148,36 +148,7 @@ class APIHelper {
         } as! (Data?, URLResponse?, Error?) -> Void) .resume()
     }
     
-    /* GetMediaById */
-    func getMediaById(_ mediaId:Int, mediaAcquired:(_ mediaDictionary:Dictionary<String,AnyObject>?,_ success:Bool) -> Void) {
-        // Request featured media
-        let mediaUrl = URL(string:mediaUrlPathString + "\(mediaId)/")!
-        
-        let request = URLRequest(url: mediaUrl)
-        
-        
-        
-        do{
 
-            let responseData = try NSURLConnection.sendSynchronousRequest(request, returning: nil)
-            
-            let featuredMediaData = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
-            
-            if let json = featuredMediaData as? Dictionary<String,AnyObject>{
-                mediaAcquired(json,true)
-            }
-            else {
-                mediaAcquired(nil,false)
-            }
-        }catch {
-            mediaAcquired(nil,false)
-        }
-        
-//        session.dataTaskWithURL(mediaUrl, completionHandler: { (responseData:NSData?, mediaResponse:NSURLResponse?, mediaError:NSError?) in
-//            
-//        }).resume()
-        
-    }
     
     
     func getPreviousPosts(_ postType: PostType, beforeDate: Date, excludeId: Int, completionHandler:@escaping (_ resultsArray:NSArray?, _ success:Bool) -> Void ) {
@@ -195,10 +166,13 @@ class APIHelper {
         let dateFormatter = DateFormatter()
         let beforeDateString = dateFormatter.formatDateToDateString(beforeDate)
 
-        let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
-        //print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
+        let url = URL(string: "\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlFragmentAllowed)!)
+        print("\(baseURIString)?before=\(beforeDateString)&exclude=\(excludeId)")
         
         session.dataTask(with: url!) { (data, response, error) in
+            if error != nil {
+                print(error)
+            }
 
             if let responseData = data {
                 do {

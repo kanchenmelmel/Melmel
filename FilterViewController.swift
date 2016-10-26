@@ -118,9 +118,9 @@ class FilterViewController: UIViewController {
     
     //setup the popover view
     func setupView(){
-        self.view.layer.shadowOpacity = 1.0
-        self.view.layer.shadowRadius = 13.0
-        self.view.layer.shadowOffset = CGSize(width: 0.0, height: -2.0)
+        self.view.layer.shadowOpacity = 0.7
+        self.view.layer.shadowRadius = 5.0
+        self.view.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
         self.view.layer.shadowColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0).cgColor
         //self.view.backgroundColor = UIColor(colorLiteralRed: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         // self.detailButton.backgroundColor = UIColor(red: 242.0/255.0, green: 109.0/255.0, blue: 125.0/255.0, alpha: 1.0)

@@ -76,10 +76,10 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let width = ModalSize.full
         let height = ModalSize.custom(size: 113.0)
 //        let screenHeight = UIScreen.main.bounds.height
-        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:64))
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:65))
         let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
-        presenter.transitionType = TransitionType.coverVerticalFromTop
-        presenter.backgroundOpacity = 0.5
+        presenter.transitionType = TransitionType.crossDissolve
+        presenter.backgroundOpacity = 0
         presenter.roundCorners = false
         
         return presenter

@@ -41,13 +41,14 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
         
         
         
-        if !self.discountDetailViewController.showed {
-            print("tapped")
-            self.addDiscountDetailViewController(self.discountDetailViewController)
-        } else {
-//            self.removeDiscountDetailViewController(self.discountDetailViewController)
-            self.addDiscountDetailViewController(self.discountDetailViewController)
-        }
+//        if !self.discountDetailViewController.showed {
+//            print("tapped")
+//            self.addDiscountDetailViewController(self.discountDetailViewController)
+//        } else {
+////            self.removeDiscountDetailViewController(self.discountDetailViewController)
+//            self.addDiscountDetailViewController(self.discountDetailViewController)
+//        }
+        self.addDiscountDetailViewController(self.discountDetailViewController)
         
 
         self.discountDetailViewController.detailButton.addTarget(self, action: #selector(showDiscountWebPage), for: .touchUpInside)
