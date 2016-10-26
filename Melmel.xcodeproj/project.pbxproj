@@ -68,6 +68,7 @@
 		96B162211D64897800AA4849 /* CustomSearchBar+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */; };
 		96B162231D64A4E000AA4849 /* SearchPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B162221D64A4E000AA4849 /* SearchPostCell.swift */; };
 		96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */; };
+		96B98CBD1DC050C70082E7E4 /* UIViewController+UIWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B98CBC1DC050C70082E7E4 /* UIViewController+UIWebViewDelegate.swift */; };
 		96BAECFA1CE21410008B3B70 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAECF61CE21410008B3B70 /* Post.swift */; };
 		96BDC6F41D57605900A75B71 /* DiscountAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */; };
 		96BDC6F61D576F7500A75B71 /* MapViewCtrlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */; };
@@ -175,6 +176,7 @@
 		96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomSearchBar+Designable.swift"; sourceTree = "<group>"; };
 		96B162221D64A4E000AA4849 /* SearchPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostCell.swift; sourceTree = "<group>"; };
 		96B1CC621CFC790B00B32E6E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		96B98CBC1DC050C70082E7E4 /* UIViewController+UIWebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIWebViewDelegate.swift"; sourceTree = "<group>"; };
 		96BAECF61CE21410008B3B70 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		96BDC6F31D57605900A75B71 /* DiscountAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountAnnotationView.swift; sourceTree = "<group>"; };
 		96BDC6F51D576F7500A75B71 /* MapViewCtrlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrlExtension.swift; sourceTree = "<group>"; };
@@ -347,6 +349,14 @@
 			name = "Animation Engine";
 			sourceTree = "<group>";
 		};
+		96B98CBB1DC050960082E7E4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96B98CBC1DC050C70082E7E4 /* UIViewController+UIWebViewDelegate.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		96BDC6F71D57764200A75B71 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				96B98CBB1DC050960082E7E4 /* Extensions */,
 				968041A11D61FA740040ED91 /* Comment */,
 				96BDC6F81D57765E00A75B71 /* Map */,
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
@@ -885,6 +896,7 @@
 				96B1CC631CFC790B00B32E6E /* ReachabilityManager.swift in Sources */,
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
 				96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */,
+				96B98CBD1DC050C70082E7E4 /* UIViewController+UIWebViewDelegate.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
 				962EC7921DBB19DE00B00FE2 /* BusinessForm.swift in Sources */,
 				96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */,

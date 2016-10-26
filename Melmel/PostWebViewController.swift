@@ -26,6 +26,8 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         super.viewDidLoad()
         // Do view setup here.
         
+        
+        postWebView.delegate = self
         progressView.progress  = 0
         let url = URL(string:webRequestURLString!)
         let request = NSMutableURLRequest(url: url!, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10.0)
@@ -73,6 +75,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     // Web View Finish Loading Page
     func webViewDidFinishLoad(_ webView: UIWebView) {
         loading = false
+        self.applyCSSToUIWebView(webView: webView)
     }
     
     func updateProgressView (){

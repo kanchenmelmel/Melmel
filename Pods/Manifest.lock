@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
+  - ALThreeCircleSpinner (1.0.4)
   - FBAnnotationClusteringSwift (2.0)
   - Firebase (3.7.1):
     - Firebase/Core (= 3.7.1)
@@ -40,6 +41,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - ALThreeCircleSpinner
   - FBAnnotationClusteringSwift (from `https://github.com/ribl/FBAnnotationClusteringSwift.git`)
   - Firebase
   - Firebase/Messaging
@@ -64,6 +66,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  ALThreeCircleSpinner: a87b9c3511e5fea8509923a17d6f38b11a9b1f5f
   FBAnnotationClusteringSwift: 0698ddcee46d1c28f14336909b2b0af4906b213f
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
@@ -79,6 +82,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 3523c331c6b7b66e6f23a970ced259065ba31f9c
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: 7e4e0fcfd172d4c03013e9d30435792c2e20b36e
+PODFILE CHECKSUM: 9ea07afe186d760668ce119d43ae49845237c841
 
 COCOAPODS: 1.0.0

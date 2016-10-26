@@ -7,6 +7,7 @@ target 'Melmel' do
 
   # Pods for Melmel
 pod 'FBAnnotationClusteringSwift', :git => 'https://github.com/ribl/FBAnnotationClusteringSwift.git'
+pod 'ALThreeCircleSpinner'
 pod 'Presentr'
   pod 'Alamofire', '~> 4.0'
   pod 'MelMobile', :git => 'https://github.com/wenyuzhao/MelMobile.git'
