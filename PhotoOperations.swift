@@ -16,7 +16,7 @@ class PendingOperations {
     lazy var downloadQueue:OperationQueue = {
         var queue = OperationQueue()
         queue.name = "Download queue"
-        queue.maxConcurrentOperationCount = 1
+        queue.maxConcurrentOperationCount = 5
         return queue
     }()
 }
@@ -43,7 +43,7 @@ class ImageDownloader:Operation {
         }
         
         
-        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
+        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlFragmentAllowed)!)!)
         
         if imageData != nil && imageData?.count != 0 {
             let image = UIImage(data: imageData!)
