@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ALThreeCircleSpinner
+
 
 extension UIViewController {
     
@@ -17,5 +19,25 @@ extension UIViewController {
         let javascriptWithCssString = String(format: javascriptString, cssString)
         webView.stringByEvaluatingJavaScript(from: javascriptWithCssString)
         
+    }
+    
+    func showLoadingBlockView() -> UIView {
+        
+        let rect = CGRect(x: 0, y: 64, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 108.0)
+        let containerView = UIView(frame: rect)
+        containerView.tag = 110
+        let spinner = ALThreeCircleSpinner(frame: CGRect(x:0,y:0,width:44,height:44))
+        spinner.center = containerView.center
+        spinner.tintColor = UIColor(red: 236.0/255.0, green: 8.0/255.0, blue: 41.0/255.0, alpha: 1.0)
+        
+        containerView.addSubview(spinner)
+        self.view.addSubview(containerView)
+        return containerView
+        
+        
+    }
+    
+    func hideLoadingBlockView(loadingView:UIView) {
+        loadingView.removeFromSuperview()
     }
 }

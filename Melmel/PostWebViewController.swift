@@ -13,12 +13,15 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     var loading = false
     var timer:Timer? = nil
     
+    var loadingView:UIView? = nil
+    
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var commentButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var webRequestURLString:String?
     var postid:String?
+    
 
     @IBOutlet weak var postWebView: UIWebView!
     //using the URL, loads the website on the webview
@@ -26,6 +29,9 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         super.viewDidLoad()
         // Do view setup here.
         
+        
+        
+        loadingView = self.showLoadingBlockView()
         
         postWebView.delegate = self
         progressView.progress  = 0
@@ -76,6 +82,8 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
         loading = false
         self.applyCSSToUIWebView(webView: webView)
+        
+        self.hideLoadingBlockView(loadingView: loadingView!)
     }
     
     func updateProgressView (){

@@ -387,6 +387,7 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				96B98CBB1DC050960082E7E4 /* Extensions */,
 				964AE5BC1DB9B918008F5DB5 /* ContactForms */,
 				963C6D9F1D6B189300B31B45 /* PresentationController */,
 				96BDC6F71D57764200A75B71 /* Map */,
@@ -411,7 +412,6 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				96B98CBB1DC050960082E7E4 /* Extensions */,
 				968041A11D61FA740040ED91 /* Comment */,
 				96BDC6F81D57765E00A75B71 /* Map */,
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
