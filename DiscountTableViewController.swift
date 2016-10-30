@@ -47,19 +47,47 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
     
+    
+    // Setup Popup VC
+    let filterPresenter:Presentr = {
+        let width = ModalSize.full
+        let height = ModalSize.custom(size: 113.0)
+        //        let screenHeight = UIScreen.main.bounds.height
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:65))
+        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+        presenter.transitionType = TransitionType.crossDissolve
+        presenter.backgroundOpacity = 0
+        presenter.roundCorners = false
+        
+        return presenter
+    }()
+    
+    let messagePresenter:Presentr = {
+        let width = ModalSize.full
+        let height = ModalSize.custom(size: 113.0)
+        //        let screenHeight = UIScreen.main.bounds.height
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:65))
+        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+        presenter.transitionType = TransitionType.crossDissolve
+        presenter.backgroundOpacity = 0
+        presenter.roundCorners = false
+        
+        return presenter
+    }()
+    
     @IBAction func didFilterButtonPress(_ sender: UIBarButtonItem) {
         
         
         //        let filterViewController = FilterViewController()
         
-        self.blankView.isHidden = false
-        
-        filteredViewController.modalPresentationStyle = .popover
-        filteredViewController.preferredContentSize = CGSize(width: 400.0, height: 113.0)
-        let popover = filteredViewController.popoverPresentationController!
-        popover.barButtonItem = sender
-        popover.delegate = self
-        present(filteredViewController, animated: true, completion: nil)
+//        self.blankView.isHidden = false
+//        
+//        filteredViewController.modalPresentationStyle = .popover
+//        filteredViewController.preferredContentSize = CGSize(width: 400.0, height: 113.0)
+//        let popover = filteredViewController.popoverPresentationController!
+//        popover.barButtonItem = sender
+//        popover.delegate = self
+//        present(filteredViewController, animated: true, completion: nil)
         
         
         

@@ -37,7 +37,9 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     var searchBlankView = UIView()
     
     // Popup Presenter
-    let filterPresenter:Presentr = {
+    
+    
+    let messagePresenter:Presentr = {
         let width = ModalSize.full
         let height = ModalSize.custom(size: 113.0)
         //        let screenHeight = UIScreen.main.bounds.height
@@ -49,8 +51,6 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         
         return presenter
     }()
-    
-    let messagePresenter:Presentr?
     
     
     @IBOutlet weak var loadMorePostsLabel: UILabel!
