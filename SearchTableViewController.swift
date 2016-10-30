@@ -232,7 +232,7 @@ class SearchTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "postWebSegue" {
-            let postWebVeiwController = segue.destination as! PostWebViewController
+            let postWebVeiwController = segue.destination as! PostWebPageViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = posts[(path as NSIndexPath).row].link
             postWebVeiwController.navigationItem.title = "原创攻略"
@@ -243,7 +243,7 @@ class SearchTableViewController: UITableViewController {
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
-            postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
+//            postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
         }
     }
     

@@ -497,5 +497,7 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .lightContent
+        discountDetailViewController.dismiss(animated: true, completion: nil)
+        
     }
 }

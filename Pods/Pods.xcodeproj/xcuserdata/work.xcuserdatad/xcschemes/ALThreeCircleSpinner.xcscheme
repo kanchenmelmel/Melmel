@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1A764C58538FD5D75552772DFF5C9155'
-               BlueprintName = 'SwiftMessages'
+               BlueprintIdentifier = 'FAF7A198F28D0D1650946E5A2CD2F7C0'
+               BlueprintName = 'ALThreeCircleSpinner'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftMessages.framework'>
+               BuildableName = 'ALThreeCircleSpinner.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -283,10 +283,12 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "postSegue" {
-            let postWebVeiwController = segue.destination as! PostWebViewController
+            let postWebVeiwController = segue.destination as! PostWebPageViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = posts[(path as NSIndexPath).row].link
             postWebVeiwController.postid = String(describing: posts[(path as NSIndexPath).row].id!)
+            navigationController?.isNavigationBarHidden = false
+            navigationController?.hidesBarsOnSwipe = true
         }
         if segue.identifier == "searchResultSegue" {
             let searchResultTableViewCtrl = segue.destination as! SearchTableViewController

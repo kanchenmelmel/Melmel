@@ -76,8 +76,8 @@ class ShowCommentTableViewController: UITableViewController {
         cell.dateLabel.text = dateFormatter.formatDateToDateStringForDisplay(comment.date!)
         cell.contentLabel.text = comment.content
         
-        let gravatarURL = comment.avatar
-        let imageData = try? Data(contentsOf: URL(string:gravatarURL!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
+        let gravatarURL = comment.avatar?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlFragmentAllowed)
+        let imageData = try? Data(contentsOf: URL(string:gravatarURL!)!)
         self.featuredImage = UIImage(data: imageData!)
         cell.avatarImage.image = self.featuredImage
 

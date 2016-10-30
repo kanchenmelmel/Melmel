@@ -2,14 +2,14 @@
 //  PostWebViewController.swift
 //  Melmel
 //
-//  Created by Work on 8/05/2016.
+//  Created by Work on 30/10/16.
 //  Copyright © 2016 Melmel. All rights reserved.
 //
 
 import UIKit
 
-class PostWebViewController: UIViewController,UIWebViewDelegate {
-    
+class PostWebPageViewController: UIViewController,UIWebViewDelegate {
+
     var loading = false
     var timer:Timer? = nil
     
@@ -22,7 +22,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
     var webRequestURLString:String?
     var postid:String?
     
-
+    
     @IBOutlet weak var postWebView: UIWebView!
     //using the URL, loads the website on the webview
     override func viewDidLoad() {
@@ -54,6 +54,8 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
             present(activityVC, animated: true, completion: nil)
         }
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
@@ -101,4 +103,17 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
             timer?.invalidate()
         }
     }
+
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
