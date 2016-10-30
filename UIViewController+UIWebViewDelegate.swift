@@ -28,7 +28,7 @@ extension UIViewController {
         containerView.tag = 110
         let spinner = ALThreeCircleSpinner(frame: CGRect(x:0,y:0,width:44,height:44))
         spinner.center = containerView.center
-        spinner.tintColor = UIColor(red: 236.0/255.0, green: 8.0/255.0, blue: 41.0/255.0, alpha: 1.0)
+        spinner.tintColor = UIColor.lightGray
         
         containerView.addSubview(spinner)
         self.view.addSubview(containerView)

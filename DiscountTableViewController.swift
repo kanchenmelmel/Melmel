@@ -650,7 +650,8 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             let postWebVeiwController = segue.destination as! PostWebViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
-            postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
+            //postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
+            
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
         }
         

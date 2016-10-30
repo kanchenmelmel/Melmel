@@ -18,6 +18,7 @@ class IntroductionPageViewCtrl: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
+    
         
         
         if let firstViewCtrl = orderedViewControllers.first {

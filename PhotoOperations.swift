@@ -131,7 +131,7 @@ class SearchImageDownloader:Operation {
             return
         }
         
-        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!)
+        let imageData = try? Data(contentsOf: URL(string:post.featured_image_url!.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlFragmentAllowed)!)!)
         
         if self.isCancelled {
             return
