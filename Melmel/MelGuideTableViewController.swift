@@ -14,6 +14,7 @@ import CoreData
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
+import Presentr
 
 class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
@@ -34,6 +35,23 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     var reachToTheEnd = false
     
     var searchBlankView = UIView()
+    
+    // Popup Presenter
+    let filterPresenter:Presentr = {
+        let width = ModalSize.full
+        let height = ModalSize.custom(size: 113.0)
+        //        let screenHeight = UIScreen.main.bounds.height
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:65))
+        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+        presenter.transitionType = TransitionType.crossDissolve
+        presenter.backgroundOpacity = 0
+        presenter.roundCorners = false
+        
+        return presenter
+    }()
+    
+    let messagePresenter:Presentr?
+    
     
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
