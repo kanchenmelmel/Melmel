@@ -520,7 +520,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         if reachabilityManager.isReachable(){
             print("is Reachable")
             let postUpdateUtility = PostsUpdateUtility()
-            postUpdateUtility.updateDiscounts {
+            postUpdateUtility.updateDiscounts { (discountCount) in
                 
                 DispatchQueue.main.async(execute: {
                     print("Update table view")
@@ -531,6 +531,13 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
                     self.tableView.allowsSelection = true
                    // self.activityIndicatorView.willMoveToSuperview(self.tableView)
                     self.refreshControl?.endRefreshing()
+                    var messageString = ""
+                    if discountCount != 0 {
+                        messageString = "有\(discountCount)条新的内容！"
+                    } else {
+                        messageString = "没有新的内容！"
+                    }
+                    self.showMessageView(string: messageString)
                 })
             }
         } else {
@@ -681,8 +688,6 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             //postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
             
-            navigationController?.isNavigationBarHidden = false
-            navigationController?.hidesBarsOnSwipe = true
             
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
         }

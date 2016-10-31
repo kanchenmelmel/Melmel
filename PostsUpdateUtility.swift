@@ -75,7 +75,7 @@ class PostsUpdateUtility {
     
     
     /* Update discounts */
-    func updateDiscounts(_ completionHandler:@escaping () -> Void){
+    func updateDiscounts(_ completionHandler:@escaping (_ discountCount:Int) -> Void){
         let apiHelper = APIHelper()
         
         apiHelper.getDiscountsFromAPI { (discountArray, success) in
@@ -86,8 +86,11 @@ class PostsUpdateUtility {
                 do {
                     try self.managedObjectContext.save()
                 } catch {}
+                completionHandler((discountArray?.count)!)
+            } else {
+                completionHandler(0)
             }
-            completionHandler()
+            
             
         }// end getPostsFromAPI
     }

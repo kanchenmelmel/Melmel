@@ -276,7 +276,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         let postUpdateUtility = PostsUpdateUtility()
         
         
-        postUpdateUtility.updateDiscounts {
+        postUpdateUtility.updateDiscounts { _ in
             
             DispatchQueue.main.async(execute: {
                 self.locationAuthStatus()

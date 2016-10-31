@@ -229,8 +229,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 let tabNavCtrlNavCtrl = tabNavCtrl?.viewControllers?[0] as! UINavigationController
                 let NavRootVC = tabNavCtrlNavCtrl.viewControllers[0] as! MelGuideTableViewController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! PostWebPageViewController
+                let webVC = storyboard.instantiateViewController(withIdentifier: "postWebVC") as! PostWebPageViewController
                 webVC.webRequestURLString = userInfo["url"] as? String
+                webVC.postid = userInfo["id"] as? String
                 NavRootVC.navigationController?.pushViewController(webVC, animated: true)
                 
             } else if linkTypeString == "discount" {
