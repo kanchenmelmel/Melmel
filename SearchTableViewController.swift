@@ -239,12 +239,14 @@ class SearchTableViewController: UITableViewController {
             postWebVeiwController.postid = String(describing: posts[(path as NSIndexPath).row].id!)
         }
         if segue.identifier == "disocuntWebSegue" {
-            let postWebVeiwController = segue.destination as! PostWebViewController
+            let postWebVeiwController = segue.destination as! DiscountWebViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
 //            postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
         }
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.hidesBarsOnSwipe = true
     }
     
     

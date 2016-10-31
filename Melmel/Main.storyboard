@@ -135,7 +135,7 @@
         <!--原创攻略-->
         <scene sceneID="dX1-zb-PcS">
             <objects>
-                <viewController storyboardIdentifier="webVC" id="g1v-G4-zYn" customClass="PostWebViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webVC" id="g1v-G4-zYn" customClass="DiscountWebViewController" customModule="Melmel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HdK-im-ae3"/>
                         <viewControllerLayoutGuide type="bottom" id="yKC-7k-izk"/>
@@ -1374,7 +1374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S00-lx-vPW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4122" y="-287"/>
+            <point key="canvasLocation" x="6847" y="-984"/>
         </scene>
     </scenes>
     <resources>

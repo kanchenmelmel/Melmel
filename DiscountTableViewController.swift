@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Presentr
 
 class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,FilterViewControllerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate{
     
@@ -47,21 +48,49 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
     
+    
+    // Setup Popup VC
+    let filterPresenter:Presentr = {
+        let width = ModalSize.full
+        let height = ModalSize.custom(size: 113.0)
+        //        let screenHeight = UIScreen.main.bounds.height
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:65))
+        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+        presenter.transitionType = TransitionType.crossDissolve
+        presenter.backgroundOpacity = 0
+        presenter.roundCorners = false
+        
+        return presenter
+    }()
+    
+    let messagePresenter:Presentr = {
+        let width = ModalSize.full
+        let height = ModalSize.custom(size: 113.0)
+        //        let screenHeight = UIScreen.main.bounds.height
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:65))
+        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+        presenter.transitionType = TransitionType.crossDissolve
+        presenter.backgroundOpacity = 0
+        presenter.roundCorners = false
+        
+        return presenter
+    }()
+    
     @IBAction func didFilterButtonPress(_ sender: UIBarButtonItem) {
         
         
-        //        let filterViewController = FilterViewController()
+//                let filterViewController = FilterViewController()
         
-        self.blankView.isHidden = false
+//        self.blankView.isHidden = false
+//        
+//        filteredViewController.modalPresentationStyle = .popover
+//        filteredViewController.preferredContentSize = CGSize(width: 400.0, height: 113.0)
+//        let popover = filteredViewController.popoverPresentationController!
+//        popover.barButtonItem = sender
+//        popover.delegate = self
+//        present(filteredViewController, animated: true, completion: nil)
         
-        filteredViewController.modalPresentationStyle = .popover
-        filteredViewController.preferredContentSize = CGSize(width: 400.0, height: 113.0)
-        let popover = filteredViewController.popoverPresentationController!
-        popover.barButtonItem = sender
-        popover.delegate = self
-        present(filteredViewController, animated: true, completion: nil)
-        
-        
+        customPresentViewController(filterPresenter, viewController: filteredViewController, animated: true, completion: nil)
         
     }
     
@@ -193,7 +222,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         resumeAllOperations()
         
         filteredViewController.delegate = self
@@ -202,7 +231,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
         
         
-        super.viewDidLoad()
+        
         
         setupBlankView()
         
@@ -647,10 +676,13 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "discountSegue" {
-            let postWebVeiwController = segue.destination as! PostWebViewController
+            let postWebVeiwController = segue.destination as! DiscountWebViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             //postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
+            
+            navigationController?.isNavigationBarHidden = false
+            navigationController?.hidesBarsOnSwipe = true
             
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
         }
