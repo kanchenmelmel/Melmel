@@ -10,10 +10,12 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
+        
         UIApplication.shared.statusBarStyle = .default
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        UIApplication.shared.statusBarStyle = .default
     }
 
 }

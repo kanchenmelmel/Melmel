@@ -223,7 +223,11 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .lightContent
         resumeAllOperations()
+        
+        
+        self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
         
         filteredViewController.delegate = self
         catVC?.delegate = self
@@ -244,6 +248,34 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.refreshControl?.tintColor = UIColor.white
         self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), for: .valueChanged)
         self.refreshControl?.beginRefreshing()
+        
+        
+        
+        
+        activityIndicatorView.center = self.tableView.center
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
+        self.tableView.allowsSelection = false
+        if self.filtered == false{
+            let postUpdateUtility = PostsUpdateUtility()
+            discounts = postUpdateUtility.fetchDiscounts()
+            self.updateDiscounts()
+            
+            self.categoryInt = "canLoadMore"
+            if self.reachToTheEnd == false{
+                self.loadMorePostsLabel.isHidden = false
+                self.LoadMoreActivityIndicator.isHidden = false
+            }
+            self.tableView.reloadData()
+        }
+        else{
+            print ("filter is \(self.filtered)")
+            self.discounts.removeAll()
+            // self.filtered = false
+            tableView.isScrollEnabled = false
+            self.filterCategory()
+        }
+        
         
         
     }
@@ -284,38 +316,16 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     override func viewDidAppear(_ animated: Bool) {
         
         
-        
+        UIApplication.shared.statusBarStyle = .lightContent
         self.searchBlankView.isHidden = true
         self.tableView.isScrollEnabled = true
         
         
-        activityIndicatorView.center = self.tableView.center
-        self.activityIndicatorView.startAnimating()
-        self.tableView.addSubview(activityIndicatorView)
-        self.tableView.allowsSelection = false
+        
         
         
         navigationController?.isNavigationBarHidden = false
-        navigationController?.hidesBarsOnSwipe = true
-        if self.filtered == false{
-            let postUpdateUtility = PostsUpdateUtility()
-            discounts = postUpdateUtility.fetchDiscounts()
-            self.updateDiscounts()
-            
-            self.categoryInt = "canLoadMore"
-            if self.reachToTheEnd == false{
-                self.loadMorePostsLabel.isHidden = false
-                self.LoadMoreActivityIndicator.isHidden = false
-            }
-            self.tableView.reloadData()
-        }
-        else{
-            print ("filter is \(self.filtered)")
-            self.discounts.removeAll()
-            // self.filtered = false
-            tableView.isScrollEnabled = false
-            self.filterCategory()
-        }
+        navigationController?.hidesBarsOnSwipe = false
         
         
     }
@@ -688,7 +698,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             //postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
             
-            
+            postWebVeiwController.discountTitle = discounts[(path as NSIndexPath).row].title
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
         }
         

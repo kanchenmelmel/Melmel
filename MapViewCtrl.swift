@@ -22,7 +22,7 @@ enum AnnotationPinImg: String {
 }
 
 
-class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate {
+class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
     
     
     let discountDetailViewController = MapDiscountDetailViewController()
@@ -341,6 +341,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
             self.addAnnotationViewsForDiscounts(discounts)
             activityInidicatorView.stopAnimating()
             activityInidicatorView.willMove(toSuperview: self.view)
+            
         }
         searchBar.resignFirstResponder()
         self.searchBlankView.isHidden = true
@@ -366,44 +367,23 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
         
         
         self.clusteringManager.add(annotations: annotations)
-        //self.clusteringManager.displayAnnotations(annotations, onMapView: self.mapView)
+        self.clusteringManager.display(annotations: annotations, onMapView: self.mapView)
+
     }
     
     func addDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController){
         
-//        discountDetailViewController.showed = true
-//        AnimationEngine.addEaseInFromBottomAnimationToView(discountDetailViewController.view)
-//        discountDetailViewController.modalTransitionStyle = .coverVertical
-//        self.addChildViewController(discountDetailViewController)
-//        var viewRect:CGRect!
-//        
-//        
-//        
-//        viewRect = CGRect(x: 0.0, y: self.mapView.frame.height-80.5, width: self.mapView.frame.width, height: 80.5)
-//        discountDetailViewController.view.frame = viewRect
-//        
-//        self.view.addSubview(discountDetailViewController.view)
-//        discountDetailViewController.didMove(toParentViewController: self)
+
         customPresentViewController(discountDetailPresenter, viewController: discountDetailViewController, animated: true, completion: nil)
         
     }
     
-//    func removeDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController) {
-//        AnimationEngine.addEaseOutToBottomAnimationToView(discountDetailViewController.view)
-//        discountDetailViewController.showed = false
-//        discountDetailViewController.willMove(toParentViewController: nil)
-//        discountDetailViewController.view.removeFromSuperview()
-//        discountDetailViewController.removeFromParentViewController()
-//    }
+
     
     func loadAllDiscount(){
         let postUpdateUtility = PostsUpdateUtility()
         
-        
-        //let loadingAlert = LoadingAlertController(title: "", message: nil, preferredStyle: .Alert)
-        //self.addChildViewController(loadingAlert)
-        //presentViewController(loadingAlert, animated: true, completion: nil)
-        //loadingAlert.activityIndicatorView.center = loadingAlert.view.center
+
         let activityIndicatorRect = CGRect(x: 0, y: 0, width: 100.0, height: 80.0)
         let activityInidicatorView = CustomActivityIndicatorView(frame: activityIndicatorRect)
         self.view.addSubview(activityInidicatorView)
@@ -496,7 +476,7 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarStyle = .lightContent
         discountDetailViewController.dismiss(animated: true, completion: nil)
         
     }
