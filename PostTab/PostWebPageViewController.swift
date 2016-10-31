@@ -21,7 +21,7 @@ class PostWebPageViewController: UIViewController,UIWebViewDelegate {
     
     var webRequestURLString:String?
     var postid:String?
-    
+    var postTitle:String?
     
     @IBOutlet weak var postWebView: UIWebView!
     //using the URL, loads the website on the webview
@@ -30,7 +30,9 @@ class PostWebPageViewController: UIViewController,UIWebViewDelegate {
         // Do view setup here.
         
         
-        
+        if postTitle == nil {
+            postTitle = "墨尔本攻略"
+        }
         loadingView = self.showLoadingBlockView()
         
         postWebView.delegate = self
@@ -48,7 +50,7 @@ class PostWebPageViewController: UIViewController,UIWebViewDelegate {
     func presentSocialShareActivityView() {
         let url = webRequestURLString!
         if let nsurl = NSURL(string: url) {
-            let activityVC = UIActivityViewController(activityItems: [url, nsurl], applicationActivities: nil)
+            let activityVC = UIActivityViewController(activityItems: [postTitle!, nsurl], applicationActivities: nil)
             //activityVC.popoverPresentationController?.sourceView = sender
             
             present(activityVC, animated: true, completion: nil)

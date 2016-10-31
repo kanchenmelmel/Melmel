@@ -223,6 +223,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .lightContent
         resumeAllOperations()
         
         filteredViewController.delegate = self

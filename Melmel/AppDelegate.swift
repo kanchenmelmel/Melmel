@@ -232,6 +232,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 let webVC = storyboard.instantiateViewController(withIdentifier: "postWebVC") as! PostWebPageViewController
                 webVC.webRequestURLString = userInfo["url"] as? String
                 webVC.postid = userInfo["id"] as? String
+                webVC.postTitle = userInfo["title"] as? String
                 NavRootVC.navigationController?.pushViewController(webVC, animated: true)
                 
             } else if linkTypeString == "discount" {
@@ -241,6 +242,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! DiscountWebViewController
                 webVC.webRequestURLString = userInfo["url"] as? String
+                webVC.discountTitle = userInfo["title"] as? String
                 webVC.navigationItem.setRightBarButton(nil, animated: true)
                 webVC.navigationItem.title = "墨尔本优惠"
                 NavRootVC.navigationController?.pushViewController(webVC, animated: true)

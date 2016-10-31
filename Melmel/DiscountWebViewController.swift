@@ -21,6 +21,7 @@ class DiscountWebViewController: UIViewController,UIWebViewDelegate {
     
     var webRequestURLString:String?
     var postid:String?
+    var discountTitle:String?
     
 
     @IBOutlet weak var postWebView: UIWebView!
@@ -30,6 +31,10 @@ class DiscountWebViewController: UIViewController,UIWebViewDelegate {
         // Do view setup here.
         
         
+        
+        if discountTitle == nil {
+            discountTitle = "墨尔本优惠"
+        }
         
         loadingView = self.showLoadingBlockView()
         
@@ -48,7 +53,7 @@ class DiscountWebViewController: UIViewController,UIWebViewDelegate {
     func presentSocialShareActivityView() {
         let url = webRequestURLString!
         if let nsurl = NSURL(string: url) {
-            let activityVC = UIActivityViewController(activityItems: [url, nsurl], applicationActivities: nil)
+            let activityVC = UIActivityViewController(activityItems: [discountTitle!, nsurl], applicationActivities: nil)
             //activityVC.popoverPresentationController?.sourceView = sender
             
             present(activityVC, animated: true, completion: nil)

@@ -47,6 +47,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     let activityIndicatorView = CustomActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
     
     override func viewDidLoad() {
+        UIApplication.shared.statusBarStyle = .lightContent
         
         FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
         super.viewDidLoad()
