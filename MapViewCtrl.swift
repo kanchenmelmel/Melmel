@@ -322,7 +322,8 @@ class MapViewCtrl: UIViewController,CLLocationManagerDelegate,UISearchBarDelegat
             let destinationCtrl = segue.destination as! DiscountWebViewController
             //let annotation = annotationview.annotation as! DiscountAnnotation
             destinationCtrl.webRequestURLString = annotationviewController.discount!.link!
-            destinationCtrl.navigationItem.setRightBarButton(nil, animated: true)
+            destinationCtrl.discountTitle = annotationviewController.discount!.title
+//            destinationCtrl.navigationItem.setRightBarButton(nil, animated: true)
             destinationCtrl.navigationItem.title = "墨尔本优惠"
             
         }
