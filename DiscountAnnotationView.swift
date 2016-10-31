@@ -42,14 +42,14 @@ class DiscountAnnotationView: MKAnnotationView {
 //        return uiView
 //    }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if selected {
-            let disocuntAnnotation = self.annotation as! DiscountAnnotation
-            self.delegate.reCenterMap(disocuntAnnotation.discount!)
-            self.delegate.tapAnnotation(disocuntAnnotation.discount!)
-        } else {
-            self.delegate.removeDiscountDetail()
-        }
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//        if selected {
+//            let disocuntAnnotation = self.annotation as! DiscountAnnotation
+//            self.delegate.reCenterMap(disocuntAnnotation.discount!)
+//            self.delegate.tapAnnotation(disocuntAnnotation.discount!)
+//        } else {
+//            self.delegate.removeDiscountDetail()
+//        }
+//    }
 }

@@ -22,7 +22,7 @@ enum AnnotationPinImg: String {
 }
 
 
-class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
+class MapViewCtrl: UIViewController,CLLocationManagerDelegate,UISearchBarDelegate {
     
     
     let discountDetailViewController = MapDiscountDetailViewController()
@@ -481,3 +481,27 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
         
     }
 }
+
+extension MapViewCtrl:MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let annotation = view.annotation
+        if annotation is DiscountAnnotation {
+            let discountAnnotation = annotation as! DiscountAnnotation
+            self.tapAnnotation(discountAnnotation.discount!)
+            self.reCenterMap(discountAnnotation.discount!)
+            print("selected")
+            
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        let annotation = view.annotation
+        if annotation is DiscountAnnotation {
+            self.discountDetailViewController.dismiss(animated: true, completion: nil)
+            
+        }
+        
+    }
+}
+
+
