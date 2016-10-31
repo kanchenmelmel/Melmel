@@ -243,7 +243,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! DiscountWebViewController
                 webVC.webRequestURLString = userInfo["url"] as? String
                 webVC.discountTitle = userInfo["title"] as? String
-                webVC.navigationItem.setRightBarButton(nil, animated: true)
+//                webVC.navigationItem.setRightBarButton(nil, animated: true)
                 webVC.navigationItem.title = "墨尔本优惠"
                 NavRootVC.navigationController?.pushViewController(webVC, animated: true)
             }
