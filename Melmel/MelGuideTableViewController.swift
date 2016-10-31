@@ -14,6 +14,7 @@ import CoreData
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
+import Presentr
 
 class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     
@@ -34,6 +35,10 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     var reachToTheEnd = false
     
     var searchBlankView = UIView()
+    
+    // Popup Presenter
+    
+    
     
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
@@ -378,7 +383,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         if reachabilityManager.isReachable(){
             print("is Reachable")
             let postUpdateUtility = PostsUpdateUtility()
-            postUpdateUtility.updateAllPosts {
+            postUpdateUtility.updateAllPosts {(postCount) in
                 
                 DispatchQueue.main.async(execute: {
                     print("Update table view")
@@ -387,6 +392,14 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                     self.activityIndicatorView.stopAnimating()
                     self.activityIndicatorView.willMove(toSuperview: self.tableView)
                     self.refreshControl?.endRefreshing()
+                    var messageString = ""
+                    if postCount != 0 {
+                        messageString = "有\(postCount)条新内容！"
+                    } else {
+                        messageString = "没有新内容！"
+                    }
+                    
+                    self.showMessageView(string: messageString)
                 })
             }
         } else {

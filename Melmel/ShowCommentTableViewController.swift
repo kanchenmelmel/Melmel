@@ -41,6 +41,10 @@ class ShowCommentTableViewController: UITableViewController {
                 
                 activityIndicatorView.stopAnimating()
                 activityIndicatorView.willMove(toSuperview: self.tableView)
+                
+                if comments.count == 0 {
+                    self.showMessageView(string: "没有任何评论！")
+                }
             })
         }
         
