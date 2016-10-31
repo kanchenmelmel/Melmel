@@ -985,7 +985,7 @@
                     <view key="view" contentMode="scaleToFill" id="efr-Wq-HBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.87843137250000003" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="招募评测员" id="894-Pl-Xhj">
                         <barButtonItem key="rightBarButtonItem" title="提交" id="Jit-9E-HwH">
@@ -1089,7 +1089,7 @@
                     <view key="view" contentMode="scaleToFill" id="q3q-qE-Rzm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.87843137250000003" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="联系我们" id="zD1-tM-4j8">
                         <barButtonItem key="rightBarButtonItem" title="提交" id="zN6-mA-zYT">
@@ -1305,7 +1305,7 @@
                     <view key="view" contentMode="scaleToFill" id="M4h-Wk-BbE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.87843137250000003" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="我是商家" id="alY-Kw-IhC">
                         <barButtonItem key="rightBarButtonItem" title="提交" id="S9n-Wt-lr1">

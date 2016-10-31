@@ -285,7 +285,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     override func viewDidAppear(_ animated: Bool) {
         
         
-        
+        UIApplication.shared.statusBarStyle = .lightContent
         self.searchBlankView.isHidden = true
         self.tableView.isScrollEnabled = true
         
@@ -297,7 +297,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         
         
         navigationController?.isNavigationBarHidden = false
-        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsOnSwipe = false
         if self.filtered == false{
             let postUpdateUtility = PostsUpdateUtility()
             discounts = postUpdateUtility.fetchDiscounts()
@@ -689,7 +689,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             //postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
             
-            
+            postWebVeiwController.discountTitle = discounts[(path as NSIndexPath).row].title
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
         }
         

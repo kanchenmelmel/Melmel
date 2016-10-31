@@ -88,9 +88,9 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
         
-        
-        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsOnSwipe = false
         
         activityIndicatorView.center = self.tableView.center
         self.tableView.addSubview(activityIndicatorView)
@@ -293,6 +293,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = posts[(path as NSIndexPath).row].link
             postWebVeiwController.postid = String(describing: posts[(path as NSIndexPath).row].id!)
+            postWebVeiwController.postTitle = posts[(path as NSIndexPath).row].title
             navigationController?.isNavigationBarHidden = false
             navigationController?.hidesBarsOnSwipe = true
         }

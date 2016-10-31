@@ -53,7 +53,8 @@ class DiscountWebViewController: UIViewController,UIWebViewDelegate {
     func presentSocialShareActivityView() {
         let url = webRequestURLString!
         if let nsurl = NSURL(string: url) {
-            let activityVC = UIActivityViewController(activityItems: [discountTitle!, nsurl], applicationActivities: nil)
+            let image = UIImage(named: "WechatShareIcon")
+            let activityVC = UIActivityViewController(activityItems: [discountTitle!, nsurl,image!], applicationActivities: nil)
             //activityVC.popoverPresentationController?.sourceView = sender
             
             present(activityVC, animated: true, completion: nil)
