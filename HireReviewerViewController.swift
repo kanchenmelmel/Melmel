@@ -50,9 +50,9 @@ class HireReviewerViewController: XLFormViewController {
         
         row = XLFormRowDescriptor(tag: "wechat", rowType: XLFormRowDescriptorTypeText,title:"微信")
         row.cellConfigAtConfigure.setObject("微信", forKey: "textField.placeholder" as NSCopying)
-        
         section.addFormRow(row)
         
+        section.addFormRow(XLFormRowDescriptor(tag: "if18", rowType: XLFormRowDescriptorTypeBooleanSwitch, title: "是否满18岁"))
         
         
         section = XLFormSectionDescriptor.formSection()
@@ -77,8 +77,16 @@ class HireReviewerViewController: XLFormViewController {
         values.append(("邮箱",self.formValues()["email"] as! String))
         values.append(("电话",self.formValues()["mobile"] as! String))
         values.append(("微信",self.formValues()["wechat"] as! String))
-        values.append(("留言",self.formValues()["message"] as! String))
         
+        let if18 = self.formValues()["if18"] as! Bool
+        
+        if if18 {
+            values.append(("是否18岁","是"))
+        }
+        else {
+            values.append(("是否18岁","否"))
+        }
+        values.append(("留言",self.formValues()["message"] as! String))
         self.sendXLFormValuesAsEmail(title: "招募测评员", values: values)
     }
 }
