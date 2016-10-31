@@ -39,19 +39,6 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
     // Popup Presenter
     
     
-    let messagePresenter:Presentr = {
-        let width = ModalSize.full
-        let height = ModalSize.custom(size: 113.0)
-        //        let screenHeight = UIScreen.main.bounds.height
-        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:65))
-        let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
-        presenter.transitionType = TransitionType.crossDissolve
-        presenter.backgroundOpacity = 0
-        presenter.roundCorners = false
-        
-        return presenter
-    }()
-    
     
     @IBOutlet weak var loadMorePostsLabel: UILabel!
     @IBOutlet weak var LoadMoreActivityIndicator: UIActivityIndicatorView!
@@ -396,7 +383,7 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
         if reachabilityManager.isReachable(){
             print("is Reachable")
             let postUpdateUtility = PostsUpdateUtility()
-            postUpdateUtility.updateAllPosts {
+            postUpdateUtility.updateAllPosts {(postCount) in
                 
                 DispatchQueue.main.async(execute: {
                     print("Update table view")
@@ -405,6 +392,14 @@ class MelGuideTableViewController: UITableViewController,UISearchBarDelegate {
                     self.activityIndicatorView.stopAnimating()
                     self.activityIndicatorView.willMove(toSuperview: self.tableView)
                     self.refreshControl?.endRefreshing()
+                    var messageString = ""
+                    if postCount != 0 {
+                        messageString = "有\(postCount)条新内容！"
+                    } else {
+                        messageString = "没有新内容！"
+                    }
+                    
+                    self.showMessageView(string: messageString)
                 })
             }
         } else {

@@ -56,6 +56,8 @@
 		965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */; };
 		965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */; };
 		965AEF821CE986ED00D2BB0A /* LOGO-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 965AEF811CE986EC00D2BB0A /* LOGO-retina.png */; };
+		96625AA41DC6C70800A9A76E /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96625AA21DC6C70800A9A76E /* MessageVC.swift */; };
+		96625AA51DC6C70800A9A76E /* MessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96625AA31DC6C70800A9A76E /* MessageVC.xib */; };
 		96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */; };
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
 		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
@@ -165,6 +167,8 @@
 		965AEF7D1CE955B200D2BB0A /* MapViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCtrl.swift; sourceTree = "<group>"; };
 		965AEF7F1CE959D800D2BB0A /* melmelLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = melmelLocation.gpx; sourceTree = "<group>"; };
 		965AEF811CE986EC00D2BB0A /* LOGO-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-retina.png"; sourceTree = "<group>"; };
+		96625AA21DC6C70800A9A76E /* MessageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageVC.swift; path = Controller/MessageVC.swift; sourceTree = "<group>"; };
+		96625AA31DC6C70800A9A76E /* MessageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageVC.xib; path = Controller/MessageVC.xib; sourceTree = "<group>"; };
 		96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCatagoryRecognizer.swift; sourceTree = "<group>"; };
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
 		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +322,30 @@
 			path = MelmelUITests;
 			sourceTree = "<group>";
 		};
+		96625A9D1DC6C60B00A9A76E /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MessageView;
+			sourceTree = "<group>";
+		};
+		96625AA01DC6C69700A9A76E /* FilterView */ = {
+			isa = PBXGroup;
+			children = (
+				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
+			);
+			name = FilterView;
+			sourceTree = "<group>";
+		};
+		96625AA11DC6C6DD00A9A76E /* MessageVC */ = {
+			isa = PBXGroup;
+			children = (
+				96625AA21DC6C70800A9A76E /* MessageVC.swift */,
+				96625AA31DC6C70800A9A76E /* MessageVC.xib */,
+			);
+			name = MessageVC;
+			sourceTree = "<group>";
+		};
 		967E73C11CD72D0100A63BFB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +417,7 @@
 		96BF58101CAA4A02006D6CB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				96625AA11DC6C6DD00A9A76E /* MessageVC */,
 				96FE41631DC5B061003C7F21 /* Post */,
 				96B98CBB1DC050960082E7E4 /* Extensions */,
 				964AE5BC1DB9B918008F5DB5 /* ContactForms */,
@@ -415,10 +444,11 @@
 		96BF58131CAA4B77006D6CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				96625AA01DC6C69700A9A76E /* FilterView */,
+				96625A9D1DC6C60B00A9A76E /* MessageView */,
 				968041A11D61FA740040ED91 /* Comment */,
 				96BDC6F81D57765E00A75B71 /* Map */,
 				965204881D4C5F6E001BC2A5 /* MapDiscountDetailView.xib */,
-				4D040B391D5757EA0011BF4A /* FilterViewController.xib */,
 				961A874B1CF2A42F00206D0F /* DiscountTableViewCell.swift */,
 				4D4DA5BB1D0304120045B73C /* Alert.swift */,
 				96B162201D64897800AA4849 /* CustomSearchBar+Designable.swift */,
@@ -609,6 +639,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96625AA51DC6C70800A9A76E /* MessageVC.xib in Resources */,
 				964F4C8A1CA4CF7B00C69B71 /* Assets.xcassets in Resources */,
 				965AEF801CE959D800D2BB0A /* melmelLocation.gpx in Resources */,
 				96FE41671DC5CC76003C7F21 /* GoogleService-Info.plist in Resources */,
@@ -908,6 +939,7 @@
 				965488411CEAB5F30009AF14 /* DiscountAnnotation.swift in Sources */,
 				96F3A68B1D4F724E008C7669 /* MapDiscountDetailViewController.swift in Sources */,
 				96B98CBD1DC050C70082E7E4 /* UIViewController+UIWebViewDelegate.swift in Sources */,
+				96625AA41DC6C70800A9A76E /* MessageVC.swift in Sources */,
 				965AEF7E1CE955B200D2BB0A /* MapViewCtrl.swift in Sources */,
 				962EC7921DBB19DE00B00FE2 /* BusinessForm.swift in Sources */,
 				96D777FC1D6D70540034B4A7 /* SettingTableViewController.swift in Sources */,

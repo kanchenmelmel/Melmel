@@ -8,6 +8,7 @@
 
 import UIKit
 import ALThreeCircleSpinner
+import Presentr
 
 
 extension UIViewController {
@@ -39,5 +40,32 @@ extension UIViewController {
     
     func hideLoadingBlockView(loadingView:UIView) {
         loadingView.removeFromSuperview()
+    }
+    
+    
+    func showMessageView(string:String) {
+        let messagePresenter:Presentr = {
+            let width = ModalSize.full
+            let height = ModalSize.custom(size: 32.0)
+            //        let screenHeight = UIScreen.main.bounds.height
+            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x:0,y:64.0))
+            let presenter = Presentr(presentationType: .custom(width: width, height: height, center: center))
+            presenter.transitionType = TransitionType.crossDissolve
+            presenter.backgroundOpacity = 0
+            presenter.roundCorners = false
+            
+            return presenter
+        }()
+        
+        let messageVC = MessageVC()
+        
+        messageVC.messageString = string
+        customPresentViewController(messagePresenter, viewController: messageVC, animated: true, completion: nil)
+        
+        let delay = 2.0 * Double(NSEC_PER_SEC)
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
+            messageVC.dismiss(animated: true, completion: nil)
+        })
     }
 }

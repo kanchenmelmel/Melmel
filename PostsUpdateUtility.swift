@@ -16,7 +16,7 @@ class PostsUpdateUtility {
     var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     // UpdatePosts
-    func updateAllPosts(_ completionHandler:@escaping () -> Void){
+    func updateAllPosts(_ completionHandler:@escaping (_ postCount:Int) -> Void){
         var posts:[Post] = []
         let apiHelper = APIHelper()
         let coreDataUtility = CoreDataUtility()
@@ -26,10 +26,7 @@ class PostsUpdateUtility {
         
         apiHelper.getPostsFromAPI { (postsArray, success) in
             if success {
-                
-                
                 // create dispatch group
-                
                 for postEntry in postsArray! {
                     
                     let _post = postEntry as! [String:AnyObject]
@@ -50,14 +47,10 @@ class PostsUpdateUtility {
                         post.link = _post["link"] as? String
                         
                         //Media
-                        
                         post.featured_image_downloaded = false
-                        
                         if _post["featured_image_url"] != nil {
                             post.featured_image_url = _post["thumbnail_url"] as? String
                         }
-                        
-                        
                         posts.append(post)
                     }
                     
@@ -69,11 +62,12 @@ class PostsUpdateUtility {
                 } catch {
                 }
                 
-                
                 print(posts.count)
-                completionHandler()
+                completionHandler(posts.count)
             }
-            else {}
+            else {
+                completionHandler(0)
+            }
         } // end getPostsFromAPI
         
         
