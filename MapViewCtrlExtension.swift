@@ -41,13 +41,13 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
         
         
         
-//        if !self.discountDetailViewController.showed {
-//            print("tapped")
-//            self.addDiscountDetailViewController(self.discountDetailViewController)
-//        } else {
-////            self.removeDiscountDetailViewController(self.discountDetailViewController)
-//            self.addDiscountDetailViewController(self.discountDetailViewController)
-//        }
+        if !self.discountDetailViewController.showed {
+            print("tapped")
+            self.addDiscountDetailViewController(self.discountDetailViewController)
+        } else {
+            self.removeDiscountDetailViewController(discountDetailViewController: self.discountDetailViewController)
+            self.addDiscountDetailViewController(self.discountDetailViewController)
+        }
         self.addDiscountDetailViewController(self.discountDetailViewController)
         
 
@@ -67,7 +67,7 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
     
     
     func removeDiscountDetail() {
-//        self.removeDiscountDetailViewController(self.discountDetailViewController)
+        self.removeDiscountDetailViewController(discountDetailViewController: self.discountDetailViewController)
     }
     
     func showDiscountWebPage(){
@@ -77,6 +77,14 @@ extension MapViewCtrl:DiscountAnnotationViewDelegate{
     func reCenterMap(_ discount: Discount) {
         let newLocation = CLLocation(latitude: Double(discount.latitude!), longitude: Double(discount.longtitude!))
         centerMapOnLocation(newLocation, zoomLevel: 0.1)
+    }
+    
+    func removeDiscountDetailViewController(discountDetailViewController:MapDiscountDetailViewController) {
+        AnimationEngine.addEaseOutToBottomAnimationToView(discountDetailViewController.view)
+        discountDetailViewController.showed = false
+        discountDetailViewController.willMove(toParentViewController: nil)
+        discountDetailViewController.view.removeFromSuperview()
+        discountDetailViewController.removeFromParentViewController()
     }
     
 }

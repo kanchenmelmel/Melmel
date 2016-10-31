@@ -374,8 +374,20 @@ class MapViewCtrl: UIViewController,CLLocationManagerDelegate,UISearchBarDelegat
     func addDiscountDetailViewController(_ discountDetailViewController:MapDiscountDetailViewController){
         
 
-        customPresentViewController(discountDetailPresenter, viewController: discountDetailViewController, animated: true, completion: nil)
+//        customPresentViewController(discountDetailPresenter, viewController: discountDetailViewController, animated: true, completion: nil)
+        discountDetailViewController.showed = true
+        AnimationEngine.addEaseInFromBottomAnimationToView(discountDetailViewController.view)
+        discountDetailViewController.modalTransitionStyle = .coverVertical
+        self.addChildViewController(discountDetailViewController)
+        var viewRect:CGRect!
         
+        
+        
+        viewRect = CGRect(x:0.0, y:self.view.bounds.height-80.5, width:self.view.bounds.width, height:80.5)
+        discountDetailViewController.view.frame = viewRect
+        
+        self.view.addSubview(discountDetailViewController.view)
+        discountDetailViewController.didMove(toParentViewController: self)
     }
     
 
@@ -482,7 +494,7 @@ extension MapViewCtrl:FilterViewControllerDelegate,FilterPassValueDelegate {
     }
 }
 
-extension MapViewCtrl:MKMapViewDelegate {
+extension MapViewCtrl:MKMapViewDelegate,PresentrDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let annotation = view.annotation
         if annotation is DiscountAnnotation {
@@ -501,6 +513,11 @@ extension MapViewCtrl:MKMapViewDelegate {
             
         }
         
+    }
+    
+    func presentrShouldDismiss(keyboardShowing: Bool) -> Bool {
+        discountDetailViewController.willMove(toParentViewController: nil)
+        return !keyboardShowing
     }
 }
 
