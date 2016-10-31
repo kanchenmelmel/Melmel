@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Presentr
 
 class DiscountTableViewController: UITableViewController,FilterPassValueDelegate,FilterViewControllerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate{
     
@@ -78,7 +79,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     @IBAction func didFilterButtonPress(_ sender: UIBarButtonItem) {
         
         
-        //        let filterViewController = FilterViewController()
+//                let filterViewController = FilterViewController()
         
 //        self.blankView.isHidden = false
 //        
@@ -89,7 +90,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
 //        popover.delegate = self
 //        present(filteredViewController, animated: true, completion: nil)
         
-        
+        customPresentViewController(filterPresenter, viewController: filteredViewController, animated: true, completion: nil)
         
     }
     
@@ -221,7 +222,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         resumeAllOperations()
         
         filteredViewController.delegate = self
@@ -230,7 +231,7 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
         
         
-        super.viewDidLoad()
+        
         
         setupBlankView()
         
