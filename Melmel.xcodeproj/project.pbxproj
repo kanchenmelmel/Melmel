@@ -60,7 +60,7 @@
 		96625AA51DC6C70800A9A76E /* MessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96625AA31DC6C70800A9A76E /* MessageVC.xib */; };
 		96643A5E1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */; };
 		966E8B321CDF603D004C4260 /* PostsUpdateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */; };
-		966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */; };
+		966E8B341CDF6C8D004C4260 /* DiscountWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966E8B331CDF6C8D004C4260 /* DiscountWebViewController.swift */; };
 		967382071CF56C6C001F9F9C /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */; };
 		967E73C31CD72D1800A63BFB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967E73C21CD72D1800A63BFB /* APIHelper.swift */; };
 		967FFEA81D07E16900599E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967FFEA71D07E16900599E30 /* Main.storyboard */; };
@@ -171,7 +171,7 @@
 		96625AA31DC6C70800A9A76E /* MessageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageVC.xib; path = Controller/MessageVC.xib; sourceTree = "<group>"; };
 		96643A5D1D51BCCA005C03B0 /* DiscountCatagoryRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCatagoryRecognizer.swift; sourceTree = "<group>"; };
 		966E8B311CDF603D004C4260 /* PostsUpdateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsUpdateUtility.swift; sourceTree = "<group>"; };
-		966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWebViewController.swift; path = Melmel/PostWebViewController.swift; sourceTree = "<group>"; };
+		966E8B331CDF6C8D004C4260 /* DiscountWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscountWebViewController.swift; path = Melmel/DiscountWebViewController.swift; sourceTree = "<group>"; };
 		967382061CF56C6C001F9F9C /* CustomNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
 		967E73C21CD72D1800A63BFB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = Melmel/APIHelper.swift; sourceTree = "<group>"; };
 		967FFEA71D07E16900599E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -431,7 +431,7 @@
 				4D8644EF1CF96B0500E84028 /* CommentViewController.swift */,
 				96E988181CAB6141005E9E68 /* MelGuideTableViewController.swift */,
 				961A87491CF2A41D00206D0F /* DiscountTableViewController.swift */,
-				966E8B331CDF6C8D004C4260 /* PostWebViewController.swift */,
+				966E8B331CDF6C8D004C4260 /* DiscountWebViewController.swift */,
 				4DE3F3B91D16E2EF00D9D5A2 /* FilterTableViewController.swift */,
 				9634583A1D543B3F0079C0FE /* ActivityIndicatorViewController.swift */,
 				96089E171D6699CE0036141F /* IntroductionPageViewCtrl.swift */,
@@ -978,7 +978,7 @@
 				963C1E311CF6A46000089E39 /* CoreDataUtility.swift in Sources */,
 				962A1F7C1D487880006D2EA8 /* Comment.swift in Sources */,
 				964F4C811CA4CF7B00C69B71 /* AppDelegate.swift in Sources */,
-				966E8B341CDF6C8D004C4260 /* PostWebViewController.swift in Sources */,
+				966E8B341CDF6C8D004C4260 /* DiscountWebViewController.swift in Sources */,
 				4D0AB22A1D0BE5DD0014CA48 /* SearchTableViewController.swift in Sources */,
 				963289E71D4A11FF00B62040 /* Discount.swift in Sources */,
 				96CB14EE1CE46047006B5DD1 /* Media+CoreDataProperties.swift in Sources */,

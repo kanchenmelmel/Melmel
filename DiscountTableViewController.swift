@@ -676,10 +676,13 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "discountSegue" {
-            let postWebVeiwController = segue.destination as! PostWebViewController
+            let postWebVeiwController = segue.destination as! DiscountWebViewController
             let path = tableView.indexPathForSelectedRow!
             postWebVeiwController.webRequestURLString = discounts[(path as NSIndexPath).row].link
             //postWebVeiwController.navigationItem.setRightBarButton(nil, animated: true)
+            
+            navigationController?.isNavigationBarHidden = false
+            navigationController?.hidesBarsOnSwipe = true
             
             postWebVeiwController.navigationItem.title = "墨尔本优惠"
         }

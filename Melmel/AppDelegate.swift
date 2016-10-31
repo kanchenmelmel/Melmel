@@ -238,7 +238,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 let tabNavCtrlNavCtrl = tabNavCtrl?.viewControllers?[1] as! UINavigationController
                 let NavRootVC = tabNavCtrlNavCtrl.viewControllers[0] as! DiscountTableViewController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! PostWebViewController
+                let webVC = storyboard.instantiateViewController(withIdentifier: "webVC") as! DiscountWebViewController
                 webVC.webRequestURLString = userInfo["url"] as? String
                 webVC.navigationItem.setRightBarButton(nil, animated: true)
                 webVC.navigationItem.title = "墨尔本优惠"

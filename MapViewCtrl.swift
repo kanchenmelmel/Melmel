@@ -319,7 +319,7 @@ class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "discountWebViewSegue" {
             let annotationviewController = sender as! MapDiscountDetailViewController
-            let destinationCtrl = segue.destination as! PostWebViewController
+            let destinationCtrl = segue.destination as! DiscountWebViewController
             //let annotation = annotationview.annotation as! DiscountAnnotation
             destinationCtrl.webRequestURLString = annotationviewController.discount!.link!
             destinationCtrl.navigationItem.setRightBarButton(nil, animated: true)

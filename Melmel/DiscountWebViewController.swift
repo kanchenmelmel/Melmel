@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostWebViewController: UIViewController,UIWebViewDelegate {
+class DiscountWebViewController: UIViewController,UIWebViewDelegate {
     
     var loading = false
     var timer:Timer? = nil
@@ -55,10 +55,7 @@ class PostWebViewController: UIViewController,UIWebViewDelegate {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
-        navigationController?.hidesBarsOnSwipe = true
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showcommentSegue" {
