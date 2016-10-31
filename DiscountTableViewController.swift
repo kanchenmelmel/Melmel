@@ -226,6 +226,9 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         UIApplication.shared.statusBarStyle = .lightContent
         resumeAllOperations()
         
+        
+        self.tableView.setContentOffset(CGPoint(x: 0,y:self.searchBar.bounds.height), animated: true)
+        
         filteredViewController.delegate = self
         catVC?.delegate = self
         filteredViewController.catVC = catVC
@@ -245,6 +248,34 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.refreshControl?.tintColor = UIColor.white
         self.refreshControl?.addTarget(self, action: #selector(self.updateDiscounts), for: .valueChanged)
         self.refreshControl?.beginRefreshing()
+        
+        
+        
+        
+        activityIndicatorView.center = self.tableView.center
+        self.activityIndicatorView.startAnimating()
+        self.tableView.addSubview(activityIndicatorView)
+        self.tableView.allowsSelection = false
+        if self.filtered == false{
+            let postUpdateUtility = PostsUpdateUtility()
+            discounts = postUpdateUtility.fetchDiscounts()
+            self.updateDiscounts()
+            
+            self.categoryInt = "canLoadMore"
+            if self.reachToTheEnd == false{
+                self.loadMorePostsLabel.isHidden = false
+                self.LoadMoreActivityIndicator.isHidden = false
+            }
+            self.tableView.reloadData()
+        }
+        else{
+            print ("filter is \(self.filtered)")
+            self.discounts.removeAll()
+            // self.filtered = false
+            tableView.isScrollEnabled = false
+            self.filterCategory()
+        }
+        
         
         
     }
@@ -290,33 +321,11 @@ class DiscountTableViewController: UITableViewController,FilterPassValueDelegate
         self.tableView.isScrollEnabled = true
         
         
-        activityIndicatorView.center = self.tableView.center
-        self.activityIndicatorView.startAnimating()
-        self.tableView.addSubview(activityIndicatorView)
-        self.tableView.allowsSelection = false
+        
         
         
         navigationController?.isNavigationBarHidden = false
         navigationController?.hidesBarsOnSwipe = false
-        if self.filtered == false{
-            let postUpdateUtility = PostsUpdateUtility()
-            discounts = postUpdateUtility.fetchDiscounts()
-            self.updateDiscounts()
-            
-            self.categoryInt = "canLoadMore"
-            if self.reachToTheEnd == false{
-                self.loadMorePostsLabel.isHidden = false
-                self.LoadMoreActivityIndicator.isHidden = false
-            }
-            self.tableView.reloadData()
-        }
-        else{
-            print ("filter is \(self.filtered)")
-            self.discounts.removeAll()
-            // self.filtered = false
-            tableView.isScrollEnabled = false
-            self.filterCategory()
-        }
         
         
     }

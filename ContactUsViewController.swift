@@ -25,7 +25,6 @@ class ContactUsViewController: XLFormViewController {
     func initializeForm() {
         let form = XLFormDescriptor(title: "联系我们")
         
-        
         var section = XLFormSectionDescriptor.formSection()
         
         form.addFormSection(section)

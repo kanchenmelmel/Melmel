@@ -22,7 +22,7 @@ enum AnnotationPinImg: String {
 }
 
 
-class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate,UIPopoverPresentationControllerDelegate {
+class MapViewCtrl: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate {
     
     
     let discountDetailViewController = MapDiscountDetailViewController()

@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DiscountTableViewController.swift"
-            timestampString = "499577007.244127"
+            timestampString = "499581431.848785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "546"
-            endingLineNumber = "546"
+            startingLineNumber = "555"
+            endingLineNumber = "555"
             landmarkName = "updateDiscounts()"
             landmarkType = "7">
          </BreakpointContent>
