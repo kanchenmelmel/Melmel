@@ -24,7 +24,7 @@ extension XLFormViewController {
         
         let email = Email(
             from: "Melmel iOS <contact-us-ios.noreply@melmel.com.au>",
-            to: "Melmel Consulting <patrickgao1990@gmail.com>", // TODO: Replace email address with: pte@ail.vic.edu.au
+            to: "Melmel Consulting <info@melmel.com.au>", // TODO: Replace email address with: pte@ail.vic.edu.au
             title: "Melmel用户留言 (Melmel iOS客户端<\(title)>)",
             content: contentString
         )
