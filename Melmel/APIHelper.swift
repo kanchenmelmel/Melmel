@@ -53,6 +53,9 @@ class APIHelper {
     
     
     
+    /// Get the latest posts which is not in core data
+    ///
+    /// - Parameter postsAcquired: completion handler that after the request successfully being received. postsArray is the data received from API, success indicates if the request is successful.
     func getPostsFromAPI (_ postsAcquired:@escaping (_ postsArray: NSArray?, _ success: Bool) -> Void ){
         let session = URLSession.shared
         let postUrl:URL
@@ -94,7 +97,10 @@ class APIHelper {
         
     }
     
-    // Get discounts from API
+    //
+    /// Get latest 20 discounts from API
+    ///
+    /// - Parameter discountsAcquired: completion handler that after the request successfully being received. discountArray is the data received from API, success indicates if the request is successful.
     func getDiscountsFromAPI (_ discountsAcquired:@escaping (_ discountsArray: NSArray?, _ success: Bool) -> Void ){
         
         let session = URLSession.shared
@@ -139,7 +145,9 @@ class APIHelper {
     
     
     
-    /* Get All Media */
+    /// Get All Media
+    ///
+    /// - Parameter mediaAcquired: completion Handler
     func getAllMediaFromAPI(_ mediaAcquired:@escaping (_ mediaArray:NSArray?,_ success:Bool) -> Void){
         let url = URL(string: mediaUrlPathString)
         session.dataTask(with: url!, completionHandler: { (data:Data?, response:URLResponse?, error:NSError?) -> Void in
@@ -162,6 +170,13 @@ class APIHelper {
 
     
     
+    /// Get posts before one date
+    ///
+    /// - Parameters:
+    ///   - postType: post type
+    ///   - beforeDate: the date that the received posts are beofore
+    ///   - excludeId: the post ID which are excluded in the request. It usually the one that on that date
+    ///   - completionHandler: completion handler that will handle received data
     func getPreviousPosts(_ postType: PostType, beforeDate: Date, excludeId: Int, completionHandler:@escaping (_ resultsArray:NSArray?, _ success:Bool) -> Void ) {
         var baseURIString:String!
         switch postType {
@@ -207,7 +222,13 @@ class APIHelper {
     
     
     
-    // General Purpose get Posts
+    
+    /// Request method requesting posts
+    ///
+    /// - Parameters:
+    ///   - postType: Post type
+    ///   - params: parameters included in request
+    ///   - completionHandler: completion handler that will handle received data
     func getPostsFromAPI(_ postType:PostType,params:[(String,String)],completionHandler:@escaping (_ postsArray: NSArray?, _ success: Bool) -> Void ) {
         
         let session = URLSession.shared
@@ -236,6 +257,12 @@ class APIHelper {
         }).resume()
     }
     
+    /// General purpose of posting post to API
+    ///
+    /// - Parameters:
+    ///   - postType: Post Type
+    ///   - params: Parameters in the request
+    ///   - completionHandler: completion handler that executes after the function
     func postPostToAPI(_ postType:PostType,params:[(String,String)],completionHandler:@escaping ()->Void){
         let url = buildURLComponent(.Comment, params: params)
         //let request = NSMutableURLRequest(url: url.url!)
