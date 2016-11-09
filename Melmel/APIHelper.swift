@@ -4,11 +4,18 @@
 //
 //  Created by Work on 2/05/2016.
 //  Copyright © 2016 Melmel. All rights reserved.
+//  This class is used to send HTTP request to WordPress
 //
 
 import Foundation
 import UIKit
 
+/// Enumeration type that represent post types. the raw value is the resourse name used in URI
+///
+/// - Post: represent "攻略" post type
+/// - Discount: represent "优惠" post type
+/// - Comment: represents "评论" post type
+/// - Media: represents "多媒体" post type
 enum PostType:String {
     case Post="posts"
     case Discount="discounts"
@@ -16,12 +23,16 @@ enum PostType:String {
     case Media = "media"
 }
 
+/// Enumeration type wich represents CRUD method
+///
+/// - Get: GET method
+/// - Post: POST method
 enum HTTPMethod:String {
     case Get = "GET"
     case Post = "POST"
 }
 
-//A class to uses NSURL session that loads the RESTful request and return a JSON object
+/// A class to uses NSURL session that loads the RESTful request and return a JSON object
 class APIHelper {
     let melmelRESTURL = "http://www.melmel.com.au/wp-json/wp/v2/"
     let postUrlPathString = "http://www.melmel.com.au/wp-json/wp/v2/posts/"
