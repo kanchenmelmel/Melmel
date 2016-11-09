@@ -291,9 +291,13 @@ class APIHelper {
     
     
     
-    /*
-     Build URL using NSURLComponents
-     */
+    
+    /// Build URL using NSURLComponents
+    ///
+    /// - Parameters:
+    ///   - postType: Post type
+    ///   - params: parameters used in URL
+    /// - Returns: NSURL composed
     func buildURLComponent(_ postType:PostType,params:[(String,String)]) -> URLComponents{
         var url = URLComponents()
         url.scheme = "http"

@@ -11,7 +11,7 @@ import CoreData
 
 
 
-//this class manages the data storage using coredtata, it ultilises the APIhelper class to download the data, then save the data into Coredata
+/// this class manages the data storage using coredtata, it ultilises the APIhelper class to download the data, then save the data into Coredata
 class PostsUpdateUtility {
     var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
