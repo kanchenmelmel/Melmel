@@ -62,9 +62,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "APIHelper"
-            landmarkType = "3">
+            endingLineNumber = "25">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -95,8 +93,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
-            landmarkName = "APIHelper"
-            landmarkType = "3">
+            landmarkName = "HTTPMethod"
+            landmarkType = "13">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -239,7 +237,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
-            landmarkName = "getPreviousPosts(_:beforeDate:excludeId:completionHandler:)"
+            landmarkName = "getAllMediaFromAPI(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -255,7 +253,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
             endingLineNumber = "156"
-            landmarkName = "getPreviousPosts(_:beforeDate:excludeId:completionHandler:)"
+            landmarkName = "getAllMediaFromAPI(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -221,7 +221,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "231"
             endingLineNumber = "231"
-            landmarkName = "postPostToAPI(_:params:completionHandler:)"
+            landmarkName = "getPostsFromAPI(_:params:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
